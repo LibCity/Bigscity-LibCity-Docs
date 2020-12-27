@@ -5,8 +5,48 @@
 
 Welcome to Bigscity-TrafficDL's documentation!
 ==============================================
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Get Started
+
+   get_started/introduction
+   get_started/install
+   get_started/quick_start
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :caption: User Guide
+
+   user_guide/config_settings
+   user_guide/data
+   user_guide/model
+   user_guide/evaluator
+   user_guide/executor
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Developer Guide
+
+   developer_guide/implemented_datasets
+   developer_guide/implemented_models
+   developer_guide/implemented_evaluators
+   developer_guide/implemented_executors
+
+.. toctree::
+   :maxdepth: 1
+   :caption: API REFERENCE
+
+   trafficdl/trafficdl.config
+   trafficdl/trafficdl.data
+   trafficdl/trafficdl.evaluator
+   trafficdl/trafficdl.executor
+   trafficdl/trafficdl.model
+   trafficdl/trafficdl.pipeline
+   trafficdl/trafficdl.utils
    
-   hello
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`search`

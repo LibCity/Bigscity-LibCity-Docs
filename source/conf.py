@@ -10,9 +10,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../../Bigscity-TrafficDL/'))
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
 # -- Project information -----------------------------------------------------
@@ -31,6 +31,7 @@ extensions = [
 'sphinx_rtd_theme',
 'recommonmark',
 'sphinx_markdown_tables',
+'sphinx.ext.autodoc',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
