@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../Bigscity-TrafficDL/'))
+sys.path.insert(0, os.path.abspath('../trafficdl/'))
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
 # -- Project information -----------------------------------------------------
@@ -32,6 +32,8 @@ extensions = [
 'recommonmark',
 'sphinx_markdown_tables',
 'sphinx.ext.autodoc',
+'sphinx.ext.napoleon',
+'sphinx.ext.mathjax',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
