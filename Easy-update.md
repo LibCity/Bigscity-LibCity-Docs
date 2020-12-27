@@ -28,42 +28,14 @@
 
 安装：
 
-```
+```shell
 pip install Sphinx==3.3.1
+pip install sphinx_rtd_theme        # 安装网页样式
+pip install sphinx-markdown-tables  # 支持表格显示
+pip install recommonmark            # 支持Markdown显示
 ```
 
 > 注意版本号，不要使用3.4及以上，影响搜索功能。
-
-安装样式主题：
-
-```
-pip install sphinx_rtd_theme
-```
-
-项目初始化
-
-```shell
-mkdir Bigscity-TrafficDL-Docs
-cd Bigscity-TrafficDL-Docs
-sphinx-quickstart
-> Separate source and build directories (y/n) [n]: y    # source与build分离
-> Project name: Bigscity-TrafficDL-Docs         # 项目名
-> Author name(s): aptx1231                      # 作者名
-> Project release []:                           # 回车                 
-```
-
-目录结构
-
-```shell
-├── build           # 输出文件夹
-├── make.bat
-├── Makefile        # 编译文件
-└── source          # 源文件夹
-    ├── conf.py     # Sphinx的配置文件
-    ├── index.rst
-    ├── _static
-    └── _templates
-```
 
 编译命令
 
@@ -74,7 +46,11 @@ make html   # 生成html
 
 修改方式
 
-主页面文件是`source/index.rst`，此文件引用了`get_started`/，`user_guide/`，`developer_guide/`，`trafficdl/`四个目录下的内容，其中前三个目录分别放置Markdown文件。
+首先从Github拉取代码，目录为`Bigscity-TrafficDL-Docs/`。
+
+需要修改的文件位于`source/`，编译输出的文件位于`build/`。
+
+主页面文件是`source/index.rst`，此文件引用了`get_started/`，`user_guide/`，`developer_guide/`，`trafficdl/`四个目录下的内容，其中前三个目录分别放置Markdown文件。
 
 `source/index.rst`的每一行例如`user_guide/config_settings`在网站中显示为一个可折叠的行，Markdown内部的标题用于折叠内容，`source/index.rst`的`:caption:`表示标题，显示为蓝色。
 
@@ -90,17 +66,7 @@ make html   # 生成html
 
 > 首先保证文档目录Bigscity-TrafficDL-Docs/跟代码目录Bigscity-TrafficDL/处于平级目录
 
-修改conf.py
-
-```python
-import os
-import sys
-sys.path.insert(0, os.path.abspath('../../Bigscity-TrafficDL/'))
-
-extensions = [
-'sphinx.ext.autodoc',
-]
-```
+当代码发生修改后，使用如下步骤修改API文档：
 
 在`Bigscity-TrafficDL-Docs/`目录下执行如下命令：
 
@@ -114,7 +80,7 @@ make html
 
 `make html`过程中可能提示一些代码注释的warning，需要后续制定代码注释规范以自动生成文档。
 
-`make html`需要待生成文档的代码的相关依赖项，本地配置比较简单。
+`make html`需要待生成API文档的代码的相关依赖项，本地配置起来比较简单。
 
 ### 使用Read the Docs的部署方式
 
