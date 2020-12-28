@@ -84,24 +84,27 @@
             
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">quick_start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">config_settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/evaluator.html">evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/evaluator.html">Evaluation Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">implemented_datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">implemented_models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">implemented_evaluators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">implemented_executors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_logger.html">Logger</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul class="current">
@@ -190,15 +193,20 @@
 <dl class="py function">
 <dt id="trafficdl.data.utils.generate_dataloader">
 <code class="sig-prename descclassname">trafficdl.data.utils.</code><code class="sig-name descname">generate_dataloader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_data</span></em>, <em class="sig-param"><span class="n">eval_data</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">feature_name</span></em>, <em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">num_workers</span></em>, <em class="sig-param"><span class="n">pad_item</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pad_max_len</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">pad_with_last_sample</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.utils.generate_dataloader" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Args:</dt><dd><p>train_data, eval_data, test_data (list of input): data 中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target
-feature_name (list): 描述上面 input 每个元素对应的特征名, 应保证 len(feature_name) = len(input)
-batch_size (int)
-num_workers (int)
-pad_item (dict): 用于将不定长的特征补齐到一样的长度，每个特征名作为 key，若某特征名不在该 dict 内则不进行补齐。
-pad_max_len (dict): 用于截取不定长的特征，对于过长的特征进行剪切
-shuffle (bool)
-pad_with_last_sample (bool): 对于若最后一个 batch 不满足 batch_size 的情况，是否进行补齐（使用最后一个元素反复填充补齐）。</p>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>train_data</strong> (<em>list of input</em>) – data 中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target</p></li>
+<li><p><strong>eval_data</strong> (<em>list of input</em>) – data 中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target</p></li>
+<li><p><strong>test_data</strong> (<em>list of input</em>) – data 中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target</p></li>
+<li><p><strong>feature_name</strong> (<em>list</em>) – 描述上面 input 每个元素对应的特征名, 应保证 len(feature_name) = len(input)</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>num_workers</strong> (<em>int</em>) – </p></li>
+<li><p><strong>pad_item</strong> (<em>dict</em>) – 用于将不定长的特征补齐到一样的长度，每个特征名作为 key，若某特征名不在该 dict 内则不进行补齐。</p></li>
+<li><p><strong>pad_max_len</strong> (<em>dict</em>) – 用于截取不定长的特征，对于过长的特征进行剪切</p></li>
+<li><p><strong>shuffle</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>pad_with_last_sample</strong> (<em>bool</em>) – 对于若最后一个 batch 不满足 batch_size 的情况，是否进行补齐（使用最后一个元素反复填充补齐）。</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -207,10 +215,8 @@ pad_with_last_sample (bool): 对于若最后一个 batch 不满足 batch_size �
 <dt id="trafficdl.data.utils.get_dataset">
 <code class="sig-prename descclassname">trafficdl.data.utils.</code><code class="sig-name descname">get_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.utils.get_dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>according the config[‘dataset_class’] to create the dataset
-return:</p>
-<blockquote>
-<div><p>dataset (Dataset): the loaded dataset</p>
-</div></blockquote>
+:returns: the loaded dataset
+:rtype: dataset (Dataset)</p>
 </dd></dl>
 
 </div>

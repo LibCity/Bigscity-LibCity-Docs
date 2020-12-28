@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Atomic Files &mdash; Bigscity-TrafficDL  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Batch" href="batch.html" />
+    <link rel="prev" title="Raw Data" href="raw_data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raw_data.html">Raw Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Atomic Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#geo">Geo 表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usr">Usr 表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rel">Rel 表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dyna">Dyna 表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">数据类型定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config">Config 文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluation Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Bigscity-TrafficDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../data.html">Data Introduction</a> &raquo;</li>
+        
+      <li>Atomic Files</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/data/atmoic_files.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="atomic-files">
+<h1>Atomic Files<a class="headerlink" href="#atomic-files" title="Permalink to this headline">¶</a></h1>
+<p>定义如下几种原子文件：</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>文件名</th>
+<th>内容</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xxx.geo</td>
+<td>存储地理实体属性信息。</td>
+<td>geo_id, type, coordinates</td>
+</tr>
+<tr>
+<td>xxx.usr</td>
+<td>存储交通使用者信息。</td>
+<td>usr_id, gender, birth_date</td>
+</tr>
+<tr>
+<td>xxx.rel</td>
+<td>存储实体间的关系信息，如路网或社交网络。</td>
+<td>rel_id, origin_id,   destination_id</td>
+</tr>
+<tr>
+<td>xxx.dyna</td>
+<td>存储实体随时间动态变化的信息，如轨迹。</td>
+<td>dyna_id, type, time,   entity_id, location_id</td>
+</tr>
+<tr>
+<td>config.json</td>
+<td>用于补充描述各表信息。</td>
+<td></td>
+</tr>
+</tbody>
+</table><p>对于不同的交通预测任务，可能用到不同的原子文件；一个数据集不一定包含全部5种原子文件。</p>
+<div class="section" id="geo">
+<h2>Geo 表<a class="headerlink" href="#geo" title="Permalink to this headline">¶</a></h2>
+<p>Geo 表中一个元素由以下四部分组成：geo_id, type, coordinates, properties。</p>
+<ol class="simple">
+<li><p>geo_id: int 类。主键，唯一确定一个 geo 实体。</p></li>
+<li><p>type：枚举类，表示该 geo 的类型。一共有 “Point”、“LineString”、“Polygon” 三个值。此三值与 geojson 中的点线面一致。</p></li>
+<li><p>coordinates：由 float 组成的数组或嵌套数组。描述 geo 实体的位置信息，采用 geojson 的 coordinates 格式。转换成 csv 时，整个数组加上双引号即可“”。</p></li>
+<li><p>properties：键值字典。描述该 geo 的属性信息，如 “POI_name”, “POI_type”。转换成 csv 时，将 properties 下的键作为列名即可。（保证对于同一 type 的 properties 具有相同的键）</p></li>
+</ol>
+</div>
+<div class="section" id="usr">
+<h2>Usr 表<a class="headerlink" href="#usr" title="Permalink to this headline">¶</a></h2>
+<p>Usr 表中一个元素由以下两部分组成：usr_id, properties。</p>
+<ol class="simple">
+<li><p>usr_id：int 类。主键，唯一确定一个 usr 实体。</p></li>
+<li><p>properties：键值字典。描述该 usr 实体的属性信息，如 “gender”, “birth_date”。转换成 csv 时，将 properties 下的键作为列名即可。</p></li>
+</ol>
+</div>
+<div class="section" id="rel">
+<h2>Rel 表<a class="headerlink" href="#rel" title="Permalink to this headline">¶</a></h2>
+<p>Rel 表中一个元素由以下四个部分组成：rel_id, type, origin_id, destination_id, properties。</p>
+<ol class="simple">
+<li><p>rel_id：int 类。主键，唯一确定一个实体间的关系。</p></li>
+<li><p>type：枚举类。一共有两种取值 “usr”，”geo”。表示该关系是基于 geo 的还是基于 usr 的。</p></li>
+<li><p>origin_id：int 类，关系起点方的 ID，为 Geo 表或 Usr 表中的一个，并通过 config 文件指定是哪一张表中的关系。</p></li>
+<li><p>destination_id：int 类，关系终点方的 ID，具体细节同 origin_id。</p></li>
+<li><p>properties：键值字典，描述该关系所具有的属性信息，如 “link_weight”。该 properties 可能为空。</p></li>
+</ol>
+</div>
+<div class="section" id="dyna">
+<h2>Dyna 表<a class="headerlink" href="#dyna" title="Permalink to this headline">¶</a></h2>
+<p>Dyna 表中一个元素由以下五部分组成：dyna_id, type, time, entity_id, properties。</p>
+<ol class="simple">
+<li><p>dyna_id：int 类。主键，唯一标识动态表中的一条记录。</p></li>
+<li><p>type：枚举类，一共有三种取值 “trajectory”、”od”、”state”。</p></li>
+<li><p>time：string 类。时间信息。对于非 “od”，采用 ISO-8601 标准中的日期和时间的组合表示法，如：”2020-12-07T02:59:46Z”。对于 “od”，因为要记录起终两个时间，可以将两个时间点仍以前述的格式表示，然后二者中间加空格拼接成一个新的字符串的形式进行存储。</p></li>
+<li><p>entity_id：int 类。描述该记录是基于哪一个实体观测产生的。</p></li>
+<li><p>properties：键值字典。描述该记录额外的属性信息。对于 “trajectory”，properties 应至少包含位置信息（经纬度或 geo_id）；对于 “od”，properties 应至少包含 od 的 id；对于 “state”，properties 至少包含具体交通状态信息。</p></li>
+</ol>
+<p>Dyna表必须含有的 properties 键</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>od</th>
+<th>trajectory</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>od_id</td>
+<td>location</td>
+<td>无</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id1">
+<h2>数据类型定义<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>需要在 config 文件中给出数据集中各列的数据类型定义，有助于后续的数据处理。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geo_id</td>
+<td>存在于 geo 表中的离散的有限的 ID</td>
+</tr>
+<tr>
+<td>usr_id</td>
+<td>存在于 usr 表中的离散的有限的 ID</td>
+</tr>
+<tr>
+<td>rel_id</td>
+<td>存在于 rel 表中的离散的有限的 ID</td>
+</tr>
+<tr>
+<td>time</td>
+<td>符合 ISO-8601 标准的时间字符串</td>
+</tr>
+<tr>
+<td>coordinate</td>
+<td>符合 geojosn 格式的坐标表示法的字符串</td>
+</tr>
+<tr>
+<td>num</td>
+<td>实数类</td>
+</tr>
+<tr>
+<td>enum</td>
+<td>枚举类字符串</td>
+</tr>
+<tr>
+<td>other</td>
+<td>其余的均以字符串类型存储</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="config">
+<h2>Config 文件<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
+<p>Config 文件用以补充描述上述四个表自身的信息，即各个表的 properties 字段具体含有的哪些属性。以 json 的格式存储，且由 geo、usr、rel、dyna 四个键组成。</p>
+<ol class="simple">
+<li><p>geo, rel, dyna：首先包含一个 including_types 的键，以数组的形式描述该表中所具有的 type 值。其后每个 type 作为键，描述该 type 下 properties 具有哪些键以及其数据类型（dyna 表需要额外把 entity_id 也加以说明）。</p></li>
+<li><p>usr：包含一个 properties 键，描述表中 properties 包含哪些键以及其数据类型。</p></li>
+</ol>
+<p>样例如下：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;geo&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;including_types&quot;</span><span class="p">:[</span>
+            <span class="s2">&quot;Point&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;PointProperties&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;poi_name&quot;</span><span class="p">:</span><span class="s2">&quot;geo_id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;poi_type&quot;</span><span class="p">:</span><span class="s2">&quot;enum&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;usr&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;properties&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;user_type&quot;</span><span class="p">:</span><span class="s2">&quot;enum&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;birth_year&quot;</span><span class="p">:</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;gender&quot;</span><span class="p">:</span><span class="s2">&quot;enum&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;rel&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;including_types&quot;</span><span class="p">:[</span>
+            <span class="s2">&quot;geo&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;geo&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;link_weight&quot;</span><span class="p">:</span><span class="s2">&quot;num&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;dyna&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;including_types&quot;</span><span class="p">:[</span>
+            <span class="s2">&quot;trajectory&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;od&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;state&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;trajectory&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;entity_id&quot;</span><span class="p">:</span><span class="s2">&quot;usr_id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;geo_id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;twitter_text&quot;</span><span class="p">:</span><span class="s2">&quot;other&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;od&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;entity_id&quot;</span><span class="p">:</span><span class="s2">&quot;usr_id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;od_id&quot;</span><span class="p">:</span><span class="s2">&quot;rel_id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;trip_duration&quot;</span><span class="p">:</span><span class="s2">&quot;num&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;state&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;entity_id&quot;</span><span class="p">:</span><span class="s2">&quot;geo_id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;traffic_speed&quot;</span><span class="p">:</span><span class="s2">&quot;num&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="batch.html" class="btn btn-neutral float-right" title="Batch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="raw_data.html" class="btn btn-neutral float-left" title="Raw Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, aptx1231
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

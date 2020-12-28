@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>config_settings &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Config Settings &mdash; Bigscity-TrafficDL  documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="data" href="data.html" />
-    <link rel="prev" title="quick_start" href="../get_started/quick_start.html" /> 
+    <link rel="next" title="Data Introduction" href="data.html" />
+    <link rel="prev" title="Directory Structure" href="../get_started/directory_structure.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,24 +84,44 @@
             
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">quick_start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">config_settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="model.html">model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluator.html">evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="executor.html">executor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Config Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-introduction">Parameters Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment-parameters">Environment Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-parameters">Training Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluation-parameters">Evaluation Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-parameters">Dataset Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-parameters">Model Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-configuration">Parameters Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#config-files">Config Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-dicts">Parameter Dicts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line">Command Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#priority">Priority</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluator.html">Evaluation Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="executor.html">Executor Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">implemented_datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">implemented_models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">implemented_evaluators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">implemented_executors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_logger.html">Logger</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
@@ -158,13 +178,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>config_settings</li>
+      <li>Config Settings</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/user_guide/config_settings.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/user_guide/config_settings.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -178,7 +198,43 @@
            <div itemprop="articleBody">
             
   <div class="section" id="config-settings">
-<h1>config_settings<a class="headerlink" href="#config-settings" title="Permalink to this headline">¶</a></h1>
+<h1>Config Settings<a class="headerlink" href="#config-settings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="parameters-introduction">
+<h2>Parameters Introduction<a class="headerlink" href="#parameters-introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="environment-parameters">
+<h3>Environment Parameters<a class="headerlink" href="#environment-parameters" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="training-parameters">
+<h3>Training Parameters<a class="headerlink" href="#training-parameters" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="evaluation-parameters">
+<h3>Evaluation Parameters<a class="headerlink" href="#evaluation-parameters" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="evaluator.html"><span class="doc">Evaluation Introduction</span></a></p>
+</div>
+<div class="section" id="dataset-parameters">
+<h3>Dataset Parameters<a class="headerlink" href="#dataset-parameters" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="data.html"><span class="doc">Data Introduction</span></a></p>
+</div>
+<div class="section" id="model-parameters">
+<h3>Model Parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="model.html"><span class="doc">Model Introduction</span></a></p>
+</div>
+</div>
+<div class="section" id="parameters-configuration">
+<h2>Parameters Configuration<a class="headerlink" href="#parameters-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-files">
+<h3>Config Files<a class="headerlink" href="#config-files" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="parameter-dicts">
+<h3>Parameter Dicts<a class="headerlink" href="#parameter-dicts" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="command-line">
+<h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="priority">
+<h3>Priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
 
@@ -189,10 +245,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="data.html" class="btn btn-neutral float-right" title="data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="data.html" class="btn btn-neutral float-right" title="Data Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../get_started/quick_start.html" class="btn btn-neutral float-left" title="quick_start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../get_started/directory_structure.html" class="btn btn-neutral float-left" title="Directory Structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

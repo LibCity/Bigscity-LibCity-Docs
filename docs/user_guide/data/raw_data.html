@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Raw Data &mdash; Bigscity-TrafficDL  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Atomic Files" href="atmoic_files.html" />
+    <link rel="prev" title="Data Flow" href="data_flow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Raw Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#foursquare">Foursquare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foursquare-nyc-restaurant-rich-dataset">Foursquare：NYC Restaurant Rich Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset">Foursquare：Global-scale Check-in Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foursquare-user-profile-dataset">Foursquare：User Profile Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks">Foursquare：Global-scale Check-in Dataset with User Social Networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gowalla">Gowalla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brightkite">Brightkite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geolife-gps">GeoLife-GPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyc-bus">NYC-Bus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyc-taxi">NYC-Taxi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyc-bike">NYC-Bike</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bikedc">BikeDC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bikechi">BikeCHI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#austinride">AustinRide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-80">I-80</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#t-drive">T-Drive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#porto">Porto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#taxibj">TaxiBJ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uber">Uber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metr-la">METR-LA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#los-loop">Los-loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sz-taxi">SZ-Taxi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loop-seattle">Loop Seattle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyc-speed-data">NYC Speed data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hk">HK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#q-traffic">Q-Traffic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eng-hw">ENG-HW</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pems">PEMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd3">PeMSD3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd4">PeMSD4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd7">PEMSD7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd8">PeMSD8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd7-m-index">PEMSD7(M){#index}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd-sf">PeMSD-SF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pems-bay">PEMS-BAY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buschi">BusCHI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyc-accident-data">NYC Accident data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#road-network-data-openstreetmap">Road network data (OpenStreetMap)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weather-and-events-data">Weather and events data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-data">External data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="atmoic_files.html">Atomic Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluation Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Bigscity-TrafficDL</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../data.html">Data Introduction</a> &raquo;</li>
+        
+      <li>Raw Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/data/raw_data.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="raw-data">
+<h1>Raw Data<a class="headerlink" href="#raw-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="foursquare">
+<h2>Foursquare<a class="headerlink" href="#foursquare" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="foursquare-nyc-restaurant-rich-dataset">
+<h2>Foursquare：NYC Restaurant Rich Dataset<a class="headerlink" href="#foursquare-nyc-restaurant-rich-dataset" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="foursquare-global-scale-check-in-dataset">
+<h2>Foursquare：Global-scale Check-in Dataset<a class="headerlink" href="#foursquare-global-scale-check-in-dataset" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="foursquare-user-profile-dataset">
+<h2>Foursquare：User Profile Dataset<a class="headerlink" href="#foursquare-user-profile-dataset" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="foursquare-global-scale-check-in-dataset-with-user-social-networks">
+<h2>Foursquare：Global-scale Check-in Dataset with User Social Networks<a class="headerlink" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="gowalla">
+<h2>Gowalla<a class="headerlink" href="#gowalla" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="brightkite">
+<h2>Brightkite<a class="headerlink" href="#brightkite" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="geolife-gps">
+<h2>GeoLife-GPS<a class="headerlink" href="#geolife-gps" title="Permalink to this headline">¶</a></h2>
+<p>出行轨迹，基本就是user_ID，time ，lat，lon，location_id的格式</p>
+</div>
+<div class="section" id="nyc-bus">
+<h2>NYC-Bus<a class="headerlink" href="#nyc-bus" title="Permalink to this headline">¶</a></h2>
+<p>每条数据包含当前时间，公共汽车位置（经纬度），车辆ID，已行驶距离，公共汽车路线ID，下一站ID，到该站的距离</p>
+<p>【本质上是不同时刻的公交车位置数据集】</p>
+</div>
+<div class="section" id="nyc-taxi">
+<h2>NYC-Taxi<a class="headerlink" href="#nyc-taxi" title="Permalink to this headline">¶</a></h2>
+<p>按行程ID组织数据（Per Trip），</p>
+<p>黄色车：</p>
+<p>上下车时间、上下车地点（经纬度）、行程距离、分项票价、费率类型、付款类型和司机报告的乘客数量</p>
+<p>绿色车：</p>
+<p>取车和还车时间、上下车地点（ID）、行程距离、分项票价、费率类型、付款类型和司机报告的乘客数量</p>
+<p>FHV车：</p>
+<p>上下车时间、上下车地点（ID）</p>
+</div>
+<div class="section" id="nyc-bike">
+<h2>NYC-Bike<a class="headerlink" href="#nyc-bike" title="Permalink to this headline">¶</a></h2>
+<p>按行程ID组织数据（Per Trip），</p>
+<p>旅程用时、起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆ID、用户类别、用户生日、用户性别</p>
+</div>
+<div class="section" id="bikedc">
+<h2>BikeDC<a class="headerlink" href="#bikedc" title="Permalink to this headline">¶</a></h2>
+<p>按行程ID组织数据（Per Trip），</p>
+<p>起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆类型、车辆ID、用户类别</p>
+</div>
+<div class="section" id="bikechi">
+<h2>BikeCHI<a class="headerlink" href="#bikechi" title="Permalink to this headline">¶</a></h2>
+<p>按行程ID组织数据（Per Trip），</p>
+<p>起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆类型、车辆ID、用户类别</p>
+</div>
+<div class="section" id="austinride">
+<h2>AustinRide<a class="headerlink" href="#austinride" title="Permalink to this headline">¶</a></h2>
+<p>按行程ID组织数据（Per Trip），</p>
+<p>旅程距离、起止时间、起止地点经纬度、车辆ID、用户ID等</p>
+</div>
+<div class="section" id="i-80">
+<h2>I-80<a class="headerlink" href="#i-80" title="Permalink to this headline">¶</a></h2>
+<p>按车辆ID组织数据，每隔一段时间记录一次车的位置，数据的每一行是车辆ID、车辆位置坐标、车辆的相关信息、车辆瞬时速度等</p>
+</div>
+<div class="section" id="t-drive">
+<h2>T-Drive<a class="headerlink" href="#t-drive" title="Permalink to this headline">¶</a></h2>
+<p>按车辆ID组织数据，每隔一段时间记录一次车的位置，数据的每一行是车辆ID，时间，车辆位置经纬度</p>
+</div>
+<div class="section" id="porto">
+<h2>Porto<a class="headerlink" href="#porto" title="Permalink to this headline">¶</a></h2>
+<p>按行程ID组织数据（Per Trip），</p>
+<p>每个Trip包含开始地点、开始时间、司机ID、一系列位置坐标：每隔一段时间记录一次车的位置（经纬度）</p>
+</div>
+<div class="section" id="taxibj">
+<h2>TaxiBJ<a class="headerlink" href="#taxibj" title="Permalink to this headline">¶</a></h2>
+<p>四维张量： [timeslots, inflow/outflow, grid_line_id, grid_column_id]，直接给出了inflow和outflow，只适合于流量预测</p>
+</div>
+<div class="section" id="uber">
+<h2>Uber<a class="headerlink" href="#uber" title="Permalink to this headline">¶</a></h2>
+<p>（不建议使用，没有下车的位置和时间？感觉是从NYC数据集抽取的数据集）</p>
+<p>Uber2014：</p>
+<p>上车时间、上车地点经纬度</p>
+<p>Uber2015：</p>
+<p>上车时间、上车地点ID</p>
+<p>FLV：</p>
+<p>上车时间、上车地点名</p>
+</div>
+<div class="section" id="metr-la">
+<h2>METR-LA<a class="headerlink" href="#metr-la" title="Permalink to this headline">¶</a></h2>
+<p>DataFrame二维表的格式</p>
+<p>sensor_id            400001  400017  400030  400040  400045  400052  …  413026  413845  413877  413878  414284  414694
+2017-01-01 00:00:00    71.4    67.8    70.5    67.4    68.8    66.6  …    69.2    68.9    70.4    68.8    71.1    68.0
+2017-01-01 00:05:00    71.6    67.5    70.6    67.5    68.7    66.6  …    70.4    68.8    70.1    68.4    70.8    67.4
+2017-01-01 00:10:00    71.6    67.6    70.2    67.4    68.7    66.1  …    70.2    68.3    69.8    68.4    70.5    67.9
+2017-01-01 00:15:00    71.1    67.5    70.3    68.0    68.5    66.7  …    70.4    68.7    70.2    68.4    70.8    67.6
+2017-01-01 00:20:00    71.7    67.8    70.2    68.1    68.4    66.9  …    69.6    69.1    70.0    68.4    71.0    67.9</p>
+<p>列是时间，间隔为5min。行是sensor编号，提供文件表示sensor的经纬度。值是速度。</p>
+<p>用sensor之间的距离矩阵代表路网（adjacency matrix、权重矩阵、代表节点的相似度）</p>
+</div>
+<div class="section" id="los-loop">
+<h2>Los-loop<a class="headerlink" href="#los-loop" title="Permalink to this headline">¶</a></h2>
+<p>（这个就是METR-LA）</p>
+</div>
+<div class="section" id="sz-taxi">
+<h2>SZ-Taxi<a class="headerlink" href="#sz-taxi" title="Permalink to this headline">¶</a></h2>
+<p>DataFrame二维表的格式</p>
+<p>列是时间，间隔为15min。行是sensor编号。值是速度。</p>
+<p>提供adjacency matrix描述路网的结构（1或0，邻接与否）</p>
+</div>
+<div class="section" id="loop-seattle">
+<h2>Loop Seattle<a class="headerlink" href="#loop-seattle" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_pickle('speed_matrix_2015')</span></code></p>
+<p>DataFrame二维表的格式</p>
+<p>ID                   d005es15036  d005es15125  d005es15214  …  i520es00861  i520es00935  i520es00972
+stamp                                                       …
+2015-01-01 00:00:00    61.939138    64.280883    62.077397  …    68.112571    66.567829    62.032062
+2015-01-01 00:05:00    59.232527    65.082450    64.808345  …    59.022999    58.949034    61.212069
+2015-01-01 00:10:00    61.991801    65.309123    64.803916  …    58.710086    56.671427    57.488732
+2015-01-01 00:15:00    62.480655    65.191651    67.206597  …    64.368119    57.892398    64.087189
+2015-01-01 00:20:00    62.490484    65.287669    67.323285  …    62.795588    62.545365    64.567285</p>
+<p>列是时间，间隔为5min。行是sensor编号。值是速度。</p>
+<p>提供adjacency matrix描述路网的结构（1或0，邻接与否）</p>
+</div>
+<div class="section" id="nyc-speed-data">
+<h2>NYC Speed data<a class="headerlink" href="#nyc-speed-data" title="Permalink to this headline">¶</a></h2>
+<p>按照道路ID组织数据，每一条数据包括道路ID、速度、时间、穿过道路的平均用时。</p>
+<p>对于每个道路，提供文件描述一系列道路上sensor的经纬度位置、道路名称等。</p>
+<p>Sequence of Lat/ Long points, describes locations of the sensor links</p>
+</div>
+<div class="section" id="hk">
+<h2>HK<a class="headerlink" href="#hk" title="Permalink to this headline">¶</a></h2>
+<p>按照道路ID组织数据，每一条数据包括道路ID、道路区域、道路类型、道路状况等级、速度、时间。</p>
+<p>时间间隔较短，可以得到每条道路，各个时间的速度信息。</p>
+<p>对于每个路段link，提供文件描述起始站、终点站、以及相应的经纬度、道路类型。(基于它们可以构建路网的拓扑)</p>
+</div>
+<div class="section" id="q-traffic">
+<h2>Q-Traffic<a class="headerlink" href="#q-traffic" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>query sub-dataset</p></li>
+</ul>
+<p>每条数据包括起始时间、起点经纬度、终点经纬度、预计的旅行时间</p>
+<ul class="simple">
+<li><p>traffic speed sub-dataset</p></li>
+</ul>
+<p>数据收集的间隔为15min，每条数据为路段ID，时间戳 ([0, 5856))，速度(km/h)。</p>
+<ul class="simple">
+<li><p>road network sub-dataset</p></li>
+</ul>
+<p>对于每个路段link，提供路段的起点（节点）和终点（节点），基于它们可以构建路网的拓扑、提供宽度，长度km，方向，限速和车道数信息。提供一个经纬度，不知道是起点还是终点。</p>
+</div>
+<div class="section" id="eng-hw">
+<h2>ENG-HW<a class="headerlink" href="#eng-hw" title="Permalink to this headline">¶</a></h2>
+<p>每个站点不同时间的流量数据</p>
+</div>
+<div class="section" id="pems">
+<h2>PEMS<a class="headerlink" href="#pems" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pemsd3">
+<h2>PeMSD3<a class="headerlink" href="#pemsd3" title="Permalink to this headline">¶</a></h2>
+<p>DataFrame二维表的格式</p>
+<p>列是时间，间隔为5min。行是sensor编号。值是flow。</p>
+<p>也提供的numpy三维张量，时间间隔5min，三维（时间戳，sensor编号，flow）</p>
+<p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
+</div>
+<div class="section" id="pemsd4">
+<h2>PeMSD4<a class="headerlink" href="#pemsd4" title="Permalink to this headline">¶</a></h2>
+<p>提供的numpy三维张量，时间间隔5min，三维（时间戳，sensor编号，（flow, occupy, speed））</p>
+<p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
+</div>
+<div class="section" id="pemsd7">
+<h2>PEMSD7<a class="headerlink" href="#pemsd7" title="Permalink to this headline">¶</a></h2>
+<p>提供的numpy三维张量，时间间隔5min，三维（时间戳，sensor编号，flow）</p>
+<p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
+</div>
+<div class="section" id="pemsd8">
+<h2>PeMSD8<a class="headerlink" href="#pemsd8" title="Permalink to this headline">¶</a></h2>
+<p>提供的numpy三维张量，时间间隔5min，三维（时间戳，sensor编号，（flow, occupy, speed））</p>
+<p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
+</div>
+<div class="section" id="pemsd7-m-index">
+<h2>PEMSD7(M){#index}<a class="headerlink" href="#pemsd7-m-index" title="Permalink to this headline">¶</a></h2>
+<p>DataFrame二维表的格式</p>
+<p>列是时间，间隔为5min。行是sensor编号。值是速度。</p>
+<p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
+</div>
+<div class="section" id="pemsd-sf">
+<h2>PeMSD-SF<a class="headerlink" href="#pemsd-sf" title="Permalink to this headline">¶</a></h2>
+<p>Occupancy</p>
+</div>
+<div class="section" id="pems-bay">
+<h2>PEMS-BAY<a class="headerlink" href="#pems-bay" title="Permalink to this headline">¶</a></h2>
+<p>DataFrame二维表的格式</p>
+<p>​                                       773869     767541     767542     717447  …     717595     772168     718141  769373</p>
+<p>2012-03-01 00:00:00  64.375000  67.625000  67.125000  61.500000  …  69.000000  59.250000  69.000000  61.875
+2012-03-01 00:05:00  62.666667  68.555556  65.444444  62.444444  …  64.444444  55.888889  68.444444  62.875
+2012-03-01 00:10:00  64.000000  63.750000  60.000000  59.000000  …  65.625000  61.375000  69.857143  62.000
+2012-03-01 00:15:00   0.000000   0.000000   0.000000   0.000000  …   0.000000   0.000000   0.000000   0.000
+2012-03-01 00:20:00   0.000000   0.000000   0.000000   0.000000  …   0.000000   0.000000   0.000000   0.000</p>
+<p>列是时间，间隔为5min。行是sensor编号，提供文件表示sensor的经纬度。值是速度。</p>
+<p>用sensor之间的距离矩阵代表路网（adjacency matrix、权重矩阵、代表节点的相似度）</p>
+</div>
+<div class="section" id="buschi">
+<h2>BusCHI<a class="headerlink" href="#buschi" title="Permalink to this headline">¶</a></h2>
+<p>交通拥堵状况数据集</p>
+</div>
+<div class="section" id="nyc-accident-data">
+<h2>NYC Accident data<a class="headerlink" href="#nyc-accident-data" title="Permalink to this headline">¶</a></h2>
+<p>发生碰撞的日期、时间、经纬度、街道名、受伤人数、死亡人数、原因、车辆类型等</p>
+</div>
+<div class="section" id="road-network-data-openstreetmap">
+<h2>Road network data (OpenStreetMap)<a class="headerlink" href="#road-network-data-openstreetmap" title="Permalink to this headline">¶</a></h2>
+<p>https://www.openstreetmap.org/</p>
+</div>
+<div class="section" id="weather-and-events-data">
+<h2>Weather and events data<a class="headerlink" href="#weather-and-events-data" title="Permalink to this headline">¶</a></h2>
+<p>https://www.wunderground.com/</p>
+</div>
+<div class="section" id="external-data">
+<h2>External data<a class="headerlink" href="#external-data" title="Permalink to this headline">¶</a></h2>
+<p>常见的外部数据项。</p>
+<ul class="simple">
+<li><p>气象条件：温度、湿度、风速、能见度和天气状态（晴/雨/风/多云等）</p></li>
+<li><p>驾驶员ID：由于驾驶员的个人情况不同，预测会有一定的影响，因此有必要对驾驶员进行标记，此信息主要用于个人预测。</p></li>
+<li><p>活动：包括各种节假日、交通管制、交通事故、体育赛事、音乐会等活动。</p></li>
+<li><p>时间信息：星期几，一天中的时间片。</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="atmoic_files.html" class="btn btn-neutral float-right" title="Atomic Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="data_flow.html" class="btn btn-neutral float-left" title="Data Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, aptx1231
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

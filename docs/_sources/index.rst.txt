@@ -13,6 +13,7 @@ Welcome to Bigscity-TrafficDL's documentation!
    get_started/introduction
    get_started/install
    get_started/quick_start
+   get_started/directory_structure
 
 .. toctree::
    :maxdepth: 1
@@ -23,6 +24,7 @@ Welcome to Bigscity-TrafficDL's documentation!
    user_guide/model
    user_guide/evaluator
    user_guide/executor
+   user_guide/usage
 
 .. toctree::
    :maxdepth: 1
@@ -32,6 +34,7 @@ Welcome to Bigscity-TrafficDL's documentation!
    developer_guide/implemented_models
    developer_guide/implemented_evaluators
    developer_guide/implemented_executors
+   developer_guide/implemented_logger
 
 .. toctree::
    :maxdepth: 1
