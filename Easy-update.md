@@ -20,9 +20,7 @@
 
 更新方法：
 
-每次修改后，需要在本地手动`make html`以得到最新版网页内容，输出内容存储于`/build`目录，之后将`/build/html/`目录下的内容复制到`docs/`目录下，之后将`docs/`目录下的内容也要提交到Github，之后Github Page会自动将`docs/`目录下的内容更新到网站上。
-
-【`docs/`目录下的`.nojekyll`文件必不可少，这个不是编译出来的，不要删除。】
+每次修改后，需要在本地手动`make html`以得到最新版网页内容，输出内容存储于`/build`目录，之后将`/build/html/`目录下的内容复制到`docs/`目录下，之后将`docs/`目录下的内容也要提交到Github，之后Github Page会自动将`docs/`目录下的内容更新到网站上，注意需要配置`docs/`目录下的`.nojekyll`文件。
 
 ## Sphinx使用教程
 
@@ -43,6 +41,18 @@ pip install recommonmark            # 支持Markdown显示
 make clean  # 清除build目录
 make html   # 生成html
 ```
+
+内置的扩展，详见[参考](https://www.sphinx.org.cn/usage/extensions/index.html#built-in-extensions)：
+
+- sphinx.ext.autodoc        生成API文档
+- sphinx.ext.viewcode      显示到源代码的链接
+- sphinx.ext.todo              支持TODO
+- sphinx.ext.napoleon      支持NumPy和Google风格的文档字符串
+- sphinx.ext.doctest          测试文档中的代码片段
+- sphinx.ext.autosummary        生成autodoc摘要
+- sphinx.ext.githubpages            支持Github Page，生成`.nojekyll`文件。
+- sphinx.ext.mathjax                    支持数学公式
+- sphinx.ext.intersphinx              链接到其他项目的文档
 
 修改方式
 
