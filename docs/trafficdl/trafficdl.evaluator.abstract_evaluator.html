@@ -193,29 +193,29 @@
 <span id="trafficdl-evaluator-abstract-evaluator-py"></span><h1>trafficdl.evaluator.abstract_evaluator.py<a class="headerlink" href="#module-trafficdl.evaluator.abstract_evaluator" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="trafficdl.evaluator.abstract_evaluator.AbstractEvaluator">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.evaluator.abstract_evaluator.</code><code class="sig-name descname">AbstractEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.evaluator.abstract_evaluator.</code><code class="sig-name descname">AbstractEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/abstract_evaluator.html#AbstractEvaluator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt id="trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.clear">
-<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.clear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/abstract_evaluator.html#AbstractEvaluator.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>清除之前收集到的 batch 的评估信息，适用于每次评估开始时进行一次清空，排除之前的评估输入的影响。</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.collect">
-<code class="sig-name descname">collect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.collect" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">collect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/abstract_evaluator.html#AbstractEvaluator.collect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.collect" title="Permalink to this definition">¶</a></dt>
 <dd><p>收集一 batch 的评估输入</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/abstract_evaluator.html#AbstractEvaluator.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>返回之前收集到的所有 batch 的评估结果</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.save_result">
-<code class="sig-name descname">save_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">save_path</span></em>, <em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.save_result" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">save_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">save_path</span></em>, <em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/abstract_evaluator.html#AbstractEvaluator.save_result"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.save_result" title="Permalink to this definition">¶</a></dt>
 <dd><p>将评估结果保存到 save_path 文件夹下的 filename 文件中</p>
 </dd></dl>
 

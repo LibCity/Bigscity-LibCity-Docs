@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="trafficdl.model.init.py" href="trafficdl.model.init.html" />
-    <link rel="prev" title="trafficdl.model" href="trafficdl.model.html" /> 
+    <link rel="prev" title="trafficdl.model.trajectory_loc_prediction.DeepMove.py" href="trafficdl.model.trajectory_loc_prediction.DeepMove.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -113,6 +113,8 @@
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.evaluator.html">trafficdl.evaluator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.executor.html">trafficdl.executor</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="trafficdl.model.html">trafficdl.model</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.html">trafficdl.model.traffic_speed_prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.html">trafficdl.model.trajectory_loc_prediction</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">trafficdl.model.abstract_model.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.init.html">trafficdl.model.init.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.layers.html">trafficdl.model.layers.py</a></li>
@@ -192,11 +194,11 @@
 <span id="trafficdl-model-abstract-model-py"></span><h1>trafficdl.model.abstract_model.py<a class="headerlink" href="#module-trafficdl.model.abstract_model" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="trafficdl.model.abstract_model.AbstractModel">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.abstract_model.</code><code class="sig-name descname">AbstractModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.abstract_model.AbstractModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.abstract_model.</code><code class="sig-name descname">AbstractModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/abstract_model.html#AbstractModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.abstract_model.AbstractModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
 <dl class="py method">
 <dt id="trafficdl.model.abstract_model.AbstractModel.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.abstract_model.AbstractModel.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/abstract_model.html#AbstractModel.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.abstract_model.AbstractModel.forward" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
@@ -226,7 +228,7 @@ N is the number of target</p>
         <a href="trafficdl.model.init.html" class="btn btn-neutral float-right" title="trafficdl.model.init.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="trafficdl.model.html" class="btn btn-neutral float-left" title="trafficdl.model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trafficdl.model.trajectory_loc_prediction.DeepMove.html" class="btn btn-neutral float-left" title="trafficdl.model.trajectory_loc_prediction.DeepMove.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
