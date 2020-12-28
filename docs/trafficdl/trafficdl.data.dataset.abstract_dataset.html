@@ -199,11 +199,11 @@
 <span id="trafficdl-data-dataset-abstract-dataset-py"></span><h1>trafficdl.data.dataset.abstract_dataset.py<a class="headerlink" href="#module-trafficdl.data.dataset.abstract_dataset" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="trafficdl.data.dataset.abstract_dataset.AbstractDataset">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.data.dataset.abstract_dataset.</code><code class="sig-name descname">AbstractDataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/abstract_dataset.html#AbstractDataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.abstract_dataset.AbstractDataset" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.data.dataset.abstract_dataset.</code><code class="sig-name descname">AbstractDataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.dataset.abstract_dataset.AbstractDataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt id="trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data">
-<code class="sig-name descname">get_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/abstract_dataset.html#AbstractDataset.get_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>train_dataloader (pytorch.DataLoader)
@@ -216,7 +216,7 @@ all the dataloaders are composed of Batch (class)</p>
 
 <dl class="py method">
 <dt id="trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data_feature">
-<code class="sig-name descname">get_data_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/abstract_dataset.html#AbstractDataset.get_data_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data_feature" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_data_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data_feature" title="Permalink to this definition">¶</a></dt>
 <dd><p>如果模型使用了 embedding 层，一般是需要根据数据集的 loc_size、tim_size、uid_size 等特征来确定 embedding 层的大小的
 故该方法返回一个 dict，包含表示层能够提供的数据集特征
 :returns: data_feature (dict)</p>

@@ -199,11 +199,11 @@
 <span id="trafficdl-model-traffic-speed-prediction-dcrnn-py"></span><h1>trafficdl.model.traffic_speed_prediction.DCRNN.py<a class="headerlink" href="#module-trafficdl.model.traffic_speed_prediction.DCRNN" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">DCGRUCell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_units</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em>, <em class="sig-param"><span class="n">max_diffusion_step</span></em>, <em class="sig-param"><span class="n">num_nodes</span></em>, <em class="sig-param"><span class="n">nonlinearity</span><span class="o">=</span><span class="default_value">'tanh'</span></em>, <em class="sig-param"><span class="n">filter_type</span><span class="o">=</span><span class="default_value">'laplacian'</span></em>, <em class="sig-param"><span class="n">use_gc_for_ru</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCGRUCell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">DCGRUCell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_units</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em>, <em class="sig-param"><span class="n">max_diffusion_step</span></em>, <em class="sig-param"><span class="n">num_nodes</span></em>, <em class="sig-param"><span class="n">nonlinearity</span><span class="o">=</span><span class="default_value">'tanh'</span></em>, <em class="sig-param"><span class="n">filter_type</span><span class="o">=</span><span class="default_value">'laplacian'</span></em>, <em class="sig-param"><span class="n">use_gc_for_ru</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code></p>
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">hx</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCGRUCell.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">hx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gated recurrent unit (GRU) with Graph Convolution.
 :param inputs: (B, num_nodes * input_dim)
 :param hx: (B, num_nodes * rnn_units)</p>
@@ -215,16 +215,16 @@
 
 <dl class="py class">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">DCRNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCRNN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">DCRNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a>, <a class="reference internal" href="#trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs" title="trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs</span></code></a></p>
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCRNN.calculate_loss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.calculate_loss" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.calculate_loss" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.decoder">
-<code class="sig-name descname">decoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoder_hidden_state</span></em>, <em class="sig-param"><span class="n">labels</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCRNN.decoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.decoder" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">decoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoder_hidden_state</span></em>, <em class="sig-param"><span class="n">labels</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.decoder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decoder forward pass
 :param encoder_hidden_state: (num_layers, batch_size, self.hidden_state_size)
 :param labels: (self.horizon, batch_size, self.num_nodes * self.output_dim) [optional, not exist for inference]
@@ -234,7 +234,7 @@
 
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.encoder">
-<code class="sig-name descname">encoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCRNN.encoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.encoder" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">encoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.encoder" title="Permalink to this definition">¶</a></dt>
 <dd><p>encoder forward pass on t time steps
 :param inputs: shape (seq_len, batch_size, num_sensor * input_dim)
 :return: encoder_hidden_state: (num_layers, batch_size, self.hidden_state_size)</p>
@@ -242,7 +242,7 @@
 
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCRNN.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>seq2seq forward pass
 :param inputs: shape (seq_len, batch_size, num_sensor * input_dim)
 :param labels: shape (horizon, batch_size, num_sensor * output)
@@ -252,18 +252,18 @@
 
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.get_data_feature">
-<code class="sig-name descname">get_data_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DCRNN.get_data_feature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.get_data_feature" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_data_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.get_data_feature" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DecoderModel">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">DecoderModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DecoderModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DecoderModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">DecoderModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DecoderModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code>, <a class="reference internal" href="#trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs" title="trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs</span></code></a></p>
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.DecoderModel.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">hidden_state</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#DecoderModel.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DecoderModel.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">hidden_state</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.DecoderModel.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decoder forward pass.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -285,11 +285,11 @@ hidden_state # shape (num_layers, batch_size, self.hidden_state_size)
 
 <dl class="py class">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.EncoderModel">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">EncoderModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#EncoderModel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.EncoderModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">EncoderModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.EncoderModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.nn.modules.module.Module</span></code>, <a class="reference internal" href="#trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs" title="trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs</span></code></a></p>
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.EncoderModel.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">hidden_state</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#EncoderModel.forward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.EncoderModel.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em>, <em class="sig-param"><span class="n">hidden_state</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.EncoderModel.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encoder forward pass.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -311,29 +311,29 @@ hidden_state # shape (num_layers, batch_size, self.hidden_state_size)
 
 <dl class="py class">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">LayerParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rnn_network</span><span class="p">:</span> <span class="n">torch.nn.modules.module.Module</span></em>, <em class="sig-param"><span class="n">layer_type</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#LayerParams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">LayerParams</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rnn_network</span><span class="p">:</span> <span class="n">torch.nn.modules.module.Module</span></em>, <em class="sig-param"><span class="n">layer_type</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams.get_biases">
-<code class="sig-name descname">get_biases</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span></em>, <em class="sig-param"><span class="n">bias_start</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#LayerParams.get_biases"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams.get_biases" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_biases</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span></em>, <em class="sig-param"><span class="n">bias_start</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams.get_biases" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams.get_weights">
-<code class="sig-name descname">get_weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#LayerParams.get_weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams.get_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shape</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.LayerParams.get_weights" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">Seq2SeqAttrs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#Seq2SeqAttrs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">Seq2SeqAttrs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.calculate_normalized_laplacian">
-<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_normalized_laplacian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#calculate_normalized_laplacian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_normalized_laplacian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_normalized_laplacian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_normalized_laplacian" title="Permalink to this definition">¶</a></dt>
 <dd><p># L = D^-1/2 (D-A) D^-1/2 = I - D^-1/2 A D^-1/2
 # D = diag(A 1)
 :param adj:
@@ -342,22 +342,22 @@ hidden_state # shape (num_layers, batch_size, self.hidden_state_size)
 
 <dl class="py function">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.calculate_random_walk_matrix">
-<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_random_walk_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#calculate_random_walk_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_random_walk_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_random_walk_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_random_walk_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.calculate_reverse_random_walk_matrix">
-<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_reverse_random_walk_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#calculate_reverse_random_walk_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_reverse_random_walk_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_reverse_random_walk_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj_mx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_reverse_random_walk_matrix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.calculate_scaled_laplacian">
-<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_scaled_laplacian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj_mx</span></em>, <em class="sig-param"><span class="n">lambda_max</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">undirected</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#calculate_scaled_laplacian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_scaled_laplacian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">calculate_scaled_laplacian</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adj_mx</span></em>, <em class="sig-param"><span class="n">lambda_max</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">undirected</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.calculate_scaled_laplacian" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.model.traffic_speed_prediction.DCRNN.count_parameters">
-<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">count_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/model/traffic_speed_prediction/DCRNN.html#count_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.count_parameters" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.model.traffic_speed_prediction.DCRNN.</code><code class="sig-name descname">count_parameters</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.traffic_speed_prediction.DCRNN.count_parameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>

@@ -32,7 +32,6 @@ extensions = [
 'sphinx_markdown_tables',
 'sphinx_rtd_theme',
 'sphinx.ext.autodoc',
-'sphinx.ext.viewcode',
 'sphinx.ext.todo',
 'sphinx.ext.napoleon',
 'sphinx.ext.doctest',
@@ -41,7 +40,7 @@ extensions = [
 'sphinx.ext.mathjax',
 'sphinx.ext.intersphinx',
 ]
-
+# 'sphinx.ext.viewcode',
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
