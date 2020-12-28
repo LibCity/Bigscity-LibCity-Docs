@@ -1,12 +1,16 @@
 import os
 import re
- 
- 
+
+
 def modify_doc_title_dir(abspath_rstfiles_dir):
     rst_files = os.listdir(abspath_rstfiles_dir)
     del_nodes = ['Submodules', 'Module contents', 'Subpackages']
     del_str = [' module', ' package']
+    del_file = ['trafficdl.rst', 'modules.rst']
     for rst_file in rst_files:
+        if rst_file in del_file:
+            os.remove(os.path.join(abspath_rstfiles_dir, rst_file))
+            continue
         f = open(os.path.join(abspath_rstfiles_dir, rst_file), 'r')
         file_lines = f.readlines()
         f.close()
@@ -31,6 +35,7 @@ def modify_doc_title_dir(abspath_rstfiles_dir):
         f = open(os.path.join(abspath_rstfiles_dir, rst_file), 'w')
         f.writelines(write_con)
         f.close()
- 
+
+
 if __name__ == '__main__':
     modify_doc_title_dir('./source/trafficdl')
