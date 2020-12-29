@@ -1,7 +1,8 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
@@ -11,47 +12,51 @@
   
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-
-  
   
   
   
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+
+  
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-    
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Install" href="install.html" />
-    <link rel="prev" title="Welcome to Bigscity-TrafficDL’s documentation!" href="../index.html" /> 
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Bigscity-TrafficDL  documentation" href="../index.html"/>
+        <link rel="next" title="Install" href="install.html"/>
+        <link rel="prev" title="Welcome to Bigscity-TrafficDL’s documentation!" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
 </head>
 
-<body class="wy-body-for-nav">
+<body class="wy-body-for-nav" role="document">
 
    
   <div class="wy-grid-for-nav">
+
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search">
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home"> Bigscity-TrafficDL
           
 
           
@@ -74,7 +79,6 @@
           
         </div>
 
-        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -84,7 +88,11 @@
             
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">架构说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">流水线实例说明：运行单个模型流水线</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="directory_structure.html">Directory Structure</a></li>
@@ -120,14 +128,13 @@
             
           
         </div>
-        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" aria-label="top navigation">
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Bigscity-TrafficDL</a>
@@ -135,10 +142,9 @@
       </nav>
 
 
+      
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
           
 
 
@@ -159,7 +165,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
         
       <li>Introduction</li>
     
@@ -182,21 +188,44 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>交通预测领域的开源框架。</p>
-<p>目前支持以下几种交通预测任务：</p>
+<p>本项目为交通大数据领域下的模型开发开源框架，目前支持以下任务：</p>
 <ul class="simple">
-<li><p>Traffic Location Prediction</p></li>
-<li><p>Traffic Flow Prediction</p></li>
-<li><p>Traffic Speed Prediction</p></li>
-<li><p>On-Demand Service predition</p></li>
-<li><p>Travel Time prediction</p></li>
-<li><p>Traffic Accident prediction</p></li>
+<li><p>交通轨迹下一跳预测</p></li>
+<li><p>交通速度预测</p></li>
 </ul>
+<div class="section" id="id1">
+<h2>架构说明<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>本框架主要由 Config、Data、Model、Executor、Evaluator、Pipeline 六个模块构成。其中每个模块的职责如下所述：</p>
+<ul class="simple">
+<li><p>Config：负责统一管理参数配置。</p></li>
+<li><p>Data：负责加载数据集，并进行数据预处理与数据集划分。</p></li>
+<li><p>Model：负责具体模型的实现。</p></li>
+<li><p>Executor：负责运行模型，如：训练模型、模型预测。</p></li>
+<li><p>Evaluator：负责评估模型。</p></li>
+<li><p>Pipeline：将前五个模块整合起来，以流水线的方式先后执行完成用户指定的任务。</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>流水线实例说明：运行单个模型流水线<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><img alt="../_images/pipeline.png" src="../_images/pipeline.png" /></p>
+<ol class="simple">
+<li><p>初始化流水线配置。用户可通过命令行传参与指定 config 文件的方式灵活地调整流水线参数配置。（依托 Config 模块）</p></li>
+<li><p>数据集加载与数据预处理，数据转换并划分训练集、验证集、测试集。（依托 Data 模块）</p></li>
+<li><p>加载模型。（依托 Model 模块）</p></li>
+<li><p>训练验证模型，并在测试集上进行测试。（依托 Executor 模块）</p></li>
+<li><p>评估模型测试输出。（依托 Evaluator 模块）</p></li>
+</ol>
+<blockquote>
+<div><p>ps: 由于模型验证时就需要 Evaluator 来进行评估，因此实际实现中，Evaluator 模块是由 Executor 模块进行实例化并调用的。</p>
+</div></blockquote>
+</div>
 </div>
 
 
            </div>
-           
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
@@ -205,7 +234,7 @@
         <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Bigscity-TrafficDL’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to Bigscity-TrafficDL’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -214,19 +243,11 @@
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, aptx1231
+        &copy; Copyright 2020, aptx1231.
 
     </p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -238,15 +259,38 @@
   </div>
   
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+
+  
 
   
   
-    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
    
 
 </body>
