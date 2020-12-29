@@ -1,34 +1,25 @@
 # Quick Start
 
-在`Bigscity-TrafficDL/`目录下，模仿`test_dcrnn.py`或者`test_deepmove.py`可以实现全流程的调用。
+#### 运行单个模型
 
-```python
-from trafficdl.data import get_dataset
-from trafficdl.utils import get_executor
-from trafficdl.utils import get_model
-from trafficdl.utils import get_logger
+框架根目录下提供运行单个模型的脚本 run_model.py，并提供一系列命令行参数以允许用户能够调整流水线参数配置。命令行运行示例：
 
-# 配置文件字典格式
-config = {} 
-# 加载输出log的对象
-logger = get_logger(config)
-# 加载数据集
-dataset = get_dataset(config)
-# 转换数据，并划分数据集
-train_data, valid_data, test_data = dataset.get_data()
-# 获取数据的特征
-data_feature = dataset.get_data_feature()
-# 加载模型
-model = get_model(config, data_feature)
-# 加载执行器
-executor = get_executor(config, model)
-# 训练
-executor.train(train_data, valid_data)
-# 保存模型
-model_cache_file = './trafficdl/cache/model_cache/DCRNN_METR_LA.m'
-executor.save_model(model_cache_file)
-# 加载模型
-executor.load_model(model_cache_file)
-# 评估，评估结果将会放在 cache/evaluate_cache 下
-executor.evaluate(test_data)
+```sh
+python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky
 ```
+
+所支持的命令行参数：
+
+* task：所要执行的任务名，默认为`traj_loc_pred`。
+* model：所要运行的模型名，默认为`DeepMove`。
+* dataset：所要运行的数据集，默认为 `foursquare_tky`。
+* config_file：用户指定 config 文件名，默认为 `None`。
+* saved_model：是否保存训练的模型结果，默认为 `True`。
+* train：当模型已被训练时是否要重新训练，默认为 `True`。
+* gpu：是否使用 GPU，默认为 `True`。
+* batch_size：单次输入的 Batch 大小。
+* train_rate：训练集占所有数据的比例，如 0.6。
+* eval_rate：验证集占所有数据的比例，如 0.2。
+* learning_rate： 优化器的学习率。
+* max_epoch： 训练的最大轮次。
+
