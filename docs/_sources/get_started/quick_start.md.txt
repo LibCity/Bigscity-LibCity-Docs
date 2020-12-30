@@ -18,8 +18,8 @@ python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_t
 * train：当模型已被训练时是否要重新训练，默认为 `True`。
 * gpu：是否使用 GPU，默认为 `True`。
 * batch_size：单次输入的 Batch 大小。
-* train_rate：训练集占所有数据的比例，如 0.6。
-* eval_rate：验证集占所有数据的比例，如 0.2。
+* train_rate：训练集占所有数据的比例，如 `0.6`。
+* eval_rate：验证集占所有数据的比例，如 `0.2`。
 * learning_rate： 优化器的学习率。
 * max_epoch： 训练的最大轮次。
 

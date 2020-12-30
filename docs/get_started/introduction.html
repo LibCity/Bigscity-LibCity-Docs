@@ -215,9 +215,7 @@
 <li><p>训练验证模型，并在测试集上进行测试。（依托 Executor 模块）</p></li>
 <li><p>评估模型测试输出。（依托 Evaluator 模块）</p></li>
 </ol>
-<blockquote>
-<div><p>ps: 由于模型验证时就需要 Evaluator 来进行评估，因此实际实现中，Evaluator 模块是由 Executor 模块进行实例化并调用的。</p>
-</div></blockquote>
+<p>不过由于模型验证时就需要 Evaluator 来进行评估，在实际实现中，Evaluator 模块是由 Executor 模块进行实例化并调用的。</p>
 </div>
 </div>
 

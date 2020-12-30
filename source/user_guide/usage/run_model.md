@@ -1,14 +1,12 @@
-# Quick Start
+## Use run_model
 
-#### 运行单个模型
-
-框架根目录下提供运行单个模型的脚本 run_model.py，并提供一系列命令行参数以允许用户能够调整流水线参数配置。命令行运行示例：
+本项目将训练评估单个模型封装实现为本脚本文件。通过命令行即可运行，示例如下：
 
 ```sh
 python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky
 ```
 
-所支持的命令行参数：
+本脚本所支持的命令行参数：
 
 * task：所要执行的任务名，默认为`traj_loc_pred`。
 * model：所要运行的模型名，默认为`DeepMove`。
@@ -22,4 +20,3 @@ python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_t
 * eval_rate：验证集占所有数据的比例，如 `0.2`。
 * learning_rate： 优化器的学习率。
 * max_epoch： 训练的最大轮次。
-
