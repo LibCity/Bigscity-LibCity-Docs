@@ -96,21 +96,8 @@
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Config Settings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#parameters-introduction">Parameters Introduction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#environment-parameters">Environment Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#training-parameters">Training Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#evaluation-parameters">Evaluation Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dataset-parameters">Dataset Parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#model-parameters">Model Parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#parameters-configuration">Parameters Configuration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#config-files">Config Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#parameter-dicts">Parameter Dicts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#command-line">Command Line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#priority">Priority</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">命令行传参</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#config">自定义 config 文件</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Introduction</a></li>
@@ -186,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/user_guide/config_settings.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/user_guide/config_settings.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -201,41 +188,55 @@
             
   <div class="section" id="config-settings">
 <h1>Config Settings<a class="headerlink" href="#config-settings" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="parameters-introduction">
-<h2>Parameters Introduction<a class="headerlink" href="#parameters-introduction" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="environment-parameters">
-<h3>Environment Parameters<a class="headerlink" href="#environment-parameters" title="Permalink to this headline">¶</a></h3>
+<p>本框架通过三种方式确定实验的最终配置：用户命令行传参、用户自定义 config 文件、各模块默认参数配置。用户可以通过前两种方式灵活地调整实验的参数配置。</p>
+<div class="section" id="id1">
+<h2>命令行传参<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>当用户运行项目根目录下的脚本文件时，可以通过命令行指定修改一些参数，如：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky --gpu <span class="nb">false</span> --batch_size <span class="m">15</span>
+</pre></div>
 </div>
-<div class="section" id="training-parameters">
-<h3>Training Parameters<a class="headerlink" href="#training-parameters" title="Permalink to this headline">¶</a></h3>
+<p>具体所允许传入的参数因不同脚本而异，可以参见 <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> 中详细介绍了所有项目根目录下可执行的脚本文件；或使用 <code class="docutils literal notranslate"><span class="pre">-h</span></code> 以获取帮助信息，如下：</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; python run_model.py -h
+usage: run_model.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--task TASK<span class="o">]</span> <span class="o">[</span>--model MODEL<span class="o">]</span> <span class="o">[</span>--dataset DATASET<span class="o">]</span>
+                    <span class="o">[</span>--config_file CONFIG_FILE<span class="o">]</span> <span class="o">[</span>--saved_model SAVED_MODEL<span class="o">]</span>
+                    <span class="o">[</span>--train TRAIN<span class="o">]</span> <span class="o">[</span>--gpu GPU<span class="o">]</span> <span class="o">[</span>--batch_size BATCH_SIZE<span class="o">]</span>
+                    <span class="o">[</span>--train_rate TRAIN_RATE<span class="o">]</span> <span class="o">[</span>--eval_rate EVAL_RATE<span class="o">]</span>
+                    <span class="o">[</span>--learning_rate LEARNING_RATE<span class="o">]</span> <span class="o">[</span>--max_epoch MAX_EPOCH<span class="o">]</span>
+
+optional arguments:
+  -h, --help            show this <span class="nb">help</span> message and <span class="nb">exit</span>
+  --task TASK           the name of task
+  --model MODEL         the name of model
+  --dataset DATASET     the name of dataset
+  --config_file CONFIG_FILE
+                        the file name of config file
+  --saved_model SAVED_MODEL
+                        whether save the trained model
+  --train TRAIN         whether re-train model <span class="k">if</span> the model is trained before
+  --gpu GPU
+  --batch_size BATCH_SIZE
+  --train_rate TRAIN_RATE
+  --eval_rate EVAL_RATE
+  --learning_rate LEARNING_RATE
+  --max_epoch MAX_EPOCH
+</pre></div>
 </div>
-<div class="section" id="evaluation-parameters">
-<h3>Evaluation Parameters<a class="headerlink" href="#evaluation-parameters" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="evaluator.html"><span class="doc">Evaluation Introduction</span></a></p>
 </div>
-<div class="section" id="dataset-parameters">
-<h3>Dataset Parameters<a class="headerlink" href="#dataset-parameters" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="data.html"><span class="doc">Data Introduction</span></a></p>
+<div class="section" id="config">
+<h2>自定义 config 文件<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
+<p>命令行允许传递的参数多为实验中常见通过的参数，如 <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>。但为了使得用户能够随意修改各模块的默认参数，框架还提供通过命令行指定 config 文件名的方式，从用户自定义的配置文件中读入参数配置。用户自定义的 config 文件应满足如下格式要求：</p>
+<ol class="simple">
+<li><p>用户自定义 config 文件应为 JSON 文件。</p></li>
+<li><p>JSON 文件中存放一个字典，其键为参数名，值为所要修改的参数的值。</p></li>
+</ol>
+<p>示例：</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+	<span class="nt">&quot;hidden_state_size&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+	<span class="nt">&quot;loc_embedding_size&quot;</span><span class="p">:</span> <span class="mi">500</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="model-parameters">
-<h3>Model Parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="model.html"><span class="doc">Model Introduction</span></a></p>
-</div>
-</div>
-<div class="section" id="parameters-configuration">
-<h2>Parameters Configuration<a class="headerlink" href="#parameters-configuration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="config-files">
-<h3>Config Files<a class="headerlink" href="#config-files" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="parameter-dicts">
-<h3>Parameter Dicts<a class="headerlink" href="#parameter-dicts" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="command-line">
-<h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="priority">
-<h3>Priority<a class="headerlink" href="#priority" title="Permalink to this headline">¶</a></h3>
-</div>
+<p>用户可以通过自定义 config 文件修改任意模块的默认参数，具体的参数名可以前往各模块的章节了解更多信息。</p>
 </div>
 </div>
 
