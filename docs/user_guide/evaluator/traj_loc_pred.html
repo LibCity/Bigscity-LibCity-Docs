@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Batch &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Trajectory Location Prediction Evaluator &mdash; Bigscity-TrafficDL  documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Bigscity-TrafficDL  documentation" href="../../index.html"/>
-        <link rel="up" title="Data Introduction" href="../data.html"/>
-        <link rel="next" title="Args for Data" href="args_for_data.html"/>
-        <link rel="prev" title="Atomic Files" href="atmoic_files.html"/> 
+        <link rel="up" title="Evaluator Introduction" href="../evaluator.html"/>
+        <link rel="next" title="Executor Introduction" href="../executor.html"/>
+        <link rel="prev" title="Evaluator Introduction" href="../evaluator.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -97,16 +97,15 @@
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="raw_data.html">Raw Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="atmoic_files.html">Atomic Files</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Batch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Trajectory Location Prediction Evaluator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">参数</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
@@ -171,15 +170,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../data.html">Data Introduction</a> &raquo;</li>
+          <li><a href="../evaluator.html">Evaluator Introduction</a> &raquo;</li>
         
-      <li>Batch</li>
+      <li>Trajectory Location Prediction Evaluator</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/user_guide/data/batch.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/user_guide/evaluator/traj_loc_pred.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -192,17 +191,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="batch">
-<h1>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>是由<code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>加载并输入到预测模型中的内部数据结构。</p>
-<p>从<code class="docutils literal notranslate"><span class="pre">Dataloader</span></code>中取出的对象都是<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的对象。</p>
-<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类是基于<code class="docutils literal notranslate"><span class="pre">python.dict</span></code>实现的抽象数据类型，其构成<code class="docutils literal notranslate"><span class="pre">key-value</span></code>的结构，其中<code class="docutils literal notranslate"><span class="pre">key</span></code>是模型输入的特征名，<code class="docutils literal notranslate"><span class="pre">value</span></code>是对应特征的张量（<code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>），其包含一个batch或mini-batch的全部相关的张量数据。</p>
-<p>所以可以使用如下的方式来获取相应的value：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_loc&#39;</span><span class="p">]</span>
-<span class="n">tim</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_tim&#39;</span><span class="p">]</span>
-</pre></div>
+  <div class="section" id="trajectory-location-prediction-evaluator">
+<h1>Trajectory Location Prediction Evaluator<a class="headerlink" href="#trajectory-location-prediction-evaluator" title="Permalink to this headline">¶</a></h1>
+<p>对于轨迹下一跳预测任务，本评估器实现了一系列基于 TopK 的评估指标：</p>
+<ul class="simple">
+<li><p>Precision&#64;K</p></li>
+<li><p>Recall&#64;K</p></li>
+<li><p>F1-score&#64;K</p></li>
+<li><p>MRR&#64;K</p></li>
+<li><p>MAP&#64;K</p></li>
+<li><p>NDCG&#64;K</p></li>
+</ul>
+<p>可以通过在用户自定义 Config 文件中加入 <code class="docutils literal notranslate"><span class="pre">metrics</span></code> 与 <code class="docutils literal notranslate"><span class="pre">topk</span></code> 两个参数，来控制本评估器使用哪些评估方法。</p>
+<div class="section" id="id1">
+<h2>参数<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">metrics</span> <span class="pre">(list</span> <span class="pre">of</span> <span class="pre">string)</span></code>: 默认值为 <code class="docutils literal notranslate"><span class="pre">[&quot;Recall&quot;]</span></code>。可选参数为 <code class="docutils literal notranslate"><span class="pre">[&quot;Precision&quot;,</span> <span class="pre">&quot;Recall&quot;,</span> <span class="pre">&quot;F1&quot;,</span> <span class="pre">&quot;MRR&quot;,</span> <span class="pre">&quot;MAP&quot;,</span> <span class="pre">&quot;NDCG&quot;]</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">topk</span> <span class="pre">(int)</span></code>: 默认值为 <code class="docutils literal notranslate"><span class="pre">1</span></code>。</p></li>
+</ul>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">value</span></code>基于<code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>实现，在<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类中我们实现了对数据的长度补齐操作、原始数据转Tensor等一系列常用函数。</p>
 </div>
 
 
@@ -215,10 +222,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="args_for_data.html" class="btn btn-neutral float-right" title="Args for Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../executor.html" class="btn btn-neutral float-right" title="Executor Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="atmoic_files.html" class="btn btn-neutral" title="Atomic Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../evaluator.html" class="btn btn-neutral" title="Evaluator Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
