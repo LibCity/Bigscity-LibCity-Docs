@@ -35,6 +35,38 @@ def modify_doc_title_dir(abspath_rstfiles_dir):
         f = open(os.path.join(abspath_rstfiles_dir, rst_file), 'w')
         f.writelines(write_con)
         f.close()
+    solve_list = [
+        'trafficdl.model.traffic_flow_prediction.rst',
+        'trafficdl.model.traffic_demand_prediction.rst',
+        'trafficdl.model.traffic_speed_prediction.rst',
+        'trafficdl.model.trajectory_loc_prediction.rst',
+        'trafficdl.config.rst',
+        'trafficdl.data.rst',
+        'trafficdl.data.dataset.rst',
+        'trafficdl.evaluator.rst',
+        'trafficdl.executor.rst',
+        'trafficdl.model.rst',
+        'trafficdl.pipeline.rst',
+        'trafficdl.utils.rst',
+    ]
+    for rst_file in rst_files:
+        if rst_file in solve_list:
+            # print(rst_file)
+            f = open(os.path.join(abspath_rstfiles_dir, rst_file), 'r')
+            file_lines = f.readlines()
+            f.close()
+            write_con = []
+            i=0
+            while i < (len(file_lines)):
+                if 'automodule' in file_lines[i]:
+                    i=i+4  # 连跳4行
+                else:
+                    write_con.append(file_lines[i])
+                    i=i+1
+            f = open(os.path.join(abspath_rstfiles_dir, rst_file), 'w')
+            f.writelines(write_con)
+            f.close()
+
 
 
 if __name__ == '__main__':

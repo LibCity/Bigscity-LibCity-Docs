@@ -39,8 +39,8 @@ extensions = [
 'sphinx.ext.githubpages',
 'sphinx.ext.mathjax',
 'sphinx.ext.intersphinx',
+'sphinx.ext.viewcode',
 ]
-# 'sphinx.ext.viewcode',
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -66,3 +66,5 @@ source_parsers = {
     '.md': CommonMarkParser,
 }
 source_suffix = ['.rst', '.md']
+
+napoleon_include_private_with_doc = True
