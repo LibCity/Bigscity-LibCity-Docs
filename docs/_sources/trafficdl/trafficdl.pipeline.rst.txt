@@ -8,7 +8,3 @@ trafficdl.pipeline
    trafficdl.pipeline.pipeline
 
 
-.. automodule:: trafficdl.pipeline
-   :members:
-   :undoc-members:
-   :show-inheritance:

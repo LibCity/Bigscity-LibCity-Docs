@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,52 +11,47 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Bigscity-TrafficDL  documentation" href="../index.html"/>
-        <link rel="up" title="trafficdl.data" href="trafficdl.data.html"/>
-        <link rel="next" title="trafficdl.evaluator" href="trafficdl.evaluator.html"/>
-        <link rel="prev" title="trafficdl.data.list_dataset.py" href="trafficdl.data.list_dataset.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="trafficdl.evaluator" href="trafficdl.evaluator.html" />
+    <link rel="prev" title="trafficdl.data.list_dataset.py" href="trafficdl.data.list_dataset.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
           
 
           
@@ -80,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -132,13 +127,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Bigscity-TrafficDL</a>
@@ -146,9 +142,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -169,7 +166,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="trafficdl.data.html">trafficdl.data</a> &raquo;</li>
         
@@ -196,42 +193,60 @@
 <span id="trafficdl-data-utils-py"></span><h1>trafficdl.data.utils.py<a class="headerlink" href="#module-trafficdl.data.utils" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="trafficdl.data.utils.generate_dataloader">
-<code class="sig-prename descclassname">trafficdl.data.utils.</code><code class="sig-name descname">generate_dataloader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_data</span></em>, <em class="sig-param"><span class="n">eval_data</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">feature_name</span></em>, <em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">num_workers</span></em>, <em class="sig-param"><span class="n">pad_item</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pad_max_len</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">pad_with_last_sample</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.utils.generate_dataloader" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<code class="sig-prename descclassname">trafficdl.data.utils.</code><code class="sig-name descname">generate_dataloader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_data</span></em>, <em class="sig-param"><span class="n">eval_data</span></em>, <em class="sig-param"><span class="n">test_data</span></em>, <em class="sig-param"><span class="n">feature_name</span></em>, <em class="sig-param"><span class="n">batch_size</span></em>, <em class="sig-param"><span class="n">num_workers</span></em>, <em class="sig-param"><span class="n">pad_item</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pad_max_len</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shuffle</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">pad_with_last_sample</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/utils.html#generate_dataloader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.utils.generate_dataloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>create dataloader(train/test/eval)</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>train_data</strong> – (list of input)</p></li>
-<li><p><strong>eval_data</strong> – (list of input)</p></li>
-<li><p><strong>test_data</strong> – (list of input)</p></li>
-<li><p><strong>中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target</strong> (<em>data</em>) – </p></li>
+<li><p><strong>train_data</strong> (<em>list of input</em>) – 训练数据，data 中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target</p></li>
+<li><p><strong>eval_data</strong> (<em>list of input</em>) – 验证数据，data 中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target</p></li>
+<li><p><strong>test_data</strong> (<em>list of input</em>) – 测试数据，data 中每个元素是模型单次的输入，input 是一个 list，里面存放单次输入和 target</p></li>
 <li><p><strong>feature_name</strong> (<em>dict</em>) – 描述上面 input 每个元素对应的特征名, 应保证len(feature_name) = len(input)</p></li>
-<li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
-<li><p><strong>num_workers</strong> (<em>int</em>) – </p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – batch_size</p></li>
+<li><p><strong>num_workers</strong> (<em>int</em>) – num_workers</p></li>
 <li><p><strong>pad_item</strong> (<em>dict</em>) – 用于将不定长的特征补齐到一样的长度，每个特征名作为 key，若某特征名不在该 dict 内则不进行补齐。</p></li>
 <li><p><strong>pad_max_len</strong> (<em>dict</em>) – 用于截取不定长的特征，对于过长的特征进行剪切</p></li>
-<li><p><strong>shuffle</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>pad_with_last_sample</strong> (<em>bool</em>) – 对于若最后一个 batch 不满足 batch_size</p></li>
-<li><p><strong>的情况，是否进行补齐（使用最后一个元素反复填充补齐）。</strong> – </p></li>
+<li><p><strong>shuffle</strong> (<em>bool</em>) – shuffle</p></li>
+<li><p><strong>pad_with_last_sample</strong> (<em>bool</em>) – 对于若最后一个 batch 不满足 batch_size的情况，是否进行补齐（使用最后一个元素反复填充补齐）。</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl>
+<dt>tuple contains:</dt><dd><p>train_dataloader: Dataloader composed of Batch (class)</p>
+<p>eval_dataloader: Dataloader composed of Batch (class)</p>
+<p>test_dataloader: Dataloader composed of Batch (class)</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.data.utils.get_dataset">
-<code class="sig-prename descclassname">trafficdl.data.utils.</code><code class="sig-name descname">get_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.utils.get_dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>according the config[‘dataset_class’] to create the dataset
-:returns: the loaded dataset
-:rtype: dataset (Dataset)</p>
+<code class="sig-prename descclassname">trafficdl.data.utils.</code><code class="sig-name descname">get_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/utils.html#get_dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.utils.get_dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>according the config[‘dataset_class’] to create the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="trafficdl.config.config_parser.html#trafficdl.config.config_parser.ConfigParser" title="trafficdl.config.config_parser.ConfigParser"><em>ConfigParser</em></a>) – config</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the loaded dataset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="trafficdl.data.dataset.abstract_dataset.html#trafficdl.data.dataset.abstract_dataset.AbstractDataset" title="trafficdl.data.dataset.abstract_dataset.AbstractDataset">AbstractDataset</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -240,7 +255,7 @@
         <a href="trafficdl.evaluator.html" class="btn btn-neutral float-right" title="trafficdl.evaluator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="trafficdl.data.list_dataset.html" class="btn btn-neutral" title="trafficdl.data.list_dataset.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trafficdl.data.list_dataset.html" class="btn btn-neutral float-left" title="trafficdl.data.list_dataset.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -249,11 +264,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, aptx1231.
+        
+        &copy; Copyright 2020, aptx1231
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -265,38 +288,15 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/language_data.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

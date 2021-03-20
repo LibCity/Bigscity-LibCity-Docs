@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,51 +11,47 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Bigscity-TrafficDL  documentation" href="../index.html"/>
-        <link rel="next" title="trafficdl.model.traffic_speed_prediction" href="trafficdl.model.traffic_speed_prediction.html"/>
-        <link rel="prev" title="trafficdl.executor.traj_loc_pred_executor.py" href="trafficdl.executor.traj_loc_pred_executor.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="trafficdl.model.traffic_demand_prediction" href="trafficdl.model.traffic_demand_prediction.html" />
+    <link rel="prev" title="trafficdl.executor.traj_loc_pred_executor.py" href="trafficdl.executor.traj_loc_pred_executor.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
           
 
           
@@ -79,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -118,11 +114,12 @@
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.evaluator.html">trafficdl.evaluator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.executor.html">trafficdl.executor</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">trafficdl.model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_demand_prediction.html">trafficdl.model.traffic_demand_prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_flow_prediction.html">trafficdl.model.traffic_flow_prediction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.html">trafficdl.model.traffic_speed_prediction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.html">trafficdl.model.trajectory_loc_prediction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.abstract_model.html">trafficdl.model.abstract_model.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.init.html">trafficdl.model.init.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.layers.html">trafficdl.model.layers.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.abstract_traffic_state_model.html">trafficdl.model.abstract_traffic_state_model.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.loss.html">trafficdl.model.loss.py</a></li>
 </ul>
 </li>
@@ -133,13 +130,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Bigscity-TrafficDL</a>
@@ -147,9 +145,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -170,7 +169,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>trafficdl.model</li>
     
@@ -195,12 +194,28 @@
 <h1>trafficdl.model<a class="headerlink" href="#trafficdl-model" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="trafficdl.model.traffic_demand_prediction.html">trafficdl.model.traffic_demand_prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trafficdl.model.traffic_flow_prediction.html">trafficdl.model.traffic_flow_prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_flow_prediction.AGCRN.html">trafficdl.model.traffic_flow_prediction.AGCRN.py</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.html">trafficdl.model.traffic_speed_prediction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.DCRNN.html">trafficdl.model.traffic_speed_prediction.DCRNN.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.GraphWaveNet.html">trafficdl.model.traffic_speed_prediction.GraphWaveNet.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.STGCN.html">trafficdl.model.traffic_speed_prediction.STGCN.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.TGCLSTM.html">trafficdl.model.traffic_speed_prediction.TGCLSTM.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.TGCN.html">trafficdl.model.traffic_speed_prediction.TGCN.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.traffic_speed_prediction.TemplateTSP.html">trafficdl.model.traffic_speed_prediction.TemplateTSP.py</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.html">trafficdl.model.trajectory_loc_prediction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.DeepMove.html">trafficdl.model.trajectory_loc_prediction.DeepMove.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.FPMC.html">trafficdl.model.trajectory_loc_prediction.FPMC.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.LSTPM.html">trafficdl.model.trajectory_loc_prediction.LSTPM.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.RNN.html">trafficdl.model.trajectory_loc_prediction.RNN.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.SERM.html">trafficdl.model.trajectory_loc_prediction.SERM.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.STRNN.html">trafficdl.model.trajectory_loc_prediction.STRNN.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.model.trajectory_loc_prediction.TemplateTLP.html">trafficdl.model.trajectory_loc_prediction.TemplateTLP.py</a></li>
 </ul>
 </li>
 </ul>
@@ -208,701 +223,24 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.model.abstract_model.html">trafficdl.model.abstract_model.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trafficdl.model.init.html">trafficdl.model.init.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trafficdl.model.layers.html">trafficdl.model.layers.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trafficdl.model.abstract_traffic_state_model.html">trafficdl.model.abstract_traffic_state_model.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.model.loss.html">trafficdl.model.loss.py</a></li>
 </ul>
 </div>
-<span class="target" id="module-trafficdl.model"></span><dl class="py class">
-<dt id="trafficdl.model.AGCRN">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">AGCRN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.AGCRN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel</span></code></p>
-<dl class="py method">
-<dt id="trafficdl.model.AGCRN.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.AGCRN.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回训练过程的loss，也就是需要定义一个loss函数。
-:param batch: (Batch) a batch of input
-:return: training loss (tensor)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.AGCRN.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.AGCRN.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.AGCRN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.AGCRN.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回对应的预测值，一般应该是**多步预测**的结果
-一般会调用nn.Moudle的forward()方法
-:param batch: (Batch) a batch of input
-:return: predict result of this batch (tensor)</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.DCRNN">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">DCRNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DCRNN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel</span></code>, <a class="reference internal" href="trafficdl.model.traffic_speed_prediction.DCRNN.html#trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs" title="trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.traffic_speed_prediction.DCRNN.Seq2SeqAttrs</span></code></a></p>
-<dl class="py method">
-<dt id="trafficdl.model.DCRNN.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DCRNN.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回训练过程的loss，也就是需要定义一个loss函数。
-:param batch: (Batch) a batch of input
-:return: training loss (tensor)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.DCRNN.decoder">
-<code class="sig-name descname">decoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">encoder_hidden_state</span></em>, <em class="sig-param"><span class="n">labels</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DCRNN.decoder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decoder forward pass
-:param encoder_hidden_state: (num_layers, batch_size, self.hidden_state_size)
-:param labels: (self.output_window, batch_size, self.num_nodes * self.output_dim)</p>
-<blockquote>
-<div><p>[optional, not exist for inference]</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batches_seen</strong> – global step [optional, not exist for inference]</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>output: (self.output_window, batch_size, self.num_nodes * self.output_dim)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.DCRNN.encoder">
-<code class="sig-name descname">encoder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inputs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DCRNN.encoder" title="Permalink to this definition">¶</a></dt>
-<dd><p>encoder forward pass on t time steps
-:param inputs: shape (input_window, batch_size, num_sensor * input_dim)
-:return: encoder_hidden_state: (num_layers, batch_size, self.hidden_state_size)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.DCRNN.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DCRNN.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>seq2seq forward pass
-:param inputs: shape (batch_size, input_window, num_nodes, input_dim)
-:param labels: shape (batch_size, output_window, num_nodes, output_dim)
-:param batches_seen: batches seen till now
-:return: output: (batch_size, self.output_window, self.num_nodes, self.output_dim)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.DCRNN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em>, <em class="sig-param"><span class="n">batches_seen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DCRNN.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回对应的预测值，一般应该是**多步预测**的结果
-一般会调用nn.Moudle的forward()方法
-:param batch: (Batch) a batch of input
-:return: predict result of this batch (tensor)</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.DeepMove">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">DeepMove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DeepMove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a></p>
-<p>rnn model with long-term history attention</p>
-<dl class="py method">
-<dt id="trafficdl.model.DeepMove.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DeepMove.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>return training loss</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>loss (tensor)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.DeepMove.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DeepMove.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.DeepMove.init_weights">
-<code class="sig-name descname">init_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DeepMove.init_weights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Here we reproduce Keras default initialization weights for
-consistency with Keras version</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.DeepMove.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.DeepMove.predict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>the scores of the batch,</dt><dd><p>and will use the score to calculate loss or evaluate.</p>
-</dd>
-</dl>
-<p>N is the number of target</p>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>scores (tensor, shape = N*C)</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.FPMC">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">FPMC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.FPMC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a></p>
-<p>FPMC 作为序列推荐任务中的比较经典的模型，也可以适用于下一跳预测任务
-Reference:
-<a class="reference external" href="https://github.com/RUCAIBox/RecBole/blob/master/recbole/model/sequential_recommender/fpmc.py">https://github.com/RUCAIBox/RecBole/blob/master/recbole/model/sequential_recommender/fpmc.py</a>
-<a class="reference external" href="https://github.com/khesui/FPMC">https://github.com/khesui/FPMC</a></p>
-<dl class="py method">
-<dt id="trafficdl.model.FPMC.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.FPMC.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>return training loss</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>loss (tensor)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.FPMC.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.FPMC.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.FPMC.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.FPMC.predict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>the scores of the batch,</dt><dd><p>and will use the score to calculate loss or evaluate.</p>
-</dd>
-</dl>
-<p>N is the number of target</p>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>scores (tensor, shape = N*C)</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.GWNET">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">GWNET</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.GWNET" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel</span></code></p>
-<dl class="py method">
-<dt id="trafficdl.model.GWNET.cal_adj">
-<code class="sig-name descname">cal_adj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">adjtype</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.GWNET.cal_adj" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.GWNET.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.GWNET.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回训练过程的loss，也就是需要定义一个loss函数。
-:param batch: (Batch) a batch of input
-:return: training loss (tensor)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.GWNET.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.GWNET.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.GWNET.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.GWNET.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回对应的预测值，一般应该是**多步预测**的结果
-一般会调用nn.Moudle的forward()方法
-:param batch: (Batch) a batch of input
-:return: predict result of this batch (tensor)</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.LSTPM">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">LSTPM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.LSTPM" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a></p>
-<p>reference: <a class="reference external" href="https://github.com/NLPWM-WHU/LSTPM">https://github.com/NLPWM-WHU/LSTPM</a></p>
-<dl class="py method">
-<dt id="trafficdl.model.LSTPM.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.LSTPM.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>return training loss</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>loss (tensor)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.LSTPM.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.LSTPM.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.LSTPM.init_weights">
-<code class="sig-name descname">init_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.LSTPM.init_weights" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.LSTPM.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.LSTPM.predict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>the scores of the batch,</dt><dd><p>and will use the score to calculate loss or evaluate.</p>
-</dd>
-</dl>
-<p>N is the number of target</p>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>scores (tensor, shape = N*C)</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.RNN">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">RNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.RNN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a></p>
-<dl class="py method">
-<dt id="trafficdl.model.RNN.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.RNN.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>return training loss</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>loss (tensor)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.RNN.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.RNN.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.RNN.init_weights">
-<code class="sig-name descname">init_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.RNN.init_weights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Here we reproduce Keras default initialization weights for
-consistency with Keras version</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.RNN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.RNN.predict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>the scores of the batch,</dt><dd><p>and will use the score to calculate loss or evaluate.</p>
-</dd>
-</dl>
-<p>N is the number of target</p>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>scores (tensor, shape = N*C)</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.SERM">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">SERM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.SERM" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a></p>
-<dl class="py method">
-<dt id="trafficdl.model.SERM.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.SERM.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>return training loss</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>loss (tensor)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.SERM.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.SERM.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.SERM.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.SERM.predict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>the scores of the batch,</dt><dd><p>and will use the score to calculate loss or evaluate.</p>
-</dd>
-</dl>
-<p>N is the number of target</p>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>scores (tensor, shape = N*C)</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.STGCN">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">STGCN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STGCN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel</span></code></p>
-<dl class="py method">
-<dt id="trafficdl.model.STGCN.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STGCN.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回训练过程的loss，也就是需要定义一个loss函数。
-:param batch: (Batch) a batch of input
-:return: training loss (tensor)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.STGCN.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STGCN.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.STGCN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STGCN.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回对应的预测值，一般应该是**多步预测**的结果
-一般会调用nn.Moudle的forward()方法
-:param batch: (Batch) a batch of input
-:return: predict result of this batch (tensor)</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.STRNN">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">STRNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STRNN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a></p>
-<dl class="py method">
-<dt id="trafficdl.model.STRNN.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STRNN.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>return training loss</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>loss (tensor)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.STRNN.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">td_upper</span></em>, <em class="sig-param"><span class="n">td_lower</span></em>, <em class="sig-param"><span class="n">ld_upper</span></em>, <em class="sig-param"><span class="n">ld_lower</span></em>, <em class="sig-param"><span class="n">current_loc</span></em>, <em class="sig-param"><span class="n">loc_len</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STRNN.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.STRNN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STRNN.predict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>batch</strong> (<a class="reference internal" href="trafficdl.data.batch.html#trafficdl.data.batch.Batch" title="trafficdl.data.batch.Batch"><em>Batch</em></a>) – a batch of input</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>the scores of the batch,</dt><dd><p>and will use the score to calculate loss or evaluate.</p>
-</dd>
-</dl>
-<p>N is the number of target</p>
-</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>scores (tensor, shape = N*C)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.STRNN.reset_parameters">
-<code class="sig-name descname">reset_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.STRNN.reset_parameters" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.TGCLSTM">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">TGCLSTM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCLSTM" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel</span></code></p>
-<dl class="py method">
-<dt id="trafficdl.model.TGCLSTM.bi_torch">
-<code class="sig-name descname">bi_torch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCLSTM.bi_torch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TGCLSTM.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCLSTM.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回训练过程的loss，也就是需要定义一个loss函数。
-:param batch: (Batch) a batch of input
-:return: training loss (tensor)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TGCLSTM.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCLSTM.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the computation performed at every call.</p>
-<p>Should be overridden by all subclasses.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Although the recipe for forward pass needs to be defined within
-this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
-instead of this since the former takes care of running the
-registered hooks while the latter silently ignores them.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TGCLSTM.init_hidden">
-<code class="sig-name descname">init_hidden</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch_size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCLSTM.init_hidden" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TGCLSTM.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCLSTM.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回对应的预测值，一般应该是**多步预测**的结果
-一般会调用nn.Moudle的forward()方法
-:param batch: (Batch) a batch of input
-:return: predict result of this batch (tensor)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TGCLSTM.step">
-<code class="sig-name descname">step</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input</span></em>, <em class="sig-param"><span class="n">hidden_state</span></em>, <em class="sig-param"><span class="n">cell_state</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCLSTM.step" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.TGCN">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">TGCN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel</span></code></p>
-<dl class="py method">
-<dt id="trafficdl.model.TGCN.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCN.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回训练过程的loss，也就是需要定义一个loss函数。
-:param batch: (Batch) a batch of input
-:return: training loss (tensor)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TGCN.forward">
-<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCN.forward" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inputs</strong> – shape (batch_size, input_window, num_nodes, input_dim)</p></li>
-<li><p><strong>labels</strong> – shape (batch_size, output_window, num_nodes, output_dim)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>output: (batch_size, self.output_window, self.num_nodes, self.output_dim)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TGCN.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TGCN.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>输入一个batch的数据，返回对应的预测值，一般应该是**多步预测**的结果
-一般会调用nn.Moudle的forward()方法
-:param batch: (Batch) a batch of input
-:return: predict result of this batch (tensor)</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="trafficdl.model.TemplateTLP">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.model.</code><code class="sig-name descname">TemplateTLP</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">data_feature</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TemplateTLP" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.model.abstract_model.html#trafficdl.model.abstract_model.AbstractModel" title="trafficdl.model.abstract_model.AbstractModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.model.abstract_model.AbstractModel</span></code></a></p>
-<p>请参考开源模型代码，完成本文件的编写。请务必重写 __init__, predict, calculate_loss 三个方法。</p>
-<dl class="py method">
-<dt id="trafficdl.model.TemplateTLP.calculate_loss">
-<code class="sig-name descname">calculate_loss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TemplateTLP.calculate_loss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>参数说明:</dt><dd><p>batch (trafficdl.data.batch): 类 dict 文件，其中包含的键值参见任务说明文件。</p>
-</dd>
-<dt>返回值:</dt><dd><dl class="simple">
-<dt>loss (pytorch.tensor): 可以调用 pytorch 实现的 loss 函数与 batch[‘target’]</dt><dd><p>目标值进行 loss 计算，并将计算结果返回。如模型有自己独特的 loss 计算方式则自行参考实现。</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.model.TemplateTLP.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.model.TemplateTLP.predict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>参数说明:</dt><dd><p>batch (trafficdl.data.batch): 类 dict 文件，其中包含的键值参见任务说明文件。</p>
-</dd>
-<dt>返回值:</dt><dd><dl class="simple">
-<dt>score (pytorch.tensor): 对应张量 shape 应为 batch_size *</dt><dd><p>loc_size。这里返回的是模型对于输入当前轨迹的下一跳位置的预测值。</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="trafficdl.model.traffic_speed_prediction.html" class="btn btn-neutral float-right" title="trafficdl.model.traffic_speed_prediction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="trafficdl.model.traffic_demand_prediction.html" class="btn btn-neutral float-right" title="trafficdl.model.traffic_demand_prediction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="trafficdl.executor.traj_loc_pred_executor.html" class="btn btn-neutral" title="trafficdl.executor.traj_loc_pred_executor.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trafficdl.executor.traj_loc_pred_executor.html" class="btn btn-neutral float-left" title="trafficdl.executor.traj_loc_pred_executor.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -911,11 +249,19 @@ registered hooks while the latter silently ignores them.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, aptx1231.
+        
+        &copy; Copyright 2020, aptx1231
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -927,38 +273,15 @@ registered hooks while the latter silently ignores them.</p>
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/language_data.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

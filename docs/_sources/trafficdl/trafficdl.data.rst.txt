@@ -16,7 +16,3 @@ trafficdl.data
    trafficdl.data.utils
 
 
-.. automodule:: trafficdl.data
-   :members:
-   :undoc-members:
-   :show-inheritance:

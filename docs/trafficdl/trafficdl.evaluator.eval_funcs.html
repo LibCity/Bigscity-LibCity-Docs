@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,52 +11,47 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Bigscity-TrafficDL  documentation" href="../index.html"/>
-        <link rel="up" title="trafficdl.evaluator" href="trafficdl.evaluator.html"/>
-        <link rel="next" title="trafficdl.evaluator.traffic_speed_pred_evaluator.py" href="trafficdl.evaluator.traffic_speed_pred_evaluator.html"/>
-        <link rel="prev" title="trafficdl.evaluator.abstract_evaluator.py" href="trafficdl.evaluator.abstract_evaluator.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="trafficdl.evaluator.traffic_state_evaluator.py" href="trafficdl.evaluator.traffic_state_evaluator.html" />
+    <link rel="prev" title="trafficdl.evaluator.abstract_evaluator.py" href="trafficdl.evaluator.abstract_evaluator.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
           
 
           
@@ -80,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -119,7 +114,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="trafficdl.evaluator.html">trafficdl.evaluator</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.evaluator.abstract_evaluator.html">trafficdl.evaluator.abstract_evaluator.py</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">trafficdl.evaluator.eval_funcs.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="trafficdl.evaluator.traffic_speed_pred_evaluator.html">trafficdl.evaluator.traffic_speed_pred_evaluator.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trafficdl.evaluator.traffic_state_evaluator.html">trafficdl.evaluator.traffic_state_evaluator.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.evaluator.traj_loc_pred_evaluator.html">trafficdl.evaluator.traj_loc_pred_evaluator.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trafficdl.evaluator.utils.html">trafficdl.evaluator.utils.py</a></li>
 </ul>
@@ -133,13 +128,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Bigscity-TrafficDL</a>
@@ -147,9 +143,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -170,7 +167,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="trafficdl.evaluator.html">trafficdl.evaluator</a> &raquo;</li>
         
@@ -197,58 +194,64 @@
 <span id="trafficdl-evaluator-eval-funcs-py"></span><h1>trafficdl.evaluator.eval_funcs.py<a class="headerlink" href="#module-trafficdl.evaluator.eval_funcs" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.acc">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">acc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.acc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">acc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#acc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.acc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.mae">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mae</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mae" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mae</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#mae"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mae" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.mape">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#mape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mape" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.mare">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mare" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#mare"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mare" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.mse">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#mse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.rmse">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">rmse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.rmse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">rmse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#rmse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.rmse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.smape">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">smape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.smape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">smape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#smape"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.smape" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.top_k">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">top_k</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em>, <em class="sig-param"><span class="n">topk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.top_k" title="Permalink to this definition">¶</a></dt>
-<dd><p>count the hit numbers of loc_true in topK of loc_pred, used to calculate
-Precision, Recall and F1-score
-calculate the reciprocal rank, used to calcualte MRR
-calculate the sum of DCG&#64;K of the batch, used to calculate NDCG
-:param loc_pred:
-:type loc_pred: batch_size * output_dim
-:param loc_true:
-:type loc_true: batch_size * 1</p>
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">top_k</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em>, <em class="sig-param"><span class="n">topk</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/evaluator/eval_funcs.html#top_k"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.top_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>count the hit numbers of loc_true in topK of loc_pred, used to calculate Precision, Recall and F1-score,
+calculate the reciprocal rank, used to calcualte MRR,
+calculate the sum of DCG&#64;K of the batch, used to calculate NDCG</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the hit numbers
-rank (float): the sum of the reciprocal rank of input batch
-dcg (float)</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loc_pred</strong> – (batch_size * output_dim)</p></li>
+<li><p><strong>loc_true</strong> – (batch_size * 1)</p></li>
+<li><p><strong>topk</strong> – </p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>hit (int)</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl>
+<dt>tuple contains:</dt><dd><p>hit (int): the hit numbers</p>
+<p>rank (float): the sum of the reciprocal rank of input batch</p>
+<p>dcg (float): dcg</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -257,18 +260,16 @@ dcg (float)</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="trafficdl.evaluator.traffic_speed_pred_evaluator.html" class="btn btn-neutral float-right" title="trafficdl.evaluator.traffic_speed_pred_evaluator.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="trafficdl.evaluator.traffic_state_evaluator.html" class="btn btn-neutral float-right" title="trafficdl.evaluator.traffic_state_evaluator.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="trafficdl.evaluator.abstract_evaluator.html" class="btn btn-neutral" title="trafficdl.evaluator.abstract_evaluator.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="trafficdl.evaluator.abstract_evaluator.html" class="btn btn-neutral float-left" title="trafficdl.evaluator.abstract_evaluator.py" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -277,11 +278,19 @@ dcg (float)</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, aptx1231.
+        
+        &copy; Copyright 2020, aptx1231
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -293,38 +302,15 @@ dcg (float)</p>
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/language_data.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

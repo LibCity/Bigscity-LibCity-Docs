@@ -7,10 +7,7 @@ trafficdl.utils
 
    trafficdl.utils.argument_list
    trafficdl.utils.dataset
+   trafficdl.utils.normalization
    trafficdl.utils.utils
 
 
-.. automodule:: trafficdl.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
