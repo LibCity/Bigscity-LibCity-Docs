@@ -105,6 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -201,8 +202,8 @@
 <dt id="trafficdl.data.batch.Batch.append">
 <code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.batch.Batch.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>append a new item into the batch
-:param item: 特征名作为键
-:type item: dict</p>
+:param item: 一组输入，跟feature_name的顺序一致，feature_name即是这一组输入的名字
+:type item: list</p>
 </dd></dl>
 
 <dl class="py method">
@@ -218,7 +219,7 @@
 
 <dl class="py method">
 <dt id="trafficdl.data.batch.Batch.to_tensor">
-<code class="sig-name descname">to_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gpu</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.batch.Batch.to_tensor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">device</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.batch.Batch.to_tensor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

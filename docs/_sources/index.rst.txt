@@ -30,6 +30,7 @@ Welcome to Bigscity-TrafficDL's documentation!
    :maxdepth: 1
    :caption: Developer Guide
 
+   developer_guide/code_style
    developer_guide/implemented_datasets
    developer_guide/implemented_models
    developer_guide/implemented_evaluators

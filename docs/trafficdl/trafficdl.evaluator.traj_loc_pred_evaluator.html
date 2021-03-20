@@ -105,6 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -211,7 +212,8 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>batch</strong> (<em>dict</em>) – contains three keys: uid, loc_true, and loc_pred.</p></li>
-<li><p><strong>uid</strong> (<em>list</em>) – 来自于 batch 中的 uid，通过索引可以确定 loc_true 与 loc_pred 中每一行（元素）是哪个用户的一次输入。</p></li>
+<li><p><strong>uid</strong> (<em>list</em>) – 来自于 batch 中的 uid，通过索引可以确定 loc_true 与 loc_pred
+中每一行（元素）是哪个用户的一次输入。</p></li>
 <li><p><strong>loc_true</strong> (<em>list</em>) – 期望地点(target)，来自于 batch 中的 target</p></li>
 <li><p><strong>loc_pred</strong> (<em>matrix</em>) – 实际上模型的输出，batch_size * output_dim.</p></li>
 </ul>

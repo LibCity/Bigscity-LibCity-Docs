@@ -104,6 +104,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -192,7 +193,27 @@
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.pipeline.pipeline.html">trafficdl.pipeline.pipeline.py</a></li>
 </ul>
 </div>
-<span class="target" id="module-trafficdl.pipeline"></span></div>
+<span class="target" id="module-trafficdl.pipeline"></span><dl class="py function">
+<dt id="trafficdl.pipeline.run_model">
+<code class="sig-prename descclassname">trafficdl.pipeline.</code><code class="sig-name descname">run_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">dataset_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">config_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">save_model</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">train</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">other_args</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.pipeline.run_model" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> (<em>str</em>) – task name</p></li>
+<li><p><strong>model_name</strong> (<em>str</em>) – model name</p></li>
+<li><p><strong>dataset_name</strong> (<em>str</em>) – dataset name</p></li>
+<li><p><strong>config_file</strong> (<em>str</em>) – config filename used to modify the pipeline’s
+settings. the config file should be json.</p></li>
+<li><p><strong>save_model</strong> (<em>bool</em>) – whether to save the model</p></li>
+<li><p><strong>train</strong> (<em>bool</em>) – whether to train the model</p></li>
+<li><p><strong>other_args</strong> (<em>dict</em>) – the rest parameter args, which will be pass to
+the Config</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 
 
            </div>

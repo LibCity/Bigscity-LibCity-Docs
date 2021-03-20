@@ -104,6 +104,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -200,7 +201,86 @@
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.evaluator.utils.html">trafficdl.evaluator.utils.py</a></li>
 </ul>
 </div>
-<span class="target" id="module-trafficdl.evaluator"></span></div>
+<span class="target" id="module-trafficdl.evaluator"></span><dl class="py class">
+<dt id="trafficdl.evaluator.TrafficStateEvaluator">
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.evaluator.</code><code class="sig-name descname">TrafficStateEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrafficStateEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="trafficdl.evaluator.abstract_evaluator.html#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator" title="trafficdl.evaluator.abstract_evaluator.AbstractEvaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.evaluator.abstract_evaluator.AbstractEvaluator</span></code></a></p>
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrafficStateEvaluator.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrafficStateEvaluator.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>清除之前收集到的 batch 的评估信息，适用于每次评估开始时进行一次清空，排除之前的评估输入的影响。
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrafficStateEvaluator.collect">
+<code class="sig-name descname">collect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrafficStateEvaluator.collect" title="Permalink to this definition">¶</a></dt>
+<dd><p>评估输入数据
+:param batch: (dict) 字典类型，包含两个Key:(y_true, y_pred)
+batch[‘y_true’]: (num_samples/batch_size, timeslots, …, feature_dim)
+batch[‘y_pred’]: (num_samples/batch_size, timeslots, …, feature_dim)
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrafficStateEvaluator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrafficStateEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>返回之前收集到的所有 batch 的评估结果
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrafficStateEvaluator.save_result">
+<code class="sig-name descname">save_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">save_path</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrafficStateEvaluator.save_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>将评估结果保存到 save_path 文件夹下的 filename 文件中
+:param save_path: 保存路径
+:param filename: 保存文件名
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="trafficdl.evaluator.TrajLocPredEvaluator">
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.evaluator.</code><code class="sig-name descname">TrajLocPredEvaluator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrajLocPredEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="trafficdl.evaluator.abstract_evaluator.html#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator" title="trafficdl.evaluator.abstract_evaluator.AbstractEvaluator"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.evaluator.abstract_evaluator.AbstractEvaluator</span></code></a></p>
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrajLocPredEvaluator.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrajLocPredEvaluator.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>清除之前收集到的 batch 的评估信息，适用于每次评估开始时进行一次清空，排除之前的评估输入的影响。</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrajLocPredEvaluator.collect">
+<code class="sig-name descname">collect</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrajLocPredEvaluator.collect" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch</strong> (<em>dict</em>) – contains three keys: uid, loc_true, and loc_pred.</p></li>
+<li><p><strong>uid</strong> (<em>list</em>) – 来自于 batch 中的 uid，通过索引可以确定 loc_true 与 loc_pred
+中每一行（元素）是哪个用户的一次输入。</p></li>
+<li><p><strong>loc_true</strong> (<em>list</em>) – 期望地点(target)，来自于 batch 中的 target</p></li>
+<li><p><strong>loc_pred</strong> (<em>matrix</em>) – 实际上模型的输出，batch_size * output_dim.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrajLocPredEvaluator.evaluate">
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrajLocPredEvaluator.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>返回之前收集到的所有 batch 的评估结果</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.evaluator.TrajLocPredEvaluator.save_result">
+<code class="sig-name descname">save_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">save_path</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.TrajLocPredEvaluator.save_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>将评估结果保存到 save_path 文件夹下的 filename 文件中</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 
 
            </div>

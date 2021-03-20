@@ -105,6 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -253,7 +254,8 @@ test_data (list)</p>
 <dl class="py method">
 <dt id="trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.get_data_feature">
 <code class="sig-name descname">get_data_feature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.get_data_feature" title="Permalink to this definition">¶</a></dt>
-<dd><p>如果模型使用了 embedding 层，一般是需要根据数据集的 loc_size、tim_size、uid_size 等特征来确定 embedding 层的大小的
+<dd><p>如果模型使用了 embedding 层，一般是需要根据数据集的 loc_size、tim_size、uid_size 等特征来确定
+embedding 层的大小的
 故该方法返回一个 dict，包含表示层能够提供的数据集特征
 :returns: data_feature (dict)</p>
 </dd></dl>

@@ -105,6 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -190,49 +191,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-trafficdl.executor.traffic_speed_pred_executor">
-<span id="trafficdl-executor-traffic-speed-pred-executor-py"></span><h1>trafficdl.executor.traffic_speed_pred_executor.py<a class="headerlink" href="#module-trafficdl.executor.traffic_speed_pred_executor" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt id="trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor">
-<em class="property">class </em><code class="sig-prename descclassname">trafficdl.executor.traffic_speed_pred_executor.</code><code class="sig-name descname">TrafficSpeedPredExecutor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="trafficdl.executor.abstract_executor.html#trafficdl.executor.abstract_executor.AbstractExecutor" title="trafficdl.executor.abstract_executor.AbstractExecutor"><code class="xref py py-class docutils literal notranslate"><span class="pre">trafficdl.executor.abstract_executor.AbstractExecutor</span></code></a></p>
-<dl class="py method">
-<dt id="trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.evaluate">
-<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">test_dataloader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.evaluate" title="Permalink to this definition">¶</a></dt>
-<dd><p>use model to test data
-评估结果将会保存到 cache 文件下</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.load_model">
-<code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cache_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.load_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>加载对应模型的 cache</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.load_model_with_epoch">
-<code class="sig-name descname">load_model_with_epoch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.load_model_with_epoch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.save_model">
-<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cache_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.save_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>将当前的模型保存到文件内</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.save_model_with_epoch">
-<code class="sig-name descname">save_model_with_epoch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">epoch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.save_model_with_epoch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.train">
-<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">train_dataloader</span></em>, <em class="sig-param"><span class="n">eval_dataloader</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.executor.traffic_speed_pred_executor.TrafficSpeedPredExecutor.train" title="Permalink to this definition">¶</a></dt>
-<dd><p>use data to train model with config</p>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="trafficdl-executor-traffic-speed-pred-executor-py">
+<h1>trafficdl.executor.traffic_speed_pred_executor.py<a class="headerlink" href="#trafficdl-executor-traffic-speed-pred-executor-py" title="Permalink to this headline">¶</a></h1>
 </div>
 
 

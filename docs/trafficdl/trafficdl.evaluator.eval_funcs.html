@@ -105,6 +105,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -195,44 +196,45 @@
   <div class="section" id="module-trafficdl.evaluator.eval_funcs">
 <span id="trafficdl-evaluator-eval-funcs-py"></span><h1>trafficdl.evaluator.eval_funcs.py<a class="headerlink" href="#module-trafficdl.evaluator.eval_funcs" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="trafficdl.evaluator.eval_funcs.ACC">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">ACC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.ACC" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.evaluator.eval_funcs.acc">
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">acc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.acc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="trafficdl.evaluator.eval_funcs.MAE">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">MAE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.MAE" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.evaluator.eval_funcs.mae">
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mae</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mae" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="trafficdl.evaluator.eval_funcs.MAPE">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">MAPE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.MAPE" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.evaluator.eval_funcs.mape">
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mape" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="trafficdl.evaluator.eval_funcs.MARE">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">MARE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.MARE" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.evaluator.eval_funcs.mare">
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mare</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mare" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="trafficdl.evaluator.eval_funcs.MSE">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">MSE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.MSE" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.evaluator.eval_funcs.mse">
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">mse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.mse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="trafficdl.evaluator.eval_funcs.RMSE">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">RMSE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.RMSE" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.evaluator.eval_funcs.rmse">
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">rmse</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.rmse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="trafficdl.evaluator.eval_funcs.SMAPE">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">SMAPE</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.SMAPE" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.evaluator.eval_funcs.smape">
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">smape</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.smape" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="trafficdl.evaluator.eval_funcs.top_k">
-<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">top_k</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em>, <em class="sig-param"><span class="n">topK</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.top_k" title="Permalink to this definition">¶</a></dt>
-<dd><p>count the hit numbers of loc_true in topK of loc_pred, used to calculate Precision, Recall and F1-score
+<code class="sig-prename descclassname">trafficdl.evaluator.eval_funcs.</code><code class="sig-name descname">top_k</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loc_pred</span></em>, <em class="sig-param"><span class="n">loc_true</span></em>, <em class="sig-param"><span class="n">topk</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.evaluator.eval_funcs.top_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>count the hit numbers of loc_true in topK of loc_pred, used to calculate
+Precision, Recall and F1-score
 calculate the reciprocal rank, used to calcualte MRR
 calculate the sum of DCG&#64;K of the batch, used to calculate NDCG
 :param loc_pred:

@@ -104,6 +104,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
@@ -192,7 +193,22 @@
 <li class="toctree-l1"><a class="reference internal" href="trafficdl.config.config_parser.html">trafficdl.config.config_parser.py</a></li>
 </ul>
 </div>
-<span class="target" id="module-trafficdl.config"></span></div>
+<span class="target" id="module-trafficdl.config"></span><dl class="py class">
+<dt id="trafficdl.config.ConfigParser">
+<em class="property">class </em><code class="sig-prename descclassname">trafficdl.config.</code><code class="sig-name descname">ConfigParser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">task</span></em>, <em class="sig-param"><span class="n">model</span></em>, <em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">config_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">other_args</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.config.ConfigParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>use to parse the user defined parameters and use these to modify the
+pipeline’s parameter setting.
+值得注意的是，目前各阶段的参数是放置于同一个 dict 中的，因此需要编程时保证命名空间不冲突
+config 优先级：命令行 &gt; config file &gt; default config</p>
+<dl class="py method">
+<dt id="trafficdl.config.ConfigParser.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#trafficdl.config.ConfigParser.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 
 
            </div>
