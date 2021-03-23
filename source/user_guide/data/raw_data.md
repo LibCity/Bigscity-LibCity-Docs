@@ -1,6 +1,9 @@
 # Raw Data
 
-## Foursquare
+## 人流轨迹数据集
+
+
+### Foursquare
 
 **Duration:** Apr. 12, 2012 ~ Feb. 16, 2013
 
@@ -8,7 +11,7 @@
 
 **Description:**  Foursquare a location-based social networking website where users share their locations by checking-in.
 
-## Foursquare: NYC Restaurant Rich Dataset
+### Foursquare: NYC Restaurant Rich Dataset
 
 **Place:** New York, USA
 
@@ -16,7 +19,7 @@
 
 **Description:**  This dataset includes check-in, tip and tag data of restaurant venues in NYC.
 
-## Foursquare: Global-scale Check-in Dataset
+### Foursquare: Global-scale Check-in Dataset
 
 **Place:** 415 cities
 
@@ -24,7 +27,7 @@
 
 **Description:**  This dataset includes long-term (about 18 months from April 2012 to September 2013) global-scale check-in data collected from Foursquare.
 
-## Foursquare: User Profile Dataset
+### Foursquare: User Profile Dataset
 
 **Place:** New York, USA and Tokyo, Japan
 
@@ -32,7 +35,7 @@
 
 **Description:**  This dataset includes some user profile data for privacy study (i. e., gender, friends, followers). The corresponding user check-in data can be found in the global-scale check-in dataset.
 
-## Foursquare: Global-scale Check-in Dataset with User Social Networks
+### Foursquare: Global-scale Check-in Dataset with User Social Networks
 
 **Place:** 415 cities
 
@@ -40,7 +43,7 @@
 
 **Description:**  This dataset includes long-term (about 22 months from Apr. 2012 to Jan. 2014) global-scale check-in data collected from Foursquare, and also two snapshots of user social networks before and after the check-in data collection period. 
 
-## Gowalla
+### Gowalla
 
 **Place:** -
 
@@ -50,7 +53,7 @@
 
 **Description:**  Gowalla is a location-based social networking website where users share their locations by checking-in,containing information of users, users' check-in time, users' latitude, longitude,users' location id.
 
-## Brightkite
+### Brightkite
 
 **Place:** -
 
@@ -60,7 +63,7 @@
 
 **Description:** Brightkite is a location-based social networking website where users share their locations by checking-in,containing information of users, users' check-in time, users' latitude, longitude,users' location id.
 
-## GeoLife-GPS
+### GeoLife-GPS
 
 **Place:** Beijing, China (majority)
 
@@ -72,7 +75,9 @@
 
 出行轨迹，基本就是user_ID，time ，lat，lon，location_id的格式
 
-## NYC-Bus
+## 车辆轨迹数据集
+
+### NYC-Bus
 
 **Place:** New York, USA
 
@@ -86,7 +91,7 @@
 
 【本质上是不同时刻的公交车位置数据集】
 
-## NYC-Taxi
+### NYC-Taxi
 
 **Place:** New York, USA
 
@@ -110,7 +115,7 @@ FHV车：
 
 上下车时间、上下车地点（ID）
 
-## NYC-Bike
+### NYC-Bike
 
 **Place:** New York, USA
 
@@ -124,7 +129,7 @@ FHV车：
 
 旅程用时、起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆ID、用户类别、用户生日、用户性别
 
-## BikeDC
+### BikeDC
 
 **Place:** Washington, USA
 
@@ -138,7 +143,7 @@ FHV车：
 
 起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆类型、车辆ID、用户类别
 
-## BikeCHI
+### BikeCHI
 
 **Place:** Chicago, USA
 
@@ -152,7 +157,7 @@ FHV车：
 
 起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆类型、车辆ID、用户类别
 
-## AustinRide
+### AustinRide
 
 **Place:** Austin, USA
 
@@ -166,7 +171,7 @@ FHV车：
 
 旅程距离、起止时间、起止地点经纬度、车辆ID、用户ID等
 
-## I-80
+### I-80
 
 **Place:** San Francisco Bay, USA
 
@@ -178,7 +183,7 @@ FHV车：
 
 按车辆ID组织数据，每隔一段时间记录一次车的位置，数据的每一行是车辆ID、车辆位置坐标、车辆的相关信息、车辆瞬时速度等
 
-## T-Drive
+### T-Drive
 
 **Place:** Beijing, China
 
@@ -190,7 +195,7 @@ FHV车：
 
 按车辆ID组织数据，每隔一段时间记录一次车的位置，数据的每一行是车辆ID，时间，车辆位置经纬度
 
-## Porto
+### Porto
 
 **Place:** Porto, Portugal
 
@@ -204,7 +209,11 @@ FHV车：
 
 每个Trip包含开始地点、开始时间、司机ID、一系列位置坐标：每隔一段时间记录一次车的位置（经纬度）
 
-## TaxiBJ
+## 预处理过的车辆轨迹数据集
+
+主要是将车辆轨迹数据集进行了空间切分、流量统计等预处理操作，将之转换成流量或者需求量数据。（主要是规则的网格划分）
+
+### TaxiBJ
 
 **Place:** Beijing, China
 
@@ -216,31 +225,23 @@ FHV车：
 
 四维张量： [timeslots, inflow/outflow, grid_line_id, grid_column_id]，直接给出了inflow和outflow，只适合于流量预测
 
-## Uber
+### NYCBike20140409
 
-**Place:** New York, USA
+### NYCBike20160708
 
-**Duration:** Apr. 1, 2014 ~ Sept. 30, 2014 and Jan. 1, 2015 ~ Jun. 30, 2015
+### NYCBike20160809
 
-**Link:** https://www.kaggle.com/fivethirtyeight/uber-pickups-in-new-york-city
+### NYCTaxi20140112
 
-**Description:** The Uber dataset contains data on over 4.5 million Uber pickups in New York City from April to September 2014, and 14.3 million more Uber pickups from January to June 2015.
+### NYCTaxi20150103
 
-（不建议使用，没有下车的位置和时间？感觉是从NYC数据集抽取的数据集）
+### NYCTaxi20160102
 
-Uber2014：
+### T-Drive20150206
 
-上车时间、上车地点经纬度
+## 交通状况数据集
 
-Uber2015：
-
-上车时间、上车地点ID
-
-FLV：
-
-上车时间、上车地点名
-
-## METR-LA
+### METR-LA
 
 **Place:** Los Angeles County, USA
 
@@ -250,24 +251,15 @@ FLV：
 
 **Description:** The METR-LA dataset collected in the highway by loop detectors, contains traffic speed data from 207 sensors.
 
-DataFrame二维表的格式
-
-sensor_id            400001  400017  400030  400040  400045  400052  ...  413026  413845  413877  413878  414284  414694
-2017-01-01 00:00:00    71.4    67.8    70.5    67.4    68.8    66.6  ...    69.2    68.9    70.4    68.8    71.1    68.0
-2017-01-01 00:05:00    71.6    67.5    70.6    67.5    68.7    66.6  ...    70.4    68.8    70.1    68.4    70.8    67.4
-2017-01-01 00:10:00    71.6    67.6    70.2    67.4    68.7    66.1  ...    70.2    68.3    69.8    68.4    70.5    67.9
-2017-01-01 00:15:00    71.1    67.5    70.3    68.0    68.5    66.7  ...    70.4    68.7    70.2    68.4    70.8    67.6
-2017-01-01 00:20:00    71.7    67.8    70.2    68.1    68.4    66.9  ...    69.6    69.1    70.0    68.4    71.0    67.9
-
 列是时间，间隔为5min。行是sensor编号，提供文件表示sensor的经纬度。值是速度。
 
 用sensor之间的距离矩阵代表路网（adjacency matrix、权重矩阵、代表节点的相似度）
 
-## Los-loop
+### Los-loop
 
-（这个就是METR-LA）
+跟METR_LA稍有区别，把缺失值用线性插值的方式补充好了。
 
-## SZ-Taxi
+### SZ-Taxi
 
 **Place:** Shenzhen, China
 
@@ -283,7 +275,7 @@ DataFrame二维表的格式
 
 提供adjacency matrix描述路网的结构（1或0，邻接与否）
 
-## Loop Seattle
+### Loop Seattle
 
 **Place:** Greater Seattle Area, China
 
@@ -293,55 +285,11 @@ DataFrame二维表的格式
 
 **Description:** The Loop Seattle dataset is collected by the inductive loop detectors deployed on freeways (I-5, I-405, I-90, and SR-520) in Seattle area and contains traffic state data from 323 sensor stations.
 
-`df = pd.read_pickle('speed_matrix_2015')`
-
-DataFrame二维表的格式
-
-ID                   d005es15036  d005es15125  d005es15214  ...  i520es00861  i520es00935  i520es00972
-stamp                                                       ...
-2015-01-01 00:00:00    61.939138    64.280883    62.077397  ...    68.112571    66.567829    62.032062
-2015-01-01 00:05:00    59.232527    65.082450    64.808345  ...    59.022999    58.949034    61.212069
-2015-01-01 00:10:00    61.991801    65.309123    64.803916  ...    58.710086    56.671427    57.488732
-2015-01-01 00:15:00    62.480655    65.191651    67.206597  ...    64.368119    57.892398    64.087189
-2015-01-01 00:20:00    62.490484    65.287669    67.323285  ...    62.795588    62.545365    64.567285
-
 列是时间，间隔为5min。行是sensor编号。值是速度。
 
 提供adjacency matrix描述路网的结构（1或0，邻接与否）
 
-## NYC Speed data
-
-**Place:** New York, USA
-
-**Duration:** Apr. 1, 2015 ~ present
-
-**Link:** http://data.beta.nyc/dataset/nyc-real-time-traffic-speed-data-feed-archived
-
-**Description:** The NYC Speed data contains speed data for New York City, including speed, travel time, status, etc.
-
-按照道路ID组织数据，每一条数据包括道路ID、速度、时间、穿过道路的平均用时。
-
-对于每个道路，提供文件描述一系列道路上sensor的经纬度位置、道路名称等。
-
-Sequence of Lat/ Long points, describes locations of the sensor links
-
-## HK
-
-**Place:** Hong Kong, China
-
-**Duration:** Dec. 28, 2015 ~ present
-
-**Link:** https://data.gov.hk/en-data/dataset/hk-td-sm_1-traffic-speed-map
-
-**Description:** The HK dataset contains average traffic speed of major roads in Hong Kong.
-
-按照道路ID组织数据，每一条数据包括道路ID、道路区域、道路类型、道路状况等级、速度、时间。
-
-时间间隔较短，可以得到每条道路，各个时间的速度信息。
-
-对于每个路段link，提供文件描述起始站、终点站、以及相应的经纬度、道路类型。(基于它们可以构建路网的拓扑)
-
-## Q-Traffic
+### Q-Traffic
 
 **Place:** Beijing, China
 
@@ -363,19 +311,7 @@ Sequence of Lat/ Long points, describes locations of the sensor links
 
 对于每个路段link，提供路段的起点（节点）和终点（节点），基于它们可以构建路网的拓扑、提供宽度，长度km，方向，限速和车道数信息。提供一个经纬度，不知道是起点还是终点。
 
-## ENG-HW
-
-**Place:** British
-
-**Duration:** 2006 ~ 2014
-
-**Link:** http://tris.highwaysengland.co.uk/detail/trafficflowdata
-
-**Description:** The ENG-HW dataset includes information on intercity road traffic between three UK cities recorded by the government from 2006 to 2014.
-
-每个站点不同时间的流量数据
-
-## PEMS
+### PEMS
 
 **Place:** California, USA
 
@@ -385,7 +321,7 @@ Sequence of Lat/ Long points, describes locations of the sensor links
 
 **Description:** PEMS records California highway speed data, including time_hour, average_time, lane_points.
 
-## PeMSD3
+### PeMSD3
 
 **Place:** District 3 of California, USA
 
@@ -403,7 +339,7 @@ DataFrame二维表的格式
 
 用sensor之间的距离矩阵代表路网（adjacency matrix）
 
-## PeMSD4
+### PeMSD4
 
 **Place:** San Francisco Bay Area, USA
 
@@ -417,7 +353,7 @@ DataFrame二维表的格式
 
 用sensor之间的距离矩阵代表路网（adjacency matrix）
 
-## PEMSD7
+### PEMSD7
 
 **Place:** District 7 of California, USA
 
@@ -431,7 +367,7 @@ DataFrame二维表的格式
 
 用sensor之间的距离矩阵代表路网（adjacency matrix）
 
-## PeMSD8
+### PeMSD8
 
 **Place:** San Bernardino Area, USA
 
@@ -445,7 +381,7 @@ DataFrame二维表的格式
 
 用sensor之间的距离矩阵代表路网（adjacency matrix）
 
-## PEMSD7(M){#index}
+### PEMSD7(M)
 
 **Place:** District 7 of California, USA
 
@@ -455,13 +391,11 @@ DataFrame二维表的格式
 
 **Description:** The PeMSD7(M) dataset describes highway speed information at 228 stations in the 7th District of California.
 
-DataFrame二维表的格式
-
 列是时间，间隔为5min。行是sensor编号。值是速度。
 
 用sensor之间的距离矩阵代表路网（adjacency matrix）
 
-## PeMSD-SF
+### PeMSD-SF
 
 **Place:** San Francisco Bay Area, USA
 
@@ -471,9 +405,9 @@ DataFrame二维表的格式
 
 **Description:** The PeMSD-SF dataset describes the occupancy rate, between 0 and 1, of different car lanes of San Francisco bay area freeways. 
 
-Occupancy
+Occupancy占有率数据集
 
-## PEMS-BAY
+### PEMS-BAY
 
 **Place:** San Francisco Bay Area, USA
 
@@ -483,33 +417,74 @@ Occupancy
 
 **Description:** The PeMS-BAY dataset contains 6 months of statistics on traffic speed, including 325 sensors.
 
-DataFrame二维表的格式
-
-​                                       773869     767541     767542     717447  ...     717595     772168     718141  769373
-
-2012-03-01 00:00:00  64.375000  67.625000  67.125000  61.500000  ...  69.000000  59.250000  69.000000  61.875
-2012-03-01 00:05:00  62.666667  68.555556  65.444444  62.444444  ...  64.444444  55.888889  68.444444  62.875
-2012-03-01 00:10:00  64.000000  63.750000  60.000000  59.000000  ...  65.625000  61.375000  69.857143  62.000
-2012-03-01 00:15:00   0.000000   0.000000   0.000000   0.000000  ...   0.000000   0.000000   0.000000   0.000
-2012-03-01 00:20:00   0.000000   0.000000   0.000000   0.000000  ...   0.000000   0.000000   0.000000   0.000
-
 列是时间，间隔为5min。行是sensor编号，提供文件表示sensor的经纬度。值是速度。
 
 用sensor之间的距离矩阵代表路网（adjacency matrix、权重矩阵、代表节点的相似度）
 
-## BusCHI
+### Beijing subway
 
-**Place:** Chicago, USA
+### M_dense
 
-**Duration:** Aug. 2, 2011 ~ May 3, 2018
+### Rotterdam
 
-**Link:** https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Historical-Congestion-Esti/77hq-huss/data
+### SHMetro
 
-**Description:** The BusCHI dataset contains the historical estimated congestion for 1270 traffic segments.
+### HZMetro
 
-交通拥堵状况数据集
+### NYC Speed data
 
-## NYC Accident data
+**Place:** New York, USA
+
+**Duration:** Apr. 1, 2015 ~ present
+
+**Link:** http://data.beta.nyc/dataset/nyc-real-time-traffic-speed-data-feed-archived
+
+**Description:** The NYC Speed data contains speed data for New York City, including speed, travel time, status, etc.
+
+按照道路ID组织数据，每一条数据包括道路ID、速度、时间、穿过道路的平均用时。
+
+对于每个道路，提供文件描述一系列道路上sensor的经纬度位置、道路名称等。
+
+Sequence of Lat/ Long points, describes locations of the sensor links
+
+### HK
+
+**Place:** Hong Kong, China
+
+**Duration:** Dec. 28, 2015 ~ present
+
+**Link:** https://data.gov.hk/en-data/dataset/hk-td-sm_1-traffic-speed-map
+
+**Description:** The HK dataset contains average traffic speed of major roads in Hong Kong.
+
+按照道路ID组织数据，每一条数据包括道路ID、道路区域、道路类型、道路状况等级、速度、时间。
+
+时间间隔较短，可以得到每条道路，各个时间的速度信息。
+
+对于每个路段link，提供文件描述起始站、终点站、以及相应的经纬度、道路类型。(基于它们可以构建路网的拓扑)
+
+### ENG-HW
+
+**Place:** British
+
+**Duration:** 2006 ~ 2014
+
+**Link:** http://tris.highwaysengland.co.uk/detail/trafficflowdata
+
+**Description:** The ENG-HW dataset includes information on intercity road traffic between three UK cities recorded by the government from 2006 to 2014.
+
+每个站点不同时间的流量数据
+
+## 外部信息数据集
+
+外部数据一般包括天气数据、路网结构数据、兴趣点（Point of Interest，POI）数据、事件数据、时间信息数据等数据。
+
+- 气象条件：温度、湿度、风速、能见度和天气状态（晴/雨/风/多云等）
+- 驾驶员ID：由于驾驶员的个人情况不同，预测会有一定的影响，因此有必要对驾驶员进行标记，此信息主要用于个人预测。
+- 活动：包括各种节假日、交通管制、交通事故、体育赛事、音乐会等活动。
+- 时间信息：星期几，一天中的时间片。
+
+### NYC Accident data
 
 **Place:** New York, USA
 
@@ -521,19 +496,37 @@ DataFrame二维表的格式
 
 发生碰撞的日期、时间、经纬度、街道名、受伤人数、死亡人数、原因、车辆类型等
 
-## Road network data (OpenStreetMap)
+### Road network data (OpenStreetMap)
 
 https://www.openstreetmap.org/
 
-## Weather and events data
+### Weather and events data
 
 https://www.wunderground.com/
 
-## External data
+## 其他数据集
 
-常见的外部数据项。
+### BusCHI
 
-- 气象条件：温度、湿度、风速、能见度和天气状态（晴/雨/风/多云等）
-- 驾驶员ID：由于驾驶员的个人情况不同，预测会有一定的影响，因此有必要对驾驶员进行标记，此信息主要用于个人预测。
-- 活动：包括各种节假日、交通管制、交通事故、体育赛事、音乐会等活动。
-- 时间信息：星期几，一天中的时间片。
+**Place:** Chicago, USA
+
+**Duration:** Aug. 2, 2011 ~ May 3, 2018
+
+**Link:** https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Historical-Congestion-Esti/77hq-huss/data
+
+**Description:** The BusCHI dataset contains the historical estimated congestion for 1270 traffic segments.
+
+交通拥堵状况数据集
+
+### CTM
+
+持续时间、请求数数据集
+
+### HEAT
+
+温度数据集
+
+### AcousticPollution
+
+声污染数据集
+
