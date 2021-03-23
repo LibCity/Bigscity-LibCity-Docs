@@ -28,6 +28,6 @@
   - `log_every`：训练过程中用log记录过程的频次
 - `saved_model`：是否保存训练过程中的model，**默认True**
 - `gpu`：是否是用gpu训练，**默认True**
-  - `gpu_id`：指定使用的gpu的id，**字符串类型，非int**
-  - `device*`：不能从外部指定，由参数`gpu`和`gpu_id`共同确定
+  - `gpu_id`：指定使用的gpu的id，**默认0**
+  - `device*`：不能从外部指定，由参数`gpu`和`gpu_id`共同确定，在模型的代码中，使用`config['device']`即可取得，不需要使用参数`gpu`和`gpu_id`。
 
