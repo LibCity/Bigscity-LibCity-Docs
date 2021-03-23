@@ -123,7 +123,6 @@ Ext 表中一个元素由以下五部分组成：ext_id, time, properties(多列
     - `calculate_weight_adj`：从`.rel`文件获取的邻接矩阵的权重是否需要进一步进行计算，**默认False**，部分邻接矩阵在原始数据的基础上，进行了一些计算。目前的计算方法是带有阈值的高斯核方法：$$  w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$，$\sigma$ 是方差。
     - `weight_adj_epsilon`：高斯核的阈值，经过计算的权重如果小于该阈值，则变成0，即 $$  w_{ij}[w_{ij}<\epsilon]=0​$$，此参数依赖于参数`calculate_weight_adj=True`。
   - 轨迹下一跳预测任务包含的相关信息如下：
-    - 
 
 样例如下：
 
