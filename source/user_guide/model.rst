@@ -7,8 +7,6 @@ Model Introduction
 -  Traffic Flow Prediction
 -  Traffic Speed Prediction
 -  On-Demand Service predition
--  Travel Time prediction
--  Traffic Accident prediction
 
 
 Traffic Location Prediction
@@ -17,7 +15,12 @@ Traffic Location Prediction
 .. toctree::
    :maxdepth: 1
 
-   model/Traffic_Location_Prediction/deepmove
+   model/Traffic_Location_Prediction/DeepMove
+   model/Traffic_Location_Prediction/FPMC
+   model/Traffic_Location_Prediction/LSTPM
+   model/Traffic_Location_Prediction/RNN
+   model/Traffic_Location_Prediction/SERM
+   model/Traffic_Location_Prediction/STRNN
 
 Traffic Flow Prediction
 --------------------------
@@ -25,7 +28,9 @@ Traffic Flow Prediction
 .. toctree::
    :maxdepth: 1
 
-   model/Traffic_Flow_Prediction/placeholder
+   model/Traffic_Flow_Prediction/AGCRN
+   model/Traffic_Flow_Prediction/ASTGCN
+   model/Traffic_Flow_Prediction/MSTGCN
 
 Traffic Speed Prediction
 --------------------------
@@ -33,29 +38,15 @@ Traffic Speed Prediction
 .. toctree::
    :maxdepth: 1
 
-   model/Traffic_Speed_Prediction/dcrnn
+   model/Traffic_Speed_Prediction/DCRNN
+   model/Traffic_Speed_Prediction/STGCN
+   model/Traffic_Speed_Prediction/GraphWaveNet
+   model/Traffic_Speed_Prediction/TGCN
+   model/Traffic_Speed_Prediction/TGCLSTM
 
 On-Demand Service predition
 ----------------------------
 
 .. toctree::
    :maxdepth: 1
-
-   model/On-Demand_Service_predition/placeholder
-
-Travel Time prediction
---------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   model/Travel_Time_prediction/placeholder
-
-Traffic Accident prediction
------------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   model/Traffic_Accident_prediction/placeholder
 
