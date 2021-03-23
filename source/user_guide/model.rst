@@ -38,7 +38,7 @@ On-Demand Service predition
    :maxdepth: 1
 
 Trajectory Location Prediction
------------------------------
+-------------------------------
 
 .. toctree::
    :maxdepth: 1
