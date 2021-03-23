@@ -30,6 +30,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -187,7 +188,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.utils.dataset</span> <span class="kn">import</span> <span class="n">parse_coordinate</span>
 
 
-<div class="viewcode-block" id="STRNN"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.STRNN">[docs]</a><span class="k">class</span> <span class="nc">STRNN</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
+<div class="viewcode-block" id="STRNN"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.trajectory_loc_prediction.STRNN.STRNN">[docs]</a><span class="k">class</span> <span class="nc">STRNN</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">STRNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;hidden_size&#39;</span><span class="p">]</span>
@@ -219,12 +220,12 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">reset_parameters</span><span class="p">()</span>  <span class="c1"># 这个应该是初始化参数的</span>
 
-<div class="viewcode-block" id="STRNN.reset_parameters"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.STRNN.reset_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="STRNN.reset_parameters"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.trajectory_loc_prediction.STRNN.STRNN.reset_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">stdv</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">weight</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
             <span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">uniform_</span><span class="p">(</span><span class="o">-</span><span class="n">stdv</span><span class="p">,</span> <span class="n">stdv</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="STRNN.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.STRNN.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">td_upper</span><span class="p">,</span> <span class="n">td_lower</span><span class="p">,</span> <span class="n">ld_upper</span><span class="p">,</span> <span class="n">ld_lower</span><span class="p">,</span> <span class="n">current_loc</span><span class="p">,</span>
+<div class="viewcode-block" id="STRNN.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.trajectory_loc_prediction.STRNN.STRNN.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">td_upper</span><span class="p">,</span> <span class="n">td_lower</span><span class="p">,</span> <span class="n">ld_upper</span><span class="p">,</span> <span class="n">ld_lower</span><span class="p">,</span> <span class="n">current_loc</span><span class="p">,</span>
                 <span class="n">loc_len</span><span class="p">):</span>
         <span class="c1"># 所以他是直接把 target 放到 loc 里面去了嘛，所以只需要计算对 target 的 loss ??</span>
         <span class="c1"># td_upper 是 U(td) - td 的结果</span>
@@ -252,7 +253,7 @@
         <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">output</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="STRNN.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.STRNN.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="STRNN.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.trajectory_loc_prediction.STRNN.STRNN.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;uid&#39;</span><span class="p">]</span>
         <span class="n">dst</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
         <span class="n">dst_time</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;target_tim&#39;</span><span class="p">]</span>
@@ -297,7 +298,7 @@
         <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">neg</span><span class="p">(</span><span class="n">output</span><span class="p">)))</span></div>
 
-<div class="viewcode-block" id="STRNN.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.STRNN.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="STRNN.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.STRNN.html#trafficdl.model.trajectory_loc_prediction.STRNN.STRNN.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="n">user</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;uid&#39;</span><span class="p">]</span>
         <span class="n">dst</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
         <span class="n">dst_time</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;target_tim&#39;</span><span class="p">]</span>

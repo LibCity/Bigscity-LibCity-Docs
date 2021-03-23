@@ -2,69 +2,81 @@
 
 定义如下几种原子文件：
 
-| 文件名      | 内容                                     | 示例                                          |
-| ----------- | ---------------------------------------- | --------------------------------------------- |
-| xxx.geo     | 存储地理实体属性信息。                   | geo_id, type, coordinates                     |
-| xxx.usr     | 存储交通使用者信息。                     | usr_id, gender, birth_date                    |
-| xxx.rel     | 存储实体间的关系信息，如路网或社交网络。 | rel_id, origin_id,   destination_id           |
-| xxx.dyna    | 存储实体随时间动态变化的信息，如轨迹。   | dyna_id, type, time,   entity_id, location_id |
-| config.json | 用于补充描述各表信息。                   |                                               |
+| 文件名      | 内容                           | 示例                                          |
+| ----------- | ------------------------------ | --------------------------------------------- |
+| xxx.geo     | 存储地理实体属性信息。         | geo_id, type, coordinates                     |
+| xxx.usr     | 存储交通使用者信息。           | usr_id, gender, birth_date                    |
+| xxx.rel     | 存储实体间的关系信息，如路网。 | rel_id, origin_id,   destination_id           |
+| xxx.dyna    | 存储交通状态信息。             | dyna_id, type, time,   entity_id, location_id |
+| xxx.ext     | 存储外部信息，如天气、温度等。 | ext_id, time, properties                      |
+| config.json | 用于补充描述各表信息。         |                                               |
 
-对于不同的交通预测任务，可能用到不同的原子文件；一个数据集不一定包含全部5种原子文件。
+对于不同的交通预测任务，可能用到不同的原子文件，同一个数据集不一定包含全部6种原子文件。
+
+`.geo`、`.rel`、`.dyna`、`.ext`的格式与`csv`文件类似，由多列数据构成。
 
 ## Geo 表
 
-Geo 表中一个元素由以下四部分组成：geo_id, type, coordinates, properties。
+Geo 表中一个元素由以下四部分组成：geo_id, type, coordinates, properties(多列)。
 
-1. geo_id: int 类。主键，唯一确定一个 geo 实体。
+1. geo_id: 主键，唯一确定一个 geo 实体。（传感器、经纬度点、路段、区域等的编号）
+2. type：表示该 geo 的类型。一共有 “Point”、“LineString”、“Polygon” 三个值。此三值与 [Geojson](https://tools.ietf.org/html/rfc7946#section-1) 中的点线面一致。
+3. coordinates：由 float 类型组成的数组或嵌套数组。描述 geo 实体的位置信息，采用 [Geojson](https://tools.ietf.org/html/rfc7946#section-1) 的 coordinates 格式。
+4. properties：描述该 geo 的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，如`POI_name`，`POI_type`。【对于网格数据，必有两列`row_id`和`column_id`属性表示网格的行列编号。】
 
-2. type：枚举类，表示该 geo 的类型。一共有 “Point”、“LineString”、“Polygon” 三个值。此三值与 geojson 中的点线面一致。
-
-3. coordinates：由 float 组成的数组或嵌套数组。描述 geo 实体的位置信息，采用 geojson 的 coordinates 格式。转换成 csv 时，整个数组加上双引号即可“”。
-
-4. properties：键值字典。描述该 geo 的属性信息，如 "POI_name", "POI_type"。转换成 csv 时，将 properties 下的键作为列名即可。（保证对于同一 type 的 properties 具有相同的键）
+> 注：Geojson的 coordinates 格式：
+>
+> - Point: [102.0, 0.5]
+> - LineString: [ [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0] ]
+> - Polygon:  [[ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]]
 
 ## Usr 表
 
-Usr 表中一个元素由以下两部分组成：usr_id, properties。
+Usr 表中一个元素由以下两部分组成：usr_id, properties(多列)。
 
-1. usr_id：int 类。主键，唯一确定一个 usr 实体。
+1. usr_id：主键，唯一确定一个 usr 实体。
 
-2. properties：键值字典。描述该 usr 实体的属性信息，如 "gender", "birth_date"。转换成 csv 时，将 properties 下的键作为列名即可。
+2. properties：描述该 usr 实体的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，如 `gender`，`birth_date`。
 
 ## Rel 表
 
-Rel 表中一个元素由以下四个部分组成：rel_id, type, origin_id, destination_id, properties。
+Rel 表中一个元素由以下四个部分组成：rel_id, type, origin_id, destination_id, properties(多列)。
 
-1. rel_id：int 类。主键，唯一确定一个实体间的关系。
-
-2. type：枚举类。一共有两种取值 "usr"，"geo"。表示该关系是基于 geo 的还是基于 usr 的。
-
-3. origin_id：int 类，关系起点方的 ID，为 Geo 表或 Usr 表中的一个，并通过 config 文件指定是哪一张表中的关系。
-
-4. destination_id：int 类，关系终点方的 ID，具体细节同 origin_id。
-
-5. properties：键值字典，描述该关系所具有的属性信息，如 "link_weight"。该 properties 可能为空。
+1. rel_id：主键，唯一确定一个实体间的关系。
+2. type：枚举类。一共有两种取值`usr`，`geo`。表示该关系是基于 `geo` 的还是基于 `usr` 的。
+3. origin_id：关系起点方的 ID，为 Geo 表或 Usr 表中的一个。
+4. destination_id：关系终点方的 ID，为 Geo 表或 Usr 表中的一个。
+5. properties：描述该关系所具有的属性信息，如 `link_weight`可以表示邻接矩阵权重，若有多个属性，可以使用不同的列名定义为多列数据。
 
 ## Dyna 表
 
-Dyna 表中一个元素由以下五部分组成：dyna_id, type, time, entity_id, properties。
+Dyna 表中一个元素由以下五部分组成：dyna_id, type, time, entity_id, properties(多列)。
 
-1. dyna_id：int 类。主键，唯一标识动态表中的一条记录。
+1. dyna_id：主键，唯一标识动态表中的一条记录。
 
-2. type：枚举类，一共有三种取值 "trajectory"、"od"、"state"。
+2. type：枚举类，一共有三种取值 `trajectory`、`state`。
 
-3. time：string 类。时间信息。对于非 "od"，采用 ISO-8601 标准中的日期和时间的组合表示法，如："2020-12-07T02:59:46Z"。对于 "od"，因为要记录起终两个时间，可以将两个时间点仍以前述的格式表示，然后二者中间加空格拼接成一个新的字符串的形式进行存储。
+3. time：时间信息，采用 [ISO-8601标准](https://www.iso.org/iso-8601-date-and-time-format.html) 中的日期和时间的组合表示法，如：`2020-12-07T02:59:46Z`。
 
-4. entity_id：int 类。描述该记录是基于哪一个实体观测产生的。
+4. entity_id：描述该记录是基于哪一个实体观测产生的，就是`geo`的编号。
 
-5. properties：键值字典。描述该记录额外的属性信息。对于 "trajectory"，properties 应至少包含位置信息（经纬度或 geo_id）；对于 "od"，properties 应至少包含 od 的 id；对于 "state"，properties 至少包含具体交通状态信息。 
+   对于传感器、路段、区域等实体来讲此列就是对应的编号，列名为**[entity_id]**，文件后缀名`.dyna`；
 
-Dyna表必须含有的 properties 键
+   对于网格结构的交通数据，列名为**[row_id, column_id]**，文件后缀名`.grid`；
 
-| od    | trajectory | state |
-| ----- | ---------- | ----- |
-| od_id | location   | 无    |
+   对于基于`od`结构的交通数据，列名为**[origin_id, destination_id]**，文件后缀名`.od`；
+
+   对于网格结合`od`结构的交通数据，列名为**[origin_row_id, origin_column_id, destination_row_id, destination_column_id]**，文件后缀名`.gridod`；
+
+5. properties：描述该条记录的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，比如既有速度数据、又有流量数据。
+
+## Ext 表
+
+Ext 表中一个元素由以下五部分组成：ext_id, time, properties(多列)。
+
+1. ext_id：主键，唯一标识外部数据表中的一条记录。
+2. time：时间信息，采用 [ISO-8601标准](https://www.iso.org/iso-8601-date-and-time-format.html) 中的日期和时间的组合表示法，如：`2020-12-07T02:59:46Z`。
+3. properties：描述该条记录的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，比如既有温度数据、又有湿度数据。
 
 ## 数据类型定义
 
@@ -83,11 +95,34 @@ Dyna表必须含有的 properties 键
 
 ## Config 文件
 
- Config 文件用以补充描述上述四个表自身的信息，即各个表的 properties 字段具体含有的哪些属性。以 json 的格式存储，且由 geo、usr、rel、dyna 四个键组成。
+ Config 文件用以补充描述上述四个表自身的信息，即各个表的 properties 字段具体含有的哪些属性。以 json 的格式存储，且由 `geo`、`usr`、`rel`、`dyna`、`ext`、`info` 六个键组成。
 
-1. geo, rel, dyna：首先包含一个 including_types 的键，以数组的形式描述该表中所具有的 type 值。其后每个 type 作为键，描述该 type 下 properties 具有哪些键以及其数据类型（dyna 表需要额外把 entity_id 也加以说明）。
+- 对于`geo`、`rel`、`dyna`、`ext`：
 
-2. usr：包含一个 properties 键，描述表中 properties 包含哪些键以及其数据类型。
+  包含一个 `including_types` 的键，以数组的形式描述该表中所具有的 `type` 值。其后每个 `type` 作为键，描述该 `type` 下 `properties` 具有哪些键以及其数据类型（`dyna` 表需要额外把 `entity_id` 也加以说明）。
+
+- 对于`usr`：
+
+  包含一个 `properties` 键，描述表中 `properties` 包含哪些键以及其数据类型。
+
+- 对于`info`：
+
+  **包含其他必要的数据集统计信息**，针对不同的交通预测任务，包含有不同的内容。
+
+  - 交通状态预测任务包含的相关信息如下：
+    - `geo_file`：`.geo`文件的文件名，**字符串类型**，默认为数据集名。
+    - `rel_file`：`.rel`文件的文件名，**字符串类型**，默认为数据集名。
+    - `data_files`：数据文件的文件名（例如`.dyna`、`.grid`、`.gridod`），**支持数组或字符串**，默认为数据集名。
+    - `ext_file`：`.ext`文件的文件名，**字符串类型**，默认为数据集名。
+    - `weight_col`：从`.rel`文件中加载的列名，**支持只有一个元素的字符串数组或字符串**，不指定的话如果`.rel`文件只有一列权重列，则没有问题，否则报错。
+    - `data_col`：从数据文件`.dyna/.grid/.od/.gridod`中加载的列名，**支持数组或字符串**，不指定则全部加载。
+    - `ext_col`：从`.ext`文件中加载的列名，**支持数组或字符串**，不指定则全部加载。
+    - `output_dim`：指定模型输出的维度，**一般应该跟`data_col`中指定的属性列名的数量相同**。
+    - `init_weight_inf_or_zero`：支持`inf`和`zero`，加载`.rel`文件构建邻接矩阵时，初始化邻接矩阵为全INF(`inf`)还是全0(`zero`)，默认为`inf`。
+    - `set_weight_link_or_dist`：支持`link`和`dist`，加载`.rel`文件构建邻接矩阵时，使用文件中权重列中的原始值(`dist`)，还是将之修订为全01的矩阵(`link`)，默认为`dist`。【如果`.rel`文件中只有相连的关系，没有不相连的关系，应该指定为`link`】
+    - `calculate_weight_adj`：从`.rel`文件获取的邻接矩阵的权重是否需要进一步进行计算，**默认False**，部分邻接矩阵在原始数据的基础上，进行了一些计算。目前的计算方法是带有阈值的高斯核方法：$$  w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$，$\sigma$ 是方差。
+    - `weight_adj_epsilon`：高斯核的阈值，经过计算的权重如果小于该阈值，则变成0，即 $$  w_{ij}[w_{ij}<\epsilon]=0​$$，此参数依赖于参数`calculate_weight_adj=True`。
+  - 轨迹下一跳预测任务包含的相关信息如下：
 
 样例如下：
 
@@ -97,9 +132,8 @@ Dyna表必须含有的 properties 键
         "including_types":[
             "Point"
         ],
-        "PointProperties":{
-            "poi_name":"geo_id",
-            "poi_type":"enum"
+        "Point":{
+            "poi_name":"other",
         }
     },
     "usr":{
@@ -119,24 +153,63 @@ Dyna表必须含有的 properties 键
     },
     "dyna":{
         "including_types":[
-            "trajectory",
-            "od",
             "state"
         ],
-        "trajectory":{
-            "entity_id":"usr_id",
-            "location":"geo_id",
-            "twitter_text":"other"
-        },
-        "od":{
-            "entity_id":"usr_id",
-            "od_id":"rel_id",
-            "trip_duration":"num"
-        },
         "state":{
             "entity_id":"geo_id",
             "traffic_speed":"num"
         }
-    }
+    },
+    "grid":{
+        "including_types":[
+            "state"
+        ],
+        "state":{
+            "row_id": 15,
+            "column_id": 5,
+            "traffic_speed":"num"
+        }
+    },
+    "od":{
+        "including_types":[
+            "state"
+        ],
+        "state":{
+            "origin_id":"geo_id",
+            "destination_id":"geo_id",
+            "traffic_speed":"num"
+        }
+    },
+    "gridod":{
+        "including_types":[
+            "state"
+        ],
+        "state":{
+            "origin_row_id": 15,
+            "origin_column_id": 5,
+            "destination_row_id": 15,
+            "destination_column_id": 5,
+            "traffic_speed":"num"
+        }
+    },
+    "info": {
+        "data_col": [
+          "inflow",
+          "outflow"
+        ],
+        "ext_col": [
+          "Temperature"
+        ],
+        "data_files": [
+          "TAXIBJ2013"
+        ],
+        "geo_file": "TAXIBJ",
+        "ext_file": "TAXIBJ",
+        "output_dim": 2,
+        "init_weight_inf_or_zero": "inf",
+        "set_weight_link_or_dist": "dist",
+        "calculate_weight_adj": false,
+        "weight_adj_epsilon": 0.1
+  	}
 }
 ```

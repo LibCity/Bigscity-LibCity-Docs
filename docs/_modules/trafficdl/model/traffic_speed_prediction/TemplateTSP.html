@@ -30,6 +30,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -184,7 +185,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.model.abstract_traffic_state_model</span> <span class="kn">import</span> <span class="n">AbstractTrafficStateModel</span>
 
 
-<div class="viewcode-block" id="TemplateTSP"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP">[docs]</a><span class="k">class</span> <span class="nc">TemplateTSP</span><span class="p">(</span><span class="n">AbstractTrafficStateModel</span><span class="p">):</span>
+<div class="viewcode-block" id="TemplateTSP"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.TemplateTSP">[docs]</a><span class="k">class</span> <span class="nc">TemplateTSP</span><span class="p">(</span><span class="n">AbstractTrafficStateModel</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        构造模型</span>
@@ -217,7 +218,7 @@
         <span class="c1"># 7.构造深度模型的层次结构（必须）</span>
         <span class="c1"># 例如: 使用简单RNN: self.rnn = nn.GRU(input_size, hidden_size, num_layers)</span>
 
-<div class="viewcode-block" id="TemplateTSP.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="TemplateTSP.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.TemplateTSP.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        调用模型计算这个batch输入对应的输出，nn.Module必须实现的接口</span>
 <span class="sd">        :param batch: 输入数据，类字典，可以按字典的方法取数据</span>
@@ -236,7 +237,7 @@
         <span class="c1"># 3.返回输出结果</span>
         <span class="c1"># 例如: return outputs</span>
 
-<div class="viewcode-block" id="TemplateTSP.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="TemplateTSP.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.TemplateTSP.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        输入一个batch的数据，返回训练过程这个batch数据的loss，也就是需要定义一个loss函数。</span>
 <span class="sd">        :param batch: 输入数据，类字典，可以按字典的方法取数据</span>
@@ -258,7 +259,7 @@
         <span class="c1"># 5.返回loss的结果</span>
         <span class="k">return</span> <span class="n">res</span></div>
 
-<div class="viewcode-block" id="TemplateTSP.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="TemplateTSP.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.TemplateTSP.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        输入一个batch的数据，返回对应的预测值，一般应该是**多步预测**的结果</span>
 <span class="sd">        一般会调用上边定义的forward()方法</span>

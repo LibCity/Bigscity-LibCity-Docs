@@ -30,6 +30,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -192,15 +193,15 @@
             
   <div class="section" id="batch">
 <h1>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>是由<code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>加载并输入到预测模型中的内部数据结构。</p>
-<p>从<code class="docutils literal notranslate"><span class="pre">Dataloader</span></code>中取出的对象都是<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的对象。</p>
-<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类是基于<code class="docutils literal notranslate"><span class="pre">python.dict</span></code>实现的抽象数据类型，其构成<code class="docutils literal notranslate"><span class="pre">key-value</span></code>的结构，其中<code class="docutils literal notranslate"><span class="pre">key</span></code>是模型输入的特征名，<code class="docutils literal notranslate"><span class="pre">value</span></code>是对应特征的张量（<code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>），其包含一个batch或mini-batch的全部相关的张量数据。</p>
-<p>所以可以使用如下的方式来获取相应的value：</p>
+<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类是由<code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>加载并输入到预测模型中的<strong>内部数据表示形式</strong>。</p>
+<p><strong>从数据流的<code class="docutils literal notranslate"><span class="pre">Dataloader</span></code>中取出的对象都是<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的对象。</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类是基于<code class="docutils literal notranslate"><span class="pre">python.dict</span></code>实现的抽象数据结构，其构成<code class="docutils literal notranslate"><span class="pre">key-value</span></code>的结构，其中<code class="docutils literal notranslate"><span class="pre">key</span></code>是模型输入的特征名，<code class="docutils literal notranslate"><span class="pre">value</span></code>是对应特征的张量（<code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>），其包含一个<code class="docutils literal notranslate"><span class="pre">batch</span></code>或<code class="docutils literal notranslate"><span class="pre">mini-batch</span></code>的全部数据。</p>
+<p>所以可以使用如下的方式来获取相应的值：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_loc&#39;</span><span class="p">]</span>
 <span class="n">tim</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_tim&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">value</span></code>基于<code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>实现，在<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类中我们实现了对数据的长度补齐操作、原始数据转Tensor等一系列常用函数。</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的存在，统一了模型的输入格式，框架得以实现通用的训练、预测执行器类和标准模型抽象类。</strong></p>
 </div>
 
 

@@ -30,6 +30,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -365,15 +366,21 @@
 </li>
       <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.AGCRN.html#trafficdl.model.traffic_flow_prediction.AGCRN.AGCRN">AGCRN (class in trafficdl.model.traffic_flow_prediction.AGCRN)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.AGCRN.html#trafficdl.model.traffic_flow_prediction.AGCRN.AGCRNCell">AGCRNCell (class in trafficdl.model.traffic_flow_prediction.AGCRN)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.STGCN.html#trafficdl.model.traffic_speed_prediction.STGCN.Align">Align (class in trafficdl.model.traffic_speed_prediction.STGCN)</a>
 </li>
       <li><a href="trafficdl/trafficdl.data.batch.html#trafficdl.data.batch.Batch.append">append() (trafficdl.data.batch.Batch method)</a>
 </li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCN">ASTGCN (class in trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
+</li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCNBlock">ASTGCNBlock (class in trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
+</li>
       <li><a href="trafficdl/trafficdl.data.dataset.astgcn_dataset.html#trafficdl.data.dataset.astgcn_dataset.ASTGCNDataset">ASTGCNDataset (class in trafficdl.data.dataset.astgcn_dataset)</a>
+</li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCNSubmodule">ASTGCNSubmodule (class in trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
 </li>
       <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.GraphWaveNet.html#trafficdl.model.traffic_speed_prediction.GraphWaveNet.asym_adj">asym_adj() (in module trafficdl.model.traffic_speed_prediction.GraphWaveNet)</a>
 </li>
@@ -419,6 +426,8 @@
         <li><a href="trafficdl/trafficdl.model.abstract_traffic_state_model.html#trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel.calculate_loss">(trafficdl.model.abstract_traffic_state_model.AbstractTrafficStateModel method)</a>
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.AGCRN.html#trafficdl.model.traffic_flow_prediction.AGCRN.AGCRN.calculate_loss">(trafficdl.model.traffic_flow_prediction.AGCRN.AGCRN method)</a>
+</li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCN.calculate_loss">(trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCN method)</a>
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.DCRNN.html#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.calculate_loss">(trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN method)</a>
 </li>
@@ -469,6 +478,10 @@
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.STGCN.html#trafficdl.model.traffic_speed_prediction.STGCN.calculate_scaled_laplacian">(in module trafficdl.model.traffic_speed_prediction.STGCN)</a>
 </li>
       </ul></li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.cheb_polynomial">cheb_polynomial() (in module trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
+</li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ChebConvWithSAt">ChebConvWithSAt (class in trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
+</li>
       <li><a href="trafficdl/trafficdl.evaluator.abstract_evaluator.html#trafficdl.evaluator.abstract_evaluator.AbstractEvaluator.clear">clear() (trafficdl.evaluator.abstract_evaluator.AbstractEvaluator method)</a>
 
       <ul>
@@ -568,6 +581,20 @@
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.AGCRN.html#trafficdl.model.traffic_flow_prediction.AGCRN.AVWGCN.forward">(trafficdl.model.traffic_flow_prediction.AGCRN.AVWGCN method)</a>
 </li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCN.forward">(trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCN method)</a>
+</li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCNBlock.forward">(trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCNBlock method)</a>
+</li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCNSubmodule.forward">(trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCNSubmodule method)</a>
+</li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ChebConvWithSAt.forward">(trafficdl.model.traffic_flow_prediction.ASTGCN.ChebConvWithSAt method)</a>
+</li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.FusionLayer.forward">(trafficdl.model.traffic_flow_prediction.ASTGCN.FusionLayer method)</a>
+</li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.SpatialAttentionLayer.forward">(trafficdl.model.traffic_flow_prediction.ASTGCN.SpatialAttentionLayer method)</a>
+</li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.TemporalAttentionLayer.forward">(trafficdl.model.traffic_flow_prediction.ASTGCN.TemporalAttentionLayer method)</a>
+</li>
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.DCRNN.html#trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell.forward">(trafficdl.model.traffic_speed_prediction.DCRNN.DCGRUCell method)</a>
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.DCRNN.html#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.forward">(trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN method)</a>
@@ -634,6 +661,8 @@
       <li><a href="trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.trajectory_loc_prediction.FPMC.FPMC">FPMC (class in trafficdl.model.trajectory_loc_prediction.FPMC)</a>
 </li>
       <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.STGCN.html#trafficdl.model.traffic_speed_prediction.STGCN.FullyConvLayer">FullyConvLayer (class in trafficdl.model.traffic_speed_prediction.STGCN)</a>
+</li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.FusionLayer">FusionLayer (class in trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -873,6 +902,8 @@
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.AGCRN.html#module-trafficdl.model.traffic_flow_prediction.AGCRN">trafficdl.model.traffic_flow_prediction.AGCRN</a>
 </li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#module-trafficdl.model.traffic_flow_prediction.ASTGCN">trafficdl.model.traffic_flow_prediction.ASTGCN</a>
+</li>
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.DCRNN.html#module-trafficdl.model.traffic_speed_prediction.DCRNN">trafficdl.model.traffic_speed_prediction.DCRNN</a>
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.GraphWaveNet.html#module-trafficdl.model.traffic_speed_prediction.GraphWaveNet">trafficdl.model.traffic_speed_prediction.GraphWaveNet</a>
@@ -959,6 +990,8 @@
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.AGCRN.html#trafficdl.model.traffic_flow_prediction.AGCRN.AGCRN.predict">(trafficdl.model.traffic_flow_prediction.AGCRN.AGCRN method)</a>
 </li>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCN.predict">(trafficdl.model.traffic_flow_prediction.ASTGCN.ASTGCN method)</a>
+</li>
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.DCRNN.html#trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN.predict">(trafficdl.model.traffic_speed_prediction.DCRNN.DCRNN method)</a>
 </li>
         <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.GraphWaveNet.html#trafficdl.model.traffic_speed_prediction.GraphWaveNet.GWNET.predict">(trafficdl.model.traffic_speed_prediction.GraphWaveNet.GWNET method)</a>
@@ -1038,6 +1071,8 @@
         <li><a href="trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.traj_loc_pred_evaluator.TrajLocPredEvaluator.save_result">(trafficdl.evaluator.traj_loc_pred_evaluator.TrajLocPredEvaluator method)</a>
 </li>
       </ul></li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.scaled_laplacian">scaled_laplacian() (in module trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
+</li>
       <li><a href="trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.Scaler">Scaler (class in trafficdl.utils.normalization)</a>
 </li>
       <li><a href="trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.Attn.score">score() (trafficdl.model.trajectory_loc_prediction.DeepMove.Attn method)</a>
@@ -1053,6 +1088,8 @@
       <li><a href="trafficdl/trafficdl.evaluator.eval_funcs.html#trafficdl.evaluator.eval_funcs.smape">smape() (in module trafficdl.evaluator.eval_funcs)</a>
 </li>
       <li><a href="trafficdl/trafficdl.evaluator.utils.html#trafficdl.evaluator.utils.sort_confidence_ids">sort_confidence_ids() (in module trafficdl.evaluator.utils)</a>
+</li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.SpatialAttentionLayer">SpatialAttentionLayer (class in trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
 </li>
       <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.STGCN.html#trafficdl.model.traffic_speed_prediction.STGCN.SpatioConvLayer">SpatioConvLayer (class in trafficdl.model.traffic_speed_prediction.STGCN)</a>
 </li>
@@ -1083,6 +1120,8 @@
       <li><a href="trafficdl/trafficdl.model.trajectory_loc_prediction.TemplateTLP.html#trafficdl.model.trajectory_loc_prediction.TemplateTLP.TemplateTLP">TemplateTLP (class in trafficdl.model.trajectory_loc_prediction.TemplateTLP)</a>
 </li>
       <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.TemplateTSP.html#trafficdl.model.traffic_speed_prediction.TemplateTSP.TemplateTSP">TemplateTSP (class in trafficdl.model.traffic_speed_prediction.TemplateTSP)</a>
+</li>
+      <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#trafficdl.model.traffic_flow_prediction.ASTGCN.TemporalAttentionLayer">TemporalAttentionLayer (class in trafficdl.model.traffic_flow_prediction.ASTGCN)</a>
 </li>
       <li><a href="trafficdl/trafficdl.model.traffic_speed_prediction.STGCN.html#trafficdl.model.traffic_speed_prediction.STGCN.TemporalConvLayer">TemporalConvLayer (class in trafficdl.model.traffic_speed_prediction.STGCN)</a>
 </li>
@@ -1298,6 +1337,13 @@
 
       <ul>
         <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.AGCRN.html#module-trafficdl.model.traffic_flow_prediction.AGCRN">module</a>
+</li>
+      </ul></li>
+      <li>
+    trafficdl.model.traffic_flow_prediction.ASTGCN
+
+      <ul>
+        <li><a href="trafficdl/trafficdl.model.traffic_flow_prediction.ASTGCN.html#module-trafficdl.model.traffic_flow_prediction.ASTGCN">module</a>
 </li>
       </ul></li>
       <li>

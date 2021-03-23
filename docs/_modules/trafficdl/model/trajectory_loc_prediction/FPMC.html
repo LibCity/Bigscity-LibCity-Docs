@@ -30,6 +30,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -185,7 +186,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.model.abstract_model</span> <span class="kn">import</span> <span class="n">AbstractModel</span>
 
 
-<div class="viewcode-block" id="FPMC"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.FPMC">[docs]</a><span class="k">class</span> <span class="nc">FPMC</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
+<div class="viewcode-block" id="FPMC"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.trajectory_loc_prediction.FPMC.FPMC">[docs]</a><span class="k">class</span> <span class="nc">FPMC</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    FPMC 作为序列推荐任务中的比较经典的模型，也可以适用于下一跳预测任务</span>
 <span class="sd">    Reference:</span>
@@ -218,7 +219,7 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">):</span>
             <span class="n">xavier_normal_</span><span class="p">(</span><span class="n">module</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
-<div class="viewcode-block" id="FPMC.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.FPMC.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="FPMC.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.trajectory_loc_prediction.FPMC.FPMC.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="c1"># Embedding 复现思路</span>
 
         <span class="n">last_loc_index</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">get_origin_len</span><span class="p">(</span>
@@ -240,10 +241,10 @@
         <span class="n">score</span> <span class="o">=</span> <span class="n">mf</span> <span class="o">+</span> <span class="n">fmc</span>  <span class="c1"># batch_size * loc_size</span>
         <span class="k">return</span> <span class="n">score</span></div>
 
-<div class="viewcode-block" id="FPMC.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.FPMC.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="FPMC.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.trajectory_loc_prediction.FPMC.FPMC.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="FPMC.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.FPMC.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="FPMC.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.FPMC.html#trafficdl.model.trajectory_loc_prediction.FPMC.FPMC.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="c1"># 这个 loss 不太对，之后再改</span>
         <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
         <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>

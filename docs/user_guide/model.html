@@ -30,13 +30,14 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Deepmove" href="model/Traffic_Location_Prediction/deepmove.html" />
+    <link rel="next" title="AGCRN" href="model/Traffic_Flow_Prediction/AGCRN.html" />
     <link rel="prev" title="Args for Data" href="data/args_for_data.html" /> 
 </head>
 
@@ -94,28 +95,30 @@
 <li class="toctree-l1"><a class="reference internal" href="config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Model Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#traffic-location-prediction">Traffic Location Prediction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Location_Prediction/deepmove.html">Deepmove</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#traffic-flow-prediction">Traffic Flow Prediction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Flow_Prediction/placeholder.html">placeholder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Flow_Prediction/AGCRN.html">AGCRN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Flow_Prediction/ASTGCN.html">ASTGCN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Flow_Prediction/MSTGCN.html">MSTGCN</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#traffic-speed-prediction">Traffic Speed Prediction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Speed_Prediction/dcrnn.html">DCRNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Speed_Prediction/DCRNN.html">DCRNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Speed_Prediction/STGCN.html">STGCN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Speed_Prediction/GraphWaveNet.html">GraphWaveNet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Speed_Prediction/TGCN.html">TGCN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Speed_Prediction/TGCLSTM.html">TGCLSTM</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#on-demand-service-predition">On-Demand Service predition</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model/On-Demand_Service_predition/placeholder.html">placeholder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-demand-service-predition">On-Demand Service predition</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#travel-time-prediction">Travel Time prediction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model/Travel_Time_prediction/placeholder.html">placeholder</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#traffic-accident-prediction">Traffic Accident prediction</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="model/Traffic_Accident_prediction/placeholder.html">placeholder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trajectory-location-prediction">Trajectory Location Prediction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model/Trajectory_Location_Prediction/DeepMove.html">DeepMove</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Trajectory_Location_Prediction/FPMC.html">FPMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Trajectory_Location_Prediction/LSTPM.html">LSTPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Trajectory_Location_Prediction/RNN.html">RNN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Trajectory_Location_Prediction/SERM.html">SERM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model/Trajectory_Location_Prediction/STRNN.html">STRNN</a></li>
 </ul>
 </li>
 </ul>
@@ -211,26 +214,18 @@
 <h1>Model Introduction<a class="headerlink" href="#model-introduction" title="Permalink to this headline">¶</a></h1>
 <p>针对以下6类任务，我们实现了x种模型，下边是对这些模型的简要介绍。</p>
 <ul class="simple">
-<li><p>Traffic Location Prediction</p></li>
 <li><p>Traffic Flow Prediction</p></li>
 <li><p>Traffic Speed Prediction</p></li>
-<li><p>On-Demand Service predition</p></li>
-<li><p>Travel Time prediction</p></li>
-<li><p>Traffic Accident prediction</p></li>
+<li><p>On-Demand Service Predition</p></li>
+<li><p>Trajectory Location Prediction</p></li>
 </ul>
-<div class="section" id="traffic-location-prediction">
-<h2>Traffic Location Prediction<a class="headerlink" href="#traffic-location-prediction" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Location_Prediction/deepmove.html">Deepmove</a></li>
-</ul>
-</div>
-</div>
 <div class="section" id="traffic-flow-prediction">
 <h2>Traffic Flow Prediction<a class="headerlink" href="#traffic-flow-prediction" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Flow_Prediction/placeholder.html">placeholder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Flow_Prediction/AGCRN.html">AGCRN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Flow_Prediction/ASTGCN.html">ASTGCN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Flow_Prediction/MSTGCN.html">MSTGCN</a></li>
 </ul>
 </div>
 </div>
@@ -238,31 +233,29 @@
 <h2>Traffic Speed Prediction<a class="headerlink" href="#traffic-speed-prediction" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Speed_Prediction/dcrnn.html">DCRNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Speed_Prediction/DCRNN.html">DCRNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Speed_Prediction/STGCN.html">STGCN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Speed_Prediction/GraphWaveNet.html">GraphWaveNet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Speed_Prediction/TGCN.html">TGCN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Speed_Prediction/TGCLSTM.html">TGCLSTM</a></li>
 </ul>
 </div>
 </div>
 <div class="section" id="on-demand-service-predition">
 <h2>On-Demand Service predition<a class="headerlink" href="#on-demand-service-predition" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="model/On-Demand_Service_predition/placeholder.html">placeholder</a></li>
-</ul>
 </div>
 </div>
-<div class="section" id="travel-time-prediction">
-<h2>Travel Time prediction<a class="headerlink" href="#travel-time-prediction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="trajectory-location-prediction">
+<h2>Trajectory Location Prediction<a class="headerlink" href="#trajectory-location-prediction" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="model/Travel_Time_prediction/placeholder.html">placeholder</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="traffic-accident-prediction">
-<h2>Traffic Accident prediction<a class="headerlink" href="#traffic-accident-prediction" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="model/Traffic_Accident_prediction/placeholder.html">placeholder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Trajectory_Location_Prediction/DeepMove.html">DeepMove</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Trajectory_Location_Prediction/FPMC.html">FPMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Trajectory_Location_Prediction/LSTPM.html">LSTPM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Trajectory_Location_Prediction/RNN.html">RNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Trajectory_Location_Prediction/SERM.html">SERM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model/Trajectory_Location_Prediction/STRNN.html">STRNN</a></li>
 </ul>
 </div>
 </div>
@@ -276,7 +269,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="model/Traffic_Location_Prediction/deepmove.html" class="btn btn-neutral float-right" title="Deepmove" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="model/Traffic_Flow_Prediction/AGCRN.html" class="btn btn-neutral float-right" title="AGCRN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="data/args_for_data.html" class="btn btn-neutral float-left" title="Args for Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

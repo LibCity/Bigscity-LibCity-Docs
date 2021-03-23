@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -187,7 +188,7 @@
 <span class="n">allowed_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Precision&#39;</span><span class="p">,</span> <span class="s1">&#39;Recall&#39;</span><span class="p">,</span> <span class="s1">&#39;F1&#39;</span><span class="p">,</span> <span class="s1">&#39;MRR&#39;</span><span class="p">,</span> <span class="s1">&#39;MAP&#39;</span><span class="p">,</span> <span class="s1">&#39;NDCG&#39;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="TrajLocPredEvaluator"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.TrajLocPredEvaluator">[docs]</a><span class="k">class</span> <span class="nc">TrajLocPredEvaluator</span><span class="p">(</span><span class="n">AbstractEvaluator</span><span class="p">):</span>
+<div class="viewcode-block" id="TrajLocPredEvaluator"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.traj_loc_pred_evaluator.TrajLocPredEvaluator">[docs]</a><span class="k">class</span> <span class="nc">TrajLocPredEvaluator</span><span class="p">(</span><span class="n">AbstractEvaluator</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;metrics&#39;</span><span class="p">]</span>  <span class="c1"># 评估指标, 是一个 list</span>
@@ -210,7 +211,7 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;the metric is not allowed in </span><span class="se">\</span>
 <span class="s1">                    TrajLocPredEvaluator&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TrajLocPredEvaluator.collect"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.TrajLocPredEvaluator.collect">[docs]</a>    <span class="k">def</span> <span class="nf">collect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="TrajLocPredEvaluator.collect"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.traj_loc_pred_evaluator.TrajLocPredEvaluator.collect">[docs]</a>    <span class="k">def</span> <span class="nf">collect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Args:</span>
 <span class="sd">            batch (dict): contains three keys: uid, loc_true, and loc_pred.</span>
@@ -228,7 +229,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_result</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">rank</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_result</span><span class="p">[</span><span class="s1">&#39;dcg&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dcg</span></div>
 
-<div class="viewcode-block" id="TrajLocPredEvaluator.evaluate"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.TrajLocPredEvaluator.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TrajLocPredEvaluator.evaluate"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.traj_loc_pred_evaluator.TrajLocPredEvaluator.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">precision_key</span> <span class="o">=</span> <span class="s1">&#39;Precision@</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">topk</span><span class="p">)</span>
         <span class="n">precision</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_result</span><span class="p">[</span><span class="s1">&#39;hit&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_result</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">topk</span><span class="p">)</span>
@@ -257,7 +258,7 @@
                 <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_result</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span></div>
 
-<div class="viewcode-block" id="TrajLocPredEvaluator.save_result"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.TrajLocPredEvaluator.save_result">[docs]</a>    <span class="k">def</span> <span class="nf">save_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TrajLocPredEvaluator.save_result"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.traj_loc_pred_evaluator.TrajLocPredEvaluator.save_result">[docs]</a>    <span class="k">def</span> <span class="nf">save_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
             <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
@@ -270,7 +271,7 @@
                 <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TrajLocPredEvaluator.clear"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.TrajLocPredEvaluator.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TrajLocPredEvaluator.clear"><a class="viewcode-back" href="../../../trafficdl/trafficdl.evaluator.traj_loc_pred_evaluator.html#trafficdl.evaluator.traj_loc_pred_evaluator.TrajLocPredEvaluator.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">intermediate_result</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>

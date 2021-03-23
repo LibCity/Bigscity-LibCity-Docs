@@ -30,13 +30,14 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="next" title="Traffic State Prediction Executor" href="executor/traffic_state_pred.html" />
     <link rel="prev" title="Trajectory Location Prediction Evaluator" href="evaluator/traj_loc_pred.html" /> 
 </head>
 
@@ -95,7 +96,11 @@
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">Model Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="evaluator.html">Evaluator Introduction</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Executor Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Executor Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="executor/traffic_state_pred.html">Traffic State Prediction Executor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executor/traj_loc_pred.html">Trajectory Location Prediction Executor</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Guide</span></p>
@@ -168,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/user_guide/executor.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/user_guide/executor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,6 +190,13 @@
 <h1>Executor Introduction<a class="headerlink" href="#executor-introduction" title="Permalink to this headline">¶</a></h1>
 <p>我们为每个任务提供一个标准的Executor，用来负责模型的训练、验证与评估。</p>
 <p>如何你的模型不能够满足使用标准的Executor，你也可以为他设计单独的Executor。</p>
+<p>用户可以通过修改执行器的参数设置，来调整训练的效果。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="executor/traffic_state_pred.html">Traffic State Prediction Executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="executor/traj_loc_pred.html">Trajectory Location Prediction Executor</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -195,7 +207,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="executor/traffic_state_pred.html" class="btn btn-neutral float-right" title="Traffic State Prediction Executor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="evaluator/traj_loc_pred.html" class="btn btn-neutral float-left" title="Trajectory Location Prediction Evaluator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

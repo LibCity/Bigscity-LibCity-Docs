@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -187,7 +188,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.data.batch</span> <span class="kn">import</span> <span class="n">Batch</span>
 
 
-<div class="viewcode-block" id="get_dataset"><a class="viewcode-back" href="../../../trafficdl/trafficdl.data.utils.html#trafficdl.data.get_dataset">[docs]</a><span class="k">def</span> <span class="nf">get_dataset</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+<div class="viewcode-block" id="get_dataset"><a class="viewcode-back" href="../../../trafficdl/trafficdl.data.utils.html#trafficdl.data.utils.get_dataset">[docs]</a><span class="k">def</span> <span class="nf">get_dataset</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    according the config[&#39;dataset_class&#39;] to create the dataset</span>
 
@@ -204,7 +205,7 @@
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;dataset_class is not found&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="generate_dataloader"><a class="viewcode-back" href="../../../trafficdl/trafficdl.data.utils.html#trafficdl.data.generate_dataloader">[docs]</a><span class="k">def</span> <span class="nf">generate_dataloader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">eval_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">feature_name</span><span class="p">,</span>
+<div class="viewcode-block" id="generate_dataloader"><a class="viewcode-back" href="../../../trafficdl/trafficdl.data.utils.html#trafficdl.data.utils.generate_dataloader">[docs]</a><span class="k">def</span> <span class="nf">generate_dataloader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">eval_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">feature_name</span><span class="p">,</span>
                         <span class="n">batch_size</span><span class="p">,</span> <span class="n">num_workers</span><span class="p">,</span> <span class="n">pad_item</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">pad_max_len</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                         <span class="n">pad_with_last_sample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>

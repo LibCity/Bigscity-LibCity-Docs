@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -178,12 +179,12 @@
            <div itemprop="articleBody">
             
   <h1>Source code for trafficdl.utils.normalization</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="Scaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.Scaler">[docs]</a><span></span><span class="k">class</span> <span class="nc">Scaler</span><span class="p">:</span>
+<div class="viewcode-block" id="Scaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.Scaler">[docs]</a><span></span><span class="k">class</span> <span class="nc">Scaler</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    归一化接口</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Scaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.Scaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Scaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.Scaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        数据归一化接口</span>
 
@@ -195,7 +196,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Transform not implemented&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Scaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.Scaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Scaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.Scaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        数据逆归一化接口</span>
 
@@ -208,19 +209,19 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Inverse_transform not implemented&quot;</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="NoneScaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.NoneScaler">[docs]</a><span class="k">class</span> <span class="nc">NoneScaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
+<div class="viewcode-block" id="NoneScaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.NoneScaler">[docs]</a><span class="k">class</span> <span class="nc">NoneScaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    不归一化</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="NoneScaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.NoneScaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="NoneScaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.NoneScaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">data</span></div>
 
-<div class="viewcode-block" id="NoneScaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.NoneScaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="NoneScaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.NoneScaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">data</span></div></div>
 
 
-<div class="viewcode-block" id="NormalScaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.NormalScaler">[docs]</a><span class="k">class</span> <span class="nc">NormalScaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
+<div class="viewcode-block" id="NormalScaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.NormalScaler">[docs]</a><span class="k">class</span> <span class="nc">NormalScaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    除以最大值归一化</span>
 <span class="sd">    x = x / x.max</span>
@@ -229,14 +230,14 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxx</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">maxx</span>
 
-<div class="viewcode-block" id="NormalScaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.NormalScaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="NormalScaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.NormalScaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">data</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span></div>
 
-<div class="viewcode-block" id="NormalScaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.NormalScaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="NormalScaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.NormalScaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">data</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span></div></div>
 
 
-<div class="viewcode-block" id="StandardScaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.StandardScaler">[docs]</a><span class="k">class</span> <span class="nc">StandardScaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
+<div class="viewcode-block" id="StandardScaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.StandardScaler">[docs]</a><span class="k">class</span> <span class="nc">StandardScaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Z-score归一化</span>
 <span class="sd">    x = (x - x.mean) / x.std</span>
@@ -246,14 +247,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mean</span> <span class="o">=</span> <span class="n">mean</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">std</span> <span class="o">=</span> <span class="n">std</span>
 
-<div class="viewcode-block" id="StandardScaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.StandardScaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="StandardScaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.StandardScaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">std</span></div>
 
-<div class="viewcode-block" id="StandardScaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.StandardScaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="StandardScaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.StandardScaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">data</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">std</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span></div></div>
 
 
-<div class="viewcode-block" id="MinMax01Scaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.MinMax01Scaler">[docs]</a><span class="k">class</span> <span class="nc">MinMax01Scaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
+<div class="viewcode-block" id="MinMax01Scaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.MinMax01Scaler">[docs]</a><span class="k">class</span> <span class="nc">MinMax01Scaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    MinMax归一化 结果区间[0, 1]</span>
 <span class="sd">    x = (x - min) / (max - min)</span>
@@ -263,14 +264,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">minn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">maxx</span>
 
-<div class="viewcode-block" id="MinMax01Scaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.MinMax01Scaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="MinMax01Scaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.MinMax01Scaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MinMax01Scaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.MinMax01Scaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="MinMax01Scaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.MinMax01Scaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">data</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span></div></div>
 
 
-<div class="viewcode-block" id="MinMax11Scaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.MinMax11Scaler">[docs]</a><span class="k">class</span> <span class="nc">MinMax11Scaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
+<div class="viewcode-block" id="MinMax11Scaler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.MinMax11Scaler">[docs]</a><span class="k">class</span> <span class="nc">MinMax11Scaler</span><span class="p">(</span><span class="n">Scaler</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    MinMax归一化 结果区间[-1, 1]</span>
 <span class="sd">    x = (x - min) / (max - min)</span>
@@ -281,10 +282,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">minn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">maxx</span>
 
-<div class="viewcode-block" id="MinMax11Scaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.MinMax11Scaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="MinMax11Scaler.transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.MinMax11Scaler.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">((</span><span class="n">data</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">))</span> <span class="o">*</span> <span class="mf">2.</span> <span class="o">-</span> <span class="mf">1.</span></div>
 
-<div class="viewcode-block" id="MinMax11Scaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.MinMax11Scaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="MinMax11Scaler.inverse_transform"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.normalization.html#trafficdl.utils.normalization.MinMax11Scaler.inverse_transform">[docs]</a>    <span class="k">def</span> <span class="nf">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">((</span><span class="n">data</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span></div></div>
 </pre></div>
 

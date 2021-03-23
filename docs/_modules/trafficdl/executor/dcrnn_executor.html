@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -185,11 +186,11 @@
 <span class="kn">from</span> <span class="nn">trafficdl.executor.traffic_state_executor</span> <span class="kn">import</span> <span class="n">TrafficStateExecutor</span>
 
 
-<div class="viewcode-block" id="DCRNNExecutor"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.DCRNNExecutor">[docs]</a><span class="k">class</span> <span class="nc">DCRNNExecutor</span><span class="p">(</span><span class="n">TrafficStateExecutor</span><span class="p">):</span>
+<div class="viewcode-block" id="DCRNNExecutor"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.dcrnn_executor.DCRNNExecutor">[docs]</a><span class="k">class</span> <span class="nc">DCRNNExecutor</span><span class="p">(</span><span class="n">TrafficStateExecutor</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
         <span class="n">TrafficStateExecutor</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DCRNNExecutor.train"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.DCRNNExecutor.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">):</span>
+<div class="viewcode-block" id="DCRNNExecutor.train"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.dcrnn_executor.DCRNNExecutor.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        use data to train model with config</span>
 
@@ -241,7 +242,7 @@
                     <span class="k">break</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_model_with_epoch</span><span class="p">(</span><span class="n">best_epoch</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DCRNNExecutor._train_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.DCRNNExecutor._train_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_train_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">batches_seen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="DCRNNExecutor._train_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.dcrnn_executor.DCRNNExecutor._train_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_train_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">batches_seen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        完成模型一个轮次的训练</span>
 
@@ -272,7 +273,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">losses</span><span class="p">,</span> <span class="n">batches_seen</span></div>
 
-<div class="viewcode-block" id="DCRNNExecutor._valid_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.DCRNNExecutor._valid_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_valid_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">batches_seen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="DCRNNExecutor._valid_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.dcrnn_executor.html#trafficdl.executor.dcrnn_executor.DCRNNExecutor._valid_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_valid_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">batches_seen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        完成模型一个轮次的评估</span>
 

@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -194,7 +195,7 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="str2bool"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.argument_list.html#trafficdl.utils.str2bool">[docs]</a><span class="k">def</span> <span class="nf">str2bool</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="str2bool"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.argument_list.html#trafficdl.utils.argument_list.str2bool">[docs]</a><span class="k">def</span> <span class="nf">str2bool</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">s</span>
     <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">):</span>
@@ -205,7 +206,7 @@
         <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentTypeError</span><span class="p">(</span><span class="s1">&#39;bool value expected.&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="str2float"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.argument_list.html#trafficdl.utils.str2float">[docs]</a><span class="k">def</span> <span class="nf">str2float</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="str2float"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.argument_list.html#trafficdl.utils.argument_list.str2float">[docs]</a><span class="k">def</span> <span class="nf">str2float</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">s</span>
     <span class="k">try</span><span class="p">:</span>

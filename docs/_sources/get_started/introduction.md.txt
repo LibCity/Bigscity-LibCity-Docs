@@ -2,8 +2,11 @@
 
 本项目为交通大数据领域下的模型开发开源框架，目前支持以下任务：
 
-* 交通轨迹下一跳预测
-* 交通速度预测
+* 交通状态预测（Traffic State Prediction）
+  * 交通流量预测（Traffic Flow Prediction）
+  * 交通速度预测（Traffic Speed Prediction）
+  * 交通需求量预测（On-Demand Service Predition）
+* 轨迹下一跳预测（Traffic Location Prediction）
 
 #### 架构说明
 
@@ -31,3 +34,4 @@
 5. 评估模型测试输出。（依托 Evaluator 模块）
 
 不过由于模型验证时就需要 Evaluator 来进行评估，在实际实现中，Evaluator 模块是由 Executor 模块进行实例化并调用的。
+

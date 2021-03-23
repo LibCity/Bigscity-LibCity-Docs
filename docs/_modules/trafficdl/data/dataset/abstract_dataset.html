@@ -30,6 +30,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -178,12 +179,12 @@
            <div itemprop="articleBody">
             
   <h1>Source code for trafficdl.data.dataset.abstract_dataset</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="AbstractDataset"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.abstract_dataset.html#trafficdl.data.dataset.AbstractDataset">[docs]</a><span></span><span class="k">class</span> <span class="nc">AbstractDataset</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="AbstractDataset"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.abstract_dataset.html#trafficdl.data.dataset.abstract_dataset.AbstractDataset">[docs]</a><span></span><span class="k">class</span> <span class="nc">AbstractDataset</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Dataset not implemented&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="AbstractDataset.get_data"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.abstract_dataset.html#trafficdl.data.dataset.AbstractDataset.get_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="AbstractDataset.get_data"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.abstract_dataset.html#trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data">[docs]</a>    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        返回数据的DataLoader，包括训练数据、测试数据、验证数据</span>
 
@@ -195,7 +196,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;get_data not implemented&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="AbstractDataset.get_data_feature"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.abstract_dataset.html#trafficdl.data.dataset.AbstractDataset.get_data_feature">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="AbstractDataset.get_data_feature"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.abstract_dataset.html#trafficdl.data.dataset.abstract_dataset.AbstractDataset.get_data_feature">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        返回一个 dict，包含数据集的相关特征</span>
 

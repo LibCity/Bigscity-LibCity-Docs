@@ -30,6 +30,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -189,8 +190,14 @@
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>本项目为交通大数据领域下的模型开发开源框架，目前支持以下任务：</p>
 <ul class="simple">
-<li><p>交通轨迹下一跳预测</p></li>
-<li><p>交通速度预测</p></li>
+<li><p>交通状态预测（Traffic State Prediction）</p>
+<ul>
+<li><p>交通流量预测（Traffic Flow Prediction）</p></li>
+<li><p>交通速度预测（Traffic Speed Prediction）</p></li>
+<li><p>交通需求量预测（On-Demand Service Predition）</p></li>
+</ul>
+</li>
+<li><p>轨迹下一跳预测（Traffic Location Prediction）</p></li>
 </ul>
 <div class="section" id="id1">
 <h2>架构说明<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>

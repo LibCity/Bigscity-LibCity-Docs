@@ -30,6 +30,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -187,7 +188,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.model.abstract_model</span> <span class="kn">import</span> <span class="n">AbstractModel</span>
 
 
-<div class="viewcode-block" id="RNN"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.RNN">[docs]</a><span class="k">class</span> <span class="nc">RNN</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
+<div class="viewcode-block" id="RNN"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.trajectory_loc_prediction.RNN.RNN">[docs]</a><span class="k">class</span> <span class="nc">RNN</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">)</span>
@@ -218,7 +219,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc_size</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dropout_p&#39;</span><span class="p">])</span>
 
-<div class="viewcode-block" id="RNN.init_weights"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.RNN.init_weights">[docs]</a>    <span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="RNN.init_weights"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.trajectory_loc_prediction.RNN.RNN.init_weights">[docs]</a>    <span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Here we reproduce Keras default initialization weights for</span>
 <span class="sd">        consistency with Keras version</span>
@@ -237,7 +238,7 @@
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="RNN.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.RNN.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="RNN.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.trajectory_loc_prediction.RNN.RNN.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="n">loc</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_loc&#39;</span><span class="p">]</span>
         <span class="n">tim</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_tim&#39;</span><span class="p">]</span>
         <span class="n">loc_len</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">get_origin_len</span><span class="p">(</span><span class="s1">&#39;current_loc&#39;</span><span class="p">)</span>
@@ -276,10 +277,10 @@
                     <span class="p">(</span><span class="n">true_scores</span><span class="p">,</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">loc_len</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">true_scores</span></div>
 
-<div class="viewcode-block" id="RNN.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.RNN.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="RNN.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.trajectory_loc_prediction.RNN.RNN.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="RNN.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.RNN.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="RNN.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.RNN.html#trafficdl.model.trajectory_loc_prediction.RNN.RNN.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
         <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">criterion</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span></div></div>

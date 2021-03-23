@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -185,7 +186,7 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 
 
-<div class="viewcode-block" id="get_executor"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.get_executor">[docs]</a><span class="k">def</span> <span class="nf">get_executor</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="viewcode-block" id="get_executor"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.utils.get_executor">[docs]</a><span class="k">def</span> <span class="nf">get_executor</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    according the config[&#39;executor&#39;] to create the executor</span>
 
@@ -203,7 +204,7 @@
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;executor is not found&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_model"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.get_model">[docs]</a><span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">):</span>
+<div class="viewcode-block" id="get_model"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.utils.get_model">[docs]</a><span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    according the config[&#39;model&#39;] to create the model</span>
 
@@ -221,7 +222,7 @@
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;model is not found&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_evaluator"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.get_evaluator">[docs]</a><span class="k">def</span> <span class="nf">get_evaluator</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+<div class="viewcode-block" id="get_evaluator"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.utils.get_evaluator">[docs]</a><span class="k">def</span> <span class="nf">get_evaluator</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    according the config[&#39;evaluator&#39;] to create the evaluator</span>
 
@@ -238,7 +239,7 @@
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;evaluator is not found&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_logger"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.get_logger">[docs]</a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get_logger"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.utils.get_logger">[docs]</a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    获取Logger对象</span>
 
@@ -290,7 +291,7 @@
     <span class="k">return</span> <span class="n">logger</span></div>
 
 
-<div class="viewcode-block" id="get_local_time"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.get_local_time">[docs]</a><span class="k">def</span> <span class="nf">get_local_time</span><span class="p">():</span>
+<div class="viewcode-block" id="get_local_time"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.utils.get_local_time">[docs]</a><span class="k">def</span> <span class="nf">get_local_time</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    获取时间</span>
 
@@ -302,7 +303,7 @@
     <span class="k">return</span> <span class="n">cur</span></div>
 
 
-<div class="viewcode-block" id="ensure_dir"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.ensure_dir">[docs]</a><span class="k">def</span> <span class="nf">ensure_dir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">):</span>
+<div class="viewcode-block" id="ensure_dir"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.utils.ensure_dir">[docs]</a><span class="k">def</span> <span class="nf">ensure_dir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Make sure the directory exists, if it does not exist, create it.</span>
 
 <span class="sd">    Args:</span>
@@ -312,7 +313,7 @@
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="trans_naming_rule"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.trans_naming_rule">[docs]</a><span class="k">def</span> <span class="nf">trans_naming_rule</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">origin_rule</span><span class="p">,</span> <span class="n">target_rule</span><span class="p">):</span>
+<div class="viewcode-block" id="trans_naming_rule"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.utils.html#trafficdl.utils.utils.trans_naming_rule">[docs]</a><span class="k">def</span> <span class="nf">trans_naming_rule</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">origin_rule</span><span class="p">,</span> <span class="n">target_rule</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    名字转换规则</span>
 

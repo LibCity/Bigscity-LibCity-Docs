@@ -30,6 +30,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -183,7 +184,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStateDataset</span>
 
 
-<div class="viewcode-block" id="TrafficStateGridDataset"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.TrafficStateGridDataset">[docs]</a><span class="k">class</span> <span class="nc">TrafficStateGridDataset</span><span class="p">(</span><span class="n">TrafficStateDataset</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateGridDataset"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.traffic_state_grid_dataset.TrafficStateGridDataset">[docs]</a><span class="k">class</span> <span class="nc">TrafficStateGridDataset</span><span class="p">(</span><span class="n">TrafficStateDataset</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
@@ -193,13 +194,13 @@
                                             <span class="s1">&#39;grid_based_</span><span class="si">{}</span><span class="s1">.npz&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters_str</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_load_rel</span><span class="p">()</span>  <span class="c1"># don&#39;t care whether there is a .rel file</span>
 
-<div class="viewcode-block" id="TrafficStateGridDataset._load_geo"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.TrafficStateGridDataset._load_geo">[docs]</a>    <span class="k">def</span> <span class="nf">_load_geo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateGridDataset._load_geo"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.traffic_state_grid_dataset.TrafficStateGridDataset._load_geo">[docs]</a>    <span class="k">def</span> <span class="nf">_load_geo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        加载.geo文件，格式[geo_id, type, coordinates, row_id, column_id, properties(若干列)]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_load_grid_geo</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="TrafficStateGridDataset._load_rel"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.TrafficStateGridDataset._load_rel">[docs]</a>    <span class="k">def</span> <span class="nf">_load_rel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateGridDataset._load_rel"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.traffic_state_grid_dataset.TrafficStateGridDataset._load_rel">[docs]</a>    <span class="k">def</span> <span class="nf">_load_rel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        根据网格结构构建邻接矩阵，一个格子跟他周围的8个格子邻接</span>
 
@@ -208,7 +209,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_load_grid_rel</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="TrafficStateGridDataset._load_dyna"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.TrafficStateGridDataset._load_dyna">[docs]</a>    <span class="k">def</span> <span class="nf">_load_dyna</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateGridDataset._load_dyna"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.traffic_state_grid_dataset.TrafficStateGridDataset._load_dyna">[docs]</a>    <span class="k">def</span> <span class="nf">_load_dyna</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        加载.grid文件，格式[dyna_id, type, time, row_id, column_id, properties(若干列)],</span>
 <span class="sd">        其中全局参数`data_col`用于指定需要加载的数据的列，不设置则默认全部加载,</span>
@@ -226,7 +227,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_load_grid_3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TrafficStateGridDataset._add_external_information"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.TrafficStateGridDataset._add_external_information">[docs]</a>    <span class="k">def</span> <span class="nf">_add_external_information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">ext_data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateGridDataset._add_external_information"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.traffic_state_grid_dataset.TrafficStateGridDataset._add_external_information">[docs]</a>    <span class="k">def</span> <span class="nf">_add_external_information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">ext_data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        增加外部信息（一周中的星期几/day of week，一天中的某个时刻/time of day，外部数据）,</span>
 <span class="sd">        根据参数`use_row_column`确定是3d还是4d的数组，True为4d</span>
@@ -243,7 +244,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_add_external_information_3d</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ext_data</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TrafficStateGridDataset.get_data_feature"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.TrafficStateGridDataset.get_data_feature">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateGridDataset.get_data_feature"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.data.dataset.traffic_state_grid_dataset.html#trafficdl.data.dataset.traffic_state_grid_dataset.TrafficStateGridDataset.get_data_feature">[docs]</a>    <span class="k">def</span> <span class="nf">get_data_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        返回数据集特征，scaler是归一化方法，adj_mx是邻接矩阵，num_nodes是网格的个数，</span>
 <span class="sd">        len_row是网格的行数，len_column是网格的列数，</span>

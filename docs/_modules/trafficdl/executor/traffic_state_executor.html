@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -188,7 +189,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.utils</span> <span class="kn">import</span> <span class="n">get_evaluator</span><span class="p">,</span> <span class="n">ensure_dir</span>
 
 
-<div class="viewcode-block" id="TrafficStateExecutor"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor">[docs]</a><span class="k">class</span> <span class="nc">TrafficStateExecutor</span><span class="p">(</span><span class="n">AbstractExecutor</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor">[docs]</a><span class="k">class</span> <span class="nc">TrafficStateExecutor</span><span class="p">(</span><span class="n">AbstractExecutor</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">get_evaluator</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">config</span>
@@ -231,7 +232,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">log_every</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;log_every&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">saved</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;saved_model&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;output_dim&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># self.output_dim = self.model.get_data_feature().get(&#39;output_dim&#39;, 1)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;output_dim&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_epoch_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;epoch&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_epoch_num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">load_model_with_epoch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_epoch_num</span><span class="p">)</span>
@@ -239,7 +241,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_optimizer</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lr_scheduler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_lr_scheduler</span><span class="p">()</span>
 
-<div class="viewcode-block" id="TrafficStateExecutor.save_model"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor.save_model">[docs]</a>    <span class="k">def</span> <span class="nf">save_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_name</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor.save_model"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor.save_model">[docs]</a>    <span class="k">def</span> <span class="nf">save_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        将当前的模型保存到文件</span>
 
@@ -250,7 +252,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Saved model at &quot;</span> <span class="o">+</span> <span class="n">cache_name</span><span class="p">)</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">cache_name</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor.load_model"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor.load_model">[docs]</a>    <span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_name</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor.load_model"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor.load_model">[docs]</a>    <span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        加载对应模型的 cache</span>
 
@@ -260,7 +262,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Loaded model at &quot;</span> <span class="o">+</span> <span class="n">cache_name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">cache_name</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor.save_model_with_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor.save_model_with_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">save_model_with_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor.save_model_with_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor.save_model_with_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">save_model_with_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        保存某个epoch的模型</span>
 
@@ -276,7 +278,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Saved model at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">model_path</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor.load_model_with_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor.load_model_with_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">load_model_with_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor.load_model_with_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor.load_model_with_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">load_model_with_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        加载某个epoch的模型</span>
 
@@ -289,7 +291,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">checkpoint</span><span class="p">[</span><span class="s1">&#39;model_state_dict&#39;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Loaded model at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor._build_optimizer"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor._build_optimizer">[docs]</a>    <span class="k">def</span> <span class="nf">_build_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor._build_optimizer"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor._build_optimizer">[docs]</a>    <span class="k">def</span> <span class="nf">_build_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        根据全局参数`learner`选择optimizer</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -310,7 +312,7 @@
                                          <span class="n">eps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lr_epsilon</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_decay</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">optimizer</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor._build_lr_scheduler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor._build_lr_scheduler">[docs]</a>    <span class="k">def</span> <span class="nf">_build_lr_scheduler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor._build_lr_scheduler"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor._build_lr_scheduler">[docs]</a>    <span class="k">def</span> <span class="nf">_build_lr_scheduler</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        根据全局参数`lr_scheduler`选择对应的lr_scheduler</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -336,7 +338,7 @@
             <span class="n">lr_scheduler</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="n">lr_scheduler</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor.evaluate"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor.evaluate"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor.evaluate">[docs]</a>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        use model to test data</span>
 
@@ -370,7 +372,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">evaluator</span><span class="o">.</span><span class="n">collect</span><span class="p">({</span><span class="s1">&#39;y_true&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y_truths</span><span class="p">),</span> <span class="s1">&#39;y_pred&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y_preds</span><span class="p">)})</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">evaluator</span><span class="o">.</span><span class="n">save_result</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">evaluate_res_dir</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor.train"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor.train"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        use data to train model with config</span>
 
@@ -420,7 +422,7 @@
                     <span class="k">break</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_model_with_epoch</span><span class="p">(</span><span class="n">best_epoch</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor._train_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor._train_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_train_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor._train_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor._train_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_train_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">train_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        完成模型一个轮次的训练</span>
 
@@ -447,7 +449,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">losses</span></div>
 
-<div class="viewcode-block" id="TrafficStateExecutor._valid_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.TrafficStateExecutor._valid_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_valid_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TrafficStateExecutor._valid_epoch"><a class="viewcode-back" href="../../../trafficdl/trafficdl.executor.traffic_state_executor.html#trafficdl.executor.traffic_state_executor.TrafficStateExecutor._valid_epoch">[docs]</a>    <span class="k">def</span> <span class="nf">_valid_epoch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eval_dataloader</span><span class="p">,</span> <span class="n">epoch_idx</span><span class="p">,</span> <span class="n">loss_func</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        完成模型一个轮次的评估</span>
 

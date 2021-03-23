@@ -30,6 +30,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -192,18 +193,19 @@
             
   <div class="section" id="data-flow">
 <h1>Data Flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">¶</a></h1>
+<p>本文件介绍数据模块整体的数据流。</p>
 <ul>
 <li><p>原始数据 Raw Data</p>
-<p>原始的开源数据集，针对每一种支持的原始数据集，我们提供脚本以将其转化为原子文件。</p>
+<p>原始的开源数据集，针对每一种支持的原始数据集，我们提供脚本以将其转化为<a class="reference internal" href="atmoic_files.html"><span class="doc">原子文件</span></a>。</p>
 </li>
 <li><p>原子文件 Atomic Files</p>
 <p>不同交通预测任务的基础输入元素，用于构建Dataset类。</p>
 </li>
 <li><p>Dataset</p>
-<p>针对每一类交通预测任务制定的Dataset类，负责加载原子文件并进行一些数据预处理操作，以及切分训练集、验证集、测试集。</p>
+<p>针对每一类交通预测任务制定了不同的Dataset类，负责读取原子文件并进行一些数据预处理操作。</p>
 </li>
 <li><p>DataLoader</p>
-<p>负责加载数据的<code class="docutils literal notranslate"><span class="pre">Dataloader</span></code>类，使用<code class="docutils literal notranslate"><span class="pre">pytorch</span></code>原生的<code class="docutils literal notranslate"><span class="pre">torch.utils.data.DataLoader</span></code>，负责将数据以<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的形式返回给模型使用。</p>
+<p>负责加载数据的<code class="docutils literal notranslate"><span class="pre">Dataloader</span></code>类，使用<code class="docutils literal notranslate"><span class="pre">pytorch</span></code>原生的<code class="docutils literal notranslate"><span class="pre">torch.utils.data.DataLoader</span></code>，负责将数据以内部数据表示结构<a class="reference internal" href="batch.html"><span class="doc">Batch</span></a>类的形式返回给模型使用。</p>
 </li>
 </ul>
 </div>

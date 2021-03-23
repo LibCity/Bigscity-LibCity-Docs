@@ -30,6 +30,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -95,46 +96,77 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Raw Data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#foursquare">Foursquare</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#foursquare-nyc-restaurant-rich-dataset">Foursquare: NYC Restaurant Rich Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset">Foursquare: Global-scale Check-in Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#foursquare-user-profile-dataset">Foursquare: User Profile Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks">Foursquare: Global-scale Check-in Dataset with User Social Networks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gowalla">Gowalla</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#brightkite">Brightkite</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#geolife-gps">GeoLife-GPS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nyc-bus">NYC-Bus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nyc-taxi">NYC-Taxi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nyc-bike">NYC-Bike</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bikedc">BikeDC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bikechi">BikeCHI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#austinride">AustinRide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#i-80">I-80</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#t-drive">T-Drive</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#porto">Porto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#taxibj">TaxiBJ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uber">Uber</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#metr-la">METR-LA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#los-loop">Los-loop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sz-taxi">SZ-Taxi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#loop-seattle">Loop Seattle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nyc-speed-data">NYC Speed data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#hk">HK</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#q-traffic">Q-Traffic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#eng-hw">ENG-HW</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pems">PEMS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pemsd3">PeMSD3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pemsd4">PeMSD4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pemsd7">PEMSD7</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pemsd8">PeMSD8</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pemsd7-m-index">PEMSD7(M){#index}</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pemsd-sf">PeMSD-SF</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pems-bay">PEMS-BAY</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#buschi">BusCHI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nyc-accident-data">NYC Accident data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#road-network-data-openstreetmap">Road network data (OpenStreetMap)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#weather-and-events-data">Weather and events data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#external-data">External data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">人流轨迹数据集</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#foursquare">Foursquare</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foursquare-nyc-restaurant-rich-dataset">Foursquare: NYC Restaurant Rich Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset">Foursquare: Global-scale Check-in Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foursquare-user-profile-dataset">Foursquare: User Profile Dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks">Foursquare: Global-scale Check-in Dataset with User Social Networks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gowalla">Gowalla</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brightkite">Brightkite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geolife-gps">GeoLife-GPS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">车辆轨迹数据集</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nyc-bus">NYC-Bus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nyc-taxi">NYC-Taxi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nyc-bike">NYC-Bike</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bikedc">BikeDC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bikechi">BikeCHI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#austinride">AustinRide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#i-80">I-80</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#t-drive">T-Drive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#porto">Porto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">预处理过的车辆轨迹数据集</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#taxibj">TaxiBJ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nycbike20140409">NYCBike20140409</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nycbike20160708">NYCBike20160708</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nycbike20160809">NYCBike20160809</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nyctaxi20140112">NYCTaxi20140112</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nyctaxi20150103">NYCTaxi20150103</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nyctaxi20160102">NYCTaxi20160102</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#t-drive20150206">T-Drive20150206</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">交通状况数据集</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#metr-la">METR-LA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#los-loop">Los-loop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sz-taxi">SZ-Taxi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loop-seattle">Loop Seattle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#q-traffic">Q-Traffic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pems">PEMS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pemsd3">PeMSD3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pemsd4">PeMSD4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pemsd7">PEMSD7</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pemsd8">PeMSD8</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pemsd7-m">PEMSD7(M)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pemsd-sf">PeMSD-SF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pems-bay">PEMS-BAY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#beijing-subway">Beijing subway</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#m-dense">M_dense</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rotterdam">Rotterdam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shmetro">SHMetro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hzmetro">HZMetro</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nyc-speed-data">NYC Speed data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hk">HK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eng-hw">ENG-HW</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">外部信息数据集</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nyc-accident-data">NYC Accident data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#road-network-data-openstreetmap">Road network data (OpenStreetMap)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#weather-and-events-data">Weather and events data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">其他数据集</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#buschi">BusCHI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ctm">CTM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#heat">HEAT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#acousticpollution">AcousticPollution</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="atmoic_files.html">Atomic Files</a></li>
@@ -234,60 +266,65 @@
             
   <div class="section" id="raw-data">
 <h1>Raw Data<a class="headerlink" href="#raw-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>人流轨迹数据集<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="foursquare">
-<h2>Foursquare<a class="headerlink" href="#foursquare" title="Permalink to this headline">¶</a></h2>
+<h3>Foursquare<a class="headerlink" href="#foursquare" title="Permalink to this headline">¶</a></h3>
 <p><strong>Duration:</strong> Apr. 12, 2012 ~ Feb. 16, 2013</p>
 <p><strong>Link:</strong> https://sites.google.com/site/yangdingqi/home/foursquare-dataset</p>
 <p><strong>Description:</strong>  Foursquare a location-based social networking website where users share their locations by checking-in.</p>
 </div>
 <div class="section" id="foursquare-nyc-restaurant-rich-dataset">
-<h2>Foursquare: NYC Restaurant Rich Dataset<a class="headerlink" href="#foursquare-nyc-restaurant-rich-dataset" title="Permalink to this headline">¶</a></h2>
+<h3>Foursquare: NYC Restaurant Rich Dataset<a class="headerlink" href="#foursquare-nyc-restaurant-rich-dataset" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> New York, USA</p>
 <p><strong>Duration:</strong> Oct. 24, 2011 ~ Feb. 20, 2012</p>
 <p><strong>Description:</strong>  This dataset includes check-in, tip and tag data of restaurant venues in NYC.</p>
 </div>
 <div class="section" id="foursquare-global-scale-check-in-dataset">
-<h2>Foursquare: Global-scale Check-in Dataset<a class="headerlink" href="#foursquare-global-scale-check-in-dataset" title="Permalink to this headline">¶</a></h2>
+<h3>Foursquare: Global-scale Check-in Dataset<a class="headerlink" href="#foursquare-global-scale-check-in-dataset" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> 415 cities</p>
 <p><strong>Duration:</strong> Apr. 2012 ~ Sept. 2013</p>
 <p><strong>Description:</strong>  This dataset includes long-term (about 18 months from April 2012 to September 2013) global-scale check-in data collected from Foursquare.</p>
 </div>
 <div class="section" id="foursquare-user-profile-dataset">
-<h2>Foursquare: User Profile Dataset<a class="headerlink" href="#foursquare-user-profile-dataset" title="Permalink to this headline">¶</a></h2>
+<h3>Foursquare: User Profile Dataset<a class="headerlink" href="#foursquare-user-profile-dataset" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> New York, USA and Tokyo, Japan</p>
 <p><strong>Duration:</strong> Apr. 2012 ~ Sept. 2013</p>
 <p><strong>Description:</strong>  This dataset includes some user profile data for privacy study (i. e., gender, friends, followers). The corresponding user check-in data can be found in the global-scale check-in dataset.</p>
 </div>
 <div class="section" id="foursquare-global-scale-check-in-dataset-with-user-social-networks">
-<h2>Foursquare: Global-scale Check-in Dataset with User Social Networks<a class="headerlink" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks" title="Permalink to this headline">¶</a></h2>
+<h3>Foursquare: Global-scale Check-in Dataset with User Social Networks<a class="headerlink" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> 415 cities</p>
 <p><strong>Duration:</strong> Apr. 2012 ~ Jan. 2014</p>
 <p><strong>Description:</strong>  This dataset includes long-term (about 22 months from Apr. 2012 to Jan. 2014) global-scale check-in data collected from Foursquare, and also two snapshots of user social networks before and after the check-in data collection period.</p>
 </div>
 <div class="section" id="gowalla">
-<h2>Gowalla<a class="headerlink" href="#gowalla" title="Permalink to this headline">¶</a></h2>
+<h3>Gowalla<a class="headerlink" href="#gowalla" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> -</p>
 <p><strong>Duration:</strong> Feb. 2009 ~ Oct. 2010</p>
 <p><strong>Link:</strong> https://snap.stanford.edu/data/loc-gowalla.html</p>
 <p><strong>Description:</strong>  Gowalla is a location-based social networking website where users share their locations by checking-in,containing information of users, users’ check-in time, users’ latitude, longitude,users’ location id.</p>
 </div>
 <div class="section" id="brightkite">
-<h2>Brightkite<a class="headerlink" href="#brightkite" title="Permalink to this headline">¶</a></h2>
+<h3>Brightkite<a class="headerlink" href="#brightkite" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> -</p>
 <p><strong>Duration:</strong> Apr. 2008 ~ Oct. 2010</p>
 <p><strong>Link:</strong> http://snap.stanford.edu/data/loc-brightkite.html</p>
 <p><strong>Description:</strong> Brightkite is a location-based social networking website where users share their locations by checking-in,containing information of users, users’ check-in time, users’ latitude, longitude,users’ location id.</p>
 </div>
 <div class="section" id="geolife-gps">
-<h2>GeoLife-GPS<a class="headerlink" href="#geolife-gps" title="Permalink to this headline">¶</a></h2>
+<h3>GeoLife-GPS<a class="headerlink" href="#geolife-gps" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Beijing, China (majority)</p>
 <p><strong>Duration:</strong> Aug. 2007 ~ Aug. 2012</p>
 <p><strong>Link:</strong> https://www.microsoft.com/en-us/research/publication/geolife-gps-trajectory-dataset-user-guide/</p>
 <p><strong>Description:</strong> The GPS track dataset was collected by 182 users from April 2007 to August 2012 and contains 17,621 tracks with a total distance of 1,292,951 km and a total duration of 50,176 hours. 91.5% of the tracks are recorded at high density, for example every 1 to 5 seconds or every 5 to 10 meters per point.</p>
 <p>出行轨迹，基本就是user_ID，time ，lat，lon，location_id的格式</p>
 </div>
+</div>
+<div class="section" id="id2">
+<h2>车辆轨迹数据集<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="nyc-bus">
-<h2>NYC-Bus<a class="headerlink" href="#nyc-bus" title="Permalink to this headline">¶</a></h2>
+<h3>NYC-Bus<a class="headerlink" href="#nyc-bus" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> New York, USA</p>
 <p><strong>Duration:</strong> Aug. 1, 2014 ~ Oct. 31, 2014</p>
 <p><strong>Link:</strong> http://web.mta.info/developers/MTA-Bus-Time-historical-data.html</p>
@@ -296,7 +333,7 @@
 <p>【本质上是不同时刻的公交车位置数据集】</p>
 </div>
 <div class="section" id="nyc-taxi">
-<h2>NYC-Taxi<a class="headerlink" href="#nyc-taxi" title="Permalink to this headline">¶</a></h2>
+<h3>NYC-Taxi<a class="headerlink" href="#nyc-taxi" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> New York, USA</p>
 <p><strong>Duration:</strong> 2009 ~ present</p>
 <p><strong>Link:</strong> https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page</p>
@@ -310,7 +347,7 @@
 <p>上下车时间、上下车地点（ID）</p>
 </div>
 <div class="section" id="nyc-bike">
-<h2>NYC-Bike<a class="headerlink" href="#nyc-bike" title="Permalink to this headline">¶</a></h2>
+<h3>NYC-Bike<a class="headerlink" href="#nyc-bike" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> New York, USA</p>
 <p><strong>Duration:</strong> Jun. 2013 ~ present</p>
 <p><strong>Link:</strong> https://www.citibikenyc.com/system-data</p>
@@ -319,7 +356,7 @@
 <p>旅程用时、起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆ID、用户类别、用户生日、用户性别</p>
 </div>
 <div class="section" id="bikedc">
-<h2>BikeDC<a class="headerlink" href="#bikedc" title="Permalink to this headline">¶</a></h2>
+<h3>BikeDC<a class="headerlink" href="#bikedc" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Washington, USA</p>
 <p><strong>Duration:</strong> Sept. 20, 2010 ~ Oct. 2020</p>
 <p><strong>Link:</strong> https://www.capitalbikeshare.com/system-data</p>
@@ -328,7 +365,7 @@
 <p>起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆类型、车辆ID、用户类别</p>
 </div>
 <div class="section" id="bikechi">
-<h2>BikeCHI<a class="headerlink" href="#bikechi" title="Permalink to this headline">¶</a></h2>
+<h3>BikeCHI<a class="headerlink" href="#bikechi" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Chicago, USA</p>
 <p><strong>Duration:</strong> Jun. 27, 2013 ~ 2018</p>
 <p><strong>Link:</strong> https://www.divvybikes.com/system-data</p>
@@ -337,7 +374,7 @@
 <p>起止时间、起止地点ID、起止地点Name、起止地点经纬度、车辆类型、车辆ID、用户类别</p>
 </div>
 <div class="section" id="austinride">
-<h2>AustinRide<a class="headerlink" href="#austinride" title="Permalink to this headline">¶</a></h2>
+<h3>AustinRide<a class="headerlink" href="#austinride" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Austin, USA</p>
 <p><strong>Duration:</strong> Jun. 4, 2016 ~ Apr. 13, 2017</p>
 <p><strong>Link:</strong> https://data.world/ride-austin/ride-austin-june-6-april-13</p>
@@ -346,7 +383,7 @@
 <p>旅程距离、起止时间、起止地点经纬度、车辆ID、用户ID等</p>
 </div>
 <div class="section" id="i-80">
-<h2>I-80<a class="headerlink" href="#i-80" title="Permalink to this headline">¶</a></h2>
+<h3>I-80<a class="headerlink" href="#i-80" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> San Francisco Bay, USA</p>
 <p><strong>Duration:</strong> Apr. 13, 2005</p>
 <p><strong>Link:</strong> https://www.fhwa.dot.gov/publications/research/operations/06137/index.cfm</p>
@@ -354,7 +391,7 @@
 <p>按车辆ID组织数据，每隔一段时间记录一次车的位置，数据的每一行是车辆ID、车辆位置坐标、车辆的相关信息、车辆瞬时速度等</p>
 </div>
 <div class="section" id="t-drive">
-<h2>T-Drive<a class="headerlink" href="#t-drive" title="Permalink to this headline">¶</a></h2>
+<h3>T-Drive<a class="headerlink" href="#t-drive" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Beijing, China</p>
 <p><strong>Duration:</strong> Feb. 2, 2008 ~ Feb. 8, 2008</p>
 <p><strong>Link:</strong> https://www.microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample/</p>
@@ -362,7 +399,7 @@
 <p>按车辆ID组织数据，每隔一段时间记录一次车的位置，数据的每一行是车辆ID，时间，车辆位置经纬度</p>
 </div>
 <div class="section" id="porto">
-<h2>Porto<a class="headerlink" href="#porto" title="Permalink to this headline">¶</a></h2>
+<h3>Porto<a class="headerlink" href="#porto" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Porto, Portugal</p>
 <p><strong>Duration:</strong> Jul. 1, 2013 ~ Jun. 30, 2014</p>
 <p><strong>Link:</strong> https://archive.ics.uci.edu/ml/datasets/Taxi+Service+Trajectory+-+Prediction+Challenge%2C+ECML+PKDD+2015</p>
@@ -370,50 +407,57 @@
 <p>按行程ID组织数据（Per Trip），</p>
 <p>每个Trip包含开始地点、开始时间、司机ID、一系列位置坐标：每隔一段时间记录一次车的位置（经纬度）</p>
 </div>
+</div>
+<div class="section" id="id3">
+<h2>预处理过的车辆轨迹数据集<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>主要是将车辆轨迹数据集进行了空间切分、流量统计等预处理操作，将之转换成流量或者需求量数据。（主要是规则的网格划分）</p>
 <div class="section" id="taxibj">
-<h2>TaxiBJ<a class="headerlink" href="#taxibj" title="Permalink to this headline">¶</a></h2>
+<h3>TaxiBJ<a class="headerlink" href="#taxibj" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Beijing, China</p>
 <p><strong>Duration:</strong> Jul. 1, 2013 ~ Oct. 30, 2013, Mar. 1, 2014 ~ Jun. 30, 2014, Mar. 1, 2015 ~ Jun. 30, 2015 and Nov. 1, 2015 ~ Apr. 10, 2016</p>
 <p><strong>Link:</strong> https://github.com/TolicWang/DeepST/issues/3</p>
 <p><strong>Description:</strong> The TaxiBJ dataset contains the taxicab GPS data, including crowd flow, meteorology and holiday information.</p>
 <p>四维张量： [timeslots, inflow/outflow, grid_line_id, grid_column_id]，直接给出了inflow和outflow，只适合于流量预测</p>
 </div>
-<div class="section" id="uber">
-<h2>Uber<a class="headerlink" href="#uber" title="Permalink to this headline">¶</a></h2>
-<p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> Apr. 1, 2014 ~ Sept. 30, 2014 and Jan. 1, 2015 ~ Jun. 30, 2015</p>
-<p><strong>Link:</strong> https://www.kaggle.com/fivethirtyeight/uber-pickups-in-new-york-city</p>
-<p><strong>Description:</strong> The Uber dataset contains data on over 4.5 million Uber pickups in New York City from April to September 2014, and 14.3 million more Uber pickups from January to June 2015.</p>
-<p>（不建议使用，没有下车的位置和时间？感觉是从NYC数据集抽取的数据集）</p>
-<p>Uber2014：</p>
-<p>上车时间、上车地点经纬度</p>
-<p>Uber2015：</p>
-<p>上车时间、上车地点ID</p>
-<p>FLV：</p>
-<p>上车时间、上车地点名</p>
+<div class="section" id="nycbike20140409">
+<h3>NYCBike20140409<a class="headerlink" href="#nycbike20140409" title="Permalink to this headline">¶</a></h3>
 </div>
+<div class="section" id="nycbike20160708">
+<h3>NYCBike20160708<a class="headerlink" href="#nycbike20160708" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nycbike20160809">
+<h3>NYCBike20160809<a class="headerlink" href="#nycbike20160809" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nyctaxi20140112">
+<h3>NYCTaxi20140112<a class="headerlink" href="#nyctaxi20140112" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nyctaxi20150103">
+<h3>NYCTaxi20150103<a class="headerlink" href="#nyctaxi20150103" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nyctaxi20160102">
+<h3>NYCTaxi20160102<a class="headerlink" href="#nyctaxi20160102" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="t-drive20150206">
+<h3>T-Drive20150206<a class="headerlink" href="#t-drive20150206" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>交通状况数据集<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="metr-la">
-<h2>METR-LA<a class="headerlink" href="#metr-la" title="Permalink to this headline">¶</a></h2>
+<h3>METR-LA<a class="headerlink" href="#metr-la" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Los Angeles County, USA</p>
 <p><strong>Duration:</strong> Mar. 1, 2012 ~ Jun. 27, 2012</p>
 <p><strong>Link:</strong> https://github.com/liyaguang/DCRNN</p>
 <p><strong>Description:</strong> The METR-LA dataset collected in the highway by loop detectors, contains traffic speed data from 207 sensors.</p>
-<p>DataFrame二维表的格式</p>
-<p>sensor_id            400001  400017  400030  400040  400045  400052  …  413026  413845  413877  413878  414284  414694
-2017-01-01 00:00:00    71.4    67.8    70.5    67.4    68.8    66.6  …    69.2    68.9    70.4    68.8    71.1    68.0
-2017-01-01 00:05:00    71.6    67.5    70.6    67.5    68.7    66.6  …    70.4    68.8    70.1    68.4    70.8    67.4
-2017-01-01 00:10:00    71.6    67.6    70.2    67.4    68.7    66.1  …    70.2    68.3    69.8    68.4    70.5    67.9
-2017-01-01 00:15:00    71.1    67.5    70.3    68.0    68.5    66.7  …    70.4    68.7    70.2    68.4    70.8    67.6
-2017-01-01 00:20:00    71.7    67.8    70.2    68.1    68.4    66.9  …    69.6    69.1    70.0    68.4    71.0    67.9</p>
 <p>列是时间，间隔为5min。行是sensor编号，提供文件表示sensor的经纬度。值是速度。</p>
 <p>用sensor之间的距离矩阵代表路网（adjacency matrix、权重矩阵、代表节点的相似度）</p>
 </div>
 <div class="section" id="los-loop">
-<h2>Los-loop<a class="headerlink" href="#los-loop" title="Permalink to this headline">¶</a></h2>
-<p>（这个就是METR-LA）</p>
+<h3>Los-loop<a class="headerlink" href="#los-loop" title="Permalink to this headline">¶</a></h3>
+<p>跟METR_LA稍有区别，把缺失值用线性插值的方式补充好了。</p>
 </div>
 <div class="section" id="sz-taxi">
-<h2>SZ-Taxi<a class="headerlink" href="#sz-taxi" title="Permalink to this headline">¶</a></h2>
+<h3>SZ-Taxi<a class="headerlink" href="#sz-taxi" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Shenzhen, China</p>
 <p><strong>Duration:</strong> Jan. 1, 2015 ~ Jan. 31, 2015</p>
 <p><strong>Link:</strong> https://github.com/lehaifeng/T-GCN/tree/master/data</p>
@@ -423,45 +467,16 @@
 <p>提供adjacency matrix描述路网的结构（1或0，邻接与否）</p>
 </div>
 <div class="section" id="loop-seattle">
-<h2>Loop Seattle<a class="headerlink" href="#loop-seattle" title="Permalink to this headline">¶</a></h2>
+<h3>Loop Seattle<a class="headerlink" href="#loop-seattle" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Greater Seattle Area, China</p>
 <p><strong>Duration:</strong> over the entirely of 2015</p>
 <p><strong>Link:</strong> https://github.com/zhiyongc/Seattle-Loop-Data</p>
 <p><strong>Description:</strong> The Loop Seattle dataset is collected by the inductive loop detectors deployed on freeways (I-5, I-405, I-90, and SR-520) in Seattle area and contains traffic state data from 323 sensor stations.</p>
-<p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_pickle('speed_matrix_2015')</span></code></p>
-<p>DataFrame二维表的格式</p>
-<p>ID                   d005es15036  d005es15125  d005es15214  …  i520es00861  i520es00935  i520es00972
-stamp                                                       …
-2015-01-01 00:00:00    61.939138    64.280883    62.077397  …    68.112571    66.567829    62.032062
-2015-01-01 00:05:00    59.232527    65.082450    64.808345  …    59.022999    58.949034    61.212069
-2015-01-01 00:10:00    61.991801    65.309123    64.803916  …    58.710086    56.671427    57.488732
-2015-01-01 00:15:00    62.480655    65.191651    67.206597  …    64.368119    57.892398    64.087189
-2015-01-01 00:20:00    62.490484    65.287669    67.323285  …    62.795588    62.545365    64.567285</p>
 <p>列是时间，间隔为5min。行是sensor编号。值是速度。</p>
 <p>提供adjacency matrix描述路网的结构（1或0，邻接与否）</p>
 </div>
-<div class="section" id="nyc-speed-data">
-<h2>NYC Speed data<a class="headerlink" href="#nyc-speed-data" title="Permalink to this headline">¶</a></h2>
-<p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> Apr. 1, 2015 ~ present</p>
-<p><strong>Link:</strong> http://data.beta.nyc/dataset/nyc-real-time-traffic-speed-data-feed-archived</p>
-<p><strong>Description:</strong> The NYC Speed data contains speed data for New York City, including speed, travel time, status, etc.</p>
-<p>按照道路ID组织数据，每一条数据包括道路ID、速度、时间、穿过道路的平均用时。</p>
-<p>对于每个道路，提供文件描述一系列道路上sensor的经纬度位置、道路名称等。</p>
-<p>Sequence of Lat/ Long points, describes locations of the sensor links</p>
-</div>
-<div class="section" id="hk">
-<h2>HK<a class="headerlink" href="#hk" title="Permalink to this headline">¶</a></h2>
-<p><strong>Place:</strong> Hong Kong, China</p>
-<p><strong>Duration:</strong> Dec. 28, 2015 ~ present</p>
-<p><strong>Link:</strong> https://data.gov.hk/en-data/dataset/hk-td-sm_1-traffic-speed-map</p>
-<p><strong>Description:</strong> The HK dataset contains average traffic speed of major roads in Hong Kong.</p>
-<p>按照道路ID组织数据，每一条数据包括道路ID、道路区域、道路类型、道路状况等级、速度、时间。</p>
-<p>时间间隔较短，可以得到每条道路，各个时间的速度信息。</p>
-<p>对于每个路段link，提供文件描述起始站、终点站、以及相应的经纬度、道路类型。(基于它们可以构建路网的拓扑)</p>
-</div>
 <div class="section" id="q-traffic">
-<h2>Q-Traffic<a class="headerlink" href="#q-traffic" title="Permalink to this headline">¶</a></h2>
+<h3>Q-Traffic<a class="headerlink" href="#q-traffic" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> Beijing, China</p>
 <p><strong>Duration:</strong> Apr. 1, 2017 ~ May 31, 2017</p>
 <p><strong>Link:</strong> https://github.com/JingqingZ/BaiduTraffic</p>
@@ -479,23 +494,15 @@ stamp                                                       …
 </ul>
 <p>对于每个路段link，提供路段的起点（节点）和终点（节点），基于它们可以构建路网的拓扑、提供宽度，长度km，方向，限速和车道数信息。提供一个经纬度，不知道是起点还是终点。</p>
 </div>
-<div class="section" id="eng-hw">
-<h2>ENG-HW<a class="headerlink" href="#eng-hw" title="Permalink to this headline">¶</a></h2>
-<p><strong>Place:</strong> British</p>
-<p><strong>Duration:</strong> 2006 ~ 2014</p>
-<p><strong>Link:</strong> http://tris.highwaysengland.co.uk/detail/trafficflowdata</p>
-<p><strong>Description:</strong> The ENG-HW dataset includes information on intercity road traffic between three UK cities recorded by the government from 2006 to 2014.</p>
-<p>每个站点不同时间的流量数据</p>
-</div>
 <div class="section" id="pems">
-<h2>PEMS<a class="headerlink" href="#pems" title="Permalink to this headline">¶</a></h2>
+<h3>PEMS<a class="headerlink" href="#pems" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> California, USA</p>
 <p><strong>Duration:</strong> 2001 ~ present</p>
 <p><strong>Link:</strong> http://pems.dot.ca.gov</p>
 <p><strong>Description:</strong> PEMS records California highway speed data, including time_hour, average_time, lane_points.</p>
 </div>
 <div class="section" id="pemsd3">
-<h2>PeMSD3<a class="headerlink" href="#pemsd3" title="Permalink to this headline">¶</a></h2>
+<h3>PeMSD3<a class="headerlink" href="#pemsd3" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> District 3 of California, USA</p>
 <p><strong>Duration:</strong> Sept. 1, 2018 ~ Nov. 30, 2018</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/STSGCN</p>
@@ -506,7 +513,7 @@ stamp                                                       …
 <p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
 </div>
 <div class="section" id="pemsd4">
-<h2>PeMSD4<a class="headerlink" href="#pemsd4" title="Permalink to this headline">¶</a></h2>
+<h3>PeMSD4<a class="headerlink" href="#pemsd4" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> San Francisco Bay Area, USA</p>
 <p><strong>Duration:</strong> Jan. 1, 2018 ~ Feb. 28, 2018</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/ASTGCN/tree/master/data/PEMS04</p>
@@ -515,7 +522,7 @@ stamp                                                       …
 <p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
 </div>
 <div class="section" id="pemsd7">
-<h2>PEMSD7<a class="headerlink" href="#pemsd7" title="Permalink to this headline">¶</a></h2>
+<h3>PEMSD7<a class="headerlink" href="#pemsd7" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> District 7 of California, USA</p>
 <p><strong>Duration:</strong> Jul. 1, 2016 ~ Aug. 31, 2016</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/STSGCN</p>
@@ -524,7 +531,7 @@ stamp                                                       …
 <p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
 </div>
 <div class="section" id="pemsd8">
-<h2>PeMSD8<a class="headerlink" href="#pemsd8" title="Permalink to this headline">¶</a></h2>
+<h3>PeMSD8<a class="headerlink" href="#pemsd8" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> San Bernardino Area, USA</p>
 <p><strong>Duration:</strong> Jul. 1, 2016 ~ Aug. 31, 2016</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/ASTGCN/tree/master/data/PEMS08</p>
@@ -532,50 +539,87 @@ stamp                                                       …
 <p>提供的numpy三维张量，时间间隔5min，三维（时间戳，sensor编号，（flow, occupy, speed））</p>
 <p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
 </div>
-<div class="section" id="pemsd7-m-index">
-<h2>PEMSD7(M){#index}<a class="headerlink" href="#pemsd7-m-index" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pemsd7-m">
+<h3>PEMSD7(M)<a class="headerlink" href="#pemsd7-m" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> District 7 of California, USA</p>
 <p><strong>Duration:</strong> the weekdays of May and June of 2012</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/STGCN/tree/master/datasets</p>
 <p><strong>Description:</strong> The PeMSD7(M) dataset describes highway speed information at 228 stations in the 7th District of California.</p>
-<p>DataFrame二维表的格式</p>
 <p>列是时间，间隔为5min。行是sensor编号。值是速度。</p>
 <p>用sensor之间的距离矩阵代表路网（adjacency matrix）</p>
 </div>
 <div class="section" id="pemsd-sf">
-<h2>PeMSD-SF<a class="headerlink" href="#pemsd-sf" title="Permalink to this headline">¶</a></h2>
+<h3>PeMSD-SF<a class="headerlink" href="#pemsd-sf" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> San Francisco Bay Area, USA</p>
 <p><strong>Duration:</strong> Jan. 1, 2008 ~ Mar. 30, 2009</p>
 <p><strong>Link:</strong> http://archive.ics.uci.edu/ml/datasets/PEMS-SF</p>
 <p><strong>Description:</strong> The PeMSD-SF dataset describes the occupancy rate, between 0 and 1, of different car lanes of San Francisco bay area freeways.</p>
-<p>Occupancy</p>
+<p>Occupancy占有率数据集</p>
 </div>
 <div class="section" id="pems-bay">
-<h2>PEMS-BAY<a class="headerlink" href="#pems-bay" title="Permalink to this headline">¶</a></h2>
+<h3>PEMS-BAY<a class="headerlink" href="#pems-bay" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> San Francisco Bay Area, USA</p>
 <p><strong>Duration:</strong> Jan. 1, 2017 ~ Jun. 30, 2017</p>
 <p><strong>Link:</strong> https://github.com/liyaguang/DCRNN</p>
 <p><strong>Description:</strong> The PeMS-BAY dataset contains 6 months of statistics on traffic speed, including 325 sensors.</p>
-<p>DataFrame二维表的格式</p>
-<p>​                                       773869     767541     767542     717447  …     717595     772168     718141  769373</p>
-<p>2012-03-01 00:00:00  64.375000  67.625000  67.125000  61.500000  …  69.000000  59.250000  69.000000  61.875
-2012-03-01 00:05:00  62.666667  68.555556  65.444444  62.444444  …  64.444444  55.888889  68.444444  62.875
-2012-03-01 00:10:00  64.000000  63.750000  60.000000  59.000000  …  65.625000  61.375000  69.857143  62.000
-2012-03-01 00:15:00   0.000000   0.000000   0.000000   0.000000  …   0.000000   0.000000   0.000000   0.000
-2012-03-01 00:20:00   0.000000   0.000000   0.000000   0.000000  …   0.000000   0.000000   0.000000   0.000</p>
 <p>列是时间，间隔为5min。行是sensor编号，提供文件表示sensor的经纬度。值是速度。</p>
 <p>用sensor之间的距离矩阵代表路网（adjacency matrix、权重矩阵、代表节点的相似度）</p>
 </div>
-<div class="section" id="buschi">
-<h2>BusCHI<a class="headerlink" href="#buschi" title="Permalink to this headline">¶</a></h2>
-<p><strong>Place:</strong> Chicago, USA</p>
-<p><strong>Duration:</strong> Aug. 2, 2011 ~ May 3, 2018</p>
-<p><strong>Link:</strong> https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Historical-Congestion-Esti/77hq-huss/data</p>
-<p><strong>Description:</strong> The BusCHI dataset contains the historical estimated congestion for 1270 traffic segments.</p>
-<p>交通拥堵状况数据集</p>
+<div class="section" id="beijing-subway">
+<h3>Beijing subway<a class="headerlink" href="#beijing-subway" title="Permalink to this headline">¶</a></h3>
 </div>
+<div class="section" id="m-dense">
+<h3>M_dense<a class="headerlink" href="#m-dense" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="rotterdam">
+<h3>Rotterdam<a class="headerlink" href="#rotterdam" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="shmetro">
+<h3>SHMetro<a class="headerlink" href="#shmetro" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="hzmetro">
+<h3>HZMetro<a class="headerlink" href="#hzmetro" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nyc-speed-data">
+<h3>NYC Speed data<a class="headerlink" href="#nyc-speed-data" title="Permalink to this headline">¶</a></h3>
+<p><strong>Place:</strong> New York, USA</p>
+<p><strong>Duration:</strong> Apr. 1, 2015 ~ present</p>
+<p><strong>Link:</strong> http://data.beta.nyc/dataset/nyc-real-time-traffic-speed-data-feed-archived</p>
+<p><strong>Description:</strong> The NYC Speed data contains speed data for New York City, including speed, travel time, status, etc.</p>
+<p>按照道路ID组织数据，每一条数据包括道路ID、速度、时间、穿过道路的平均用时。</p>
+<p>对于每个道路，提供文件描述一系列道路上sensor的经纬度位置、道路名称等。</p>
+<p>Sequence of Lat/ Long points, describes locations of the sensor links</p>
+</div>
+<div class="section" id="hk">
+<h3>HK<a class="headerlink" href="#hk" title="Permalink to this headline">¶</a></h3>
+<p><strong>Place:</strong> Hong Kong, China</p>
+<p><strong>Duration:</strong> Dec. 28, 2015 ~ present</p>
+<p><strong>Link:</strong> https://data.gov.hk/en-data/dataset/hk-td-sm_1-traffic-speed-map</p>
+<p><strong>Description:</strong> The HK dataset contains average traffic speed of major roads in Hong Kong.</p>
+<p>按照道路ID组织数据，每一条数据包括道路ID、道路区域、道路类型、道路状况等级、速度、时间。</p>
+<p>时间间隔较短，可以得到每条道路，各个时间的速度信息。</p>
+<p>对于每个路段link，提供文件描述起始站、终点站、以及相应的经纬度、道路类型。(基于它们可以构建路网的拓扑)</p>
+</div>
+<div class="section" id="eng-hw">
+<h3>ENG-HW<a class="headerlink" href="#eng-hw" title="Permalink to this headline">¶</a></h3>
+<p><strong>Place:</strong> British</p>
+<p><strong>Duration:</strong> 2006 ~ 2014</p>
+<p><strong>Link:</strong> http://tris.highwaysengland.co.uk/detail/trafficflowdata</p>
+<p><strong>Description:</strong> The ENG-HW dataset includes information on intercity road traffic between three UK cities recorded by the government from 2006 to 2014.</p>
+<p>每个站点不同时间的流量数据</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>外部信息数据集<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>外部数据一般包括天气数据、路网结构数据、兴趣点（Point of Interest，POI）数据、事件数据、时间信息数据等数据。</p>
+<ul class="simple">
+<li><p>气象条件：温度、湿度、风速、能见度和天气状态（晴/雨/风/多云等）</p></li>
+<li><p>驾驶员ID：由于驾驶员的个人情况不同，预测会有一定的影响，因此有必要对驾驶员进行标记，此信息主要用于个人预测。</p></li>
+<li><p>活动：包括各种节假日、交通管制、交通事故、体育赛事、音乐会等活动。</p></li>
+<li><p>时间信息：星期几，一天中的时间片。</p></li>
+</ul>
 <div class="section" id="nyc-accident-data">
-<h2>NYC Accident data<a class="headerlink" href="#nyc-accident-data" title="Permalink to this headline">¶</a></h2>
+<h3>NYC Accident data<a class="headerlink" href="#nyc-accident-data" title="Permalink to this headline">¶</a></h3>
 <p><strong>Place:</strong> New York, USA</p>
 <p><strong>Duration:</strong> May 7, 2014 ~ present</p>
 <p><strong>Link:</strong> https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95</p>
@@ -583,22 +627,36 @@ stamp                                                       …
 <p>发生碰撞的日期、时间、经纬度、街道名、受伤人数、死亡人数、原因、车辆类型等</p>
 </div>
 <div class="section" id="road-network-data-openstreetmap">
-<h2>Road network data (OpenStreetMap)<a class="headerlink" href="#road-network-data-openstreetmap" title="Permalink to this headline">¶</a></h2>
+<h3>Road network data (OpenStreetMap)<a class="headerlink" href="#road-network-data-openstreetmap" title="Permalink to this headline">¶</a></h3>
 <p>https://www.openstreetmap.org/</p>
 </div>
 <div class="section" id="weather-and-events-data">
-<h2>Weather and events data<a class="headerlink" href="#weather-and-events-data" title="Permalink to this headline">¶</a></h2>
+<h3>Weather and events data<a class="headerlink" href="#weather-and-events-data" title="Permalink to this headline">¶</a></h3>
 <p>https://www.wunderground.com/</p>
 </div>
-<div class="section" id="external-data">
-<h2>External data<a class="headerlink" href="#external-data" title="Permalink to this headline">¶</a></h2>
-<p>常见的外部数据项。</p>
-<ul class="simple">
-<li><p>气象条件：温度、湿度、风速、能见度和天气状态（晴/雨/风/多云等）</p></li>
-<li><p>驾驶员ID：由于驾驶员的个人情况不同，预测会有一定的影响，因此有必要对驾驶员进行标记，此信息主要用于个人预测。</p></li>
-<li><p>活动：包括各种节假日、交通管制、交通事故、体育赛事、音乐会等活动。</p></li>
-<li><p>时间信息：星期几，一天中的时间片。</p></li>
-</ul>
+</div>
+<div class="section" id="id6">
+<h2>其他数据集<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buschi">
+<h3>BusCHI<a class="headerlink" href="#buschi" title="Permalink to this headline">¶</a></h3>
+<p><strong>Place:</strong> Chicago, USA</p>
+<p><strong>Duration:</strong> Aug. 2, 2011 ~ May 3, 2018</p>
+<p><strong>Link:</strong> https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Historical-Congestion-Esti/77hq-huss/data</p>
+<p><strong>Description:</strong> The BusCHI dataset contains the historical estimated congestion for 1270 traffic segments.</p>
+<p>交通拥堵状况数据集</p>
+</div>
+<div class="section" id="ctm">
+<h3>CTM<a class="headerlink" href="#ctm" title="Permalink to this headline">¶</a></h3>
+<p>持续时间、请求数数据集</p>
+</div>
+<div class="section" id="heat">
+<h3>HEAT<a class="headerlink" href="#heat" title="Permalink to this headline">¶</a></h3>
+<p>温度数据集</p>
+</div>
+<div class="section" id="acousticpollution">
+<h3>AcousticPollution<a class="headerlink" href="#acousticpollution" title="Permalink to this headline">¶</a></h3>
+<p>声污染数据集</p>
+</div>
 </div>
 </div>
 

@@ -30,6 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -187,7 +188,7 @@
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
 
 
-<div class="viewcode-block" id="parse_time"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.parse_time">[docs]</a><span class="k">def</span> <span class="nf">parse_time</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">timezone_offset_in_minute</span><span class="p">):</span>
+<div class="viewcode-block" id="parse_time"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.parse_time">[docs]</a><span class="k">def</span> <span class="nf">parse_time</span><span class="p">(</span><span class="n">time_in</span><span class="p">,</span> <span class="n">timezone_offset_in_minute</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    将 json 中 time_format 格式的 time 转化为 local datatime</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -195,7 +196,7 @@
     <span class="k">return</span> <span class="n">date</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">timezone_offset_in_minute</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="cal_basetime"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.cal_basetime">[docs]</a><span class="k">def</span> <span class="nf">cal_basetime</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">base_zero</span><span class="p">):</span>
+<div class="viewcode-block" id="cal_basetime"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.cal_basetime">[docs]</a><span class="k">def</span> <span class="nf">cal_basetime</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">base_zero</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    用于切分轨迹成一个 session，</span>
 <span class="sd">    思路为：给定一个 start_time 找到一个基准时间 base_time，</span>
@@ -221,7 +222,7 @@
                                           <span class="n">microseconds</span><span class="o">=</span><span class="n">start_time</span><span class="o">.</span><span class="n">microsecond</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="cal_timeoff"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.cal_timeoff">[docs]</a><span class="k">def</span> <span class="nf">cal_timeoff</span><span class="p">(</span><span class="n">now_time</span><span class="p">,</span> <span class="n">base_time</span><span class="p">):</span>
+<div class="viewcode-block" id="cal_timeoff"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.cal_timeoff">[docs]</a><span class="k">def</span> <span class="nf">cal_timeoff</span><span class="p">(</span><span class="n">now_time</span><span class="p">,</span> <span class="n">base_time</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    计算两个时间之间的差值，返回值以小时为单位</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -232,7 +233,7 @@
     <span class="k">return</span> <span class="n">delta</span><span class="o">.</span><span class="n">days</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">+</span> <span class="n">delta</span><span class="o">.</span><span class="n">seconds</span> <span class="o">/</span> <span class="mi">3600</span></div>
 
 
-<div class="viewcode-block" id="caculate_time_sim"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.caculate_time_sim">[docs]</a><span class="k">def</span> <span class="nf">caculate_time_sim</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="caculate_time_sim"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.caculate_time_sim">[docs]</a><span class="k">def</span> <span class="nf">caculate_time_sim</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">time_checkin_set</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
     <span class="n">tim_size</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;tim_size&#39;</span><span class="p">]</span>
     <span class="n">data_neural</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
@@ -256,12 +257,12 @@
     <span class="k">return</span> <span class="n">sim_matrix</span></div>
 
 
-<div class="viewcode-block" id="parse_coordinate"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.parse_coordinate">[docs]</a><span class="k">def</span> <span class="nf">parse_coordinate</span><span class="p">(</span><span class="n">coordinate</span><span class="p">):</span>
+<div class="viewcode-block" id="parse_coordinate"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.parse_coordinate">[docs]</a><span class="k">def</span> <span class="nf">parse_coordinate</span><span class="p">(</span><span class="n">coordinate</span><span class="p">):</span>
     <span class="n">items</span> <span class="o">=</span> <span class="n">coordinate</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div>
 
 
-<div class="viewcode-block" id="string2timestamp"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.string2timestamp">[docs]</a><span class="k">def</span> <span class="nf">string2timestamp</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="n">offset_frame</span><span class="p">):</span>
+<div class="viewcode-block" id="string2timestamp"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.string2timestamp">[docs]</a><span class="k">def</span> <span class="nf">string2timestamp</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="n">offset_frame</span><span class="p">):</span>
     <span class="n">ts</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">:</span>
         <span class="n">dtstr</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">t</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">t</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span> <span class="n">t</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()])</span>
@@ -270,7 +271,7 @@
     <span class="k">return</span> <span class="n">ts</span>  <span class="c1"># [numpy.datetime64(&#39;2014-01-01T00:00&#39;), ...]</span></div>
 
 
-<div class="viewcode-block" id="timestamp2array"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.timestamp2array">[docs]</a><span class="k">def</span> <span class="nf">timestamp2array</span><span class="p">(</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="viewcode-block" id="timestamp2array"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.timestamp2array">[docs]</a><span class="k">def</span> <span class="nf">timestamp2array</span><span class="p">(</span><span class="n">timestamps</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    把时间戳的序列中的每一个时间戳转成特征数组，考虑了星期和小时，</span>
 <span class="sd">    时间戳: numpy.datetime64(&#39;2013-07-01T00:00:00.000000000&#39;)</span>
@@ -312,7 +313,7 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="timestamp2vec_origin"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.timestamp2vec_origin">[docs]</a><span class="k">def</span> <span class="nf">timestamp2vec_origin</span><span class="p">(</span><span class="n">timestamps</span><span class="p">):</span>
+<div class="viewcode-block" id="timestamp2vec_origin"><a class="viewcode-back" href="../../../trafficdl/trafficdl.utils.dataset.html#trafficdl.utils.dataset.timestamp2vec_origin">[docs]</a><span class="k">def</span> <span class="nf">timestamp2vec_origin</span><span class="p">(</span><span class="n">timestamps</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    把时间戳的序列中的每一个时间戳转成特征数组，只考虑星期，</span>
 <span class="sd">    时间戳: numpy.datetime64(&#39;2013-07-01T00:00:00.000000000&#39;)</span>

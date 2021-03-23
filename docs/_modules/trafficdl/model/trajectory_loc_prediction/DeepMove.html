@@ -30,6 +30,7 @@
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -191,7 +192,7 @@
 <span class="kn">from</span> <span class="nn">trafficdl.model.abstract_model</span> <span class="kn">import</span> <span class="n">AbstractModel</span>
 
 
-<div class="viewcode-block" id="Attn"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.Attn">[docs]</a><span class="k">class</span> <span class="nc">Attn</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="Attn"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.Attn">[docs]</a><span class="k">class</span> <span class="nc">Attn</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Attention Module. Heavily borrowed from Practical Pytorch</span>
 <span class="sd">    https://github.com/spro/practical-pytorch/tree/master/seq2seq-translation</span>
@@ -209,7 +210,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">attn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">other</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">))</span>
 
-<div class="viewcode-block" id="Attn.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.Attn.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_state</span><span class="p">,</span> <span class="n">history</span><span class="p">):</span>
+<div class="viewcode-block" id="Attn.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.Attn.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_state</span><span class="p">,</span> <span class="n">history</span><span class="p">):</span>
         <span class="n">seq_len</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">size</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">state_len</span> <span class="o">=</span> <span class="n">out_state</span><span class="o">.</span><span class="n">size</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">batch_size</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">size</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
@@ -222,7 +223,7 @@
                         <span class="n">out_state</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">history</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">attn_energies</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Attn.score"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.Attn.score">[docs]</a>    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden</span><span class="p">,</span> <span class="n">encoder_output</span><span class="p">):</span>
+<div class="viewcode-block" id="Attn.score"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.Attn.score">[docs]</a>    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden</span><span class="p">,</span> <span class="n">encoder_output</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;dot&#39;</span><span class="p">:</span>
             <span class="n">energy</span> <span class="o">=</span> <span class="n">hidden</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">encoder_output</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">energy</span>
@@ -236,7 +237,7 @@
             <span class="k">return</span> <span class="n">energy</span></div></div>
 
 
-<div class="viewcode-block" id="DeepMove"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.DeepMove">[docs]</a><span class="k">class</span> <span class="nc">DeepMove</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
+<div class="viewcode-block" id="DeepMove"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.DeepMove">[docs]</a><span class="k">class</span> <span class="nc">DeepMove</span><span class="p">(</span><span class="n">AbstractModel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;rnn model with long-term history attention&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">data_feature</span><span class="p">):</span>
@@ -275,7 +276,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dropout_p&#39;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_weights</span><span class="p">()</span>
 
-<div class="viewcode-block" id="DeepMove.init_weights"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.DeepMove.init_weights">[docs]</a>    <span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="DeepMove.init_weights"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.DeepMove.init_weights">[docs]</a>    <span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Here we reproduce Keras default initialization weights for</span>
 <span class="sd">        consistency with Keras version</span>
@@ -294,7 +295,7 @@
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
             <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DeepMove.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.DeepMove.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="DeepMove.forward"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.DeepMove.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="n">loc</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_loc&#39;</span><span class="p">]</span>
         <span class="n">tim</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_tim&#39;</span><span class="p">]</span>
         <span class="n">history_loc</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;history_loc&#39;</span><span class="p">]</span>
@@ -354,10 +355,10 @@
                     <span class="p">(</span><span class="n">true_scores</span><span class="p">,</span> <span class="n">score</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">loc_len</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">true_scores</span></div>
 
-<div class="viewcode-block" id="DeepMove.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.DeepMove.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="DeepMove.predict"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.DeepMove.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DeepMove.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.DeepMove.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="viewcode-block" id="DeepMove.calculate_loss"><a class="viewcode-back" href="../../../../trafficdl/trafficdl.model.trajectory_loc_prediction.DeepMove.html#trafficdl.model.trajectory_loc_prediction.DeepMove.DeepMove.calculate_loss">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
         <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">NLLLoss</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
         <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">criterion</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">])</span></div></div>

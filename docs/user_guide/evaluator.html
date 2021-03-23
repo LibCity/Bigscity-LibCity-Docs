@@ -30,14 +30,15 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Trajectory Location Prediction Evaluator" href="evaluator/traj_loc_pred.html" />
-    <link rel="prev" title="placeholder" href="model/Traffic_Accident_prediction/placeholder.html" /> 
+    <link rel="next" title="Traffic State Prediction Evaluator" href="evaluator/traffic_state_pred.html" />
+    <link rel="prev" title="STRNN" href="model/Trajectory_Location_Prediction/STRNN.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">Model Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluator Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evaluator/traffic_state_pred.html">Traffic State Prediction Evaluator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evaluator/traj_loc_pred.html">Trajectory Location Prediction Evaluator</a></li>
 </ul>
 </li>
@@ -189,8 +191,8 @@
 <p>考虑到不同的任务的模型输出格式不同。因此对于不同的任务，框架实现了不同的评估器，并支持多种主流评估方法。下面给出不同任务所支持的评估方法。</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 67%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Task Name</p></th>
@@ -201,10 +203,20 @@
 <tr class="row-even"><td><p>Trajectory Location prediction</p></td>
 <td><p>TopK</p></td>
 </tr>
+<tr class="row-odd"><td><p>Traffic Flow Prediction</p></td>
+<td><p>MAE、MSE、RMSE、MAPE、R2、EVAR</p></td>
+</tr>
+<tr class="row-even"><td><p>Traffic Speed Prediction</p></td>
+<td><p>MAE、MSE、RMSE、MAPE、R2、EVAR</p></td>
+</tr>
+<tr class="row-odd"><td><p>On-Demand Service predition</p></td>
+<td><p>MAE、MSE、RMSE、MAPE、R2、EVAR</p></td>
+</tr>
 </tbody>
 </table>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="evaluator/traffic_state_pred.html">Traffic State Prediction Evaluator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="evaluator/traj_loc_pred.html">Trajectory Location Prediction Evaluator</a></li>
 </ul>
 </div>
@@ -218,10 +230,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="evaluator/traj_loc_pred.html" class="btn btn-neutral float-right" title="Trajectory Location Prediction Evaluator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="evaluator/traffic_state_pred.html" class="btn btn-neutral float-right" title="Traffic State Prediction Evaluator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="model/Traffic_Accident_prediction/placeholder.html" class="btn btn-neutral float-left" title="placeholder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="model/Trajectory_Location_Prediction/STRNN.html" class="btn btn-neutral float-left" title="STRNN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
