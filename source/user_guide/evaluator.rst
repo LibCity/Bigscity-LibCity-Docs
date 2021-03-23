@@ -15,5 +15,5 @@ On-Demand Service predition    MAE、MSE、RMSE、MAPE、R2、EVAR
 .. toctree::
    :maxdepth: 1
 
-   evaluator/traj_loc_pred
    evaluator/traffic_state_pred
+   evaluator/traj_loc_pred

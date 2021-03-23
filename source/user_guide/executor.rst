@@ -10,6 +10,6 @@ Executor Introduction
 .. toctree::
    :maxdepth: 1
 
-   executor/traj_loc_pred
    executor/traffic_state_pred
+   executor/traj_loc_pred
 
