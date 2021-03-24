@@ -2,14 +2,14 @@
 
 定义如下几种原子文件：
 
-| 文件名      | 内容                           | 示例                                          |
-| ----------- | ------------------------------ | --------------------------------------------- |
-| xxx.geo     | 存储地理实体属性信息。         | geo_id, type, coordinates                     |
-| xxx.usr     | 存储交通使用者信息。           | usr_id, gender, birth_date                    |
-| xxx.rel     | 存储实体间的关系信息，如路网。 | rel_id, origin_id,   destination_id           |
-| xxx.dyna    | 存储交通状态信息。             | dyna_id, type, time,   entity_id, location_id |
-| xxx.ext     | 存储外部信息，如天气、温度等。 | ext_id, time, properties                      |
-| config.json | 用于补充描述各表信息。         |                                               |
+| 文件名      | 内容                           | 示例                                        |
+| ----------- | ------------------------------ | ------------------------------------------- |
+| xxx.geo     | 存储地理实体属性信息。         | geo_id, type, coordinates                   |
+| xxx.usr     | 存储交通使用者信息。           | usr_id, gender, birth_date                  |
+| xxx.rel     | 存储实体间的关系信息，如路网。 | rel_id, type, origin_id, destination_id     |
+| xxx.dyna    | 存储交通状态信息。             | dyna_id, type, time, entity_id, location_id |
+| xxx.ext     | 存储外部信息，如天气、温度等。 | ext_id, time, properties                    |
+| config.json | 用于补充描述各表信息。         |                                             |
 
 对于不同的交通预测任务，可能用到不同的原子文件，同一个数据集不一定包含全部6种原子文件。
 
@@ -52,23 +52,29 @@ Rel 表中一个元素由以下四个部分组成：rel_id, type, origin_id, des
 
 Dyna 表中一个元素由以下五部分组成：dyna_id, type, time, entity_id, properties(多列)。
 
-1. dyna_id：主键，唯一标识动态表中的一条记录。
+- dyna_id：主键，唯一标识动态表中的一条记录。
 
-2. type：枚举类，一共有三种取值 `trajectory`、`state`。
+- type：枚举类，一共有两种取值 `trajectory`（轨迹预测任务）、`state`（状态预测任务）。
 
-3. time：时间信息，采用 [ISO-8601标准](https://www.iso.org/iso-8601-date-and-time-format.html) 中的日期和时间的组合表示法，如：`2020-12-07T02:59:46Z`。
+- time：时间信息，采用 [ISO-8601标准](https://www.iso.org/iso-8601-date-and-time-format.html) 中的日期和时间的组合表示法，如：`2020-12-07T02:59:46Z`。
 
-4. entity_id：描述该记录是基于哪一个实体观测产生的，就是`geo`的编号。
+- entity_id：描述该记录是基于哪一个实体观测产生的，就是`geo`或者`usr`的编号。
 
-   对于传感器、路段、区域等实体来讲此列就是对应的编号，列名为**[entity_id]**，文件后缀名`.dyna`；
+   - 对于轨迹预测任务：
 
-   对于网格结构的交通数据，列名为**[row_id, column_id]**，文件后缀名`.grid`；
+     格式为：dyna_id, trajectory, time, entity_id, location。其中**entity_id**列的内容应该是**usr_id**。
 
-   对于基于`od`结构的交通数据，列名为**[origin_id, destination_id]**，文件后缀名`.od`；
+   - 对于状态预测任务：**entity_id**可能有不同的变化：
 
-   对于网格结合`od`结构的交通数据，列名为**[origin_row_id, origin_column_id, destination_row_id, destination_column_id]**，文件后缀名`.gridod`；
+     对于传感器、路段、区域等实体来讲此列就是对应的编号，列名为**[entity_id]**，文件后缀名`.dyna`；
 
-5. properties：描述该条记录的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，比如既有速度数据、又有流量数据。
+     对于网格结构的交通数据，列名为**[row_id, column_id]**，文件后缀名`.grid`；
+
+     对于基于`od`结构的交通数据，列名为**[origin_id, destination_id]**，文件后缀名`.od`；
+
+     对于网格结合`od`结构的交通数据，列名为**[origin_row_id, origin_column_id, destination_row_id, destination_column_id]**，文件后缀名`.gridod`；
+
+- properties：描述该条记录的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，比如既有速度数据、又有流量数据。
 
 ## Ext 表
 
