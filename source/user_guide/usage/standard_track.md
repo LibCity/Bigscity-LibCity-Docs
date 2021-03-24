@@ -41,7 +41,7 @@
 
 * `X`：模型输入的多维张量，`shape = (batch_size, T_in, space_dim, feature_dim)`，分别表示 batch 中的样本总数，输入时间窗的宽度，空间上的维度，数据特征维数。其中，空间上的维度可以是上文中的`N`或`I,J`或`S,T`或`SI,SJ,TI,TJ`。
 * `y`：模型期望输出的多维张量，`shape = (batch_size, T_out, space_dim, feature_dim)`，分别表示 batch 中的样本总数，输出时间窗的宽度，空间上的维度，数据特征维数。其中，空间上的维度可以是上文中的`N`或`I,J`或`S,T`或`SI,SJ,TI,TJ`。
-* `X_ext`：可选的外部数据，`shape = (batch_size, T_in, ext_dim)`，分别表示 batch 中的样本总数，输入时间窗的宽度，空间上的维度，外部数据特征维数。
+* `X_ext`：可选的外部数据，`shape = (batch_size, T_in, ext_dim)`，分别表示 batch 中的样本总数，输入时间窗的宽度，空间上的维度，外部数据特征维数。部分模型可能直接将`X_ext`融合到`X`中作为模型的输入。
 * `y_ext`：可选的外部数据，`shape = (batch_size, T_out, ext_dim)`，分别表示 batch 中的样本总数，输出时间窗的宽度，空间上的维度，外部数据特征维数。
 
 标准评估模块的输入格式为字典对象，该对象所具有的键名如下：
