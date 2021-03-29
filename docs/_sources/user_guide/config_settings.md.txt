@@ -1,4 +1,4 @@
-# Config Settings
+# Configuration Introduction
 
 本框架通过三种方式确定实验的最终配置：用户命令行传参、用户自定义 config 文件、各模块默认参数配置。用户可以通过前两种方式灵活地调整实验的参数配置。
 

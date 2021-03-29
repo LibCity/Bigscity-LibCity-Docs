@@ -8,6 +8,6 @@ Data Introduction
 
    data/data_flow
    data/raw_data
-   data/atmoic_files
+   data/atomic_files
    data/batch
    data/args_for_data
