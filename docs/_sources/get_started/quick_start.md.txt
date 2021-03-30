@@ -1,26 +1,30 @@
 # Quick Start
 
-#### 运行单个模型
+#### Run Model Pipeline
 
-框架根目录下提供运行单个模型的脚本 run_model.py，并提供一系列命令行参数以允许用户能够调整流水线参数配置。命令行运行示例：
+The script run_model.py for training and evaluating a single model is provided in the root directory of the framework, and a series of command line parameters are provided to allow users to adjust the running parameter configuration. 
+
+For example:
 
 ```sh
-python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky
+python run_model.py
 ```
 
-本脚本所支持的命令行参数：
+This script will run the DeepMove model on the Foursquare-TKY dataset For trajectory next-location prediction task. Furthermore, the script supports the input of the following command line parameters to adjust the parameter settings of the pipeline.
 
-- `task`：所要执行的任务名，包括`traj_loc_pred`和`traffic_state_pred`，默认为`traj_loc_pred`。
-- `model`：所要运行的模型名，应是`trafficdl/model/`目录下各Model类名中的一个，默认为`DeepMove`。
-- `dataset`：所要运行的数据集，默认为 `foursquare_tky`。
-- `config_file`：用户指定 config 文件名，默认为 `None`，详见[配置设置](../user_guide/config_settings.md)一节。
-- `saved_model`：是否保存训练的模型结果，默认为 `True`。
-- `train`：当模型已被训练时是否要重新训练，默认为 `True`。
-- `batch_size`：单次输入的 Batch 大小。
-- `train_rate`：训练集所占比例，如`0.6`，划分顺序是【训练集，验证集，测试集】。
-- `eval_rate`：验证集所占比例，如`0.2`，划分顺序是【训练集，验证集，测试集】。
-- `learning_rate`：优化器的学习率。
-- `max_epoch`：训练的最大轮次。
-- `gpu`：是否是用GPU，默认为 `True`。
-- `gpu_id`：指定使用的GPU的id，默认为`0`。
+Supporting parameters:
+
+- `task`: The name of the task to be performed, including `traj_loc_pred` and `traffic_state_pred`. Defaults to `traj_loc_pred`.
+- `model`: The name of the model to be performed. Defaults to `DeepMove`. ([supporting models](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/user_guide/model.html))
+- `dataset`: The dataset to be performed. Defaults to `foursquare_tky`. ([supporting datasets](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/user_guide/data/raw_data.html))
+- `config_file`：The name of user-defined configuration file. Defaults to `None`. ([see more](../user_guide/config_settings.md))
+- `saved_model`：Whether to save the trained model. Defaults to `True`.
+- `train`：If the model has been pre-trained, whether to retrain the model. Defaults to `True`.
+- `batch_size`：The training and evaluation batch size.
+- `train_rate`：The proportion of the training set to the total dataset. Defaults to `0.6`. (The order of division is training set, validation set, test set)
+- `eval_rate`：The proportion of the validation set. Defaults to `0.2`.
+- `learning_rate`：Learning_rate. The default learning rate of different models may be different, please refer to the corresponding configuration file for details.
+- `max_epoch`：Maximum rounds of training. The default value varies with the model.
+- `gpu`：Whether to use GPU. Defaults to `True`.
+- `gpu_id`：The id of the GPU used. Defaults to `0`.
 

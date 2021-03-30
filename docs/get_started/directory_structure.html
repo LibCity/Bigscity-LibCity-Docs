@@ -185,56 +185,45 @@
             
   <div class="section" id="directory-structure">
 <h1>Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h1>
-<p>框架结构</p>
 <ul>
 <li><p>|-raw_data/</p>
-<p>存放处理好的原子文件</p>
+<p>Store preprocessed atomic files</p>
 </li>
 <li><p>|-test/</p>
-<p>存放测试脚本</p>
+<p>Store test scripts</p>
 </li>
 <li><p>|-trafficdl/</p>
-<p>项目代码根目录</p>
+<p>Project code root directory</p>
 <ul>
 <li><p>|-config/</p>
-<p>定义Config类，支持 command line、config file 等方式来修改我们预设的参数，预设的参数配置文件也放置于该文件夹下，分为 data、 model、evaluate、execute 四部分。【目前只支持直接配置config文件】</p>
+<p>Configure the module. The ConfigParser class is defined here, which supports command line and config file to modify our default parameters. The default parameter configuration file is also stored in this folder, divided into four sub-configuration folders: data, model, evaluator, and executor.</p>
 </li>
 <li><p>|-data/</p>
-<p>包含两部分 Dataset 与 DataLoader</p>
-<p>|-dataset/</p>
-<p>​	负责加载原子文件并进行一些数据预处理操作，切分训练集、验证集、测试集。</p>
-<p>​	AbstractDataset类定义两个接口：<code class="docutils literal notranslate"><span class="pre">get_data(self)</span></code>和<code class="docutils literal notranslate"><span class="pre">get_data_feature(self)</span></code></p>
-<p>​	针对每个任务定义继承自AbstractDataset的不同的Dataset子类进行相关操作。</p>
-<p>|-dataloader/</p>
-<p>​	负责加载数据的dataloader类，使用pytorch原生的<code class="docutils literal notranslate"><span class="pre">torch.utils.data.DataLoader</span></code>。</p>
-<p>|-batch.py</p>
-<p>​	定义统一的内部数据结构<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类，用以表示模型的输入。从dataloader中取出的都是自定义的<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的对象，结构是字典形式{key=特征名，value=tensor}。</p>
+<p>Data module. The Dataset class is stored in a subfolder of this folder according to different tasks. The model input unified data structure Batch class is also defined in this folder.</p>
 </li>
 <li><p>|-model/</p>
-<p>存放模型，AbstractModel类继承自<code class="docutils literal notranslate"><span class="pre">nn.Module</span></code>，实现接口<code class="docutils literal notranslate"><span class="pre">forward(self,</span> <span class="pre">batch)</span></code>，模型以<code class="docutils literal notranslate"><span class="pre">Batch</span></code>对象为输入。不同任务的模型存放在不同的子文件夹下，公用的损失函数、初始化方法、常用的layer统一存放。</p>
+<p>Model module. Model classes are stored in subfolders of this folder according to the tasks they belong to. In addition, some common loss functions are stored in loss.py.</p>
 </li>
 <li><p>|-evaluator/</p>
-<p>评估模块，<code class="docutils literal notranslate"><span class="pre">AbstractEvaluator</span></code>类，定义接口<code class="docutils literal notranslate"><span class="pre">collect(self,</span> <span class="pre">batch)</span></code>，<code class="docutils literal notranslate"><span class="pre">evaluate(self)</span></code>，<code class="docutils literal notranslate"><span class="pre">save_result(self,</span> <span class="pre">save_path,</span> <span class="pre">filename)</span></code>，<code class="docutils literal notranslate"><span class="pre">clear(self)</span></code>。</p>
-<p>不同的任务定义不同的评估模块，同一任务下的模型的评估方法相同。</p>
+<p>Evaluation module. A task corresponds to a dedicated evaluator.</p>
 </li>
 <li><p>|-executor/</p>
-<p>执行模块，<code class="docutils literal notranslate"><span class="pre">AbstractExecutor</span></code>类，定义接口<code class="docutils literal notranslate"><span class="pre">train(self,</span> <span class="pre">train_dataloader,</span> <span class="pre">eval_dataloader)</span></code>，<code class="docutils literal notranslate"><span class="pre">evaluate(self,</span> <span class="pre">test_dataloader)</span></code>，<code class="docutils literal notranslate"><span class="pre">load_model(self,</span> <span class="pre">cache_name)</span></code>，<code class="docutils literal notranslate"><span class="pre">save_model(self,</span> <span class="pre">cache_name)</span></code>。</p>
-<p>每个任务提供一个标准Executor，模型也可以拥有自己专属的 Executor。每个 Executor 负责训练、验证与评估。</p>
+<p>Execution module. Each task provides a standard Executor, and the model can also have its own exclusive Executor. Each Executor is responsible for training, verification and evaluation.</p>
 </li>
 <li><p>|-pipeline/</p>
-<p>开放给用户使用的流水线函数，配置config，完成整个的训练验证和评估过程。详见后边样例。</p>
+<p>Store user-oriented pipeline functions, which are responsible for running through the entire framework process.</p>
 </li>
 <li><p>|cache/</p>
-<p>存放缓存，分为model_cache/，data_cache/，evalute_cache</p>
+<p>Store the cache. Specifically, data preprocessing results, model training results, and evaluation results will be cached.</p>
 </li>
 <li><p>|-tmp/</p>
-<p>存放训练过程中的 checkpoint 等临时性文件</p>
+<p>Store temporary files such as checkpoint generated during training.</p>
 </li>
 <li><p>|-utils/</p>
-<p>存放一些通用的工具函数</p>
+<p>Store some general utility functions.</p>
 </li>
 <li><p>|-log/</p>
-<p>存放训练过程中的log信息</p>
+<p>Store log information during training.</p>
 </li>
 </ul>
 </li>

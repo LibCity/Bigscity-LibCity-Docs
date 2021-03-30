@@ -102,7 +102,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../executor.html">Executor Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_state_pred.html">Traffic State Prediction Executor</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Trajectory Location Prediction Executor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Trajectory Location Prediction Executor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-setting">Parameter Setting</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
@@ -192,6 +195,21 @@
             
   <div class="section" id="trajectory-location-prediction-executor">
 <h1>Trajectory Location Prediction Executor<a class="headerlink" href="#trajectory-location-prediction-executor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="parameter-setting">
+<h2>Parameter Setting<a class="headerlink" href="#parameter-setting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gpu</span></code>：Whether to use GPU. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>：The id of the GPU used. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>: Learning rate. Defaults to <code class="docutils literal notranslate"><span class="pre">0.0005</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L2</span></code>: The L2 penalty of the torch optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">0.00001</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_epoch</span></code>: Maximum rounds of training. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_step</span></code>: The patience of the torch scheduler. Defaults to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_decay</span></code>: The factor of the torch scheduler. Defaults to <code class="docutils literal notranslate"><span class="pre">0.1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clip</span></code>: The max norm of clipping gradients. Defaults to <code class="docutils literal notranslate"><span class="pre">5.0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">schedule_threshold</span></code>: The threshold of the torch scheduler. Defaults to <code class="docutils literal notranslate"><span class="pre">0.001</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Output training information after training <code class="docutils literal notranslate"><span class="pre">verbose</span></code> times. Defaults to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></li>
+</ul>
+</div>
 </div>
 
 

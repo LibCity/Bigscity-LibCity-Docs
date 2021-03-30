@@ -1,75 +1,53 @@
 # Directory Structure
 
-框架结构
-
 - |-raw_data/
 
-  存放处理好的原子文件
+  Store preprocessed atomic files
 
 - |-test/
 
-  存放测试脚本
+  Store test scripts
 
 - |-trafficdl/
 
-  项目代码根目录
+  Project code root directory
 
   - |-config/
 
-    定义Config类，支持 command line、config file 等方式来修改我们预设的参数，预设的参数配置文件也放置于该文件夹下，分为 data、 model、evaluate、execute 四部分。【目前只支持直接配置config文件】
+    Configure the module. The ConfigParser class is defined here, which supports command line and config file to modify our default parameters. The default parameter configuration file is also stored in this folder, divided into four sub-configuration folders: data, model, evaluator, and executor.
 
   - |-data/
 
-    包含两部分 Dataset 与 DataLoader
-
-    |-dataset/
-
-    ​	负责加载原子文件并进行一些数据预处理操作，切分训练集、验证集、测试集。
-
-    ​	AbstractDataset类定义两个接口：`get_data(self)`和`get_data_feature(self)`
-
-    ​	针对每个任务定义继承自AbstractDataset的不同的Dataset子类进行相关操作。
-
-    |-dataloader/
-
-    ​	负责加载数据的dataloader类，使用pytorch原生的`torch.utils.data.DataLoader`。
-
-    |-batch.py
-
-    ​	定义统一的内部数据结构`Batch`类，用以表示模型的输入。从dataloader中取出的都是自定义的`Batch`类的对象，结构是字典形式{key=特征名，value=tensor}。
+    Data module. The Dataset class is stored in a subfolder of this folder according to different tasks. The model input unified data structure Batch class is also defined in this folder.
 
   - |-model/
 
-    存放模型，AbstractModel类继承自`nn.Module`，实现接口`forward(self, batch)`，模型以`Batch`对象为输入。不同任务的模型存放在不同的子文件夹下，公用的损失函数、初始化方法、常用的layer统一存放。
+    Model module. Model classes are stored in subfolders of this folder according to the tasks they belong to. In addition, some common loss functions are stored in loss.py.
 
   - |-evaluator/
 
-    评估模块，`AbstractEvaluator`类，定义接口`collect(self, batch)`，`evaluate(self)`，`save_result(self, save_path, filename)`，`clear(self)`。
-
-    不同的任务定义不同的评估模块，同一任务下的模型的评估方法相同。
+    Evaluation module. A task corresponds to a dedicated evaluator.
 
   - |-executor/
 
-    执行模块，`AbstractExecutor`类，定义接口`train(self, train_dataloader, eval_dataloader)`，`evaluate(self, test_dataloader)`，`load_model(self, cache_name)`，`save_model(self, cache_name)`。
-
-    每个任务提供一个标准Executor，模型也可以拥有自己专属的 Executor。每个 Executor 负责训练、验证与评估。
+    Execution module. Each task provides a standard Executor, and the model can also have its own exclusive Executor. Each Executor is responsible for training, verification and evaluation.
 
   - |-pipeline/
 
-    开放给用户使用的流水线函数，配置config，完成整个的训练验证和评估过程。详见后边样例。
+    Store user-oriented pipeline functions, which are responsible for running through the entire framework process.
 
   - |cache/
 
-    存放缓存，分为model_cache/，data_cache/，evalute_cache
+    Store the cache. Specifically, data preprocessing results, model training results, and evaluation results will be cached.
 
   - |-tmp/
 
-    存放训练过程中的 checkpoint 等临时性文件
+    Store temporary files such as checkpoint generated during training.
 
   - |-utils/
 
-    存放一些通用的工具函数
+    Store some general utility functions.
 
   - |-log/
 
-    存放训练过程中的log信息
+    Store log information during training.
