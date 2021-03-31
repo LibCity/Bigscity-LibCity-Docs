@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,52 +11,48 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Bigscity-TrafficDL  documentation" href="../../index.html"/>
-        <link rel="up" title="Executor Introduction" href="../executor.html"/>
-        <link rel="next" title="Trajectory Location Prediction Executor" href="traj_loc_pred.html"/>
-        <link rel="prev" title="Executor Introduction" href="../executor.html"/> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Trajectory Location Prediction Executor" href="traj_loc_pred.html" />
+    <link rel="prev" title="Executor Introduction" href="../executor.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Bigscity-TrafficDL
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
           
 
           
@@ -80,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -115,7 +111,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
 </ul>
@@ -133,13 +128,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Bigscity-TrafficDL</a>
@@ -147,9 +143,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -170,7 +167,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../executor.html">Executor Introduction</a> &raquo;</li>
         
@@ -195,54 +192,54 @@
             
   <div class="section" id="traffic-state-prediction-executor">
 <h1>Traffic State Prediction Executor<a class="headerlink" href="#traffic-state-prediction-executor" title="Permalink to this headline">¶</a></h1>
-<p>本调度器类主要负责完成所有交通状态预测（交通速度、流量、需求量）模型的训练和评估过程。</p>
+<p>This executor class is mainly responsible for completing the training and evaluation process of all traffic state prediction (traffic speed, flow, demand) models.</p>
 <div class="section" id="executor-settings">
 <h2>Executor Settings<a class="headerlink" href="#executor-settings" title="Permalink to this headline">¶</a></h2>
-<p>下面主要介绍此调度器类所能够接收的参数：</p>
+<p>The following mainly introduces the parameters that this executor class can receive:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">max_epoch</span></code>：训练总轮数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">epoch</span></code>：起始训练的轮数，如果大于0，会<strong>先从’./trafficdl/cache/model_cache’加载该epoch的模型（缓存文件名为[模型名_数据集名_epoch+轮数.tar]）</strong>，然后继续完成接下来的训练或评估。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">learner</span></code>：优化器optimizer的类别，目前支持<code class="docutils literal notranslate"><span class="pre">adam</span></code>、<code class="docutils literal notranslate"><span class="pre">sgd</span></code>、<code class="docutils literal notranslate"><span class="pre">adagrad</span></code>、<code class="docutils literal notranslate"><span class="pre">rmsprop</span></code>、<code class="docutils literal notranslate"><span class="pre">sparse_adam</span></code>。</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_epoch</span></code>: Maximum rounds of training. The default value varies with the model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epoch</span></code>:  The number of initial training rounds. If it is greater than 0, it will first load the epoch model from <code class="docutils literal notranslate"><span class="pre">./trafficdl/cache/model_cache</span></code> and then continue to complete the training or evaluation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learner</span></code>: The name of used <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#module-torch.optim">optimizer</a>. Defaults to <code class="docutils literal notranslate"><span class="pre">'adam'</span></code>. Range in <code class="docutils literal notranslate"><span class="pre">['adam',</span> <span class="pre">'sgd',</span> <span class="pre">'adagrad',</span> <span class="pre">'rmsprop',</span> <span class="pre">'sparse_adam']</span></code>.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>：optimizer的参数，学习率</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">weight_decay</span></code>：Adam optimizer的参数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_epsilon</span></code>：Adam optimizer的参数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>: Learning rate. Defaults to <code class="docutils literal notranslate"><span class="pre">0.01</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weight_decay</span></code>: Parameter of adam optimizer. Default to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_epsilon</span></code>: Parameter of adam optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">1e-8</span></code>.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_decay</span></code>：是否是用lr_scheduler，<strong>默认False</strong></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_decay</span></code>: Whether to use <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate">lr_scheduler</a>. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_scheduler</span></code>：lr_scheduler的类别，目前支持<code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">StepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>、<code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>、<code class="docutils literal notranslate"><span class="pre">LambdaLR</span></code>。</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_scheduler</span></code>: The type of <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate">lr_scheduler</a>. Range in [<code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>, <code class="docutils literal notranslate"><span class="pre">StepLR</span></code>, <code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>, <code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>, <code class="docutils literal notranslate"><span class="pre">LambdaLR</span></code>].</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_decay_ratio</span></code>：<code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">StepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>的参数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">steps</span></code>：<code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>的参数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">step_size</span></code>：<code class="docutils literal notranslate"><span class="pre">StepLR</span></code>的参数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_lambda</span></code>：<code class="docutils literal notranslate"><span class="pre">LambdaLR</span></code>的参数【<strong>此参数需要指定为一个函数，目前基于json的配置文件不支持</strong>】</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_T_max</span></code>：<code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>的参数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_eta_min</span></code>：<code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>的参数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_decay_ratio</span></code>: Parameter of  <code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">StepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">steps</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step_size</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">StepLR</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_lambda</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">LambdaLR</span></code>.【<strong>However, this parameter needs to be specified as a function, currently json-based configuration files do not support.</strong>】</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_T_max</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_eta_min</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>.</p></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">clip_grad_norm</span></code>：是否是用clip_grad_norm_，<strong>默认False</strong>（<code class="docutils literal notranslate"><span class="pre">torch.nn.utils.clip_grad_norm_</span></code>）</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">clip_grad_norm</span></code>: Whether to use <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html">clip_grad_norm_</a>, Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">max_grad_norm</span></code>：clip_grad_norm_的参数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_grad_norm</span></code>: The parameter of <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html">clip_grad_norm_</a> which will clips gradient norm of model.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">use_early_stop</span></code>：是否是用早停机制，<strong>默认False</strong></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_early_stop</span></code>: Whether to use the early-stopping mechanism. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">patience</span></code>：早停机制的轮数，每当验证集误差&gt;最小验证误差，则累计1，反之则清0从头累计，累计到<code class="docutils literal notranslate"><span class="pre">patience</span></code>次就结束训练</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">patience</span></code>: The number of rounds of the early-stopping mechanism. When the validation set error is greater than the minimum validation error, it will accumulate 1, otherwise it will be cleared to 0. The training will end when the accumulative number reaches <code class="docutils literal notranslate"><span class="pre">patience</span></code> .</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">log_level</span></code>：log的级别设置，默认为<code class="docutils literal notranslate"><span class="pre">INFO</span></code>，超过<code class="docutils literal notranslate"><span class="pre">INFO</span></code>级别的log都将被输出，具体参考第三方库logging</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_level</span></code>: The log level setting, default to <code class="docutils literal notranslate"><span class="pre">INFO</span></code>. All logs exceeding the <code class="docutils literal notranslate"><span class="pre">INFO</span></code> level will be output, please refer to the third-party library logging for details.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">log_every</span></code>：训练过程中用log记录过程的频次</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_every</span></code>: Use log to record once every <code class="docutils literal notranslate"><span class="pre">log_level</span></code> round during training.</p></li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">saved_model</span></code>：是否保存训练过程中的model，<strong>默认True</strong></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gpu</span></code>：是否是用gpu训练，<strong>默认True</strong></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">saved_model</span></code>: Whether to save the trained model. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpu</span></code>: Whether to use GPU. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>：指定使用的gpu的id，<strong>默认0</strong></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">device*</span></code>：不能从外部指定，由参数<code class="docutils literal notranslate"><span class="pre">gpu</span></code>和<code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>共同确定，在模型的代码中，使用<code class="docutils literal notranslate"><span class="pre">config['device']</span></code>即可取得，不需要使用参数<code class="docutils literal notranslate"><span class="pre">gpu</span></code>和<code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>: The id of the GPU used. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">device*</span></code>: <strong>It cannot be specified externally.</strong> It is determined by the parameters <code class="docutils literal notranslate"><span class="pre">gpu</span></code> and <code class="docutils literal notranslate"><span class="pre">gpu_id</span></code> together. In the code of the model, it can be obtained by using <code class="docutils literal notranslate"><span class="pre">config['device']</span></code> instead of using the parameters <code class="docutils literal notranslate"><span class="pre">gpu</span></code> and <code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>.</p></li>
 </ul>
 </li>
 </ul>
@@ -251,9 +248,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -262,7 +257,7 @@
         <a href="traj_loc_pred.html" class="btn btn-neutral float-right" title="Trajectory Location Prediction Executor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../executor.html" class="btn btn-neutral" title="Executor Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../executor.html" class="btn btn-neutral float-left" title="Executor Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -271,11 +266,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, aptx1231.
+        
+        &copy; Copyright 2020, aptx1231
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -287,39 +290,15 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/language_data.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

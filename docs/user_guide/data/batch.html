@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,52 +11,48 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Bigscity-TrafficDL  documentation" href="../../index.html"/>
-        <link rel="up" title="Data Introduction" href="../data.html"/>
-        <link rel="next" title="Args for Data" href="args_for_data.html"/>
-        <link rel="prev" title="Atomic Files" href="atomic_files.html"/> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Args for Data" href="args_for_data.html" />
+    <link rel="prev" title="Atomic Files" href="atomic_files.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Bigscity-TrafficDL
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
           
 
           
@@ -80,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -115,7 +111,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_evaluators.html">Customize Evaluators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
 </ul>
@@ -133,13 +128,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Bigscity-TrafficDL</a>
@@ -147,9 +143,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -170,7 +167,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../data.html">Data Introduction</a> &raquo;</li>
         
@@ -195,22 +192,20 @@
             
   <div class="section" id="batch">
 <h1>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类是由<code class="docutils literal notranslate"><span class="pre">DataLoader</span></code>加载并输入到预测模型中的<strong>内部数据表示形式</strong>。</p>
-<p><strong>从数据流的<code class="docutils literal notranslate"><span class="pre">Dataloader</span></code>中取出的对象都是<code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的对象。</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类是基于<code class="docutils literal notranslate"><span class="pre">python.dict</span></code>实现的抽象数据结构，其构成<code class="docutils literal notranslate"><span class="pre">key-value</span></code>的结构，其中<code class="docutils literal notranslate"><span class="pre">key</span></code>是模型输入的特征名，<code class="docutils literal notranslate"><span class="pre">value</span></code>是对应特征的张量（<code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>），其包含一个<code class="docutils literal notranslate"><span class="pre">batch</span></code>或<code class="docutils literal notranslate"><span class="pre">mini-batch</span></code>的全部数据。</p>
-<p>所以可以使用如下的方式来获取相应的值：</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Batch</span></code> class is an <strong>internal data representation</strong> loaded by <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> and input into the prediction model.</p>
+<p><strong>The objects retrieved from the <code class="docutils literal notranslate"><span class="pre">Dataloader</span></code> of the data flow are all objects of the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> class.</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Batch</span></code> class is an abstract data structure based on the implementation of <code class="docutils literal notranslate"><span class="pre">python.dict</span></code>, which constitutes the structure of key-value, where key is the feature name, and value is the tensor(<code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code>) corresponding to the feature name, which contains all the data of a <code class="docutils literal notranslate"><span class="pre">batch</span></code> or <code class="docutils literal notranslate"><span class="pre">mini-batch</span></code>.</p>
+<p>So you can use the following methods to get the corresponding value:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_loc&#39;</span><span class="p">]</span>
 <span class="n">tim</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;current_tim&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><strong><code class="docutils literal notranslate"><span class="pre">Batch</span></code>类的存在，统一了模型的输入格式，框架得以实现通用的训练、预测执行器类和标准模型抽象类。</strong></p>
+<p><strong>The <code class="docutils literal notranslate"><span class="pre">Batch</span></code> class unifies the input format of the model so that the framework can implement general executor classes and standard model classes.</strong></p>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -219,7 +214,7 @@
         <a href="args_for_data.html" class="btn btn-neutral float-right" title="Args for Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="atomic_files.html" class="btn btn-neutral" title="Atomic Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="atomic_files.html" class="btn btn-neutral float-left" title="Atomic Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -228,11 +223,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, aptx1231.
+        
+        &copy; Copyright 2020, aptx1231
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -244,39 +247,15 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/language_data.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

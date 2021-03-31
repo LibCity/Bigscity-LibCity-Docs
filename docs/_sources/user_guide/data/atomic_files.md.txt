@@ -20,7 +20,7 @@
 Geo 表中一个元素由以下四部分组成：geo_id, type, coordinates, properties(多列)。
 
 1. geo_id: 主键，唯一确定一个 geo 实体。（传感器、经纬度点、路段、区域等的编号）
-2. type：表示该 geo 的类型。一共有 “Point”、“LineString”、“Polygon” 三个值。此三值与 [Geojson](https://tools.ietf.org/html/rfc7946#section-1) 中的点线面一致。
+2. type：表示该 geo 的类型。一共有 "Point"、"LineString"、"Polygon" 三个值。此三值与 [Geojson](https://tools.ietf.org/html/rfc7946#section-1) 中的点线面一致。
 3. coordinates：由 float 类型组成的数组或嵌套数组。描述 geo 实体的位置信息，采用 [Geojson](https://tools.ietf.org/html/rfc7946#section-1) 的 coordinates 格式。
 4. properties：描述该 geo 的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，如`POI_name`，`POI_type`。【对于网格数据，必有两列`row_id`和`column_id`属性表示网格的行列编号。】
 
@@ -66,13 +66,13 @@ Dyna 表中一个元素由以下五部分组成：dyna_id, type, time, entity_id
 
    - 对于状态预测任务：**entity_id**可能有不同的变化：
 
-     对于传感器、路段、区域等实体来讲此列就是对应的编号，列名为**[entity_id]**，文件后缀名`.dyna`；
+     对于传感器、路段、区域等实体来讲此列就是对应的编号，列名为[**entity_id**]，文件后缀名`.dyna`；
 
-     对于网格结构的交通数据，列名为**[row_id, column_id]**，文件后缀名`.grid`；
+     对于网格结构的交通数据，列名为[**row_id, column_id**]，文件后缀名`.grid`；
 
-     对于基于`od`结构的交通数据，列名为**[origin_id, destination_id]**，文件后缀名`.od`；
+     对于基于`od`结构的交通数据，列名为[**origin_id, destination_id**]，文件后缀名`.od`；
 
-     对于网格结合`od`结构的交通数据，列名为**[origin_row_id, origin_column_id, destination_row_id, destination_column_id]**，文件后缀名`.gridod`；
+     对于网格结合`od`结构的交通数据，列名为[**origin_row_id, origin_column_id, destination_row_id, destination_column_id**]，文件后缀名`.gridod`；
 
 - properties：描述该条记录的属性信息，若有多个属性，可以使用不同的列名定义为多列数据，比如既有速度数据、又有流量数据。
 

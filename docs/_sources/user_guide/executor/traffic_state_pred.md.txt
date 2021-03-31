@@ -1,33 +1,33 @@
 # Traffic State Prediction Executor
 
-本调度器类主要负责完成所有交通状态预测（交通速度、流量、需求量）模型的训练和评估过程。
+This executor class is mainly responsible for completing the training and evaluation process of all traffic state prediction (traffic speed, flow, demand) models.
 
 ## Executor Settings
 
-下面主要介绍此调度器类所能够接收的参数：
+The following mainly introduces the parameters that this executor class can receive:
 
-- `max_epoch`：训练总轮数
-- `epoch`：起始训练的轮数，如果大于0，会**先从'./trafficdl/cache/model_cache'加载该epoch的模型（缓存文件名为[模型名\_数据集名\_epoch+轮数.tar]）**，然后继续完成接下来的训练或评估。
-- `learner`：优化器optimizer的类别，目前支持`adam`、`sgd`、`adagrad`、`rmsprop`、`sparse_adam`。
-  - `learning_rate`：optimizer的参数，学习率
-  - `weight_decay`：Adam optimizer的参数
-  - `lr_epsilon`：Adam optimizer的参数
-- `lr_decay`：是否是用lr_scheduler，**默认False**
-  - `lr_scheduler`：lr_scheduler的类别，目前支持`MultiStepLR`、`StepLR`、`ExponentialLR`、`CosineAnnealingLR`、`LambdaLR`。
-    - `lr_decay_ratio`：`MultiStepLR`、`StepLR`、`ExponentialLR`的参数
-    - `steps`：`MultiStepLR`的参数
-    - `step_size`：`StepLR`的参数
-    - `lr_lambda`：`LambdaLR`的参数【**此参数需要指定为一个函数，目前基于json的配置文件不支持**】
-    - `lr_T_max`：`CosineAnnealingLR`的参数
-    - `lr_eta_min`：`CosineAnnealingLR`的参数
-- `clip_grad_norm`：是否是用clip_grad_norm\_，**默认False**（`torch.nn.utils.clip_grad_norm_`）
-  - `max_grad_norm`：clip_grad_norm_的参数
-- `use_early_stop`：是否是用早停机制，**默认False**
-  - `patience`：早停机制的轮数，每当验证集误差>最小验证误差，则累计1，反之则清0从头累计，累计到`patience`次就结束训练
-- `log_level`：log的级别设置，默认为`INFO`，超过`INFO`级别的log都将被输出，具体参考第三方库logging
-  - `log_every`：训练过程中用log记录过程的频次
-- `saved_model`：是否保存训练过程中的model，**默认True**
-- `gpu`：是否是用gpu训练，**默认True**
-  - `gpu_id`：指定使用的gpu的id，**默认0**
-  - `device*`：不能从外部指定，由参数`gpu`和`gpu_id`共同确定，在模型的代码中，使用`config['device']`即可取得，不需要使用参数`gpu`和`gpu_id`。
+- `max_epoch`: Maximum rounds of training. The default value varies with the model.
+- `epoch`:  The number of initial training rounds. If it is greater than 0, it will first load the epoch model from `./trafficdl/cache/model_cache` and then continue to complete the training or evaluation.
+- `learner`: The name of used [optimizer](https://pytorch.org/docs/stable/optim.html#module-torch.optim). Defaults to `'adam'`. Range in `['adam', 'sgd', 'adagrad', 'rmsprop', 'sparse_adam']`.
+  - `learning_rate`: Learning rate. Defaults to `0.01`.
+  - `weight_decay`: Parameter of adam optimizer. Default to `0.0`.
+  - `lr_epsilon`: Parameter of adam optimizer. Defaults to `1e-8`.
+- `lr_decay`: Whether to use [lr_scheduler](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate). Defaults to `False`.
+  - `lr_scheduler`: The type of [lr_scheduler](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate). Range in [`MultiStepLR`, `StepLR`, `ExponentialLR`, `CosineAnnealingLR`, `LambdaLR`].
+    - `lr_decay_ratio`: Parameter of  `MultiStepLR`、`StepLR`、`ExponentialLR`.
+    - `steps`: Parameter of `MultiStepLR`.
+    - `step_size`: Parameter of `StepLR`.
+    - `lr_lambda`: Parameter of `LambdaLR`.【**However, this parameter needs to be specified as a function, currently json-based configuration files do not support.**】
+    - `lr_T_max`: Parameter of `CosineAnnealingLR`.
+    - `lr_eta_min`: Parameter of `CosineAnnealingLR`.
+- `clip_grad_norm`: Whether to use [clip_grad_norm_](https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html), Defaults to `False`.
+  - `max_grad_norm`: The parameter of [clip_grad_norm_](https://pytorch.org/docs/stable/generated/torch.nn.utils.clip_grad_norm_.html) which will clips gradient norm of model.
+- `use_early_stop`: Whether to use the early-stopping mechanism. Defaults to `False`.
+  - `patience`: The number of rounds of the early-stopping mechanism. When the validation set error is greater than the minimum validation error, it will accumulate 1, otherwise it will be cleared to 0. The training will end when the accumulative number reaches `patience` .
+- `log_level`: The log level setting, default to `INFO`. All logs exceeding the `INFO` level will be output, please refer to the third-party library logging for details.
+  - `log_every`: Use log to record once every `log_level` round during training.
+- `saved_model`: Whether to save the trained model. Defaults to `True`.
+- `gpu`: Whether to use GPU. Defaults to `True`.
+  - `gpu_id`: The id of the GPU used. Defaults to `0`.
+  - `device*`: **It cannot be specified externally.** It is determined by the parameters `gpu` and `gpu_id` together. In the code of the model, it can be obtained by using `config['device']` instead of using the parameters `gpu` and `gpu_id`.
 

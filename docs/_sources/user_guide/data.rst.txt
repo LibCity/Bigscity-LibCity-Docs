@@ -1,7 +1,7 @@
 Data Introduction
 ===================
 
-本文档用于介绍数据相关内容。
+This document is used to introduce data-related content.
 
 .. toctree::
    :maxdepth: 1

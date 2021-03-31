@@ -1,7 +1,7 @@
 Model Introduction
 =====================
 
-针对以下6类任务，我们实现了x种模型，下边是对这些模型的简要介绍。
+For the following 4 types of tasks, we have implemented several models. Below is a brief introduction to these models.
 
 -  Traffic Flow Prediction
 -  Traffic Speed Prediction

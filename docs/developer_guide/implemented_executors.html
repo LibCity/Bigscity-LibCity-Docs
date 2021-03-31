@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,51 +11,48 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Bigscity-TrafficDL  documentation" href="../index.html"/>
-        <link rel="next" title="Logger" href="implemented_logger.html"/>
-        <link rel="prev" title="Customize Evaluators" href="implemented_evaluators.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logger" href="implemented_logger.html" />
+    <link rel="prev" title="Customize Models" href="implemented_models.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
           
 
           
@@ -79,6 +75,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -107,8 +104,11 @@
 <li class="toctree-l1"><a class="reference internal" href="code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_models.html">Customize Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implemented_evaluators.html">Customize Evaluators</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Customize Executors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customize Executors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-new-executor-class">Create a New Executor Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rewrite-corresponding-methods">Rewrite Corresponding Methods</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_logger.html">Logger</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
@@ -125,13 +125,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Bigscity-TrafficDL</a>
@@ -139,9 +140,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -162,7 +164,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Customize Executors</li>
     
@@ -185,30 +187,34 @@
             
   <div class="section" id="customize-executors">
 <h1>Customize Executors<a class="headerlink" href="#customize-executors" title="Permalink to this headline">¶</a></h1>
-<p>本文档用于介绍如何在<code class="docutils literal notranslate"><span class="pre">TrafficDL</span></code>下开发一个新的调度器。我们已经为以下几个任务开发了标准的Executor：</p>
+<p>Here, we present how to develop a new executor, and apply it to the <code class="docutils literal notranslate"><span class="pre">TrafficDL</span></code>.</p>
+<p>We have developed a standard executor for the following tasks:</p>
 <ul class="simple">
-<li><p>Traffic Location Prediction</p></li>
 <li><p>Traffic Flow Prediction</p></li>
 <li><p>Traffic Speed Prediction</p></li>
-<li><p>On-Demand Service predition</p></li>
-<li><p>Travel Time prediction</p></li>
-<li><p>Traffic Accident prediction</p></li>
+<li><p>On-Demand Service Predition</p></li>
+<li><p>Trajectory Location Prediction</p></li>
 </ul>
-<p>如果模型的训练方法比较复杂，而且已经存在的Executor不能满足要求时，我们需要开发一个新的Executor。</p>
-<p><code class="docutils literal notranslate"><span class="pre">AbstractExecutor</span></code>类是所有调度器的基类，实现时，请继承此类。（当然，如果你继承已经实现的几个标准Executor子类，并在其基础上进行扩展也可以。）</p>
-<p><code class="docutils literal notranslate"><span class="pre">AbstractExecutor</span></code>类用于训练模型的接口是<code class="docutils literal notranslate"><span class="pre">train()</span></code>。</p>
-<p><code class="docutils literal notranslate"><span class="pre">AbstractExecutor</span></code>类用于评估模型的接口是<code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>。</p>
-<p>而<code class="docutils literal notranslate"><span class="pre">load_model()</span></code>和<code class="docutils literal notranslate"><span class="pre">save_model()</span></code>两个接口则分别用于模型的加载和保存。</p>
-<p>约定：</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">train()</span></code>内部调用<code class="docutils literal notranslate"><span class="pre">_train_epoch()</span></code> 去完成每一轮的训练。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>内部调用<code class="docutils literal notranslate"><span class="pre">_valid_epoch()</span></code> 去完成每一轮的验证。</p></li>
-<li><p>训练过程的checkpoint等文件使用<code class="docutils literal notranslate"><span class="pre">tmp/</span></code>目录。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">load_model()</span></code>和<code class="docutils literal notranslate"><span class="pre">save_model()</span></code>两个接口的模型缓存使用<code class="docutils literal notranslate"><span class="pre">cache/model_cache</span></code>目录。</p></li>
-<li><p>评估结果使用<code class="docutils literal notranslate"><span class="pre">cache/evaluate_cache</span></code>目录。</p></li>
-<li><p>训练完成后应该保存验证集误差最小的模型参数，并用这个模型进行评估。</p></li>
-</ul>
-<p>所以可以这样实现<code class="docutils literal notranslate"><span class="pre">newexecutor.py</span></code>：</p>
+<p>For a new model, if the training method is complex, and existing executor can not be used for training and evaluation, then we need to develop a new executor.</p>
+<div class="section" id="create-a-new-executor-class">
+<h2>Create a New Executor Class<a class="headerlink" href="#create-a-new-executor-class" title="Permalink to this headline">¶</a></h2>
+<p>To begin with, we should create a new executor implementing from <code class="docutils literal notranslate"><span class="pre">AbstractExecutoror</span></code>.</p>
+<p>For example, we would like to develop a executor for traffic state prediction task named as <code class="docutils literal notranslate"><span class="pre">NewExecutor</span></code> and write the code to <code class="docutils literal notranslate"><span class="pre">newexecutor.py</span></code> in the directory <code class="docutils literal notranslate"><span class="pre">trafficdl/executor/</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.executor.abstract_executor</span> <span class="kn">import</span> <span class="n">AbstractExecutor</span>
+
+<span class="k">class</span> <span class="nc">NewExecutor</span><span class="p">(</span><span class="n">AbstractExecutor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">get_evaluator</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rewrite-corresponding-methods">
+<h2>Rewrite Corresponding Methods<a class="headerlink" href="#rewrite-corresponding-methods" title="Permalink to this headline">¶</a></h2>
+<p>The function used to train the model is <code class="docutils literal notranslate"><span class="pre">train()</span></code>, it will call <code class="docutils literal notranslate"><span class="pre">_train_epoch()</span></code> to train the model.</p>
+<p>The function used to evaluate the model is <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>, it will call <code class="docutils literal notranslate"><span class="pre">_valid_epoch()</span></code> to evaluate the model.</p>
+<p>The rest two interfaces <code class="docutils literal notranslate"><span class="pre">load_model()</span></code> and <code class="docutils literal notranslate"><span class="pre">save_model()</span></code> are used to load and save the model respectively.</p>
+<p>If the developed model need more complex training or evaluation method, then you can rewrite the corresponding interface mentioned above.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.executor.abstract_executor</span> <span class="kn">import</span> <span class="n">AbstractExecutor</span>
 
 <span class="k">class</span> <span class="nc">NewExecutor</span><span class="p">(</span><span class="n">AbstractExecutor</span><span class="p">):</span>
@@ -229,14 +235,12 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
-<p>接下来，只需要重写全部的接口即可。</p>
+</div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -245,7 +249,7 @@
         <a href="implemented_logger.html" class="btn btn-neutral float-right" title="Logger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="implemented_evaluators.html" class="btn btn-neutral" title="Customize Evaluators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="implemented_models.html" class="btn btn-neutral float-left" title="Customize Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -254,11 +258,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, aptx1231.
+        
+        &copy; Copyright 2020, aptx1231
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -270,39 +282,15 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/language_data.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

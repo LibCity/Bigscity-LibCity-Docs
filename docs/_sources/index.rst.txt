@@ -33,7 +33,6 @@ Welcome to Bigscity-TrafficDL's documentation!
    developer_guide/code_style
    developer_guide/implemented_datasets
    developer_guide/implemented_models
-   developer_guide/implemented_evaluators
    developer_guide/implemented_executors
    developer_guide/implemented_logger
 
