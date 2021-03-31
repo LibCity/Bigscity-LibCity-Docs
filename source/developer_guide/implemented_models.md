@@ -1,8 +1,8 @@
 # Customize Models
 
-Here, we present how to develop a new model, and apply it to the TrafficDL.
+Here, we present how to develop a new model, and apply it to the `TrafficDL`.
 
-TrafficDL supports models of the following tasks:
+`TrafficDL` supports models of the following tasks:
 
 -  Traffic Flow Prediction
 -  Traffic Speed Prediction
