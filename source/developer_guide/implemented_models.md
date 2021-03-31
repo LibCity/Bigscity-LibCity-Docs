@@ -1,41 +1,123 @@
 # Customize Models
 
-本文档用于介绍如何在`TrafficDL`下开发一个新模型。
+Here, we present how to develop a new model, and apply it to the TrafficDL.
 
-目前支持以下几个任务：
+TrafficDL supports models of the following tasks:
 
--  Traffic Location Prediction
 -  Traffic Flow Prediction
 -  Traffic Speed Prediction
 -  On-Demand Service predition
--  Travel Time prediction
--  Traffic Accident prediction
+-  Trajectory Location Prediction
 
-开发模型：
+## Create a New Model Class
 
-`AbstractModel`类是所有模型的基类，实现模型时，请继承此类。
+To begin with, we should create a new model implementing from `AbstractModel` or `AbstractTrafficStateModel` . 
 
-`AbstractModel`类继承自`torch.nn.Module`，实现接口`forward(self, batch)`，也就是说所有模型都以`Batch`类对象作为输入。
+Note that for traffic state prediction tasks, please inherit Class `AbstractTrafficStateModel` and for trajectory location prediction tasks, please inherit Class `AbstractModel`.
 
-约定：
-
-- 不同任务的模型存放在不同的子文件夹下，
-- 公用的损失函数、初始化方法、常用的layer统一存放，
-
-所以可以这样实现`newmodel.py`：
+For example, we would like to develop a model for traffic speed prediction task named as `NewModel` and write the code to `newmodel.py` in the directory `trafficdl/model/traffic_speed_prediction/`.
 
 ```python
-from trafficdl.model.abstract_model import AbstractModel
-class NewModel(AbstractModel):
-    def __init__(self, config, data_feature):
-        pass
-     def forward(self, batch):
-        pass
+from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+
+class NewModel(AbstractTrafficStateModel):
+    pass
 ```
 
-接下来需要实现`__init__()`方法：
+## Implement \_\_init\_\_()
 
-该方法是参数是`config`和`data_feature`，其中`config`是配置文件，`data_feature`是构建模型所需要的数据集的相关特征。
+Then we redefine `__init__()` method, `__init__()` is used to define the model structure according to the data feature and the configuration information.
 
-接下来需要实现模型的核心内容以及相应的`forward`方法，注意`forward`方法以`Batch`类的对象为输入。
+The input parameters of  `__init__()` are `config` and `data_feature`, where `config` contains various configuration information, including model parameters and so on, `data_feature` contains the relevant features of the dataset to build the model.
 
+For example, you can define `__init__()` like this:
+
+```python
+from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from logging import getLogger
+
+class NewModel(AbstractTrafficStateModel):
+    def __init__(self, config, data_feature):
+        super().__init__(config, data_feature)
+        # get data feature
+        self.adj_mx = self.data_feature.get('adj_mx')
+        self.num_nodes = self.data_feature.get('num_nodes', 1)
+        self.feature_dim = self.data_feature.get('feature_dim', 1)
+        self.output_dim = self.data_feature.get('output_dim', 1)
+        self._scaler = self.data_feature.get('scaler')
+		# get model config
+        self.hidden_size = config.get('hidden_size', 64)
+        self.num_layers = config.get('num_layers', 1)
+        self.device = config.get('device', torch.device('cpu'))
+        # init logger
+        self._logger = getLogger()
+        # define the model structure
+        self.encoder = Encoder(self.num_nodes * self.feature_dim, self.hidden_size, self.num_layers)
+        self.decoder = Decoder(self.num_nodes * self.output_dim, self.hidden_size, self.num_layers)
+```
+
+Both the  `AbstractModel` and `AbstractTrafficStateModel`  inherit from class `torch.nn.Module`. If you are familiar with Pytorch framework, you should know that the class you inherit must implement the `forward()`  interface defined in class `torch.nn.Module` to get the output of the model.
+
+## Implement predict()
+
+Then we define the `predict()` method, which is used to compute the prediction results of the model. The input parameters of  `predict()` is `batch`, which is an object of class [Batch](../user_guide/data/batch.md). 
+
+If you are familiar with the Pytorch framework, you will find that this function is similar to the `forward()` function in `nn.Module`.  In most cases, you can call the `forward()` function directly inside this function to get the output of the model. 
+
+The purpose of this function is that you can do some extra processing on the basis of the model output calculated by the `forward()` function. For example, when the `forward()`  function calculates the result of single-step prediction of the model and you need the result of multi-step prediction, you can use the `predict()` function to implement it.
+
+For example, you can define `predict()` like this:
+
+```python
+from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+
+class NewModel(AbstractTrafficStateModel):
+    def predict(self, batch):
+        return self.forward(batch)
+```
+
+If you want to do some extra processing, you can define `predict()` like this:
+
+```python
+from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+
+class NewModel(AbstractTrafficStateModel):
+   def predict(self, batch):
+        x = batch['X']
+        y = batch['y']
+        y_preds = []
+        x_ = x.clone()
+        for i in range(y.shape[1]):
+            batch_tmp = {'X': x_}
+            y_ = self.forward(batch_tmp)     # single-step prediction
+            y_preds.append(y_.clone())
+            # concat the input `x_` and the prediction result of previous timestep
+            x_ = torch.cat([x_[:, 1:, :, :], y_], dim=1)
+        y_preds = torch.cat(y_preds, dim=1)  # multi-step prediction
+        return y_preds
+```
+
+## Implement calcualte_loss()
+
+Finally we define the `calculate_loss()` method, `calculate_loss()` is used to compute the loss between the prediction results and the ground-truth value. 
+
+The input parameters of  `calculate_loss()` is `batch`, which is an object of class [Batch](../user_guide/data/batch.md). And the method return a `torch.Tensor` for computing the BP information.
+
+You can customize the loss function or call the loss function we implemented, which are defined in the `loss.py` file in the directory `trafficdl/model/`.
+
+For example, you can define `calcualte_loss()` like this:
+
+```python
+from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from trafficdl.model import loss
+
+class NewModel(AbstractTrafficStateModel):
+   def calculate_loss(self, batch, batches_seen=None):
+        y_true = batch['y']                              # ground-truth value
+        y_predicted = self.predict(batch, batches_seen)  # prediction results
+        # denormalization the value
+        y_true = self._scaler.inverse_transform(y_true[..., :self.output_dim])
+        y_predicted = self._scaler.inverse_transform(y_predicted[..., :self.output_dim])
+        # call the mask_mae loss function defined in `loss.py` 
+        return loss.masked_mae_torch(y_predicted, y_true, 0)
+```
