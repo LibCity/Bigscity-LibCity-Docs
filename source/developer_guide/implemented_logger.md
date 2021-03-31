@@ -1,17 +1,15 @@
 # Logger
 
-本文档用于介绍如何在`TrafficDL`中使用统一的`Logger`。
+This document is used to introduce how to use a unified `Logger` in `TrafficDL` to output necessary auxiliary information. **The logger that can show a message on standard output and write it into the file simultaneously.**
 
-首先在入口文件`test_moel.py`中调用`utils.utils.get_logger()`以实例化`Logger`对象。
+First call `utils.utils.get_logger()` in the entry file `test_model.py` to instantiate the `Logger` object.
 
 ```python
 from trafficdl.utils import get_logger
 logger = get_logger(config)
 ```
 
-在想要使用`Logger`的文件中`from logging import getLogger`，之后`self.logger=getLogger()`即可。
-
-例如在`newmodel.py`中
+You can use `Logger` in the file you want like this:
 
 ```python
 from logging import getLogger
@@ -24,8 +22,4 @@ class NewModel(AbstractModel):
     def forward(self, batch):
         self._logger.info("hahhh")
 ```
-
-使用方法：
-
-`self._logger.info()`传入一个字符串即可。
 
