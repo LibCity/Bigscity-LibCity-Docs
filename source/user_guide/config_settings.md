@@ -92,7 +92,7 @@ optional arguments:
 
 ### 数据集默认参数
 
-数据集的默认参数位于目录`raw_data/DataSet_Name/config.json`，其具体内容请参考[原子文件](./data/atmoic_files.md) 章节。
+数据集的默认参数位于目录`raw_data/DataSet_Name/config.json`，其具体内容请参考[原子文件](./data/atomic_files.md) 章节。
 
 **上述默认参数中，模型模块的优先级最高！**
 

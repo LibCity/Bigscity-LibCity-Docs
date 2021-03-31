@@ -6,7 +6,7 @@ Here, we present how to develop a new model, and apply it to the `TrafficDL`.
 
 -  Traffic Flow Prediction
 -  Traffic Speed Prediction
--  On-Demand Service predition
+-  On-Demand Service Predition
 -  Trajectory Location Prediction
 
 ## Create a New Model Class
