@@ -15,8 +15,8 @@ This script will run the DeepMove model on the Foursquare-TKY dataset For trajec
 Supporting parameters:
 
 - `task`: The name of the task to be performed, including `traj_loc_pred` and `traffic_state_pred`. Defaults to `traj_loc_pred`.
-- `model`: The name of the model to be performed. Defaults to `DeepMove`. ([supporting models](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/user_guide/model.html))
-- `dataset`: The dataset to be performed. Defaults to `foursquare_tky`. ([supporting datasets](https://aptx1231.github.io/Bigscity-TrafficDL-Docs/user_guide/data/raw_data.html))
+- `model`: The name of the model to be performed. Defaults to `DeepMove`. ([supporting models](../user_guide/model))
+- `dataset`: The dataset to be performed. Defaults to `foursquare_tky`. ([supporting datasets](../user_guide/data/raw_data.md))
 - `config_file`：The name of user-defined configuration file. Defaults to `None`. ([see more](../user_guide/config_settings.md))
 - `saved_model`：Whether to save the trained model. Defaults to `True`.
 - `train`：If the model has been pre-trained, whether to retrain the model. Defaults to `True`.
