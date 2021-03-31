@@ -26,7 +26,7 @@ class NewExecutor(AbstractExecutor):
         pass
 ```
 
-## Rewrite the corresponding interfaces
+## Rewrite Corresponding Methods
 
 The function used to train the model is `train()`, it will call `_train_epoch()` to train the model.
 
