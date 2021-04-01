@@ -1,34 +1,26 @@
-# Configuration Introduction
+# Config Settings
 
-本框架通过三种方式确定实验的最终配置：用户命令行传参、用户自定义 config 文件、各模块默认参数配置。用户可以通过前两种方式灵活地调整实验的参数配置。
+The experiment parameter configuration is determined by three aspects: the parameters passed by the command line, the user-defined configuration file, and the framework default configuration file. Therefore, the user can flexibly adjust the parameter configuration of the experiment through the first two methods.
 
-其优先级为：命令行参数>用户自定义配置文件>模型模块的默认参数>其余模块的默认参数，**高优先级的参数会覆盖低优先级的同名参数**。
+### Parameter Priority
 
-## 命令行传参
+command line parameters > user-defined configuration file> default parameters of the model module > default parameters of other modules. 
 
-当用户运行项目根目录下的脚本文件时，可以通过命令行指定修改一些参数，如：
+**The parameters with higher priority will override the parameters with the same name of lower priority.** 
+
+Considering that the optimal training parameters of different models are not consistent and the default training parameters of the executor can only be a fixed value, we designed to store the optimal training parameters of the model in its default configuration file and prioritize the default parameters of the model higher than other modules to solve this problem.
+
+### Command Line Parameters
+
+When the user runs the script file in the project root directory, some parameters can be specified and modified through the command line. For example:
 
 ```shell
 python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky --gpu false --batch_size 15
 ```
 
-**具体所允许传入的参数因不同脚本而异**，可以参见 [Usage](./usage.md) 中详细的介绍了项目根目录下可执行的脚本文件，对于脚本`run_model.py`所支持的全部命令行参数如下：
+Different script files allow different parameters to be passed. For more details, please refer to the [Usage](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/user_guide/usage.html).
 
-- `task`：任务名，包括`traj_loc_pred`和`traffic_state_pred`
-- `model`：模型名，应是`trafficdl/model/`目录下各Model类名中的一个
-- `dataset`：数据集名
-- `config_file`：自定义config文件名，参见下文
-- `saved_model`：是否保存训练过程中的model
-- `train`：如果模型被训练过，是否重新训练，**默认True**
-- `batch_size`：批次大小
-- `train_rate`：训练集所占比例，划分顺序是【训练集，验证集，测试集】
-- `eval_rate`：验证集所占比例，划分顺序是【训练集，验证集，测试集】
-- `learning_rate`：学习率
-- `max_epoch`：训练总轮数
-- `gpu`：是否是用GPU，**默认True**
-- `gpu_id`：指定使用的GPU的id，**默认0**
-
-也可以使用 `-h` 以获取帮助信息，例如：
+You can also use `-h` to get help information, for example:
 
 ```sh
 > python run_model.py -h
@@ -58,15 +50,15 @@ optional arguments:
   --gpu_id GPU_ID
 ```
 
-## 自定义 config 文件
+### User-defined Configuration File
 
-命令行允许传递的参数多为实验中常见通过的参数，如 `batch_size`。但为了使得用户能够随意修改各模块的默认参数，框架还提供通过命令行指定 config 文件名的方式，从用户自定义的配置文件中读入参数配置。用户自定义的 config 文件应满足如下格式要求：
+Most of the parameters allowed on the command line are the parameters commonly passed in the experiment, like `batch_size`. Furthermore, in order to allow users to modify the default parameters of each module at will, the framework allows user to pass the user-defined config file's name through the command line, and then reads in the parameter configuration from the user-defined configuration file. The user-defined config file should meet the following format requirements:
 
-1. 用户自定义 config 文件应为 **JSON** 文件。
-2. JSON 文件中存放一个字典，其键为**参数名**，值为所要修改的**参数值**。
-3. **该文件应放置在项目根目录，并通过`--config_file`的方式指定其文件名。**
+1. The user-defined config file should be a **JSON** file.
+2. The JSON file should store a dictionary, whose key is the **parameter name**, and the value is the **parameter value** to be modified.
+3. The file should be placed in the **project root directory**, and its file name should be specified by `--config_file`.
 
-示例：
+For example：
 
 ```json
 {
@@ -75,35 +67,50 @@ optional arguments:
 }
 ```
 
-用户可以通过自定义 config 文件修改任意模块的默认参数，具体的参数名可以前往各模块的章节了解更多信息。
+Users can modify the default parameters of any module by customizing the config file. For specific parameter names, you can refer to the user guide of each module for more information.
 
-## 默认参数
+### Default Configuration
 
-### 模块默认参数
+#### Default Module Configuration
 
-所有四个模块都具有默认参数，数据模块、执行模块、评估模块、模型模块的默认配置分别位于以下四个目录
+The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:
 
-- `trafficdl/config/data`
-- `trafficdl/config/executor`
-- `trafficdl/config/evaluator`
-- `trafficdl/config/model`
+- `/trafficdl/config/data`
+- `/trafficdl/config/executor`
+- `/trafficdl/config/evaluator`
+- `/trafficdl/config/model`
 
-每个目录下文件命名规则为`类名.json`，例如对于交通状态预测的执行模块，其默认的配置参数文件为`TrafficStateExecutor.json`。
+The file naming rule in each directory is `classname.json`. For example, for the execution module of traffic state prediction, the default configuration parameter file is `TrafficStateExecutor.json`.
 
-### 数据集默认参数
+#### Dataset Config File
 
-数据集的默认参数位于目录`raw_data/DataSet_Name/config.json`，其具体内容请参考[原子文件](./data/atomic_files.md) 章节。
+We store some auxiliary information of the dataset in the configuration file of the dataset, whose storage path is `/raw_data/DataSet_Name/config.json`. Please refer to the [atomic file](./data/atomic_files.md) chapter for more information.
 
-**上述默认参数中，模型模块的优先级最高！**
+#### Task Config File
 
-### 任务默认参数
+The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default dataset class name, executor class name, and evaluation class name of each model, whose storage path is `/trafficdl/config/task_config.json`.
 
-各任务的默认参数位于`trafficdl/config/task_config.json`文件中，此文件记录各类任务所能支持的全部模型和全部数据集的范围，以及各模型的以下三个参数：
+Here is an example of task config file:
+```json
+{
+  "traj_loc_pred": {
+    "allowed_model": ["DeepMove"],
+    "allowed_dataset": ["foursquare_tky", "gowalla"],
+    "DeepMove": {
+      "dataset_class": "TrajectoryDataset",
+      "executor": "TrajLocPredExecutor",
+      "evaluator": "TrajLocPredEvaluator",
+      "traj_encoder": "StandardTrajectoryEncoder"
+  },
+  "traffic_state_pred": {
+    "allowed_model": ["DCRNN"],
+    "allowed_dataset": ["METR_LA", "PEMS_BAY", "PEMSD3"],
+    "DCRNN": {
+        "dataset_class": "TrafficStatePointDataset",
+        "executor": "DCRNNExecutor",
+        "evaluator": "TrafficStateEvaluator"
+    },
+}
+```
 
-- `dataset_class`：数据集类的类名，应是`trafficdl/data/dataset`目录下各Dataset类名中的一个
-- `executor`：调度类的类名，应是`trafficdl/executor/`目录下各Executor类名中的一个
-- `evaluator`：评估类的类名，应是`trafficdl/evaluator/`目录下各Evaluator类名中的一个
-
-这样一来，可以完成不同模型所使用的不同Dataset类、Executor类、Evaluator类的默认配置。
-
-**增加模型时需要修改`trafficdl/config/task_config.json`文件。**
+**You need to modify the `trafficdl/config/task_config.json` file when adding new models.**

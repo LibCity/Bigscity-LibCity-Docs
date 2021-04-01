@@ -117,7 +117,7 @@ The config file is used to supplement the information describing the above five 
 
   Contains a key of `including_types`, and uses an array to describe the `type` values in the table. After that, each `type` is used as a key, describing which keys  are contained in the `properties` table and their data types under the `type`.
 
-- For`usr`: 
+- For `usr`: 
 
   Contains a `properties` key, describing which keys are contained in the `properties` table and their data types.
 
@@ -139,6 +139,7 @@ The config file is used to supplement the information describing the above five 
     - `calculate_weight_adj`: Whether the weight of the adjacency matrix obtained from the `.rel` file needs to be further calculated, **default to `False`**. Some adjacency matrices are calculated based on the original data. The current calculation method is Gaussian kernel method with threshold: $$w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$.
     - `weight_adj_epsilon`: The threshold of the Gaussian kernel. If the calculated weight is less than the threshold, it becomes 0, that is, $$ w_{ij}[w_{ij}<\epsilon]=0​$$. This parameter depends on the parameter `calculate_weight_adj=True` .
   - **For trajectory next-location prediction task:**
+    -  `distance_upper`: The maximum distance between POI points.
 
 Example:  
 
