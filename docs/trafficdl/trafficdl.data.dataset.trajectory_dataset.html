@@ -92,7 +92,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Configuration Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Model Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/evaluator.html">Evaluator Introduction</a></li>
@@ -213,17 +213,84 @@
 <dl class="py method">
 <dt id="trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.cutter_filter">
 <code class="sig-name descname">cutter_filter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/trajectory_dataset.html#TrajectoryDataset.cutter_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.cutter_filter" title="Permalink to this definition">¶</a></dt>
-<dd><p>切割后的轨迹存储格式: (dict)</p>
+<dd><dl>
+<dt>切割后的轨迹存储格式: (dict)</dt><dd><dl>
+<dt>{</dt><dd><dl>
+<dt>uid: [</dt><dd><dl class="simple">
+<dt>[</dt><dd><p>(location ID, timestamp, timezone_offset_in_minutes),
+(location ID, timestamp, timezone_offset_in_minutes),
+…</p>
+</dd>
+</dl>
+<p>],
+[</p>
+<blockquote>
+<div><p>(location ID, timestamp, timezone_offset_in_minutes),
+(location ID, timestamp, timezone_offset_in_minutes),
+…</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.gen_input">
-<code class="sig-name descname">gen_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/trajectory_dataset.html#TrajectoryDataset.gen_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.gen_input" title="Permalink to this definition">¶</a></dt>
+<dt id="trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.divide_data">
+<code class="sig-name descname">divide_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/trajectory_dataset.html#TrajectoryDataset.divide_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.divide_data" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>train_data (list)
 eval_data (list)
 test_data (list)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.encode_traj">
+<code class="sig-name descname">encode_traj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/trajectory_dataset.html#TrajectoryDataset.encode_traj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.encode_traj" title="Permalink to this definition">¶</a></dt>
+<dd><p>encode the cut trajectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – <p>the key is uid, the value is the uid’s trajectories. For example:
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>uid: [</dt><dd><p>trajectory1,
+trajectory2</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>}
+trajectory1 = [</p>
+<blockquote>
+<div><p>(location ID, timestamp, timezone_offset_in_minutes),
+(location ID, timestamp, timezone_offset_in_minutes),
+…..</p>
+</div></blockquote>
+<p>]</p>
+</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl>
+<dt>For example:</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>data_feature: {…},
+pad_item: {…},
+encoded_data: {uid: encoded_trajectories}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -247,6 +314,11 @@ test_data (list)</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py method">
+<dt id="trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.get_encoder">
+<code class="sig-name descname">get_encoder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/trafficdl/data/dataset/trajectory_dataset.html#TrajectoryDataset.get_encoder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#trafficdl.data.dataset.trajectory_dataset.TrajectoryDataset.get_encoder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

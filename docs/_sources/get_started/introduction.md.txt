@@ -14,6 +14,7 @@ TrafficDL currently supports the following tasks:
 
 * **Unified and extensible data structure**: We design a unified and extensible data structure for original dataset ([Atomic Files](../user_guide/data/atomic_files.md)), model input data ([Batch](../user_guide/data/batch.md)), evaluation input data (Python.dict).
 * **Modular design**: The architecture of the toolkit is composed of six modules: Configuration Module, Data Module, Model Module, Evaluation Module, Execution Module, Utils Module. Through this modular design, developers can easily build new models.
+* **Comprehensive benchmark models and datasets**: We have implemented 14 traffic prediction algorithms, supports the following tasks: traffic state prediction(including traffic flow prediction, traffic speed prediction, On-Demand service prediction) and trajectory next-location prediction. To construct a comprehensive benchmark, we incorporate 29 commonly used datasets for evaluating traffic prediction methods. 
 * **Rich Evaluation Metrics**: We support a series of commonly used evaluation metrics in each task.
 
 #### Overall Framework

@@ -90,7 +90,7 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/config_settings.html">Configuration Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data.html">Data Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/model.html">Model Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/evaluator.html">Evaluator Introduction</a></li>
@@ -251,8 +251,9 @@
             <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
             <span class="c1"># 加载 dataset、executor、evaluator 的模块</span>
             <span class="k">if</span> <span class="s1">&#39;dataset_class&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dataset_class&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                    <span class="n">task_config</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;dataset_class&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;dataset_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task_config</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;dataset_class&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;task&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;traj_loc_pred&#39;</span> <span class="ow">and</span> <span class="s1">&#39;traj_encoder&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;traj_encoder&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task_config</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;traj_encoder&#39;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s1">&#39;executor&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;executor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">task_config</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;executor&#39;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s1">&#39;evaluator&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>

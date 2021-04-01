@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration Introduction &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Config Settings &mdash; Bigscity-TrafficDL  documentation</title>
   
 
   
@@ -92,13 +92,14 @@
 </ul>
 <p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">命令行传参</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#config">自定义 config 文件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">默认参数</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">模块默认参数</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">数据集默认参数</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">任务默认参数</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Config Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameter-priority">Parameter Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-parameters">Command Line Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-defined-configuration-file">User-defined Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#default-configuration">Default Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default-module-configuration">Default Module Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-config-file">Dataset Config File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#task-config-file">Task Config File</a></li>
 </ul>
 </li>
 </ul>
@@ -172,7 +173,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Configuration Introduction</li>
+      <li>Config Settings</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -191,33 +192,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="configuration-introduction">
-<h1>Configuration Introduction<a class="headerlink" href="#configuration-introduction" title="Permalink to this headline">¶</a></h1>
-<p>本框架通过三种方式确定实验的最终配置：用户命令行传参、用户自定义 config 文件、各模块默认参数配置。用户可以通过前两种方式灵活地调整实验的参数配置。</p>
-<p>其优先级为：命令行参数&gt;用户自定义配置文件&gt;模型模块的默认参数&gt;其余模块的默认参数，<strong>高优先级的参数会覆盖低优先级的同名参数</strong>。</p>
-<div class="section" id="id1">
-<h2>命令行传参<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>当用户运行项目根目录下的脚本文件时，可以通过命令行指定修改一些参数，如：</p>
+  <div class="section" id="config-settings">
+<h1>Config Settings<a class="headerlink" href="#config-settings" title="Permalink to this headline">¶</a></h1>
+<p>The experiment parameter configuration is determined by three aspects: the parameters passed by the command line, the user-defined configuration file, and the framework default configuration file. Therefore, the user can flexibly adjust the parameter configuration of the experiment through the first two methods.</p>
+<div class="section" id="parameter-priority">
+<h2>Parameter Priority<a class="headerlink" href="#parameter-priority" title="Permalink to this headline">¶</a></h2>
+<p>command line parameters &gt; user-defined configuration file&gt; default parameters of the model module &gt; default parameters of other modules.</p>
+<p><strong>The parameters with higher priority will override the parameters with the same name of lower priority.</strong></p>
+<p>Considering that the optimal training parameters of different models are not consistent and the default training parameters of the executor can only be a fixed value, we designed to store the optimal training parameters of the model in its default configuration file and prioritize the default parameters of the model higher than other modules to solve this problem.</p>
+</div>
+<div class="section" id="command-line-parameters">
+<h2>Command Line Parameters<a class="headerlink" href="#command-line-parameters" title="Permalink to this headline">¶</a></h2>
+<p>When the user runs the script file in the project root directory, some parameters can be specified and modified through the command line. For example:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky --gpu <span class="nb">false</span> --batch_size <span class="m">15</span>
 </pre></div>
 </div>
-<p><strong>具体所允许传入的参数因不同脚本而异</strong>，可以参见 <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> 中详细的介绍了项目根目录下可执行的脚本文件，对于脚本<code class="docutils literal notranslate"><span class="pre">run_model.py</span></code>所支持的全部命令行参数如下：</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">task</span></code>：任务名，包括<code class="docutils literal notranslate"><span class="pre">traj_loc_pred</span></code>和<code class="docutils literal notranslate"><span class="pre">traffic_state_pred</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">model</span></code>：模型名，应是<code class="docutils literal notranslate"><span class="pre">trafficdl/model/</span></code>目录下各Model类名中的一个</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dataset</span></code>：数据集名</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">config_file</span></code>：自定义config文件名，参见下文</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">saved_model</span></code>：是否保存训练过程中的model</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">train</span></code>：如果模型被训练过，是否重新训练，<strong>默认True</strong></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">batch_size</span></code>：批次大小</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">train_rate</span></code>：训练集所占比例，划分顺序是【训练集，验证集，测试集】</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">eval_rate</span></code>：验证集所占比例，划分顺序是【训练集，验证集，测试集】</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>：学习率</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">max_epoch</span></code>：训练总轮数</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gpu</span></code>：是否是用GPU，<strong>默认True</strong></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>：指定使用的GPU的id，<strong>默认0</strong></p></li>
-</ul>
-<p>也可以使用 <code class="docutils literal notranslate"><span class="pre">-h</span></code> 以获取帮助信息，例如：</p>
+<p>Different script files allow different parameters to be passed. For more details, please refer to the <a class="reference external" href="https://bigscity-trafficdl-docs.readthedocs.io/en/latest/user_guide/usage.html">Usage</a>.</p>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">-h</span></code> to get help information, for example:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; python run_model.py -h
 usage: run_model.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--task TASK<span class="o">]</span> <span class="o">[</span>--model MODEL<span class="o">]</span> <span class="o">[</span>--dataset DATASET<span class="o">]</span>
                     <span class="o">[</span>--config_file CONFIG_FILE<span class="o">]</span> <span class="o">[</span>--saved_model SAVED_MODEL<span class="o">]</span>
@@ -246,51 +237,66 @@ optional arguments:
 </pre></div>
 </div>
 </div>
-<div class="section" id="config">
-<h2>自定义 config 文件<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
-<p>命令行允许传递的参数多为实验中常见通过的参数，如 <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>。但为了使得用户能够随意修改各模块的默认参数，框架还提供通过命令行指定 config 文件名的方式，从用户自定义的配置文件中读入参数配置。用户自定义的 config 文件应满足如下格式要求：</p>
+<div class="section" id="user-defined-configuration-file">
+<h2>User-defined Configuration File<a class="headerlink" href="#user-defined-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Most of the parameters allowed on the command line are the parameters commonly passed in the experiment, like <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>. Furthermore, in order to allow users to modify the default parameters of each module at will, the framework allows user to pass the user-defined config file’s name through the command line, and then reads in the parameter configuration from the user-defined configuration file. The user-defined config file should meet the following format requirements:</p>
 <ol class="simple">
-<li><p>用户自定义 config 文件应为 <strong>JSON</strong> 文件。</p></li>
-<li><p>JSON 文件中存放一个字典，其键为<strong>参数名</strong>，值为所要修改的<strong>参数值</strong>。</p></li>
-<li><p><strong>该文件应放置在项目根目录，并通过<code class="docutils literal notranslate"><span class="pre">--config_file</span></code>的方式指定其文件名。</strong></p></li>
+<li><p>The user-defined config file should be a <strong>JSON</strong> file.</p></li>
+<li><p>The JSON file should store a dictionary, whose key is the <strong>parameter name</strong>, and the value is the <strong>parameter value</strong> to be modified.</p></li>
+<li><p>The file should be placed in the <strong>project root directory</strong>, and its file name should be specified by <code class="docutils literal notranslate"><span class="pre">--config_file</span></code>.</p></li>
 </ol>
-<p>示例：</p>
+<p>For example：</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 	<span class="nt">&quot;hidden_state_size&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
 	<span class="nt">&quot;loc_embedding_size&quot;</span><span class="p">:</span> <span class="mi">500</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>用户可以通过自定义 config 文件修改任意模块的默认参数，具体的参数名可以前往各模块的章节了解更多信息。</p>
+<p>Users can modify the default parameters of any module by customizing the config file. For specific parameter names, you can refer to the user guide of each module for more information.</p>
 </div>
-<div class="section" id="id2">
-<h2>默认参数<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3>模块默认参数<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>所有四个模块都具有默认参数，数据模块、执行模块、评估模块、模型模块的默认配置分别位于以下四个目录</p>
+<div class="section" id="default-configuration">
+<h2>Default Configuration<a class="headerlink" href="#default-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-module-configuration">
+<h3>Default Module Configuration<a class="headerlink" href="#default-module-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">trafficdl/config/data</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">trafficdl/config/executor</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">trafficdl/config/evaluator</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">trafficdl/config/model</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/executor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/evaluator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/model</span></code></p></li>
 </ul>
-<p>每个目录下文件命名规则为<code class="docutils literal notranslate"><span class="pre">类名.json</span></code>，例如对于交通状态预测的执行模块，其默认的配置参数文件为<code class="docutils literal notranslate"><span class="pre">TrafficStateExecutor.json</span></code>。</p>
+<p>The file naming rule in each directory is <code class="docutils literal notranslate"><span class="pre">classname.json</span></code>. For example, for the execution module of traffic state prediction, the default configuration parameter file is <code class="docutils literal notranslate"><span class="pre">TrafficStateExecutor.json</span></code>.</p>
 </div>
-<div class="section" id="id4">
-<h3>数据集默认参数<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>数据集的默认参数位于目录<code class="docutils literal notranslate"><span class="pre">raw_data/DataSet_Name/config.json</span></code>，其具体内容请参考<a class="reference internal" href="data/atomic_files.html"><span class="doc">原子文件</span></a> 章节。</p>
-<p><strong>上述默认参数中，模型模块的优先级最高！</strong></p>
+<div class="section" id="dataset-config-file">
+<h3>Dataset Config File<a class="headerlink" href="#dataset-config-file" title="Permalink to this headline">¶</a></h3>
+<p>We store some auxiliary information of the dataset in the configuration file of the dataset, whose storage path is <code class="docutils literal notranslate"><span class="pre">/raw_data/DataSet_Name/config.json</span></code>. Please refer to the <a class="reference internal" href="data/atomic_files.html"><span class="doc">atomic file</span></a> chapter for more information.</p>
 </div>
-<div class="section" id="id5">
-<h3>任务默认参数<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>各任务的默认参数位于<code class="docutils literal notranslate"><span class="pre">trafficdl/config/task_config.json</span></code>文件中，此文件记录各类任务所能支持的全部模型和全部数据集的范围，以及各模型的以下三个参数：</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">dataset_class</span></code>：数据集类的类名，应是<code class="docutils literal notranslate"><span class="pre">trafficdl/data/dataset</span></code>目录下各Dataset类名中的一个</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">executor</span></code>：调度类的类名，应是<code class="docutils literal notranslate"><span class="pre">trafficdl/executor/</span></code>目录下各Executor类名中的一个</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">evaluator</span></code>：评估类的类名，应是<code class="docutils literal notranslate"><span class="pre">trafficdl/evaluator/</span></code>目录下各Evaluator类名中的一个</p></li>
-</ul>
-<p>这样一来，可以完成不同模型所使用的不同Dataset类、Executor类、Evaluator类的默认配置。</p>
-<p><strong>增加模型时需要修改<code class="docutils literal notranslate"><span class="pre">trafficdl/config/task_config.json</span></code>文件。</strong></p>
+<div class="section" id="task-config-file">
+<h3>Task Config File<a class="headerlink" href="#task-config-file" title="Permalink to this headline">¶</a></h3>
+<p>The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default dataset class name, executor class name, and evaluation class name of each model, whose storage path is <code class="docutils literal notranslate"><span class="pre">/trafficdl/config/task_config.json</span></code>.</p>
+<p>Here is an example of task config file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;traj_loc_pred&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;allowed_model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;DeepMove&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;allowed_dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;foursquare_tky&quot;</span><span class="p">,</span> <span class="s2">&quot;gowalla&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;DeepMove&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;TrajectoryDataset&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;executor&quot;</span><span class="p">:</span> <span class="s2">&quot;TrajLocPredExecutor&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;evaluator&quot;</span><span class="p">:</span> <span class="s2">&quot;TrajLocPredEvaluator&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;traj_encoder&quot;</span><span class="p">:</span> <span class="s2">&quot;StandardTrajectoryEncoder&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;traffic_state_pred&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;allowed_model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;DCRNN&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;allowed_dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;METR_LA&quot;</span><span class="p">,</span> <span class="s2">&quot;PEMS_BAY&quot;</span><span class="p">,</span> <span class="s2">&quot;PEMSD3&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;DCRNN&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStatePointDataset&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;executor&quot;</span><span class="p">:</span> <span class="s2">&quot;DCRNNExecutor&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;evaluator&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStateEvaluator&quot;</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>You need to modify the <code class="docutils literal notranslate"><span class="pre">trafficdl/config/task_config.json</span></code> file when adding new models.</strong></p>
 </div>
 </div>
 </div>
