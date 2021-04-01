@@ -1,51 +1,51 @@
 # Standard Track
 
-在交通大数据领域中，长期存在着评测数据集不统一、评测指标不统一、数据集预处理不统一等现象，导致了不同模型的性能可比性较差。因此本项目为了解决上述问题，为每个任务实现了一套标准流水线（赛道）。
+In the field of traffic big data, there have been long-standing phenomena such as inconsistent evaluation data sets, inconsistent evaluation indicators, and inconsistent preprocessing of data sets, resulting in poor performance comparability of different models. Therefore, in order to solve the above problems, this project has implemented a set of standard pipelines (tracks) for each task.
 
-标准赛道上，使用项目提供的原始数据集、标准数据模块（Data 模块）、标准评估模块（Evaluator 模块），从而约束不同模型使用相同的数据输入与评估指标，以提高评估结果的可比性。
+On the standard track, the original data set, standard data module (Data module), and standard evaluation module (Evaluator module) provided by the project are used to constrain different models to use the same data input and evaluation indicators to improve the comparability of evaluation results.
 
-下面对不同任务的标准数据输入格式与评估输入格式进行说明：
+The standard data input format and evaluation input format for different tasks are explained below :
 
 ## Trajectory Location prediction
 
-标准数据输入格式为类字典的 [Batch](../data/batch.md) 对象实例，该对象所具有的键名如下：
+The standard data input format is a dictionary-like [Batch](../data/batch.md) object instance. The key names of this object are as follows:
 
-* `history_loc`：历史轨迹位置信息，`shape = (batch_size, history_len)`， `history_len` 为历史轨迹的长度。
+* `history_loc`: Historical trajectory location information, `shape = (batch_size, history_len)`, `history_len` is the length of the historical trajectory.
 
-* `history_tim`：历史轨迹时间信息，`shape = (batch_size, history_len)`。
+* `history_tim`: Historical trajectory time information, `shape = (batch_size, history_len)`.
 
-* `current_loc`：表示当前轨迹位置信息，`shape = (batch_size, current_len)`， `current_len` 为历史轨迹的长度。
+* `current_loc`: Current trajectory location information, `shape = (batch_size, current_len)`,  `current_len` is the length of the current trajectory.
 
-* `current_tim`：表示当前轨迹位置信息，`shape = (batch_size, current_len)`。
+* `current_tim`: Current trajectory time information, `shape = (batch_size, current_len)`.
 
-* `uid`：每条轨迹所属用户的 id，`shape = (batch_size)`。
+* `uid`: The id of the user for each trajectory, `shape = (batch_size)`.
 
-* `target`：期望的下一跳位置，`shape = (batch_size) `。
+* `target`: Expected next hop location, `shape = (batch_size) `.
 
-标准评估输入格式为字典对象，该字典具有的键名如下：
+The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
 
-* `uid`：每条输出所属的用户 id，`shape = (batch_size)`。
-* `loc_true`：期望下一跳位置信息，`shape = (batch_size)`。
-* `loc_pred`：模型预测输出，`shape = (batch_size, output_dim)`。 
+* `uid`: The id of the user for each trajectory,  `shape = (batch_size)`.
+* `loc_true`:  Expected next hop location,  `shape = (batch_size)`.
+* `loc_pred`:  Model prediction output, `shape = (batch_size, output_dim)`.
 
 ## Traffic State Prediction
 
-根据交通数据的不同空间结构，交通状态数据一般可以用如下几种格式的张量进行表示：
+According to the different spatial structure of traffic data, traffic state data can generally be represented by tensors in the following formats:
 
-- `(N,T,F)`的三维张量，`T`是时间长度，`F`是特征维度，`N`是传感器的个数。
-- `(T,F,I,J)`的四维张量，`T`是时间长度，`F`是特征维度，`I,J`表示网格数据的行列索引。
-- `(T,F,S,T)`的四维张量，`T`是时间长度，`F`是特征维度，`S,T`表示`od`数据的起点和终点的编号。
-- `(T,F,SI,SJ,TI,TJ)`的六维张量，`T`是时间长度，`F`是特征维度，`SI,SJ,TI,TJ`表示网格结构的`od`数据的起点和终点的行列索引。
+- A three-dimensional tensor shaped like `(N,T,F)`, `T` is the length of time, `F` is the feature dimension, and `N` is the number of sensors.
+- A four-dimensional tensor shaped like `(T,F,I,J)`, `T` is the length of time, `F` is the feature dimension, and `I,J` represents the row and column index of the grid data.
+- A four-dimensional tensor shaped like `(T,F,S,T)`, `T` is the length of time, `F` is the feature dimension, and `S,T` represents the id of the origin and destination of the `od` data.
+- A six-dimensional tensor shaped like `(T,F,SI,SJ,TI,TJ)`, `T` is the length of time, `F` is the feature dimension, `SI,SJ,TI,TJ` represents the row and column index of the origin and destination of the `grid-od` data.
 
-标准模型输入格式为类字典的 [Batch](../data/batch.md) 对象实例，该对象所具有的键名如下：
+The standard data input format is a dictionary-like [Batch](../data/batch.md) object instance. The key names of this object are as follows:
 
-* `X`：模型输入的多维张量，`shape = (batch_size, T_in, space_dim, feature_dim)`，分别表示 batch 中的样本总数，输入时间窗的宽度，空间上的维度，数据特征维数。其中，空间上的维度可以是上文中的`N`或`I,J`或`S,T`或`SI,SJ,TI,TJ`。
-* `y`：模型期望输出的多维张量，`shape = (batch_size, T_out, space_dim, feature_dim)`，分别表示 batch 中的样本总数，输出时间窗的宽度，空间上的维度，数据特征维数。其中，空间上的维度可以是上文中的`N`或`I,J`或`S,T`或`SI,SJ,TI,TJ`。
-* `X_ext`：可选的外部数据，`shape = (batch_size, T_in, ext_dim)`，分别表示 batch 中的样本总数，输入时间窗的宽度，空间上的维度，外部数据特征维数。部分模型可能直接将`X_ext`融合到`X`中作为模型的输入。
-* `y_ext`：可选的外部数据，`shape = (batch_size, T_out, ext_dim)`，分别表示 batch 中的样本总数，输出时间窗的宽度，空间上的维度，外部数据特征维数。
+* `X`:  The multi-dimensional tensor input by the model, `shape = (batch_size, T_in, space_dim, feature_dim)`, each dimension represents the total number of samples in the batch, the width of the input time window, the spatial dimension, and the data feature dimension. In particular, the spatial dimension can be `N` or `I, J` or `S, T` or `SI, SJ, TI, TJ` as mentioned above.
+* `y`:  The multi-dimensional tensor that the model expects to output, `shape = (batch_size, T_out, space_dim, feature_dim)`, each dimension represents the total number of samples in the batch, the width of the output time window, the spatial dimension, and the data feature dimension. Among them, the spatial dimension can be `N` or `I, J` or `S, T` or `SI, SJ, TI, TJ` as mentioned above.
+* `X_ext`: Optional external data, `shape = (batch_size, T_in, ext_dim)`, each dimension represents the total number of samples in the batch, the width of the input time window, and the feature dimension of the external data. **In particular, some models may directly incorporate `X_ext` into `X` as the input of the model.**
+* `y_ext`: Optional external data, `shape = (batch_size, T_out, ext_dim)`, each dimension represents the total number of samples in the batch, the width of the output time window, and the feature dimension of the external data.
 
-标准评估模块的输入格式为字典对象，该对象所具有的键名如下：
+The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
 
-- `y_true`：真实值，格式同输入中的 `y`。
-- `y_pred`：预测值，格式同输入中的 `y`。
+- `y_true`:  The ground-truth value, the format is the same as the `y` in the input.
+- `y_pred`:  The prediction value, the format is the same as the `y` in the input.
 
