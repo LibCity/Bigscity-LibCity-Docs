@@ -123,7 +123,7 @@ The config file is used to supplement the information describing the above five 
 
 - For `info`: 
 
-  **Contains other necessary statistical information of the dataset **, for different traffic prediction tasks, contains different content.
+  **Contains other necessary statistical information of the dataset**, for different traffic prediction tasks, contains different content.
 
   - **For traffic state prediction task:**
     - `geo_file`: The file name of the `.geo` file, **string type**, the default is the dataset name.
