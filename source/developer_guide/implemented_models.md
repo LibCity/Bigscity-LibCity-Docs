@@ -121,3 +121,67 @@ class NewModel(AbstractTrafficStateModel):
         # call the mask_mae loss function defined in `loss.py` 
         return loss.masked_mae_torch(y_predicted, y_true, 0)
 ```
+
+## Import The Model
+
+After adding the model, you need to modify some `__init__.py` files.
+
+- First, you need to modify the `__init__.py` file in the task folder where your model belongs. In the example above, the file you need to modify is `trafficdl/model/traffic_speed_prediction/__init__.py`. Add code like this:
+
+```python
+from trafficdl.model.traffic_speed_prediction.newmodel import NewModel
+
+__all__ = [
+    "NewModel",
+]
+```
+
+- Second, you need to modify the `__init__.py` file in the model directory, that is `trafficdl/model/__init__.py`. Add code like this:
+
+```python
+from trafficdl.model.traffic_speed_prediction import NewModel
+
+__all__ = [
+    "NewModel",
+]
+```
+
+## Add Model Config
+
+Finally, you need to modify some relevant `config` files.
+
+- First, you need to modify the `trafficdl/config/task_config.json`, which is used to set the models and datasets supported by each task, and specify the basic parameters (data module, execution module, evaluation module) used by the model. 
+
+  For example, you can add codes like this:
+
+```json
+{
+    "traffic_state_pred": {
+        "allowed_model": [..., "NewModel"],
+        "allowed_dataset": [...],
+        "NewModel": {
+            "dataset_class": "TrafficStatePointDataset", # just an example, you can change the value.
+            "executor": "TrafficStateExecutor",
+            "evaluator": "TrafficStateEvaluator"
+        }
+    }
+}
+```
+
+- Second, you need to add a file in the `trafficdl/config/model/` directory to set the default parameters of your model. You can also set parameters in other modules which you want to cover as the parameters of the model module have the highest priority than other modules. 
+
+  For example, you can add this file `trafficdl/config/model/NewModel.json` and add codes like this:
+
+```json
+{
+  # model default parameters 
+  "num_rnn_layers": 2,
+  "rnn_units": 64,
+  # parameters in other modules which you want to cover
+  "max_epoch": 100,
+  "learner": "adam",
+  "learning_rate": 0.01,
+}
+```
+
+**Note: The filename of the config and the value in `allowed_model` list must be the same as the class name of the model you added. ** Just like the `NewModel` above.
