@@ -184,4 +184,5 @@ Finally, you need to modify some relevant `config` files.
 }
 ```
 
-**Note: The filename of the config and the value in `allowed_model` list must be the same as the class name of the model you added. ** Just like the `NewModel` above.
+**Note: The filename of the config and the value in `allowed_model` list must be the same as the class name of the model you added.** Just like the `NewModel` above.
+

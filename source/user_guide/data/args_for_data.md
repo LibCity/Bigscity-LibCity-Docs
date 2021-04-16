@@ -25,6 +25,7 @@ The following parameters are all parameters used in the task of traffic state pr
 - `load_external`: Whether to load external data (such as weather data). Defaults to `False`.
 
   - `normal_external`: Whether to normalize external data. Defaults to `False`.
+  - `ext_scaler`: Specify the normalization method to normalize external data, **need to be specified externally**. Range in [`normal`, `standard`, `minmax01`, `minmax11`, `none`]. Defaults to `none`.
   - `add_time_in_day`: Time parameter, add auxiliary information of time of day. Defaults to `False`. This parameter depends on the parameter `load_external=True`.
   - `add_day_in_week`: Time parameter, add auxiliary information of day of week. Defaults to `False`. This parameter depends on the parameter `load_external=True`.
 
@@ -46,8 +47,6 @@ The following parameters are all parameters used in the task of traffic state pr
 - Other uncommon parameters
 
   Note: Some traffic prediction models implement traffic prediction by modeling closeness/period/trend, and use `len_closeness`/`len_period`/`len_trend` data as historical data for prediction instead of the above parameters `input_window` and `output_window`, so the following parameters are added:
-
-  - `points_per_hour`: How many time steps are there in an hour, for example, if the dataset has a time step of 5 min, it is 12.
 
   - `len_closeness`: The length of the closeness time slice sequence.
   - `len_period`: The length of the period time slice sequence.

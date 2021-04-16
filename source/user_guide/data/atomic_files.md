@@ -134,6 +134,7 @@ The config file is used to supplement the information describing the above five 
     - `data_col`: The column names loaded from the data files(such as `.dyna`, `.grid`, `.gridod`), **array or string type**, load all columns if not specified.
     - `ext_col`: The column names loaded from the external file, **array or string type**, load all columns if not specified.
     - `output_dim`: Specify the dimensions of the model output, **generally should be the same as the number of attribute columns specified in `data_col`**.
+    - `time_intervals`: The length of the data set time slice, **in seconds**.
     - `init_weight_inf_or_zero`: Range in [`inf` , `zero`]. When loading the `.rel` file to construct the adjacency matrix, the initial adjacency matrix is all INF (`inf`) or all 0 (`zero`), and the default is `inf`.
     - `set_weight_link_or_dist`: Range in [`link`, `dist`], when loading the `.rel` file to construct the adjacency matrix, use the original value in the weight column in the file (`dist`) or revise it to a matrix of all 01 (`link`), and the default is `dist`. **[Note: If there are only connected relationships in the `.rel` file and no unconnected relationships, it should be designated as `link`]**
     - `calculate_weight_adj`: Whether the weight of the adjacency matrix obtained from the `.rel` file needs to be further calculated, **default to `False`**. Some adjacency matrices are calculated based on the original data. The current calculation method is Gaussian kernel method with threshold: $$w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$.
@@ -223,6 +224,7 @@ Example:
         "geo_file": "TAXIBJ",
         "ext_file": "TAXIBJ",
         "output_dim": 2,
+        "output_dim": 300,
         "init_weight_inf_or_zero": "inf",
         "set_weight_link_or_dist": "dist",
         "calculate_weight_adj": false,
