@@ -36,6 +36,7 @@ The following parameters are all parameters used in the task of traffic state pr
     - `standard`: Z-score normalization.
     - `minmax01`: MinMax normalization, result interval [0, 1].
     - `minmax11`: MinMax normalization, result interval [-1, 1].
+    - `log`: Log normalization by log() and exp().
     - `none`: Not normalized.
   - `feature_dim*`: The size of the feature dimension of traffic data, which **cannot be specified externally**, but it is automatically calculated according to different datasets. External data and some other parameters may also affect the size of this dimension.
   - `adj_mx*`: The adjacency matrix constructed by the traffic data, which **cannot be specified externally**, but it is calculated from the `.rel` file. For the parameter settings related to `.rel` files, please refer to the [atomic files](./atomic_files.md) section.

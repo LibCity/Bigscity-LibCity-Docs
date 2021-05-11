@@ -10,8 +10,12 @@ The following mainly introduces the parameters that this executor class can rece
 - `epoch`:  The number of initial training rounds. If it is greater than 0, it will first load the epoch model from `./trafficdl/cache/model_cache` and then continue to complete the training or evaluation.
 - `learner`: The name of used [optimizer](https://pytorch.org/docs/stable/optim.html#module-torch.optim). Defaults to `'adam'`. Range in `['adam', 'sgd', 'adagrad', 'rmsprop', 'sparse_adam']`.
   - `learning_rate`: Learning rate. Defaults to `0.01`.
-  - `weight_decay`: Parameter of adam optimizer. Default to `0.0`.
-  - `lr_epsilon`: Parameter of adam optimizer. Defaults to `1e-8`.
+  - `weight_decay`: Parameter of optimizer. Default to `0.0`.
+  - `lr_epsilon`: Parameter of optimizer. Defaults to `1e-8`.
+  - `lr_beta1`: Parameter of optimizer. Defaults to `0.9`.
+  - `lr_beta2`: Parameter of optimizer. Defaults to `0.999`.
+  - `lr_alpha`: Parameter of optimizer. Defaults to `0.99`.
+  - `lr_momentum`: Parameter of optimizer. Defaults to `0`.
 - `lr_decay`: Whether to use [lr_scheduler](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate). Defaults to `False`.
   - `lr_scheduler`: The type of [lr_scheduler](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate). Range in [`MultiStepLR`, `StepLR`, `ExponentialLR`, `CosineAnnealingLR`, `LambdaLR`, `ReduceLROnPlateau`].
     - `lr_decay_ratio`: Parameter of  `MultiStepLR`、`StepLR`、`ExponentialLR`、`ReduceLROnPlateau`.
