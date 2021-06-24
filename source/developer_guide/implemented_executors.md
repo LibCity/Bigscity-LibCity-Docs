@@ -1,6 +1,6 @@
 # Customize Executors
 
-Here, we present how to develop a new executor, and apply it to the `TrafficDL`.
+Here, we present how to develop a new executor, and apply it to the `LibTraffic`.
 
 We have developed a standard executor for the following tasks:
 

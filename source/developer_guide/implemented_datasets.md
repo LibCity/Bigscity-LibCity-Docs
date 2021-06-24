@@ -1,6 +1,6 @@
 # Customize Dataset
 
-Here, we present how to develop a new dataset, and apply it to the `TrafficDL`.
+Here, we present how to develop a new dataset, and apply it to the `LibTraffic`.
 
 We have developed a standard dataset for the following tasks:
 
