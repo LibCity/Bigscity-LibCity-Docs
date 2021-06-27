@@ -2,15 +2,15 @@
 
 - |-raw_data/
 
-  Store preprocessed atomic files
+  Store preprocessed atomic files.
 
 - |-test/
 
-  Store test scripts
+  Store test scripts.
 
 - |-trafficdl/
 
-  Project code root directory
+  Project code root directory.
 
   - |-config/
 
