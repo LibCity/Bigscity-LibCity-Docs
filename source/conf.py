@@ -70,12 +70,10 @@ source_suffix = ['.rst', '.md']
 napoleon_include_private_with_doc = True
 
 latex_elements={
-    # The paper size ('letterpaper' or 'a4paper').
-    'papersize':'a4paper',# The font size ('10pt', '11pt' or '12pt').
-    'pointsize':'12pt','classoptions':',oneside','babel':'',#必須
-    'inputenc':'',#必須
-    'utf8extra':'',#必須
-    # Additional stuff for the LaTeX preamble.
+    'papersize':'a4paper',
+    'pointsize':'12pt','classoptions':',oneside','babel':'',
+    'inputenc':'',
+    'utf8extra':'',
     'preamble': r"""
     \usepackage{xeCJK}
     \usepackage{indentfirst}

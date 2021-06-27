@@ -157,8 +157,8 @@ Finally, you need to modify some relevant `config` files.
 ```json
 {
     "traffic_state_pred": {
-        "allowed_model": [..., "NewModel"],
-        "allowed_dataset": [...],
+        "allowed_model": ["NewModel"],
+        "allowed_dataset": [""],
         "NewModel": {
             "dataset_class": "TrafficStatePointDataset",
             "executor": "TrafficStateExecutor",
@@ -176,10 +176,9 @@ Finally, you need to modify some relevant `config` files.
 {
   "num_rnn_layers": 2,
   "rnn_units": 64,
-
   "max_epoch": 100,
   "learner": "adam",
-  "learning_rate": 0.01,
+  "learning_rate": 0.01
 }
 ```
 

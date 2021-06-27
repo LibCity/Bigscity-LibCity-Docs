@@ -4,13 +4,11 @@
 
 ### [Read the Docs](https://readthedocs.org/)
 
-访问：https://bigscity-libtraffic-docs.readthedocs.io/en/latest/
-
 更新方法：
 
 每次将修改推送到Github后，Read the Docs会自动拉取最新的提交，自动编译生成最新版网站。
 
-### [Github Page](https://pages.github.com/)
+### [Github Page](https://pages.github.com/) [已被淘汰]
 
 更新方法：
 
@@ -56,7 +54,7 @@ make html   # 生成html
 
 主页面文件是`source/index.rst`，此文件引用了`get_started/`，`user_guide/`，`developer_guide/`，`libtraffic/`四个目录下的内容，其中前三个目录分别放置Markdown文件。
 
-`source/index.rst`的每一行例如`user_guide/config_settings`在网站中显示为一个可折叠的行，Markdown内部的标题用于折叠内容，`source/index.rst`的`:caption:`表示标题，显示为蓝色。
+`source/index.rst`的每一行例如`user_guide/config_settings`在网站的目录中显示为一行。
 
 修改对应的Markdown文件以及主文件即可完成修改。
 
@@ -64,15 +62,19 @@ make html   # 生成html
 
 ## 代码API文档自动生成
 
-将代码中用三个双引号包裹的注释内容转换成代码文档，层次分明。
+### 使用Github Page的部署方式 [已被淘汰]
 
-> 首先保证文档目录Bigscity-LibTraffic-Docs/跟代码目录Bigscity-LibTraffic/处于平级目录
+此方法在本地完成编译，不需要将项目代码提交到项目文档仓库。
 
-### 使用Github Page的部署方式
+（1）保证文档目录`Bigscity-LibTraffic-Docs/`跟代码目录`Bigscity-LibTraffic/`处于平级目录
 
-当代码发生修改后，使用如下步骤修改API文档：
+（2）设置conf.py
 
-在`Bigscity-LibTraffic-Docs/`目录下执行如下命令：
+```python
+sys.path.insert(0, os.path.abspath('../../Bigscity-LibTraffic/'))
+```
+
+（3）在`Bigscity-LibTraffic-Docs/`目录下执行如下命令：
 
 ```shell
 sphinx-apidoc -o source/libtraffic/ -e -f ../Bigscity-LibTraffic/libtraffic/
@@ -88,13 +90,55 @@ make html
 
 ### 使用Read the Docs的部署方式
 
-执行命令产生API文件：
+此方法在远程完成编译，需要将项目代码提交到项目文档仓库，因此在目录`Bigscity-LibTraffic-Docs/libtraffic`中存储项目代码。
+
+（1）设置conf.py
+
+```python
+sys.path.insert(0, os.path.abspath('../'))
+```
+
+（2）在`Bigscity-LibTraffic-Docs/`目录下执行如下命令：
 
 ```shell
-sphinx-apidoc -o source/libtraffic/ -e -f ../Bigscity-LibTraffic/libtraffic/
+sphinx-apidoc -o source/libtraffic/ -e -f ./libtraffic/
 python source/clear.py
 ```
 
-然后直接把修改推送到Github即可，可以自动部署。
+（3）最后直接把修改推送到Github即可，可以自动部署。
 
-最好先在本地编译（`make html`）看看输出结果的样子，可能会出现很多的warning。
+提示：最好先在本地编译（`make html`）看看输出结果的样子，可能会出现很多的warning。
+
+### 代码注释规范
+
+1. 使用[Google注释风格](https://www.sphinx.org.cn/usage/extensions/example_google.html?highlight=comments)。
+
+2. Pycharms中可以修改默认设置，方法为Settings > Tools > Python Integrated Tools > Docstring format修改为Google。
+
+3. 示例：
+
+   ```python
+   """一段基础的描述
+   【空行】
+   一段详细的描述
+   【空行】
+   Args:
+       参数1名(参数类型): 参数1介绍
+       参数2名(参数类型): 参数2介绍
+       ...
+   【空行】
+   Returns: # 单返回值
+       返回值类型: 返回值介绍
+   
+   Returns: # 多返回值
+   	tuple: tuple contains:
+   		返回值1的类型：返回值1的介绍
+   		返回值2的类型：返回值2的介绍
+   		...
+   
+   """
+   ```
+
+- 每一个部分都是可以省略的，可以只保留一段基础描述或详细描述。
+- 注意各部分之间要有空行，Return的最后可以没有空行。
+
