@@ -1,23 +1,16 @@
-## 基于[Sphinx](http://sphinx-doc.org/)的项目文档
+## 基于[Sphinx](http://sphinx-doc.org/)的[项目文档](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/)
 
 两种部署的方式：
 
 ### [Read the Docs](https://readthedocs.org/)
 
-访问中文版：https://bigscity-trafficdl-docs.readthedocs.io/zh_CN/latest/
-访问英文版：https://bigscity-trafficdl-docs.readthedocs.io/en/latest/
+访问：https://bigscity-libtraffic-docs.readthedocs.io/en/latest/
 
 更新方法：
 
 每次将修改推送到Github后，Read the Docs会自动拉取最新的提交，自动编译生成最新版网站。
 
-缺点：
-
-部署后的网页有广告；自动拉取比较慢，经常编译失败；为代码生成文档功能部分页面显示失败，应该需要修改requirements.txt的内容，还有些依赖需要使用conf.py配置。
-
 ### [Github Page](https://pages.github.com/)
-
-访问：https://aptx1231.github.io/Bigscity-TrafficDL-Docs/
 
 更新方法：
 
@@ -57,32 +50,32 @@ make html   # 生成html
 
 修改方式
 
-首先从Github拉取代码，目录为`Bigscity-TrafficDL-Docs/`。
+首先从Github拉取代码，目录为`Bigscity-LibTraffic-Docs/`。
 
 需要修改的文件位于`source/`，编译输出的文件位于`build/`。
 
-主页面文件是`source/index.rst`，此文件引用了`get_started/`，`user_guide/`，`developer_guide/`，`trafficdl/`四个目录下的内容，其中前三个目录分别放置Markdown文件。
+主页面文件是`source/index.rst`，此文件引用了`get_started/`，`user_guide/`，`developer_guide/`，`libtraffic/`四个目录下的内容，其中前三个目录分别放置Markdown文件。
 
 `source/index.rst`的每一行例如`user_guide/config_settings`在网站中显示为一个可折叠的行，Markdown内部的标题用于折叠内容，`source/index.rst`的`:caption:`表示标题，显示为蓝色。
 
 修改对应的Markdown文件以及主文件即可完成修改。
 
-第四个目录`trafficdl/`则是代码API文档的目录，详见后文。
+第四个目录`libtraffic/`则是代码API文档的目录，详见后文。
 
 ## 代码API文档自动生成
 
 将代码中用三个双引号包裹的注释内容转换成代码文档，层次分明。
 
-### 使用Github Page的部署方式
+> 首先保证文档目录Bigscity-LibTraffic-Docs/跟代码目录Bigscity-LibTraffic/处于平级目录
 
-> 首先保证文档目录Bigscity-TrafficDL-Docs/跟代码目录Bigscity-TrafficDL/处于平级目录
+### 使用Github Page的部署方式
 
 当代码发生修改后，使用如下步骤修改API文档：
 
-在`Bigscity-TrafficDL-Docs/`目录下执行如下命令：
+在`Bigscity-LibTraffic-Docs/`目录下执行如下命令：
 
 ```shell
-sphinx-apidoc -o source/trafficdl/ -e -f ../Bigscity-TrafficDL/trafficdl/
+sphinx-apidoc -o source/libtraffic/ -e -f ../Bigscity-LibTraffic/libtraffic/
 python source/clear.py
 make html
 ```
@@ -95,4 +88,13 @@ make html
 
 ### 使用Read the Docs的部署方式
 
-此功能部署之后暂时不可用，需要配置依赖。
+执行命令产生API文件：
+
+```shell
+sphinx-apidoc -o source/libtraffic/ -e -f ../Bigscity-LibTraffic/libtraffic/
+python source/clear.py
+```
+
+然后直接把修改推送到Github即可，可以自动部署。
+
+最好先在本地编译（`make html`）看看输出结果的样子，可能会出现很多的warning。

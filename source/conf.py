@@ -12,14 +12,14 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../Bigscity-TrafficDL/'))
+sys.path.insert(0, os.path.abspath('../../Bigscity-LibTraffic/'))
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
 # -- Project information -----------------------------------------------------
 
 project = 'Bigscity-LibTraffic'
 copyright = '2020, aptx1231'
-author = 'aptx1231'
+author = 'aptx1231, WenMellors'
 
 
 # -- General configuration ---------------------------------------------------

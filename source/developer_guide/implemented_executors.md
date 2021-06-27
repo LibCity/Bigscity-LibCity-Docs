@@ -15,10 +15,10 @@ For a new model, if the training method is complex, and existing executor can no
 
 To begin with, we should create a new executor implementing from `AbstractExecutoror`.
 
-For example, we would like to develop a executor for traffic state prediction task named as `NewExecutor` and write the code to `newexecutor.py` in the directory `trafficdl/executor/`.
+For example, we would like to develop a executor for traffic state prediction task named as `NewExecutor` and write the code to `newexecutor.py` in the directory `libtraffic/executor/`.
 
 ```python
-from trafficdl.executor.abstract_executor import AbstractExecutor
+from libtraffic.executor.abstract_executor import AbstractExecutor
 
 class NewExecutor(AbstractExecutor):
     def __init__(self, config, model):
@@ -37,7 +37,7 @@ The rest two interfaces `load_model()` and `save_model()` are used to load and s
 If the developed model need more complex training or evaluation method, then you can rewrite the corresponding interface mentioned above.
 
 ```python
-from trafficdl.executor.abstract_executor import AbstractExecutor
+from libtraffic.executor.abstract_executor import AbstractExecutor
 
 class NewExecutor(AbstractExecutor):
     def __init__(self, config, model):

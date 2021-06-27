@@ -7,7 +7,7 @@ This executor class is mainly responsible for completing the training and evalua
 The following mainly introduces the parameters that this executor class can receive:
 
 - `max_epoch`: Maximum rounds of training. The default value varies with the model.
-- `epoch`:  The number of initial training rounds. If it is greater than 0, it will first load the epoch model from `./trafficdl/cache/model_cache` and then continue to complete the training or evaluation.
+- `epoch`:  The number of initial training rounds. If it is greater than 0, it will first load the epoch model from `./libtraffic/cache/model_cache` and then continue to complete the training or evaluation.
 - `learner`: The name of used [optimizer](https://pytorch.org/docs/stable/optim.html#module-torch.optim). Defaults to `'adam'`. Range in `['adam', 'sgd', 'adagrad', 'rmsprop', 'sparse_adam']`.
   - `learning_rate`: Learning rate. Defaults to `0.01`.
   - `weight_decay`: Parameter of optimizer. Default to `0.0`.

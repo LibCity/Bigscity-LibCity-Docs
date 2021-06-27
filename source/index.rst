@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Bigscity-LibTraffic's documentation!
-==============================================
+=================================================
    
 .. toctree::
    :maxdepth: 1
@@ -40,13 +40,13 @@ Welcome to Bigscity-LibTraffic's documentation!
    :maxdepth: 1
    :caption: API REFERENCE
 
-   trafficdl/trafficdl.config
-   trafficdl/trafficdl.data
-   trafficdl/trafficdl.evaluator
-   trafficdl/trafficdl.executor
-   trafficdl/trafficdl.model
-   trafficdl/trafficdl.pipeline
-   trafficdl/trafficdl.utils
+   libtraffic/libtraffic.config
+   libtraffic/libtraffic.data
+   libtraffic/libtraffic.evaluator
+   libtraffic/libtraffic.executor
+   libtraffic/libtraffic.model
+   libtraffic/libtraffic.pipeline
+   libtraffic/libtraffic.utils
    
 Indices and tables
 ==================

@@ -26,7 +26,7 @@ Evaluation Settings
 
 The following are parameters involved in the evaluator:
 
-Location: trafficdl/config/evaluator/TrafficStateEvaluator.json
+Location: libtraffic/config/evaluator/TrafficStateEvaluator.json
 
 - ``metrics``\ : Array of evaluation metrics, \ ``allowed_metrics``\ in evaluator class indicates the type of metrics that the task can accept, and ``metrics`` cannot exceed this range.
 

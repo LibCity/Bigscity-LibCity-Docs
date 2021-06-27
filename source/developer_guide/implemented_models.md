@@ -15,10 +15,10 @@ To begin with, we should create a new model implementing from `AbstractModel` or
 
 Note that for traffic state prediction tasks, please inherit Class `AbstractTrafficStateModel` and for trajectory location prediction tasks, please inherit Class `AbstractModel`.
 
-For example, we would like to develop a model for traffic speed prediction task named as `NewModel` and write the code to `newmodel.py` in the directory `trafficdl/model/traffic_speed_prediction/`.
+For example, we would like to develop a model for traffic speed prediction task named as `NewModel` and write the code to `newmodel.py` in the directory `libtraffic/model/traffic_speed_prediction/`.
 
 ```python
-from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from libtraffic.model.abstract_traffic_state_model import AbstractTrafficStateModel
 
 class NewModel(AbstractTrafficStateModel):
     pass
@@ -33,7 +33,7 @@ The input parameters of  `__init__()` are `config` and `data_feature`, where `co
 For example, you can define `__init__()` like this:
 
 ```python
-from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from libtraffic.model.abstract_traffic_state_model import AbstractTrafficStateModel
 from logging import getLogger
 
 class NewModel(AbstractTrafficStateModel):
@@ -69,7 +69,7 @@ The purpose of this function is that you can do some extra processing on the bas
 For example, you can define `predict()` like this:
 
 ```python
-from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from libtraffic.model.abstract_traffic_state_model import AbstractTrafficStateModel
 
 class NewModel(AbstractTrafficStateModel):
     def predict(self, batch):
@@ -79,7 +79,7 @@ class NewModel(AbstractTrafficStateModel):
 If you want to do some extra processing, you can define `predict()` like this:
 
 ```python
-from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from libtraffic.model.abstract_traffic_state_model import AbstractTrafficStateModel
 
 class NewModel(AbstractTrafficStateModel):
    def predict(self, batch):
@@ -103,13 +103,13 @@ Finally we define the `calculate_loss()` method, `calculate_loss()` is used to c
 
 The input parameters of  `calculate_loss()` is `batch`, which is an object of class [Batch](../user_guide/data/batch.md). And the method return a `torch.Tensor` for computing the BP information.
 
-You can customize the loss function or call the loss function we implemented, which are defined in the `loss.py` file in the directory `trafficdl/model/`.
+You can customize the loss function or call the loss function we implemented, which are defined in the `loss.py` file in the directory `libtraffic/model/`.
 
 For example, you can define `calcualte_loss()` like this:
 
 ```python
-from trafficdl.model.abstract_traffic_state_model import AbstractTrafficStateModel
-from trafficdl.model import loss
+from libtraffic.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from libtraffic.model import loss
 
 class NewModel(AbstractTrafficStateModel):
    def calculate_loss(self, batch, batches_seen=None):
@@ -126,20 +126,20 @@ class NewModel(AbstractTrafficStateModel):
 
 After adding the model, you need to modify some `__init__.py` files.
 
-- First, you need to modify the `__init__.py` file in the task folder where your model belongs. In the example above, the file you need to modify is `trafficdl/model/traffic_speed_prediction/__init__.py`. Add code like this:
+- First, you need to modify the `__init__.py` file in the task folder where your model belongs. In the example above, the file you need to modify is `libtraffic/model/traffic_speed_prediction/__init__.py`. Add code like this:
 
 ```python
-from trafficdl.model.traffic_speed_prediction.newmodel import NewModel
+from libtraffic.model.traffic_speed_prediction.newmodel import NewModel
 
 __all__ = [
     "NewModel",
 ]
 ```
 
-- Second, you need to modify the `__init__.py` file in the model directory, that is `trafficdl/model/__init__.py`. Add code like this:
+- Second, you need to modify the `__init__.py` file in the model directory, that is `libtraffic/model/__init__.py`. Add code like this:
 
 ```python
-from trafficdl.model.traffic_speed_prediction import NewModel
+from libtraffic.model.traffic_speed_prediction import NewModel
 
 __all__ = [
     "NewModel",
@@ -150,7 +150,7 @@ __all__ = [
 
 Finally, you need to modify some relevant `config` files.
 
-- First, you need to modify the `trafficdl/config/task_config.json`, which is used to set the models and datasets supported by each task, and specify the basic parameters (data module, execution module, evaluation module) used by the model. 
+- First, you need to modify the `libtraffic/config/task_config.json`, which is used to set the models and datasets supported by each task, and specify the basic parameters (data module, execution module, evaluation module) used by the model. 
 
   For example, you can add codes like this:
 
@@ -160,7 +160,7 @@ Finally, you need to modify some relevant `config` files.
         "allowed_model": [..., "NewModel"],
         "allowed_dataset": [...],
         "NewModel": {
-            "dataset_class": "TrafficStatePointDataset", # just an example, you can change the value.
+            "dataset_class": "TrafficStatePointDataset",
             "executor": "TrafficStateExecutor",
             "evaluator": "TrafficStateEvaluator"
         }
@@ -168,16 +168,15 @@ Finally, you need to modify some relevant `config` files.
 }
 ```
 
-- Second, you need to add a file in the `trafficdl/config/model/` directory to set the default parameters of your model. You can also set parameters in other modules which you want to cover as the parameters of the model module have the highest priority than other modules. 
+- Second, you need to add a file in the `libtraffic/config/model/` directory to set the default parameters of your model. You can also set parameters in other modules which you want to cover as the parameters of the model module have the highest priority than other modules. 
 
-  For example, you can add this file `trafficdl/config/model/NewModel.json` and add codes like this:
+  For example, you can add this file `libtraffic/config/model/NewModel.json` and add codes like this:
 
 ```json
 {
-  # model default parameters 
   "num_rnn_layers": 2,
   "rnn_units": 64,
-  # parameters in other modules which you want to cover
+
   "max_epoch": 100,
   "learner": "adam",
   "learning_rate": 0.01,

@@ -7,9 +7,9 @@ python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_t
 ```
 Supporting parameters:
 
-- `task`: The name of the task to be performed, including `traj_loc_pred` and `traffic_state_pred`. Defaults to `traj_loc_pred`.
-- `model`: The name of the model to be performed. Defaults to `DeepMove`. ([supporting models](../model))
-- `dataset`: The dataset to be performed. Defaults to `foursquare_tky`. ([supporting datasets](../data/raw_data.md))
+- `task`: The name of the task to be performed, including `traj_loc_pred` and `traffic_state_pred`. Defaults to `None`.
+- `model`: The name of the model to be performed. Defaults to `None`. ([supporting models](../model))
+- `dataset`: The dataset to be performed. Defaults to `None`. ([supporting datasets](../data/raw_data.md))
 - `config_file`：The name of user-defined configuration file. Defaults to `None`. ([see more](../config_settings.md))
 - `saved_model`：Whether to save the trained model. Defaults to `True`.
 - `train`：If the model has been pre-trained, whether to retrain the model. Defaults to `True`.

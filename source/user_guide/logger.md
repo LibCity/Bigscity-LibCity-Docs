@@ -5,7 +5,7 @@ This document is used to introduce how to use a unified `Logger` in `TrafficDL` 
 First call `utils.utils.get_logger()` in the entry file `test_model.py` to instantiate the `Logger` object.
 
 ```python
-from trafficdl.utils import get_logger
+from libtraffic.utils import get_logger
 logger = get_logger(config)
 ```
 
@@ -13,7 +13,7 @@ You can use `Logger` in the file you want like this:
 
 ```python
 from logging import getLogger
-from trafficdl.model.abstract_model import AbstractModel
+from libtraffic.model.abstract_model import AbstractModel
 
 class NewModel(AbstractModel):
     def __init__(self, config, data_feature):

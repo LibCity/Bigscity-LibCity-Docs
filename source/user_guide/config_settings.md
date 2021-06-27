@@ -18,7 +18,7 @@ When the user runs the script file in the project root directory, some parameter
 python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky --gpu false --batch_size 15
 ```
 
-Different script files allow different parameters to be passed. For more details, please refer to the [Usage](https://bigscity-trafficdl-docs.readthedocs.io/en/latest/user_guide/usage.html).
+Different script files allow different parameters to be passed. For more details, please refer to the [Usage](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/usage.html).
 
 You can also use `-h` to get help information, for example:
 
@@ -75,10 +75,10 @@ Users can modify the default parameters of any module by customizing the config 
 
 The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:
 
-- `/trafficdl/config/data`
-- `/trafficdl/config/executor`
-- `/trafficdl/config/evaluator`
-- `/trafficdl/config/model`
+- `/libtraffic/config/data`
+- `/libtraffic/config/executor`
+- `/libtraffic/config/evaluator`
+- `/libtraffic/config/model`
 
 The file naming rule in each directory is `classname.json`. For example, for the execution module of traffic state prediction, the default configuration parameter file is `TrafficStateExecutor.json`.
 
@@ -88,7 +88,7 @@ We store some auxiliary information of the dataset in the configuration file of 
 
 #### Task Config File
 
-The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default dataset class name, executor class name, and evaluation class name of each model, whose storage path is `/trafficdl/config/task_config.json`.
+The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default dataset class name, executor class name, and evaluation class name of each model, whose storage path is `/libtraffic/config/task_config.json`.
 
 Here is an example of task config file:
 ```json
@@ -113,4 +113,4 @@ Here is an example of task config file:
 }
 ```
 
-**You need to modify the `trafficdl/config/task_config.json` file when adding new models.**
+**You need to modify the `libtraffic/config/task_config.json` file when adding new models.**

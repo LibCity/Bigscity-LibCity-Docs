@@ -8,7 +8,7 @@
 
   Store test scripts.
 
-- |-trafficdl/
+- |-libtraffic/
 
   Project code root directory.
 

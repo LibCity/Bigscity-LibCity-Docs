@@ -1,6 +1,6 @@
-## Introduction
-
 ![](/_static/logo.png)
+
+## Introduction
 
 LibTraffic is a unified, flexible and comprehensive traffic prediction library, which  provides researchers with a credibly experimental tool and a convenient development framework. Our library is implemented based on PyTorch, and includes all the necessary steps or components related to traffic prediction into a systematic pipeline.
 
