@@ -24,7 +24,7 @@ def modify_doc_title_dir(abspath_rstfiles_dir):
                 flag = 0
                 continue
             if re.search(del_str[0], file_line):
-                modify_line = file_line.replace(del_str[0], '.py')
+                modify_line = file_line.replace(del_str[0], '')
                 write_con.append(modify_line)
                 continue
             if re.search(del_str[1], file_line):
@@ -40,6 +40,7 @@ def modify_doc_title_dir(abspath_rstfiles_dir):
         'libtraffic.model.traffic_demand_prediction.rst',
         'libtraffic.model.traffic_speed_prediction.rst',
         'libtraffic.model.trajectory_loc_prediction.rst',
+        'libtraffic.data.dataset.trajectory_encoder.rst',
         'libtraffic.config.rst',
         'libtraffic.data.rst',
         'libtraffic.data.dataset.rst',
@@ -51,7 +52,7 @@ def modify_doc_title_dir(abspath_rstfiles_dir):
     ]
     for rst_file in rst_files:
         if rst_file in solve_list:
-            # print(rst_file)
+            print(rst_file)
             f = open(os.path.join(abspath_rstfiles_dir, rst_file), 'r')
             file_lines = f.readlines()
             f.close()
