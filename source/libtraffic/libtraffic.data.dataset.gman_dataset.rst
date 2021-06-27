@@ -1,4 +1,4 @@
-libtraffic.data.dataset.gman\_dataset.py
+libtraffic.data.dataset.gman\_dataset
 ============================================
 
 .. automodule:: libtraffic.data.dataset.gman_dataset

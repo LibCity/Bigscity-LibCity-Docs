@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_flow\_prediction.STResNetCommon.py
+libtraffic.model.traffic\_flow\_prediction.STResNetCommon
 ================================================================
 
 .. automodule:: libtraffic.model.traffic_flow_prediction.STResNetCommon

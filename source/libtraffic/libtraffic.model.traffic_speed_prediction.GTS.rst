@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_speed\_prediction.GTS.py
+libtraffic.model.traffic\_speed\_prediction.GTS
 ======================================================
 
 .. automodule:: libtraffic.model.traffic_speed_prediction.GTS

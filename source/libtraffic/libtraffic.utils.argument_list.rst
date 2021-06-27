@@ -1,4 +1,4 @@
-libtraffic.utils.argument\_list.py
+libtraffic.utils.argument\_list
 ======================================
 
 .. automodule:: libtraffic.utils.argument_list

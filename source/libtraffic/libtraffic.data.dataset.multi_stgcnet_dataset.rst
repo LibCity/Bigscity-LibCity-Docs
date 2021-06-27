@@ -1,4 +1,4 @@
-libtraffic.data.dataset.multi\_stgcnet\_dataset.py
+libtraffic.data.dataset.multi\_stgcnet\_dataset
 ======================================================
 
 .. automodule:: libtraffic.data.dataset.multi_stgcnet_dataset

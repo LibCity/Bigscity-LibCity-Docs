@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_flow\_prediction.ToGCN.py
+libtraffic.model.traffic\_flow\_prediction.ToGCN
 =======================================================
 
 .. automodule:: libtraffic.model.traffic_flow_prediction.ToGCN

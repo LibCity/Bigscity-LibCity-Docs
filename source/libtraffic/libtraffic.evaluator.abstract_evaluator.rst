@@ -1,4 +1,4 @@
-libtraffic.evaluator.abstract\_evaluator.py
+libtraffic.evaluator.abstract\_evaluator
 ===============================================
 
 .. automodule:: libtraffic.evaluator.abstract_evaluator

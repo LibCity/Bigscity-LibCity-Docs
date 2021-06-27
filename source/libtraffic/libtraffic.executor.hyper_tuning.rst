@@ -1,4 +1,4 @@
-libtraffic.executor.hyper\_tuning.py
+libtraffic.executor.hyper\_tuning
 ========================================
 
 .. automodule:: libtraffic.executor.hyper_tuning

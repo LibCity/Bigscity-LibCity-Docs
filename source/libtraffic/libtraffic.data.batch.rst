@@ -1,4 +1,4 @@
-libtraffic.data.batch.py
+libtraffic.data.batch
 ============================
 
 .. automodule:: libtraffic.data.batch

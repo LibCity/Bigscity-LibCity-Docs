@@ -1,4 +1,4 @@
-libtraffic.model.trajectory\_loc\_prediction.CARA.py
+libtraffic.model.trajectory\_loc\_prediction.CARA
 ========================================================
 
 .. automodule:: libtraffic.model.trajectory_loc_prediction.CARA

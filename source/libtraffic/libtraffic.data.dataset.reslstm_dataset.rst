@@ -1,4 +1,4 @@
-libtraffic.data.dataset.reslstm\_dataset.py
+libtraffic.data.dataset.reslstm\_dataset
 ===============================================
 
 .. automodule:: libtraffic.data.dataset.reslstm_dataset

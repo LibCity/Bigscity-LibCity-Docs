@@ -1,4 +1,4 @@
-libtraffic.data.dataset.hgcn\_dataset.py
+libtraffic.data.dataset.hgcn\_dataset
 ============================================
 
 .. automodule:: libtraffic.data.dataset.hgcn_dataset

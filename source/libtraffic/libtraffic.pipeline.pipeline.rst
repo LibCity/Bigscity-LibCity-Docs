@@ -1,4 +1,4 @@
-libtraffic.pipeline.pipeline.py
+libtraffic.pipeline.pipeline
 ===================================
 
 .. automodule:: libtraffic.pipeline.pipeline

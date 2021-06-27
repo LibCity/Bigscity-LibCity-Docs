@@ -1,4 +1,4 @@
-libtraffic.executor.dcrnn\_executor.py
+libtraffic.executor.dcrnn\_executor
 ==========================================
 
 .. automodule:: libtraffic.executor.dcrnn_executor

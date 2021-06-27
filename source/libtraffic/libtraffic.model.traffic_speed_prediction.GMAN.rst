@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_speed\_prediction.GMAN.py
+libtraffic.model.traffic\_speed\_prediction.GMAN
 =======================================================
 
 .. automodule:: libtraffic.model.traffic_speed_prediction.GMAN

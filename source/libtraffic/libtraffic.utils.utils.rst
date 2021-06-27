@@ -1,4 +1,4 @@
-libtraffic.utils.utils.py
+libtraffic.utils.utils
 =============================
 
 .. automodule:: libtraffic.utils.utils

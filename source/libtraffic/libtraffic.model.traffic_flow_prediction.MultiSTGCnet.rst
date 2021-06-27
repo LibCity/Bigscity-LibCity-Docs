@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_flow\_prediction.MultiSTGCnet.py
+libtraffic.model.traffic\_flow\_prediction.MultiSTGCnet
 ==============================================================
 
 .. automodule:: libtraffic.model.traffic_flow_prediction.MultiSTGCnet

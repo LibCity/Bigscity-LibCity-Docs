@@ -1,4 +1,4 @@
-libtraffic.utils.dataset.py
+libtraffic.utils.dataset
 ===============================
 
 .. automodule:: libtraffic.utils.dataset

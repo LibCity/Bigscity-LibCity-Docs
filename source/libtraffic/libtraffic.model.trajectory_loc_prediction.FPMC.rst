@@ -1,4 +1,4 @@
-libtraffic.model.trajectory\_loc\_prediction.FPMC.py
+libtraffic.model.trajectory\_loc\_prediction.FPMC
 ========================================================
 
 .. automodule:: libtraffic.model.trajectory_loc_prediction.FPMC

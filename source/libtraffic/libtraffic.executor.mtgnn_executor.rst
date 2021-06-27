@@ -1,4 +1,4 @@
-libtraffic.executor.mtgnn\_executor.py
+libtraffic.executor.mtgnn\_executor
 ==========================================
 
 .. automodule:: libtraffic.executor.mtgnn_executor

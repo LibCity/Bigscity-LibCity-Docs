@@ -1,4 +1,4 @@
-libtraffic.data.dataset.traffic\_state\_grid\_dataset.py
+libtraffic.data.dataset.traffic\_state\_grid\_dataset
 ============================================================
 
 .. automodule:: libtraffic.data.dataset.traffic_state_grid_dataset

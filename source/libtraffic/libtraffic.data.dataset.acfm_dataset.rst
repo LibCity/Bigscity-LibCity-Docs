@@ -1,4 +1,4 @@
-libtraffic.data.dataset.acfm\_dataset.py
+libtraffic.data.dataset.acfm\_dataset
 ============================================
 
 .. automodule:: libtraffic.data.dataset.acfm_dataset

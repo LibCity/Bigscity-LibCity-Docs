@@ -1,4 +1,4 @@
-libtraffic.model.loss.py
+libtraffic.model.loss
 ============================
 
 .. automodule:: libtraffic.model.loss

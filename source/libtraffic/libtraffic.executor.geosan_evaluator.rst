@@ -1,4 +1,4 @@
-libtraffic.executor.geosan\_evaluator.py
+libtraffic.executor.geosan\_evaluator
 ============================================
 
 .. automodule:: libtraffic.executor.geosan_evaluator

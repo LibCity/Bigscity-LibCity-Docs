@@ -1,4 +1,4 @@
-libtraffic.config.config\_parser.py
+libtraffic.config.config\_parser
 =======================================
 
 .. automodule:: libtraffic.config.config_parser

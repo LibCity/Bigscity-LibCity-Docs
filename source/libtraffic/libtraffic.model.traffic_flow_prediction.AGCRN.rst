@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_flow\_prediction.AGCRN.py
+libtraffic.model.traffic\_flow\_prediction.AGCRN
 =======================================================
 
 .. automodule:: libtraffic.model.traffic_flow_prediction.AGCRN

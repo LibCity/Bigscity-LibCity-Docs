@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_flow\_prediction.ACFM.py
+libtraffic.model.traffic\_flow\_prediction.ACFM
 ======================================================
 
 .. automodule:: libtraffic.model.traffic_flow_prediction.ACFM

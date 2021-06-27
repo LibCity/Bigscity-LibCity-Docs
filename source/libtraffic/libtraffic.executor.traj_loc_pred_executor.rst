@@ -1,4 +1,4 @@
-libtraffic.executor.traj\_loc\_pred\_executor.py
+libtraffic.executor.traj\_loc\_pred\_executor
 ====================================================
 
 .. automodule:: libtraffic.executor.traj_loc_pred_executor

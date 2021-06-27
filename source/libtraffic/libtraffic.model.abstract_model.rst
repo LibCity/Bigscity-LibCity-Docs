@@ -1,4 +1,4 @@
-libtraffic.model.abstract\_model.py
+libtraffic.model.abstract\_model
 =======================================
 
 .. automodule:: libtraffic.model.abstract_model

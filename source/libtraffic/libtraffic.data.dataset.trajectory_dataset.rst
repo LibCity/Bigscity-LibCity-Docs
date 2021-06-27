@@ -1,4 +1,4 @@
-libtraffic.data.dataset.trajectory\_dataset.py
+libtraffic.data.dataset.trajectory\_dataset
 ==================================================
 
 .. automodule:: libtraffic.data.dataset.trajectory_dataset

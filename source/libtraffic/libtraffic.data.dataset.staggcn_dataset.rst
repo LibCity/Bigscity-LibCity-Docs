@@ -1,4 +1,4 @@
-libtraffic.data.dataset.staggcn\_dataset.py
+libtraffic.data.dataset.staggcn\_dataset
 ===============================================
 
 .. automodule:: libtraffic.data.dataset.staggcn_dataset

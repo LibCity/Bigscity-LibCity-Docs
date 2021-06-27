@@ -1,4 +1,4 @@
-libtraffic.data.dataset.crann\_dataset.py
+libtraffic.data.dataset.crann\_dataset
 =============================================
 
 .. automodule:: libtraffic.data.dataset.crann_dataset

@@ -1,4 +1,4 @@
-libtraffic.utils.normalization.py
+libtraffic.utils.normalization
 =====================================
 
 .. automodule:: libtraffic.utils.normalization

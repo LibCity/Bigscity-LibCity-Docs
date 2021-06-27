@@ -1,4 +1,4 @@
-libtraffic.model.trajectory\_loc\_prediction.RNN.py
+libtraffic.model.trajectory\_loc\_prediction.RNN
 =======================================================
 
 .. automodule:: libtraffic.model.trajectory_loc_prediction.RNN

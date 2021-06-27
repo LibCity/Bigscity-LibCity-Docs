@@ -1,4 +1,4 @@
-libtraffic.model.trajectory\_loc\_prediction.DeepMove.py
+libtraffic.model.trajectory\_loc\_prediction.DeepMove
 ============================================================
 
 .. automodule:: libtraffic.model.trajectory_loc_prediction.DeepMove

@@ -1,4 +1,4 @@
-libtraffic.data.dataset.gts\_dataset.py
+libtraffic.data.dataset.gts\_dataset
 ===========================================
 
 .. automodule:: libtraffic.data.dataset.gts_dataset

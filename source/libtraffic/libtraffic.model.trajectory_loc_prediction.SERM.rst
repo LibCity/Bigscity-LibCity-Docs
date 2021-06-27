@@ -1,4 +1,4 @@
-libtraffic.model.trajectory\_loc\_prediction.SERM.py
+libtraffic.model.trajectory\_loc\_prediction.SERM
 ========================================================
 
 .. automodule:: libtraffic.model.trajectory_loc_prediction.SERM

@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_speed\_prediction.STGCN.py
+libtraffic.model.traffic\_speed\_prediction.STGCN
 ========================================================
 
 .. automodule:: libtraffic.model.traffic_speed_prediction.STGCN

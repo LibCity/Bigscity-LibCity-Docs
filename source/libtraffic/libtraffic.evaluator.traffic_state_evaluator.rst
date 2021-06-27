@@ -1,4 +1,4 @@
-libtraffic.evaluator.traffic\_state\_evaluator.py
+libtraffic.evaluator.traffic\_state\_evaluator
 =====================================================
 
 .. automodule:: libtraffic.evaluator.traffic_state_evaluator

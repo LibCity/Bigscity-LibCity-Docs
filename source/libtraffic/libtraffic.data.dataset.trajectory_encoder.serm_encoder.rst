@@ -1,4 +1,4 @@
-libtraffic.data.dataset.trajectory\_encoder.serm\_encoder.py
+libtraffic.data.dataset.trajectory\_encoder.serm\_encoder
 ================================================================
 
 .. automodule:: libtraffic.data.dataset.trajectory_encoder.serm_encoder

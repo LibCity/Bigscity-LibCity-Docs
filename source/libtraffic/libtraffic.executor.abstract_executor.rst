@@ -1,4 +1,4 @@
-libtraffic.executor.abstract\_executor.py
+libtraffic.executor.abstract\_executor
 =============================================
 
 .. automodule:: libtraffic.executor.abstract_executor

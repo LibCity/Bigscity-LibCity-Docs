@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_speed\_prediction.TGCLSTM.py
+libtraffic.model.traffic\_speed\_prediction.TGCLSTM
 ==========================================================
 
 .. automodule:: libtraffic.model.traffic_speed_prediction.TGCLSTM

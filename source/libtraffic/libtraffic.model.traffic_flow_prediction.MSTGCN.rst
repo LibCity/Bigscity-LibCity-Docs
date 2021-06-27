@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_flow\_prediction.MSTGCN.py
+libtraffic.model.traffic\_flow\_prediction.MSTGCN
 ========================================================
 
 .. automodule:: libtraffic.model.traffic_flow_prediction.MSTGCN

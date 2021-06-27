@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_flow\_prediction.STDN.py
+libtraffic.model.traffic\_flow\_prediction.STDN
 ======================================================
 
 .. automodule:: libtraffic.model.traffic_flow_prediction.STDN

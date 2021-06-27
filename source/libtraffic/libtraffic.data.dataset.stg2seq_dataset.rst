@@ -1,4 +1,4 @@
-libtraffic.data.dataset.stg2seq\_dataset.py
+libtraffic.data.dataset.stg2seq\_dataset
 ===============================================
 
 .. automodule:: libtraffic.data.dataset.stg2seq_dataset

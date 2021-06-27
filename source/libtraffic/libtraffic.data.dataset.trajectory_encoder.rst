@@ -15,7 +15,3 @@ libtraffic.data.dataset.trajectory\_encoder
    libtraffic.data.dataset.trajectory_encoder.strnn_encoder
 
 
-.. automodule:: libtraffic.data.dataset.trajectory_encoder
-   :members:
-   :undoc-members:
-   :show-inheritance:

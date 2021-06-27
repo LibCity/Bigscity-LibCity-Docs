@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_demand\_prediction.SHARE.py
+libtraffic.model.traffic\_demand\_prediction.SHARE
 =========================================================
 
 .. automodule:: libtraffic.model.traffic_demand_prediction.SHARE

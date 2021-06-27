@@ -1,4 +1,4 @@
-libtraffic.data.dataset.trajectory\_encoder.cara\_encoder.py
+libtraffic.data.dataset.trajectory\_encoder.cara\_encoder
 ================================================================
 
 .. automodule:: libtraffic.data.dataset.trajectory_encoder.cara_encoder

@@ -1,4 +1,4 @@
-libtraffic.evaluator.eval\_funcs.py
+libtraffic.evaluator.eval\_funcs
 =======================================
 
 .. automodule:: libtraffic.evaluator.eval_funcs

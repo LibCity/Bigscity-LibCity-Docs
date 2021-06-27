@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_speed\_prediction.DCRNN.py
+libtraffic.model.traffic\_speed\_prediction.DCRNN
 ========================================================
 
 .. automodule:: libtraffic.model.traffic_speed_prediction.DCRNN

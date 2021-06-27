@@ -1,4 +1,4 @@
-libtraffic.model.traffic\_speed\_prediction.RNN.py
+libtraffic.model.traffic\_speed\_prediction.RNN
 ======================================================
 
 .. automodule:: libtraffic.model.traffic_speed_prediction.RNN

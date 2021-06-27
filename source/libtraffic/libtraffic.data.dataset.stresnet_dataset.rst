@@ -1,4 +1,4 @@
-libtraffic.data.dataset.stresnet\_dataset.py
+libtraffic.data.dataset.stresnet\_dataset
 ================================================
 
 .. automodule:: libtraffic.data.dataset.stresnet_dataset

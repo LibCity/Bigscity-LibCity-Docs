@@ -1,4 +1,4 @@
-libtraffic.model.trajectory\_loc\_prediction.STAN.py
+libtraffic.model.trajectory\_loc\_prediction.STAN
 ========================================================
 
 .. automodule:: libtraffic.model.trajectory_loc_prediction.STAN
