@@ -5,7 +5,7 @@ import copy
 from datetime import datetime
 import numpy as np
 from collections import defaultdict
-#from torchtext.data import Field
+from torchtext.data import Field
 from nltk import ngrams
 from tqdm import tqdm
 from libtraffic.data.dataset import AbstractDataset
