@@ -33,7 +33,7 @@ Furthermore, the script supports the input of the following command line paramet
 
 Supporting parameters:
 
-- `task`: The name of the task to be performed, including `traj_loc_pred` and `traffic_state_pred`. Defaults to `None`.
+- `task`: The name of the task to be performed, including `traffic_state_pred` and `traj_loc_pred`. Defaults to `None`.
 - `model`: The name of the model to be performed. Defaults to `None`. ([supporting models](../user_guide/model))
 - `dataset`: The dataset to be performed. Defaults to `None`. ([supporting datasets](../user_guide/data/raw_data.md))
 - `config_file`：The name of user-defined configuration file. Defaults to `None`. ([see more](../user_guide/config_settings.md))

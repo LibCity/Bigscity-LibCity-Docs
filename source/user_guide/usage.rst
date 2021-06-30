@@ -7,3 +7,5 @@ This document introduces how to use various features in libtraffic, such as how 
 
    usage/run_model
    usage/standard_track
+   usage/parameter_tuning
+   usage/logger

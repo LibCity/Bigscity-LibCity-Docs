@@ -1,6 +1,6 @@
-# Logger
+# Use Logger
 
-This document is used to introduce how to use a unified `Logger` in `TrafficDL` to output necessary auxiliary information. **The logger that can show a message on standard output and write it into the file simultaneously.**
+This document is used to introduce how to use a unified `Logger` in `LibTraffic` to output necessary auxiliary information. **The logger that can show a message on standard output and write it into the file simultaneously.**
 
 First call `utils.utils.get_logger()` in the entry file `test_model.py` to instantiate the `Logger` object.
 

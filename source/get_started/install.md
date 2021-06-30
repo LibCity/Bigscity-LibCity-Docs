@@ -1,4 +1,4 @@
-# Install
+# Install LibTraffic
 
 LibTraffic can only be installed from source code.
 
