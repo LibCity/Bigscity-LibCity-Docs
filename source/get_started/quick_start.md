@@ -10,12 +10,12 @@ You can simply download the datasets we have processed, the data link is [BaiduD
 
 Before run models in LibTraffic, please make sure you download at least one dataset and put it in directory `Bigscity-LibTraffic/raw_data/dataset_name/*`.
 
-For example, if you download the METR_LA dataset, the directory structure is as follows:
+For example, if you download the METR_LA dataset, the directorys structure is as follows:
 
-- Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.geo
-- Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.rel
-- Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.dyna
-- Bigscity-LibTraffic/raw_data/METR_LA/config.json
+- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.geo`
+- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.rel`
+- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.dyna`
+- `Bigscity-LibTraffic/raw_data/METR_LA/config.json`
 
 ## Run Model Pipeline
 
