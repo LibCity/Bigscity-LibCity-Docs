@@ -19,6 +19,7 @@
 * **Multi-STGCnet**: Jiexia Ye, Juanjuan Zhao, Kejiang Ye, and Chengzhong Xu. 2020. Multi-STGCnet:A Graph Convolution Based Spatial-Temporal Framework for Subway PassengerFlow Forecasting. In IJCNN. IEEE, 1–8.
 * **DGCN**: Kan Guo, Yongli Hu, Zhen Qian, Yanfeng Sun, Junbin Gao, and Baocai Yin. 2020.Dynamic Graph Convolution Network for Traffic Forecasting Based on Latent Network of Laplace Matrix Estimation. IEEE Trans. Intell. Transp. Syst.(2020).
 * **DSAN**: Haoxing Lin, Rufan Bai, Weijia Jia, Xinyu Yang, and Yongjian You. 2020. Preserving Dynamic Attention for Long-Term Spatial-Temporal Prediction. In KDD. ACM,36–46.
+* **STNN**: Ali Ziat, Edouard Delasalles, Ludovic Denoyer, and Patrick Gallinari. 2018. Spatio-Temporal Neural Networks for Space-Time Series Forecasting and Relations Discovery. CoRRabs/1804.08562 (2018).
 
 #### Traffic Speed Prediction
 
@@ -37,6 +38,7 @@
 * **STAGGCN**: Bin Lu, Xiaoying Gan, Haiming Jin, Luoyi Fu, and Haisong Zhang. 2020.  Spa-tiotemporal Adaptive Gated Graph Convolution Network for Urban Traffic FlowForecasting. In CIKM. ACM, 1025–1034.
 * **HGCN**: Kan Guo, Yongli Hu, Yanfeng Sun, Sean Qian, Junbin Gao, and Baocai Yin. 2021.Hierarchical Graph Convolution Networks for Traffic Forecasting. (2021).
 * **ST-MGAT**: Kelang Tian, Jingjie Guo, Kejiang Ye, and Cheng-Zhong Xu. 2020.  ST-MGAT:Spatial-Temporal Multi-Head Graph Attention Networks for Traffic Forecasting. In ICTAI. IEEE, 714–721.
+* **DKFN**:  Fanglan Chen, Zhiqian Chen, Subhodip Biswas, Shuo Lei, Naren Ramakrishnan,and Chang-Tien Lu. 2020. Graph Convolutional Networks with Kalman Filtering for Traffic Prediction. In SIGSPATIAL/GIS. ACM, 135–138.
 
 #### On-Demand Service Prediction 
 
@@ -45,6 +47,7 @@
 * **Seq2Seq**: Yaguang Li, Rose Yu, Cyrus Shahabi, and Yan Liu. 2018. Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic Forecasting. InICLR (Poster). OpenReview.net.
 * **DMVSTNET**: Huaxiu Yao, Fei Wu, Jintao Ke, Xianfeng Tang, Yitian Jia, Siyu Lu, Pinghua Gong, Jieping Ye, and Zhenhui Li. 2018. Deep Multi-View Spatial-Temporal Network for Taxi Demand Prediction. In AAAI. AAAI Press, 2588.
 * **STG2Seq**: Lei Bai, Lina Yao, Salil S. Kanhere, Xianzhi Wang, and Quan Z. Sheng. 2019. STG2Seq: Spatial-Temporal Graph to Sequence Model for Multi-step Passenger Demand Forecasting. In IJCAI. ijcai.org, 1981-1987.
+* **CCRNN**: Junchen Ye, Leilei Sun, Bowen Du, Yanjie Fu, and Hui Xiong. 2021.  Coupled Layer-wise Graph Convolution for Transportation Demand Prediction. In AAAI. AAAI Press, 4617–4625.
 
 #### Trajectory Next-Location Prediction
 
