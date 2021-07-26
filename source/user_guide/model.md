@@ -231,26 +231,37 @@
 
 #### Trajectory Next-Location Prediction
 
-* **FPMC**: Steffen Rendle, Christoph Freudenthaler, and Lars Schmidt-Thieme. 2010. Factorizing personalized Markov chains for next-basket recommendation. In WWW.ACM, 811–820.
+* **FPMC**:  This is a classical baseline model of sequence recommendation task. This model is often used as a baseline model in the early research period of trajectory prediction field.
+
+> Steffen Rendle, Christoph Freudenthaler, and Lars Schmidt-Thieme. 2010. Factorizing personalized Markov chains for next-basket recommendation. In WWW.ACM, 811–820.
 
 * **RNN**: This baseline model is implemented by ourselves.
 
-* **ST-RNN**: Qiang Liu, Shu Wu, Liang Wang, and Tieniu Tan. 2016. Predicting the Next Location: A Recurrent Model with Spatial and Temporal Contexts. In AAAI. AAAI Press, 194–200.
+* **ST-RNN**: This model focuses on introducing spatiotemporal transfer features into the hidden layer of RNN.
+> Qiang Liu, Shu Wu, Liang Wang, and Tieniu Tan. 2016. Predicting the Next Location: A Recurrent Model with Spatial and Temporal Contexts. In AAAI. AAAI Press, 194–200.
 
-* **ATST-LSTM**: Liwei Huang, Yutao Ma, Shibo Wang, and Yanbo Liu. 2019. An attention-based spatiotemporal lstm network for next poi recommendation. IEEE Transactions on Services Computing(2019).
+* **ATST-LSTM**: This model introduces the distance difference and time difference between the trajectory points into the LSTM, and uses a Attention mechanism.
+> Liwei Huang, Yutao Ma, Shibo Wang, and Yanbo Liu. 2019. An attention-based spatiotemporal lstm network for next poi recommendation. IEEE Transactions on Services Computing(2019).
 
-* **SERM**：Di Yao, Chao Zhang, Jian-Hui Huang, and Jingping Bi. 2017. SERM: A Recurrent Model for Next Location Prediction in Semantic Trajectories. In CIKM. ACM,2411–24.
+* **SERM**：This model introduces the sematic information of the trajectory into the network.
+> Di Yao, Chao Zhang, Jian-Hui Huang, and Jingping Bi. 2017. SERM: A Recurrent Model for Next Location Prediction in Semantic Trajectories. In CIKM. ACM,2411–24.
 
-* **DeepMove**: Jie Feng, Yong Li, Chao Zhang, Funing Sun, Fanchao Meng, Ang Guo, and Depeng Jin. 2018. DeepMove: Predicting Human Mobility with Attentional Recurrent Networks. In WWW. ACM, 1459–1468.
+* **DeepMove**: This model uses the attention mechanism for the first time to combine historical trajectories with current trajectories for prediction.
+> Jie Feng, Yong Li, Chao Zhang, Funing Sun, Fanchao Meng, Ang Guo, and Depeng Jin. 2018. DeepMove: Predicting Human Mobility with Attentional Recurrent Networks. In WWW. ACM, 1459–1468.
 
-* **HST-LSTM**: Dejiang Kong and Fei Wu. 2018.  HST-LSTM: A Hierarchical Spatial-Temporal Long-Short Term Memory Network for Location Prediction. In IJCAI. ijcai.org,2341–2347.
+* **HST-LSTM**: This model also introduces spatio-temporal transfer factors into LSTM, and uses an encoder-decoder structure for prediction.
+> Dejiang Kong and Fei Wu. 2018.  HST-LSTM: A Hierarchical Spatial-Temporal Long-Short Term Memory Network for Location Prediction. In IJCAI. ijcai.org,2341–2347.
 
-* **LSTPM**: Ke Sun, Tieyun Qian, Tong Chen, Yile Liang, Quoc Viet Hung Nguyen, and HongzhiYin. 2020. Where to Go Next: Modeling Long- and Short-Term User Preferences for Point-of-Interest Recommendation. In AAAI. AAAI Press, 214-221.
+* **LSTPM**: The model uses two special designed LSTMs to capture the user's long-term mobile preferences and short-term mobile preferences to jointly predition next location.
+> Ke Sun, Tieyun Qian, Tong Chen, Yile Liang, Quoc Viet Hung Nguyen, and HongzhiYin. 2020. Where to Go Next: Modeling Long- and Short-Term User Preferences for Point-of-Interest Recommendation. In AAAI. AAAI Press, 214-221.
 
-* **GeoSAN**: Defu Lian, Yongji Wu, Yong Ge, Xing Xie, and Enhong Chen. 2020. Geography-Aware Sequential Location Recommendation. In KDD. ACM, 2009–2019.
+* **GeoSAN**: The model uses a self-attention mechanism to realize the representation learning of POI, so as to make predictions based on the representation.
+> Defu Lian, Yongji Wu, Yong Ge, Xing Xie, and Enhong Chen. 2020. Geography-Aware Sequential Location Recommendation. In KDD. ACM, 2009–2019.
 
-* **STAN**: Yingtao Luo, Qiang Liu, and Zhaocheng Liu. 2021. STAN: Spatio-Temporal Attention Network for Next Location Recommendation. CoRR abs/2102.04095 (2021).
+* **STAN**: The model uses a self-attention mechanism to capture spatio-temporal information to directly make predictions.
+> Yingtao Luo, Qiang Liu, and Zhaocheng Liu. 2021. STAN: Spatio-Temporal Attention Network for Next Location Recommendation. CoRR abs/2102.04095 (2021).
 
-* **CARA**: Jarana Manotumruksa, Craig Macdonald, and Iadh Ounis. 2018.  A Contextual Attention Recurrent Architecture for Context-Aware Venue Recommendation. In SIGIR. ACM, 555–564.
+* **CARA**: The model focuses on using the attention mechanism to extract contextual information between trajectories for prediction.
+> Jarana Manotumruksa, Craig Macdonald, and Iadh Ounis. 2018.  A Contextual Attention Recurrent Architecture for Context-Aware Venue Recommendation. In SIGIR. ACM, 555–564.
 
   

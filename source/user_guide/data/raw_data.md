@@ -266,29 +266,9 @@
 
 **Duration:** Apr. 12, 2012 ~ Feb. 16, 2013
 
-**Link:** https://sites.google.com/site/yangdingqi/home/foursquare-dataset
+**Link:** https://sites.google.com/site/yangdingqi/home/foursquare-dataset#h.p_ID_46
 
-**Description:**  Foursquare a location-based social networking website where users share their locations by checking-in.
-
-### Foursquare_TKY
-
-**Place:** Tokyo, Japan
-
-**Duration:** Apr. 3, 2012 - Sep. 16, 2013
-
-**Link:** 
-
-**Description:** 
-
-### Foursquare_NYC
-
-**Place:** New York, USA
-
-**Duration:** Apr. 3, 2012 - Sep. 16, 2013
-
-**Link:** 
-
-**Description:** 
+**Description:**  Foursquare a location-based social networking website where users share their locations by checking-in. We use the second dataset in the link, which is the *NYC and Tokyo Check-in Dataset*. We preprocessed the raw data provided by the link and split it into Foursquare-TKY and Foursquare-NYC.
 
 ### Gowalla
 
@@ -316,6 +296,6 @@
 
 **Duration:** Jun. 15, 2011 - Nov. 8, 2016
 
-**Link:** 
+**Link:** https://dmis.korea.ac.kr/cape
 
-**Description:** 
+**Description:** The dataset's biggest feature is that each check-in record contains not only the POI information but also the text information written when the user created the check-in record. Therefore, this dataset is particularly important for related researchs that incorporates trajectory semantic features into trajectory prediction.

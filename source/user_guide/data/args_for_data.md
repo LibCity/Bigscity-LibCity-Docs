@@ -62,3 +62,23 @@ The following parameters are all parameters used in the task of traffic state pr
   Note: The `len_closeness`/`len_period`/`len_trend` obtained from the `get_feature()` function of the `Dataset` class represents **the actual length of these three pieces of data**. The three pieces of data are concatenated together in the returned value `batch['X']`, each data can be obtained according to the length.
 
 ## Trajectory Location Prediction DataSet
+
+The following parameters are all parameters used in the standard trajectory next-location prediction dataset:
+
+* `batch_size`: The training and evaluation batch size. Defaults to `64`.
+* `cache_dataset`:  Whether to save the processed dataset. Defaults to `True`.
+* `num_workers`:  Parameter of [Dataloader](https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader). Defaults to `0`.
+* `train_rate`: The proportion of the training set to the total dataset.  Defaults to `0.7`. (The order of division is training set, validation set, test set)
+* `eval_rate`: The proportion of the validation set. Defaults to `0.1`. 
+
+* `min_session_len`: The min length of a trajectory cut from the user's check-in records. Defaults to `5`.
+* `max_session_len`: The max length of a trajectory cut from the user's check-in records. Defaults to `50`.
+* `min_sessions`: The min numbers of sub-trajectories which the user owns.  If the number of sub-trajectory owned by a user is less than this value, the user will be filtered out. Defaults to `2`.
+* `min_checkins`: The min numbers of times the POI is visited. If the number of times is less than this value, the POI will be filtered out. Defaults to `3`.
+* `window_size`: The size of the cut window. The Dataset will use this window to cut user's check-in records. Defauls to `12`.
+* `cut_method` : How to use the window to cut users' check-in records. 
+  * `time_interval`: Default method. If the time interval between two adjacent check-in records is less than the window size, they will be regarded as belonging to the same trajectory , otherwise they won't.
+  * `same_date`: The dataset will treat the check-in records of the same day as a trajectory.
+  * `fixed_length`: The dataset will cut the track according to a fixed length. That is, if the length of  current trajectory is equal to window_size, the next check-in record will be regarded as the starting point of the new trajectory.
+* `traj_encoder`: The trajectory encoder class used by the dataset. Default to `StandardTrajectoryEncoder` . The encoder is responsible for encoding model input based on check-in records.
+
