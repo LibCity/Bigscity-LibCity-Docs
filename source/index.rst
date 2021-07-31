@@ -19,6 +19,7 @@ Welcome to Bigscity-LibTraffic's documentation!
    :maxdepth: 1
    :caption: User Guide
 
+   user_guide/tutorial
    user_guide/config_settings
    user_guide/data
    user_guide/model
