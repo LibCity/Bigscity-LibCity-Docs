@@ -36,9 +36,9 @@ The space description variable is composed of the space type and the constraint 
 * `randn`: The sampling space is a normal distributed real number space.
   * `mean`: The mathematical expectation of the normal distribution.
   * `sd`: The standard deviation of the normal distribution.
-* `randint`: The sampling space is a normal distributed int number space.
-  * `mean`: The mathematical expectation of the normal distribution.
-  * `sd`: The standard deviation of the normal distribution.
+* `randint`: The sampling space is a uniformly distributed int number space.
+  * `lower`: The lower limit of the uniform distribution. (inclusive)
+  * `upper`: he upper limit of the uniform distribution. (exclusive)
 * `choice`: The search space is a set of discrete categorical variables. The hyper-parameter will be randomly selected from the set.
   * `list`: The set of discrete categorical variables.
 * `grid_search`: The search space is a set of discrete categorical variables. Parameter selection will adopt the method of grid search, which is to traverse all possible combinations.
