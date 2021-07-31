@@ -19,7 +19,6 @@ Welcome to Bigscity-LibTraffic's documentation!
    :maxdepth: 1
    :caption: User Guide
 
-   user_guide/tutorial
    user_guide/config_settings
    user_guide/data
    user_guide/model
@@ -39,6 +38,15 @@ Welcome to Bigscity-LibTraffic's documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Tutorial
+   
+   tutorial/install_quick_start
+   tutorial/run_model
+   tutorial/add_model
+   tutorial/hyper_tune
+
+.. toctree::
+   :maxdepth: 1
    :caption: API REFERENCE
 
    libtraffic/libtraffic.config
@@ -48,7 +56,7 @@ Welcome to Bigscity-LibTraffic's documentation!
    libtraffic/libtraffic.model
    libtraffic/libtraffic.pipeline
    libtraffic/libtraffic.utils
-   
+
 Indices and tables
 ==================
 
