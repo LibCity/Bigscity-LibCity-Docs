@@ -2,13 +2,6 @@
 
 Here, we present how to develop a new dataset, and apply it to the `LibTraffic`.
 
-We have developed a standard dataset for the following tasks:
-
--  Traffic Flow Prediction
--  Traffic Speed Prediction
--  On-Demand Service Predition
--  Trajectory Location Prediction
-
 ## The Implemented Dataset Classes
 
 Here we introduce the functions of several dataset classes that have been implemented.

@@ -2,13 +2,6 @@
 
 Here, we present how to develop a new executor, and apply it to the `LibTraffic`.
 
-We have developed a standard executor for the following tasks:
-
--  Traffic Flow Prediction
--  Traffic Speed Prediction
--  On-Demand Service Predition
--  Trajectory Location Prediction
-
 For a new model, if the training method is complex, and existing executor can not be used for training and evaluation, then we need to develop a new executor.
 
 ## Create a New Executor Class

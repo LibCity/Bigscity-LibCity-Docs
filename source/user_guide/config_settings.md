@@ -88,20 +88,11 @@ We store some auxiliary information of the dataset in the configuration file of 
 
 #### Task Config File
 
-The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default dataset class name, executor class name, and evaluation class name of each model, whose storage path is `/libtraffic/config/task_config.json`.
+The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default data module class name, execution module class name, and evaluation module class name of each model, whose storage path is `/libtraffic/config/task_config.json`.
 
 Here is an example of task config file:
 ```json
 {
-  "traj_loc_pred": {
-    "allowed_model": ["DeepMove"],
-    "allowed_dataset": ["foursquare_tky", "gowalla"],
-    "DeepMove": {
-      "dataset_class": "TrajectoryDataset",
-      "executor": "TrajLocPredExecutor",
-      "evaluator": "TrajLocPredEvaluator",
-      "traj_encoder": "StandardTrajectoryEncoder"
-  },
   "traffic_state_pred": {
     "allowed_model": ["DCRNN"],
     "allowed_dataset": ["METR_LA", "PEMS_BAY", "PEMSD3"],
@@ -114,3 +105,5 @@ Here is an example of task config file:
 ```
 
 **You need to modify the `libtraffic/config/task_config.json` file when adding new models.**
+
+According to the above configuration file, the data module class used by `DCRNN`is `TrafficStatePointDataset`, the execution module class is `DCRNNExecutor`, and the evaluation module class is `TrafficStateEvaluator`. 
