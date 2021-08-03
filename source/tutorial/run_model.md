@@ -1,16 +1,16 @@
 # Run an existing model in LibTraffic
 
-Here, we present how to run an existing model in `LibTraffic`。
+Here, we present how to run an existing model in `LibTraffic`.
 
 ## Download a Dataset
 
-`LibTraffic` provides 29 traffic datasets and presents their basic information on the [website](https://libtraffic.github.io/Bigscity-LibTraffic-Website/#/data) and [document](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/data/raw_data.html). To format various traffic datasets, we design and implement 6 atomic file types, which are able to characterize most forms of the input data required by different traffic prediction tasks. More details can be found in [document](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/data/atomic_files.html). 
+`LibTraffic` provides 29 traffic datasets and presents their basic information on the [website](https://libtraffic.github.io/Bigscity-LibTraffic-Website/#/data) and [document](../user_guide/data/raw_data.md). To format various traffic datasets, we design and implement 6 atomic file types, which are able to characterize most forms of the input data required by different traffic prediction tasks. More details can be found in [document](../user_guide/data/atomic_files.md). 
 
 We have already uploaded processed atomic files of datasets in network disks [BaiduDisk with code 1231](https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ#list/path=%2F) or [Google Drive](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing). Users can simply download from network disks.
 
 Take the METR_LA dataset as an example. We will get a folder named `METR_LA` after downloading it.
 
-> If you have not installed `LibTraffic` yet, you can find the installation tutorial [here](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/tutorial/install_quick_start.html). 
+> If you have not installed `LibTraffic` yet, you can find the installation tutorial [here](../tutorial/install_quick_start.md). 
 
 If `LibTraffic` is installed successfully, we will get a folder named `Bigscity-LibTraffic`. We need to create a folder named `raw_data` in the project root directory for storing processed atomic files of datasets. Then, we move the downloaded folder `METR_LA` to the `raw_data` folder.
 

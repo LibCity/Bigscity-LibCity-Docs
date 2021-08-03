@@ -45,9 +45,9 @@ Note that the packages that most models depend on are recorded in `requirements.
 
 ### Download One Dataset
 
-The dataset used in `LibTraffic` is stored in a unified data storage format named [atomic files](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/data/atomic_files.html).
+The dataset used in `LibTraffic` is stored in a unified data storage format named [atomic files](../user_guide/data/atomic_files.md).
 
-In order to directly use the [raw datasets](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/data/raw_data.html) in `LibTraffic`, we have converted all these datasets into the format of atomic files, and provide the [conversion tools](https://github.com/LibTraffic/Bigscity-LibTraffic-Datasets).
+In order to directly use the [raw datasets](../user_guide/data/raw_data.md) in `LibTraffic`, we have converted all these datasets into the format of atomic files, and provide the [conversion tools](https://github.com/LibTraffic/Bigscity-LibTraffic-Datasets).
 
 You can simply download the datasets we have processed, the data link is [BaiduDisk with code 1231](https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ) or [Google Drive](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing).
 
@@ -77,10 +77,10 @@ Furthermore, the script supports the input of the following command line paramet
 Supporting parameters:
 
 - `task`: The name of the task to be performed, including `traffic_state_pred` and `traj_loc_pred`. Defaults to `traffic_state_pred`.
-- `model`: The name of the model to be performed. Defaults to `GRU`. ([supporting models](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/model.html))
-- `dataset`: The dataset to be performed. Defaults to `METR_LA`. ([supporting datasets](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/data/raw_data.html))
-- `config_file`: The name of user-defined configuration file. Defaults to `None`. ([see more](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/config_settings.html))
-- `saved_model`: Whether to save the trained model. Defaults to `True`.
+- `model`: The name of the model to be performed. Defaults to `GRU`. ([supporting models](../user_guide/model))
+- `dataset`: The dataset to be performed. Defaults to `METR_LA`. ([supporting datasets](../user_guide/data/raw_data.md))
+- `config_file`: The name of user-defined configuration file. Defaults to `None`. ([see more](../user_guide/config_settings.md))
+- `ssaved_model`: Whether to save the trained model. Defaults to `True`.
 - `train`: If the model has been pre-trained, whether to retrain the model. Defaults to `True`.
 - `batch_size`: The training and evaluation batch size.
 - `train_rate`: The proportion of the training set to the total dataset. (The order of division is training set, validation set, test set)
