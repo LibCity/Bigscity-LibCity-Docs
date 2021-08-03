@@ -145,7 +145,7 @@ The script `run_model.py` used for training and evaluating a single model is pro
 When run the `run_model.py`, you must specify the following three parameters, namely `task`, `dataset` and `model`. For example, if we want to run the GRU model on the METR_LA dataset for the traffic state prediction task, we need to execute the following command:
 
 ```
-python run_model.py --task traffic_state_pred --dataset METR_LA --model DCRNN
+python run_model.py --task traffic_state_pred --dataset METR_LA --model GRU
 ```
 
 You can also use `-h` for more help information.
