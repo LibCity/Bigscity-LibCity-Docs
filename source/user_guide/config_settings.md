@@ -18,7 +18,7 @@ When the user runs the script file in the project root directory, some parameter
 python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky --gpu false --batch_size 15
 ```
 
-Different script files allow different parameters to be passed. For more details, please refer to the [Usage](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/usage.html).
+Different script files allow different parameters to be passed. For more details, please refer to the [Usage](./usage/run_model.md).
 
 You can also use `-h` to get help information, for example:
 
