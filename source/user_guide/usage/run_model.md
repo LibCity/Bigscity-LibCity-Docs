@@ -2,7 +2,7 @@
 
 The script `run_model.py` used for training and evaluating a single model is provided in the root directory of the framework, and a series of command line parameters are provided to allow users to adjust the running parameter configuration. 
 
-When run the `run_model.py`, you must specify the following three parameters, namely **task, dataset and model**. That is:
+When run the `run_model.py`, you must specify the following three parameters, namely `task`,` dataset` and `model`. That is:
 
 ```sh
 python run_model.py --task=[task_name] --model=[model_name] --dataset=[dataset_name]

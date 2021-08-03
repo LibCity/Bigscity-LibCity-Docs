@@ -14,7 +14,7 @@
 
   - |-config/
 
-    Configure the module. The ConfigParser class is defined here, which supports command line and config file to modify our default parameters. The default parameter configuration file is also stored in this folder, divided into four sub-configuration folders: data, model, evaluator, and executor.
+    Configure module. The ConfigParser class is defined here, which supports command line and config file to modify our default parameters. The default parameter configuration file is also stored in this folder, divided into four sub-configuration folders: data, model, evaluator, and executor.
 
   - |-data/
 

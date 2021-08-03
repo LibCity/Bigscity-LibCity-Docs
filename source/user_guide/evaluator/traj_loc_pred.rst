@@ -51,6 +51,10 @@ For the task of trajectory location prediction, this evaluator implements a seri
 Evaluation Settings
 -------------------
 
+The following are parameters involved in the evaluator:
+
+Location: libtraffic/config/evaluator/TrajLocPredEvaluator.json
+
 - ``metrics (list of string)``: Default to ``["Recall"]``. Range in ``["Precision", "Recall", "F1", "MRR", "MAP", "NDCG"]``.
 
 - ``topk (int)``:  Default to ``1``.

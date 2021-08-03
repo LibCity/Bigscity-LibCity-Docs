@@ -33,7 +33,7 @@ According to the above design, we can write the following configuration file `sa
 
 > (The file should be stored in the project root directory, at the same level as `hyper_tune.py`)
 >
-> For more parameter space information, please refer to [document.](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/usage/parameter_tuning.html)
+> For more parameter space information, please refer to [document.](../user_guide/usage/parameter_tuning.md)
 
 ```json
 {
@@ -70,7 +70,7 @@ After running the command, the script will sample the corresponding parameter va
 
 > (Currently the script only supports the loss of the model on the validation set as the performance evaluation metrics)
 >
-> For more command line parameters of the script, please refer to [document.](https://bigscity-libtraffic-docs.readthedocs.io/en/latest/user_guide/usage/parameter_tuning.html)
+> For more command line parameters of the script, please refer to [document.](../user_guide/usage/parameter_tuning.md)
 
 The following figures are screenshots of the running process:
 

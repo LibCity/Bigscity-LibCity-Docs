@@ -17,7 +17,7 @@ cd Bigscity-LibTraffic
 
 After obtaining the source code, you can configure the environment.
 
-Our code is based on Python version 3.7 and PyTorch version 1.7.1. You can click [here](https://pytorch.org/get-started/previous-versions/#v171) to see how to install PyTorch. For example, if your CUDA vision is 10.2, you can install PyTorch with the following command.
+Our code is based on Python version 3.7 and PyTorch version 1.7.1. You can click [here](https://pytorch.org/get-started/previous-versions/#v171) to see how to install PyTorch. For example, if your CUDA version is 10.2, you can install PyTorch with the following command.
 
 Pip:
 

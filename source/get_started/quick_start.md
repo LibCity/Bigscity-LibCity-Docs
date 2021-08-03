@@ -21,7 +21,7 @@ For example, if you download the METR_LA dataset, the directorys structure is as
 
 The script `run_model.py` used for training and evaluating a single model is provided in the root directory of the framework, and a series of command line parameters are provided to allow users to adjust the running parameter configuration. 
 
-When run the `run_model.py`, you must specify the following three parameters, namely **task, dataset and model**. For example:
+When run the `run_model.py`, you must specify the following three parameters, namely `task`, `dataset` and `model`. For example:
 
 ```sh
 python run_model.py --task traffic_state_pred --model GRU --dataset METR_LA
