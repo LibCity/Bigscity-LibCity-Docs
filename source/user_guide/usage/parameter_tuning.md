@@ -1,14 +1,14 @@
 # Parameter Tuning
 
-Similar to the training and eveluation of a model, LibTraffic provides researchers with a script `hyper_tune.py`  to automatically search for hyper-parameters. The script is implemented based on the third-party open source library [Ray Tune](https://docs.ray.io/en/master/tune/index.html). 
+Similar to the training and eveluation of a model, LibCity provides researchers with a script `hyper_tune.py`  to automatically search for hyper-parameters. The script is implemented based on the third-party open source library [Ray Tune](https://docs.ray.io/en/master/tune/index.html). 
 
 Same as `run_model.py`, `hyper_tune.py` also supports a series of command line parameters to allow user to adjust the experiment configuration. In addition to the command line parameters supported by `run_model.py` , `hyper_tune.py` also supports the following unique parameters:
 
 * `space_file`: The configuration file which specifies the hyper-parameter search space. Defaults to `None`.
 
-* `scheduler`: The trial sheduler which will be used in `ray.tune.run`. Defaults to `FIFO`. Now, LibTraffic supports `FIFO`, `ASHA`, `MedianStoppingRule`. (A trial is to sample once from the search space and then perform training and evaluation.)
+* `scheduler`: The trial sheduler which will be used in `ray.tune.run`. Defaults to `FIFO`. Now, LibCity supports `FIFO`, `ASHA`, `MedianStoppingRule`. (A trial is to sample once from the search space and then perform training and evaluation.)
 
-* `search_alg`: The search algrothim which will be used in `ray.tune.run`. Defaults to `BasicSearch`. Now, LibTraffic supports `BasicSearch`,  `BayesOptSearch`, `HyperOpt`. LibTraffic will use the loss as search metric.
+* `search_alg`: The search algrothim which will be used in `ray.tune.run`. Defaults to `BasicSearch`. Now, LibCity supports `BasicSearch`,  `BayesOptSearch`, `HyperOpt`. LibCity will use the loss as search metric.
 
 * `num_samples`:  The number of times to sample from hyper-parameter space. Defaults to `5`.
 

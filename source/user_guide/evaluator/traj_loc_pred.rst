@@ -53,7 +53,7 @@ Evaluation Settings
 
 The following are parameters involved in the evaluator:
 
-Location: libtraffic/config/evaluator/TrajLocPredEvaluator.json
+Location: libcity/config/evaluator/TrajLocPredEvaluator.json
 
 - ``metrics (list of string)``: Default to ``["Recall"]``. Range in ``["Precision", "Recall", "F1", "MRR", "MAP", "NDCG"]``.
 

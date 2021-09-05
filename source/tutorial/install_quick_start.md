@@ -1,16 +1,16 @@
 # Install and quick start
 
-## Install LibTraffic
+## Install LibCity
 
 ### Install from Source
 
-`LibTraffic` can only be installed from source code. 
+`LibCity` can only be installed from source code. 
 
 Please execute the following command to get the source code.
 
 ```
-git clone https://github.com/LibTraffic/Bigscity-LibTraffic.git
-cd Bigscity-LibTraffic
+git clone https://github.com/LibCity/Bigscity-LibCity.git
+cd Bigscity-LibCity
 ```
 
 ### Configure Dependencies
@@ -31,34 +31,34 @@ Conda:
 conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.2 -c pytorch
 ```
 
-After installing PyTorch, you can install all the dependencies of `LibTraffic` with the following command by pip.
+After installing PyTorch, you can install all the dependencies of `LibCity` with the following command by pip.
 
 ```
 pip install -r requirements.txt
 ```
 
-Now, you can use `LibTraffic`, more details please refer to the section **Quick Start**.
+Now, you can use `LibCity`, more details please refer to the section **Quick Start**.
 
-Note that the packages that most models depend on are recorded in `requirements.txt`. In addition to the above dependent packages, the implementation of model `STAGGCN` depends on third-party library `torch-geometric`. If you want to run this model, please refer to [this address](https://github.com/rusty1s/pytorch_geometric) to install this package according to your specific environment and uncomment the fifth line of the file `libtraffic/model/traffic_speed_prediction/STAGGCN.py`.
+Note that the packages that most models depend on are recorded in `requirements.txt`. In addition to the above dependent packages, the implementation of model `STAGGCN` depends on third-party library `torch-geometric`. If you want to run this model, please refer to [this address](https://github.com/rusty1s/pytorch_geometric) to install this package according to your specific environment and uncomment the fifth line of the file `libcity/model/traffic_speed_prediction/STAGGCN.py`.
 
 ## Quick Start
 
 ### Download One Dataset
 
-The dataset used in `LibTraffic` is stored in a unified data storage format named [atomic files](../user_guide/data/atomic_files.md).
+The dataset used in `LibCity` is stored in a unified data storage format named [atomic files](../user_guide/data/atomic_files.md).
 
-In order to directly use the [raw datasets](../user_guide/data/raw_data.md) in `LibTraffic`, we have converted all these datasets into the format of atomic files, and provide the [conversion tools](https://github.com/LibTraffic/Bigscity-LibTraffic-Datasets).
+In order to directly use the [raw datasets](../user_guide/data/raw_data.md) in `LibCity`, we have converted all these datasets into the format of atomic files, and provide the [conversion tools](https://github.com/LibCity/Bigscity-LibCity-Datasets).
 
 You can simply download the datasets we have processed, the data link is [BaiduDisk with code 1231](https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ) or [Google Drive](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing).
 
-Before running models in `LibTraffic`, please make sure you download at least one dataset and put it in directory `Bigscity-LibTraffic/raw_data/dataset_name/*`.
+Before running models in `LibCity`, please make sure you download at least one dataset and put it in directory `Bigscity-LibCity/raw_data/dataset_name/*`.
 
 For example, if you download the METR_LA dataset, the directory's structure is as follow:
 
-- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.geo`
-- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.rel`
-- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.dyna`
-- `Bigscity-LibTraffic/raw_data/METR_LA/config.json`
+- `Bigscity-LibCity/raw_data/METR_LA/METR_LA.geo`
+- `Bigscity-LibCity/raw_data/METR_LA/METR_LA.rel`
+- `Bigscity-LibCity/raw_data/METR_LA/METR_LA.dyna`
+- `Bigscity-LibCity/raw_data/METR_LA/config.json`
 
 ### Run Model Pipeline
 

@@ -2,20 +2,20 @@
 
 ## Download One Dataset
 
-The dataset used in LibTraffic is stored in a unified data storage format named [atomic files](../user_guide/data/atomic_files.md). 
+The dataset used in LibCity is stored in a unified data storage format named [atomic files](../user_guide/data/atomic_files.md). 
 
-In order to directly use the [raw datasets](../user_guide/data/raw_data.md) in LibTraffic, we have converted all these datasets into the format of atomic files, and provide the [conversion tools](https://github.com/LibTraffic/Bigscity-LibTraffic-Datasets).
+In order to directly use the [raw datasets](../user_guide/data/raw_data.md) in LibCity, we have converted all these datasets into the format of atomic files, and provide the [conversion tools](https://github.com/LibCity/Bigscity-LibCity-Datasets).
 
 You can simply download the datasets we have processed, the data link is [BaiduDisk with code 1231](https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ) or [Google Drive](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing).
 
-Before run models in LibTraffic, please make sure you download at least one dataset and put it in directory `Bigscity-LibTraffic/raw_data/dataset_name/*`.
+Before run models in LibCity, please make sure you download at least one dataset and put it in directory `Bigscity-LibCity/raw_data/dataset_name/*`.
 
 For example, if you download the METR_LA dataset, the directorys structure is as follows:
 
-- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.geo`
-- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.rel`
-- `Bigscity-LibTraffic/raw_data/METR_LA/METR_LA.dyna`
-- `Bigscity-LibTraffic/raw_data/METR_LA/config.json`
+- `Bigscity-LibCity/raw_data/METR_LA/METR_LA.geo`
+- `Bigscity-LibCity/raw_data/METR_LA/METR_LA.rel`
+- `Bigscity-LibCity/raw_data/METR_LA/METR_LA.dyna`
+- `Bigscity-LibCity/raw_data/METR_LA/config.json`
 
 ## Run Model Pipeline
 

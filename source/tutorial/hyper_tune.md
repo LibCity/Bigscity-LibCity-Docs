@@ -1,12 +1,12 @@
 ## Tuning the model with automatic tool
 
-Here we take GRU as an example and use the automated tuning tool (`hyper_tune.py`) provided in LibTraffic to optimize its traffic speed prediction performance on the METR_LA dataset.
+Here we take GRU as an example and use the automated tuning tool (`hyper_tune.py`) provided in LibCity to optimize its traffic speed prediction performance on the METR_LA dataset.
 
 First, we should look up the hyper-parameters that the GRU may use in the traffic speed prediction task to decide which parameters to adjust.
 
 #### Look Up Hyper-parameters
 
-According to `/libtraffic/config/task_config.json`,  we can know the class name of each module used by GRU in the traffic speed prediction task.
+According to `/libcity/config/task_config.json`,  we can know the class name of each module used by GRU in the traffic speed prediction task.
 
 ```json
 "GRU": {
@@ -16,7 +16,7 @@ According to `/libtraffic/config/task_config.json`,  we can know the class name 
 }
 ```
 
-According to the configuration file, the data module class used by GRU is `TrafficStatePointDataset`, the execution module class is `TrafficStateExecutor`, and the evaluation module class is `TrafficStateEvaluator`. According to the class name we found, we can easily find the corresponding configuration file in `/libtraffic/config/`.
+According to the configuration file, the data module class used by GRU is `TrafficStatePointDataset`, the execution module class is `TrafficStateExecutor`, and the evaluation module class is `TrafficStateEvaluator`. According to the class name we found, we can easily find the corresponding configuration file in `/libcity/config/`.
 
 Here, we believe that the hyperparameters of the execution module and the model itself have a greater impact on the performance of the model. Therefore, we looked up the two configuration files `/config/executor/TrafficStateExecutor.json` and `/config/model/traffic_state_pred/GRU.json`. After checking, we decided to adjust the four hyperparameters of learning rate `learning_rate`, maximum training epoch `max_epoch`, hidden layer dimension `hidden_size`, and dropout rate `dropout`.
 

@@ -8,7 +8,7 @@
 
   Store test scripts.
 
-- |-libtraffic/
+- |-libcity/
 
   Project code root directory.
 

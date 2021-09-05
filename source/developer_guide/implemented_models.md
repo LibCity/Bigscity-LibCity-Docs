@@ -1,6 +1,6 @@
 # Customize Models
 
-Here, we present how to develop a new model, and apply it to the `LibTraffic`.
+Here, we present how to develop a new model, and apply it to the `LibCity`.
 
 ## Create a New Model Class
 
@@ -8,10 +8,10 @@ To begin with, we should create a new model implementing from `AbstractModel` or
 
 Here we take the traffic state prediction task as an example. We would like to develop a model for traffic speed prediction task named as `NewModel`. 
 
-First please create a new file `NewModel.py` in the directory `libtraffic/model/traffic_speed_prediction/` and write the following code into the file.
+First please create a new file `NewModel.py` in the directory `libcity/model/traffic_speed_prediction/` and write the following code into the file.
 
 ```python
-from libtraffic.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from libcity.model.abstract_traffic_state_model import AbstractTrafficStateModel
 
 class NewModel(AbstractTrafficStateModel):
     def __init__(self, config, data_feature):
@@ -36,7 +36,7 @@ Here we take a simple LSTM model as an example for traffic prediction. You can d
 import torch
 import torch.nn as nn
 from logging import getLogger
-from libtraffic.model.abstract_traffic_state_model import AbstractTrafficStateModel
+from libcity.model.abstract_traffic_state_model import AbstractTrafficStateModel
 
 
 class NewModel(AbstractTrafficStateModel):
@@ -107,12 +107,12 @@ Finally we define the `calculate_loss()` method, `calculate_loss()` is used to c
 
 The input parameters of  `calculate_loss()` is `batch`, which is an object of class [Batch](../user_guide/data/batch.md). And the method return a `torch.Tensor` for back propagation.
 
-You can customize the loss function or call the loss function we defined in the `libtraffic/model/loss.py` file.
+You can customize the loss function or call the loss function we defined in the `libcity/model/loss.py` file.
 
 For example, you can define `calcualte_loss()` like this:
 
 ```python
-from libtraffic.model import loss
+from libcity.model import loss
 
 class NewModel(AbstractTrafficStateModel):
     def calculate_loss(self, batch):
@@ -129,12 +129,12 @@ Now we have completed the definition of the model structure, and there are some 
 
 ## Import The Model
 
-After adding the model, you need to modify the `__init__.py` file in the task folder where your model belongs.  In the example above, the file you need to modify is `libtraffic/model/traffic_speed_prediction/__init__.py`. 
+After adding the model, you need to modify the `__init__.py` file in the task folder where your model belongs.  In the example above, the file you need to modify is `libcity/model/traffic_speed_prediction/__init__.py`. 
 
 Please add code like this:
 
 ```python
-from libtraffic.model.traffic_speed_prediction.NewModel import NewModel
+from libcity.model.traffic_speed_prediction.NewModel import NewModel
 
 __all__ = [
     "NewModel",
@@ -145,7 +145,7 @@ __all__ = [
 
 Finally, you need to modify some relevant `config` files.
 
-- First, you need to modify the `libtraffic/config/task_config.json`, which is used to set the models and datasets supported by each task, and specify the basic parameters (data module, execution module, evaluation module) used by the model. 
+- First, you need to modify the `libcity/config/task_config.json`, which is used to set the models and datasets supported by each task, and specify the basic parameters (data module, execution module, evaluation module) used by the model. 
 
   For example, you can add codes like the follows, which means the data module class used by `NewModel` is `TrafficStatePointDataset`, the execution module class is `TrafficStateExecutor`, and the evaluation module class is `TrafficStateEvaluator`. 
 
@@ -163,9 +163,9 @@ Finally, you need to modify some relevant `config` files.
 }
 ```
 
-- Second, you need to add a file in the `libtraffic/config/model/` directory to set the default parameters of your model. You can also set parameters of other modules which you want to cover as the parameters of the model module have the highest priority than other modules. 
+- Second, you need to add a file in the `libcity/config/model/` directory to set the default parameters of your model. You can also set parameters of other modules which you want to cover as the parameters of the model module have the highest priority than other modules. 
 
-  For example, you can add this file `libtraffic/config/model/traffic_state_pred/NewModel.json` and add codes like the follows. You can see that in addition to the three parameters related to the model structure, we also define the number of training rounds(`max_epoch`), optimizer(`learner`), and learning rate(`learning_rate`) to cover the default execution configuration.
+  For example, you can add this file `libcity/config/model/traffic_state_pred/NewModel.json` and add codes like the follows. You can see that in addition to the three parameters related to the model structure, we also define the number of training rounds(`max_epoch`), optimizer(`learner`), and learning rate(`learning_rate`) to cover the default execution configuration.
 
 ```json
 {

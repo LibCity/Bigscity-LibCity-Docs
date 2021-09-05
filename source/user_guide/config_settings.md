@@ -75,10 +75,10 @@ Users can modify the default parameters of any module by customizing the config 
 
 The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:
 
-- `/libtraffic/config/data`
-- `/libtraffic/config/executor`
-- `/libtraffic/config/evaluator`
-- `/libtraffic/config/model`
+- `/libcity/config/data`
+- `/libcity/config/executor`
+- `/libcity/config/evaluator`
+- `/libcity/config/model`
 
 The file naming rule in each directory is `classname.json`. For example, for the execution module of traffic state prediction, the default configuration parameter file is `TrafficStateExecutor.json`.
 
@@ -88,7 +88,7 @@ We store some auxiliary information of the dataset in the configuration file of 
 
 #### Task Config File
 
-The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default data module class name, execution module class name, and evaluation module class name of each model, whose storage path is `/libtraffic/config/task_config.json`.
+The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default data module class name, execution module class name, and evaluation module class name of each model, whose storage path is `/libcity/config/task_config.json`.
 
 Here is an example of task config file:
 ```json
@@ -104,6 +104,6 @@ Here is an example of task config file:
 }
 ```
 
-**You need to modify the `libtraffic/config/task_config.json` file when adding new models.**
+**You need to modify the `libcity/config/task_config.json` file when adding new models.**
 
 According to the above configuration file, the data module class used by `DCRNN`is `TrafficStatePointDataset`, the execution module class is `DCRNNExecutor`, and the evaluation module class is `TrafficStateEvaluator`. 

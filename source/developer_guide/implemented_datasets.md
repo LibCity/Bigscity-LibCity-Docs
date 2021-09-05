@@ -1,6 +1,6 @@
 # Customize Dataset
 
-Here, we present how to develop a new dataset, and apply it to the `LibTraffic`.
+Here, we present how to develop a new dataset, and apply it to the `LibCity`.
 
 ## The Implemented Dataset Classes
 
@@ -41,12 +41,12 @@ If we have a new model, and if there is no suitable dataset class, then we need 
 
 To begin with, we should create a new dataset implementing from `AbstractDataset` or one of the subclass of `AbstractDataset`.
 
-For example, we would like to develop a dataset for traffic state prediction task named as `NewDataset` and write the code to `newdataset.py` in the directory `libtraffic/data/dataset/`. 
+For example, we would like to develop a dataset for traffic state prediction task named as `NewDataset` and write the code to `newdataset.py` in the directory `libcity/data/dataset/`. 
 
 Here we inherit subclass `TrafficStatePointDataset` of class `AbstractDataset`.
 
 ```python
-from libtraffic.data.dataset import TrafficStatePointDataset
+from libcity.data.dataset import TrafficStatePointDataset
 
 class NewDatasets(TrafficStatePointDataset):
     def __init__(self, config):
@@ -57,7 +57,7 @@ class NewDatasets(TrafficStatePointDataset):
 Or you can inherit class `AbstractDataset` directly.
 
 ```python
-from libtraffic.data.dataset import AbstractDataset
+from libcity.data.dataset import AbstractDataset
 
 class NewDatasets(AbstractDataset):
     def __init__(self, config):
@@ -66,7 +66,7 @@ class NewDatasets(AbstractDataset):
 
 ## Rewrite Corresponding Methods
 
-The function `get_data()` in `AbstractDataset` is used to get the divided `train_dataloader`, `eval_dataloader` and `test_ dataloader`. You need to call the function `libtraffic.data.utils.generate_dataloader` to get data-loader from list of input data, where the generated data-loader contains [Batch](../user_guide/data/batch.md) object.
+The function `get_data()` in `AbstractDataset` is used to get the divided `train_dataloader`, `eval_dataloader` and `test_ dataloader`. You need to call the function `libcity.data.utils.generate_dataloader` to get data-loader from list of input data, where the generated data-loader contains [Batch](../user_guide/data/batch.md) object.
 
 The function `get_data_feature() ` in `AbstractDataset` is used to return the features of some datasets for use by the model and executor.
 
@@ -80,7 +80,7 @@ If there is no suitable dataset class, then you can rewrite the corresponding in
 Here we explain how to inherit `AbstractDataset` directly and rewrite the function `get_data_feature()` to return some values we want.
 
 ```python
-from libtraffic.data.dataset import AbstractDataset
+from libcity.data.dataset import AbstractDataset
 
 class NewDatasets(AbstractDataset):
     def __init__(self, config):
@@ -97,7 +97,7 @@ class NewDatasets(AbstractDataset):
 Here we explain how to inherit a subclass of `AbstractDataset` and rewrite one of its methods.
 
 ```python
-from libtraffic.data.dataset import TrafficStatePointDataset
+from libcity.data.dataset import TrafficStatePointDataset
 
 class NewDatasets(TrafficStatePointDataset):
     def __init__(self, config):
@@ -115,7 +115,7 @@ class NewDatasets(TrafficStatePointDataset):
 Here we explain how to inherit a subclass of `AbstractDataset` and return different keys in batch from the origin. Specifically, we intend to return three key values: X, Y and Z. This is just an example, for more details, you can refer to `TrafficStateCPTDataset` whose has four keys in batch.
 
 ```python
-from libtraffic.data.dataset import TrafficStateDataset
+from libcity.data.dataset import TrafficStateDataset
 
 class NewDatasets(TrafficStateDataset):
     def __init__(self, config):
@@ -136,7 +136,7 @@ class NewDatasets(TrafficStateDataset):
         train_data = list(zip(x_train, y_train, z_train))
         eval_data = list(zip(x_val, y_val, z_val))
         test_data = list(zip(x_test, y_test, z_test))
-        # Get dataloader by libtraffic.data.utils.generate_dataloader.
+        # Get dataloader by libcity.data.utils.generate_dataloader.
         self.train_dataloader, self.eval_dataloader, self.test_dataloader = \
             generate_dataloader(train_data, eval_data, test_data, self.feature_name,
                                 self.batch_size, self.num_workers)
