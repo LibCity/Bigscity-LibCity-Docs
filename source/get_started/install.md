@@ -32,7 +32,3 @@ pip install -r requirements.txt
 ```
 
 Now, you can use `LibCity`, more details please refer to the section [quick start](./quick_start.md).
-
-
-
-Note that the packages that most models depend on are recorded in  `requirements.txt`. In addition to the above dependent packages, the implementation of model `STAGGCN` depends on third-party library `torch-geometric`. If you want to run this model, please refer to [this address](https://github.com/rusty1s/pytorch_geometric) to install this package according to your specific environment and uncomment the fifth line of the file `libcity/model/traffic_speed_prediction/STAGGCN.py`.
