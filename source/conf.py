@@ -41,7 +41,7 @@ extensions = [
 'sphinx.ext.intersphinx',
 'sphinx.ext.viewcode',
 ]
-autodoc_mock_imports = ["torch", "torch_scatter"]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
