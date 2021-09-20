@@ -13,7 +13,6 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../'))
-autodoc_mock_imports = ["torch"]
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
 # -- Project information -----------------------------------------------------
@@ -42,6 +41,7 @@ extensions = [
 'sphinx.ext.intersphinx',
 'sphinx.ext.viewcode',
 ]
+autodoc_mock_imports = ["torch", "torch_scatter"]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
