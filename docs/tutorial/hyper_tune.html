@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tuning the model with automatic tool &mdash; Bigscity-LibCity  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="libcity.config" href="../libcity/libcity.config.html" />
+    <link rel="prev" title="Add a new model to LibCity" href="add_model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Reproduced Model List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/evaluator.html">Evaluator Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tuning the model with automatic tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#look-up-hyper-parameters">Look Up Hyper-parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-tuning-config-file">Writing Tuning Config File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute-hyper-tune-py">Execute hyper_tune.py</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.utils.html">libcity.utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bigscity-LibCity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tuning the model with automatic tool</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorial/hyper_tune.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tuning-the-model-with-automatic-tool">
+<h1>Tuning the model with automatic tool<a class="headerlink" href="#tuning-the-model-with-automatic-tool" title="Permalink to this headline">¶</a></h1>
+<p>Here we take GRU as an example and use the automated tuning tool (<code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code>) provided in LibCity to optimize its traffic speed prediction performance on the METR_LA dataset.</p>
+<p>First, we should look up the hyper-parameters that the GRU may use in the traffic speed prediction task to decide which parameters to adjust.</p>
+<div class="section" id="look-up-hyper-parameters">
+<h2>Look Up Hyper-parameters<a class="headerlink" href="#look-up-hyper-parameters" title="Permalink to this headline">¶</a></h2>
+<p>According to <code class="docutils literal notranslate"><span class="pre">/libcity/config/task_config.json</span></code>,  we can know the class name of each module used by GRU in the traffic speed prediction task.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;GRU&quot;: {
+	&quot;dataset_class&quot;: &quot;TrafficStatePointDataset&quot;,
+	&quot;executor&quot;: &quot;TrafficStateExecutor&quot;,
+	&quot;evaluator&quot;: &quot;TrafficStateEvaluator&quot;
+}
+</pre></div>
+</div>
+<p>According to the configuration file, the data module class used by GRU is <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, the execution module class is <code class="docutils literal notranslate"><span class="pre">TrafficStateExecutor</span></code>, and the evaluation module class is <code class="docutils literal notranslate"><span class="pre">TrafficStateEvaluator</span></code>. According to the class name we found, we can easily find the corresponding configuration file in <code class="docutils literal notranslate"><span class="pre">/libcity/config/</span></code>.</p>
+<p>Here, we believe that the hyperparameters of the execution module and the model itself have a greater impact on the performance of the model. Therefore, we looked up the two configuration files <code class="docutils literal notranslate"><span class="pre">/config/executor/TrafficStateExecutor.json</span></code> and <code class="docutils literal notranslate"><span class="pre">/config/model/traffic_state_pred/GRU.json</span></code>. After checking, we decided to adjust the four hyperparameters of learning rate <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>, maximum training epoch <code class="docutils literal notranslate"><span class="pre">max_epoch</span></code>, hidden layer dimension <code class="docutils literal notranslate"><span class="pre">hidden_size</span></code>, and dropout rate <code class="docutils literal notranslate"><span class="pre">dropout</span></code>.</p>
+</div>
+<div class="section" id="writing-tuning-config-file">
+<h2>Writing Tuning Config File<a class="headerlink" href="#writing-tuning-config-file" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code> script requires the user to write a tuning configuration file to specify the hyperparameters to be adjusted and the corresponding search space. According to the meaning of the parameters to be adjusted, we set the search space as:</p>
+<ul class="simple">
+<li><p>For the learning rate parameter, it should generally be a value ending in 1 or 5, such as <code class="docutils literal notranslate"><span class="pre">0.01</span></code> or <code class="docutils literal notranslate"><span class="pre">0.05</span></code>. Therefore, the corresponding search space should be a discrete set of categorical variables, taking <code class="docutils literal notranslate"><span class="pre">[0.01,</span> <span class="pre">0.005,</span> <span class="pre">0.001]</span></code> as an example.</p></li>
+<li><p>For the maximum training epoch, its value should be an integer. Therefore, the corresponding search space can be set as an integer space that obeys the uniform distribution of <code class="docutils literal notranslate"><span class="pre">U(2,</span> <span class="pre">10)</span></code>.</p></li>
+<li><p>For the hidden layer dimension parameter, it needs to be an integer and generally a value divisible by 10. Therefore, the corresponding search space should be the same as the learning rate parameter, take <code class="docutils literal notranslate"><span class="pre">[50,</span> <span class="pre">100,</span> <span class="pre">200,</span> <span class="pre">500]</span></code> as an example.</p></li>
+<li><p>For the dropout rate, it should be a floating point number between <code class="docutils literal notranslate"><span class="pre">[0,1)</span></code>. Therefore, the corresponding search space can be a real number space that obeys the uniform distribution of <code class="docutils literal notranslate"><span class="pre">U(0.1,</span> <span class="pre">0.6)</span></code>.</p></li>
+</ul>
+<p>According to the above design, we can write the following configuration file <code class="docutils literal notranslate"><span class="pre">sample_space_file.json</span></code>:</p>
+<blockquote>
+<div><p>(The file should be stored in the project root directory, at the same level as <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code>)</p>
+<p>For more parameter space information, please refer to <a class="reference internal" href="../user_guide/usage/parameter_tuning.html"><span class="doc">document.</span></a></p>
+</div></blockquote>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;max_epoch&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;randint&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;lower&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;upper&quot;</span><span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+    <span class="s2">&quot;hidden_size&quot;</span><span class="p">:</span> <span class="p">{</span>
+    	<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+    	<span class="nt">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;dropout&quot;</span><span class="p">:</span> <span class="p">{</span>
+    	<span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uniform&quot;</span><span class="p">,</span>
+    	<span class="nt">&quot;lower&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    	<span class="nt">&quot;upper&quot;</span><span class="p">:</span> <span class="mf">0.6</span>
+    <span class="p">}</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="execute-hyper-tune-py">
+<h2>Execute hyper_tune.py<a class="headerlink" href="#execute-hyper-tune-py" title="Permalink to this headline">¶</a></h2>
+<p>After ensuring that <code class="docutils literal notranslate"><span class="pre">sample_space_file.json</span></code> is correctly placed in the project root directory, we can run the following script to automatically tune parameters:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python hyper_tune.py --task traffc_state_pred --model GRU --dataset METR_LA --space_file sample_space_file
+</pre></div>
+</div>
+<p>After running the command, the script will sample the corresponding parameter values from the search space, and perform model training and verification. After the all samples’ verification is completed, the script will output the best parameter combination on the terminal.</p>
+<blockquote>
+<div><p>(Currently the script only supports the loss of the model on the validation set as the performance evaluation metrics)</p>
+<p>For more command line parameters of the script, please refer to <a class="reference internal" href="../user_guide/usage/parameter_tuning.html"><span class="doc">document.</span></a></p>
+</div></blockquote>
+<p>The following figures are screenshots of the running process:</p>
+<p><img alt="../_images/hyper_tune1.png" src="../_images/hyper_tune1.png" /></p>
+<p>The program will output the sampled parameter combination to the terminal and display the running status of each thread.</p>
+<p><img alt="../_images/hyper_tune2.png" src="../_images/hyper_tune2.png" /></p>
+<p>The program will output the best combination of parameters to the terminal.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../libcity/libcity.config.html" class="btn btn-neutral float-right" title="libcity.config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="add_model.html" class="btn btn-neutral float-left" title="Add a new model to LibCity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, aptx1231
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Customize Dataset &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Customize Dataset &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
           
 
           
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
@@ -94,7 +94,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Reproduced Model List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
@@ -115,17 +115,23 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_executors.html">Customize Executors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.utils.html">libcity.utils</a></li>
 </ul>
 
             
@@ -141,7 +147,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Bigscity-TrafficDL</a>
+          <a href="../index.html">Bigscity-LibCity</a>
         
       </nav>
 
@@ -193,41 +199,31 @@
             
   <div class="section" id="customize-dataset">
 <h1>Customize Dataset<a class="headerlink" href="#customize-dataset" title="Permalink to this headline">¶</a></h1>
-<p>Here, we present how to develop a new dataset, and apply it to the <code class="docutils literal notranslate"><span class="pre">TrafficDL</span></code>.</p>
-<p>We have developed a standard dataset for the following tasks:</p>
-<ul class="simple">
-<li><p>Traffic Flow Prediction</p></li>
-<li><p>Traffic Speed Prediction</p></li>
-<li><p>On-Demand Service Predition</p></li>
-<li><p>Trajectory Location Prediction</p></li>
-</ul>
+<p>Here, we present how to develop a new dataset, and apply it to the <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>.</p>
 <div class="section" id="the-implemented-dataset-classes">
 <h2>The Implemented Dataset Classes<a class="headerlink" href="#the-implemented-dataset-classes" title="Permalink to this headline">¶</a></h2>
 <p>Here we introduce the functions of several dataset classes that have been implemented.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code></p>
-<p>Base class for all dataset classes. <strong>Note that this is an abstract class and cannot be used directly.</strong></p>
+<p>Base class for all dataset classes. <strong>Note that this is an abstract class and can not be used directly.</strong></p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TrajectoryDataset</span></code></p>
 <p>Base class for all trajectory location prediction tasks.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TrafficStateDataset</span></code></p>
-<p>One of base class for all traffic state prediction tasks. <strong>Note that this is an abstract class and cannot be used directly.</strong> By default, the data of <code class="docutils literal notranslate"><span class="pre">input_window</span></code> is used to predict the data corresponding to <code class="docutils literal notranslate"><span class="pre">output_window</span></code>. The <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">batch</span></a> object generated by this class contains two keys, one <code class="docutils literal notranslate"><span class="pre">X</span></code> and one <code class="docutils literal notranslate"><span class="pre">y</span></code>. Here <code class="docutils literal notranslate"><span class="pre">input_window</span></code> and <code class="docutils literal notranslate"><span class="pre">output_window</span></code> are parameters for data, see <a class="reference internal" href="../user_guide/data/args_for_data.html"><span class="doc">here</span></a> for details.</p>
+<p>One of base class for all traffic state prediction tasks. <strong>Note that this is an abstract class and cannot be used directly.</strong> By default, the data of <code class="docutils literal notranslate"><span class="pre">input_window</span></code> is used to predict the data corresponding to <code class="docutils literal notranslate"><span class="pre">output_window</span></code>. The <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a> object generated by this class contains two keys, one <code class="docutils literal notranslate"><span class="pre">X</span></code> and one <code class="docutils literal notranslate"><span class="pre">y</span></code>. Here <code class="docutils literal notranslate"><span class="pre">input_window</span></code> and <code class="docutils literal notranslate"><span class="pre">output_window</span></code> are parameters for data, see <a class="reference internal" href="../user_guide/data/args_for_data.html"><span class="doc">here</span></a> for details.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TrafficStateCPTDataset</span></code></p>
-<p>Another base class for all traffic state prediction tasks. <strong>Note that this is an abstract class and cannot be used directly.</strong> Part of the traffic prediction model realizes prediction by modeling the closeness/period/trend. By default, the data of <code class="docutils literal notranslate"><span class="pre">len_closeness</span></code>/<code class="docutils literal notranslate"><span class="pre">len_period</span></code>/<code class="docutils literal notranslate"><span class="pre">len_trend</span></code> is used to predict the data at the current moment(a single-step forecast). The <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">batch</span></a> object generated by this class contains 4 keys: <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">X_ext</span></code>, <code class="docutils literal notranslate"><span class="pre">y_ext</span></code>. Here <code class="docutils literal notranslate"><span class="pre">len_closeness</span></code>/<code class="docutils literal notranslate"><span class="pre">len_period</span></code>/<code class="docutils literal notranslate"><span class="pre">len_trend</span></code> are parameters for data, see <a class="reference internal" href="../user_guide/data/args_for_data.html"><span class="doc">here</span></a> for details.</p>
+<p>Another base class for all traffic state prediction tasks. <strong>Note that this is an abstract class and cannot be used directly.</strong> Part of the traffic prediction model realizes prediction by modeling the closeness/period/trend. By default, the data of <code class="docutils literal notranslate"><span class="pre">len_closeness</span></code>/<code class="docutils literal notranslate"><span class="pre">len_period</span></code>/<code class="docutils literal notranslate"><span class="pre">len_trend</span></code> is used to predict the data at the current moment(a single-step forecast). The <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a> object generated by this class contains 4 keys: <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">X_ext</span></code>, <code class="docutils literal notranslate"><span class="pre">y_ext</span></code>. Here <code class="docutils literal notranslate"><span class="pre">len_closeness</span></code>/<code class="docutils literal notranslate"><span class="pre">len_period</span></code>/<code class="docutils literal notranslate"><span class="pre">len_trend</span></code> are parameters for data, see <a class="reference internal" href="../user_guide/data/args_for_data.html"><span class="doc">here</span></a> for details.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code></p>
-<p>A class inherited <code class="docutils literal notranslate"><span class="pre">TrafficStateDataset</span></code> for traffic state prediction. The dataset is used for point-based/segment-based/region-based dataset as long as the spatial dimension of this data set is 1-dimensional. The shape of tensor in the <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">batch</span></a> object generated by this class is 3-dimensional, namely space_dim, time_dim, feature_dim.</p>
+<p>A class inherited <code class="docutils literal notranslate"><span class="pre">TrafficStateDataset</span></code> for traffic state prediction. The dataset is used for point-based/segment-based/region-based dataset as long as the spatial dimension of this data set is 1-dimensional. The shape of tensor in the <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a> object generated by this class is 3-dimensional, namely space_dim, time_dim, feature_dim.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TrafficStateGridDataset</span></code></p>
-<p>A class inherited <code class="docutils literal notranslate"><span class="pre">TrafficStateDataset</span></code> for traffic state prediction. The dataset is used for grid-based dataset. The shape of tensor in the <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">batch</span></a> object generated by this class is 3-dimensional or 4-dimensional depends on parameter use_row_column. If set use_row_column=True, then the 4 dimensions are grid_row_dim, grid_column_dim, time_dim, feature_dim. Otherwise, the 3 dimensions are space_dim, time_dim, feature_dim, in this case the grid is renumbered in one dimension.</p>
+<p>A class inherited <code class="docutils literal notranslate"><span class="pre">TrafficStateDataset</span></code> for traffic state prediction. The dataset is used for grid-based dataset. The shape of tensor in the <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a> object generated by this class is 3-dimensional or 4-dimensional depends on parameter use_row_column. If set use_row_column=True, then the 4 dimensions are grid_row_dim, grid_column_dim, time_dim, feature_dim. Otherwise, the 3 dimensions are space_dim, time_dim, feature_dim, in this case the grid is renumbered in one dimension.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TrafficStateGridOdDataset</span></code></p>
-<p>A class inherited <code class="docutils literal notranslate"><span class="pre">TrafficStateDataset</span></code> for traffic state prediction. The dataset is used for grid-od-based dataset. The shape of tensor in the <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">batch</span></a> object generated by this class is 4-dimensional or 6-dimensional depends on parameter use_row_column. If set use_row_column=True, then the 6 dimensions are origin_grid_row_dim, origin_grid_column_dim, destination_grid_row_dim, destination_grid_column_dim, time_dim, feature_dim. Otherwise, the 4 dimensions are origin_dim,  destination_dim, time_dim, feature_dim, in this case the grid is renumbered in one dimension.</p>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">STResNetDataset</span></code> and <code class="docutils literal notranslate"><span class="pre">ACFMDataset</span></code></p>
-<p>A class inherited <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code> for traffic state prediction.</p>
+<p>A class inherited <code class="docutils literal notranslate"><span class="pre">TrafficStateDataset</span></code> for traffic state prediction. The dataset is used for grid-od-based dataset. The shape of tensor in the <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a> object generated by this class is 4-dimensional or 6-dimensional depends on parameter use_row_column. If set use_row_column=True, then the 6 dimensions are origin_grid_row_dim, origin_grid_column_dim, destination_grid_row_dim, destination_grid_column_dim, time_dim, feature_dim. Otherwise, the 4 dimensions are origin_dim,  destination_dim, time_dim, feature_dim, in this case the grid is renumbered in one dimension.</p>
 </li>
 </ul>
 <p>If we have a new model, and if there is no suitable dataset class, then we need to design a new dataset.</p>
@@ -235,9 +231,9 @@
 <div class="section" id="create-a-new-dataset-class">
 <h2>Create a New Dataset Class<a class="headerlink" href="#create-a-new-dataset-class" title="Permalink to this headline">¶</a></h2>
 <p>To begin with, we should create a new dataset implementing from <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> or one of the subclass of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code>.</p>
-<p>For example, we would like to develop a dataset for traffic state prediction task named as <code class="docutils literal notranslate"><span class="pre">NewDataset</span></code> and write the code to <code class="docutils literal notranslate"><span class="pre">newdataset.py</span></code> in the directory <code class="docutils literal notranslate"><span class="pre">trafficdl/data/dataset/</span></code>.</p>
+<p>For example, we would like to develop a dataset for traffic state prediction task named as <code class="docutils literal notranslate"><span class="pre">NewDataset</span></code> and write the code to <code class="docutils literal notranslate"><span class="pre">newdataset.py</span></code> in the directory <code class="docutils literal notranslate"><span class="pre">libcity/data/dataset/</span></code>.</p>
 <p>Here we inherit subclass <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code> of class <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
 
 <span class="k">class</span> <span class="nc">NewDatasets</span><span class="p">(</span><span class="n">TrafficStatePointDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
@@ -246,7 +242,7 @@
 </pre></div>
 </div>
 <p>Or you can inherit class <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> directly.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.data.dataset</span> <span class="kn">import</span> <span class="n">AbstractDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">AbstractDataset</span>
 
 <span class="k">class</span> <span class="nc">NewDatasets</span><span class="p">(</span><span class="n">AbstractDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
@@ -256,14 +252,14 @@
 </div>
 <div class="section" id="rewrite-corresponding-methods">
 <h2>Rewrite Corresponding Methods<a class="headerlink" href="#rewrite-corresponding-methods" title="Permalink to this headline">¶</a></h2>
-<p>The function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code> in <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> is used to get the divided <code class="docutils literal notranslate"><span class="pre">train_dataloader</span></code>, <code class="docutils literal notranslate"><span class="pre">eval_dataloader</span></code> and <code class="docutils literal notranslate"><span class="pre">test_</span> <span class="pre">dataloader</span></code>. You need to call the function <code class="docutils literal notranslate"><span class="pre">trafficdl.data.utils.generate_dataloader</span></code> to get data-loader from list of input data, where the generated data-loader contains <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">batch</span></a> object.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code> in <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> is used to get the divided <code class="docutils literal notranslate"><span class="pre">train_dataloader</span></code>, <code class="docutils literal notranslate"><span class="pre">eval_dataloader</span></code> and <code class="docutils literal notranslate"><span class="pre">test_</span> <span class="pre">dataloader</span></code>. You need to call the function <code class="docutils literal notranslate"><span class="pre">libcity.data.utils.generate_dataloader</span></code> to get data-loader from list of input data, where the generated data-loader contains <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a> object.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">get_data_feature()</span> </code> in <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> is used to return the features of some datasets for use by the model and executor.</p>
 <p>Other interfaces defined in subclasses of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> will not be described here.</p>
 <p>If there is no suitable dataset class, then you can rewrite the corresponding interface mentioned above.</p>
 <div class="section" id="example-1">
 <h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
 <p>Here we explain how to inherit <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> directly and rewrite the function <code class="docutils literal notranslate"><span class="pre">get_data_feature()</span></code> to return some values we want.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.data.dataset</span> <span class="kn">import</span> <span class="n">AbstractDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">AbstractDataset</span>
 
 <span class="k">class</span> <span class="nc">NewDatasets</span><span class="p">(</span><span class="n">AbstractDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
@@ -279,7 +275,7 @@
 <div class="section" id="example-2">
 <h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
 <p>Here we explain how to inherit a subclass of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> and rewrite one of its methods.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
 
 <span class="k">class</span> <span class="nc">NewDatasets</span><span class="p">(</span><span class="n">TrafficStatePointDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
@@ -297,7 +293,7 @@
 <div class="section" id="example-3">
 <h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h3>
 <p>Here we explain how to inherit a subclass of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> and return different keys in batch from the origin. Specifically, we intend to return three key values: X, Y and Z. This is just an example, for more details, you can refer to <code class="docutils literal notranslate"><span class="pre">TrafficStateCPTDataset</span></code> whose has four keys in batch.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStateDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStateDataset</span>
 
 <span class="k">class</span> <span class="nc">NewDatasets</span><span class="p">(</span><span class="n">TrafficStateDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
@@ -318,7 +314,7 @@
         <span class="n">train_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">z_train</span><span class="p">))</span>
         <span class="n">eval_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">z_val</span><span class="p">))</span>
         <span class="n">test_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">z_test</span><span class="p">))</span>
-        <span class="c1"># Get dataloader by trafficdl.data.utils.generate_dataloader.</span>
+        <span class="c1"># Get dataloader by libcity.data.utils.generate_dataloader.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_dataloader</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_dataloader</span> <span class="o">=</span> \
             <span class="n">generate_dataloader</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">eval_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_name</span><span class="p">,</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_workers</span><span class="p">)</span>

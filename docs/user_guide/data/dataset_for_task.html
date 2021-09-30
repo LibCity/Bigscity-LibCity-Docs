@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dataset For Task &mdash; Bigscity-LibCity  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Reproduced Model List" href="../model.html" />
+    <link rel="prev" title="Args for Data" href="args_for_data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raw_data.html">Raw Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atomic_files.html">Atomic Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dataset For Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#note">Note</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.utils.html">libcity.utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Bigscity-LibCity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../data.html">Data Introduction</a> &raquo;</li>
+        
+      <li>Dataset For Task</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/data/dataset_for_task.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dataset-for-task">
+<h1>Dataset For Task<a class="headerlink" href="#dataset-for-task" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we introduce to you the correspondence between our provided <a class="reference external" href="https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing">standard datasets</a> and tasks. It is worth noting that some datasets can only support some models in a certain task.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Task</th>
+<th>Dataset</th>
+<th>Supported Model</th>
+<th>Remark</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Traffic Flow Prediction</td>
+<td><strong>TAXIBJ</strong>, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, <strong>NYCBike20140409</strong>, <strong>NYCBike20160708</strong>, <strong>NYCBike20160809</strong>, <strong>NYCTaxi20140112</strong>, <strong>NYCTaxi20150103</strong>, <strong>NYCTaxi20160102</strong>, <strong>T_DRIVE20150206</strong>, T_DRIVE_SMALL</td>
+<td>ACFM, STResNet, DSAN, ACFMCommon, STResNetCommon</td>
+<td>Grid based dataset</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>PEMSD3</strong>, <strong>PeMSD4</strong>, <strong>PeMSD7</strong>, <strong>PeMSD8</strong>, BEIJING_SUBWAY, M_DENSE, SHMETRO, HZMETRO, NYCTAXI_DYNA</td>
+<td>AGCRN, ASTGCNCommon, MSTGCNCommon, STSGCN, CONVGCNCommon, ToGCN, MultiSTGCnetCommon, STNN, ASTGCN, MSTGCN, CONVGCN, DGCN, ResLSTM, MultiSTGCnet</td>
+<td>Point based dataset</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TAXIBJ</strong>, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, <strong>NYCBike20140409</strong>, <strong>NYCBike20160708</strong>, <strong>NYCBike20160809</strong>, <strong>NYCTaxi20140112</strong>, <strong>NYCTaxi20150103</strong>, <strong>NYCTaxi20160102</strong>, <strong>T_DRIVE20150206</strong>, T_DRIVE_SMALL</td>
+<td>AGCRN, ASTGCNCommon, MSTGCNCommon, STSGCN, CONVGCNCommon, ToGCN, MultiSTGCnetCommon, STNN, ASTGCN, MSTGCN, CONVGCN, DGCN, ResLSTM, MultiSTGCnet</td>
+<td>Need <strong>simple modification</strong>   for grid based dataset. <strong>See Note 3.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>M_DENSE</strong></td>
+<td>CRANN</td>
+<td>Need <code>.ext</code> file</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>NYCBike20160708</strong>, <strong>NYCTaxi20150103</strong></td>
+<td>STDN</td>
+<td>Need <code>.gridod</code> file</td>
+</tr>
+<tr>
+<td>Traffic Speed Prediction</td>
+<td><strong>METR_LA</strong>, <strong>LOS_LOOP</strong>, <strong>PeMSD4</strong>, <strong>PeMSD8</strong>, <strong>PEMSD7(M)</strong>, <strong>PEMS_BAY</strong>, LOS_LOOP_SMALL, SZ_TAXI, LOOP_SEATTLE, Q_TRAFFIC, ROTTERDAM</td>
+<td>DCRNN, STGCN, GWNET, MTGNN, STMGAT, TGCN, ATDM, HGCN, DKFN, STTN, GTS, GMAN, STAGGCN, TGCLSTM</td>
+<td>Point based dataset.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>LOOP_SEATTLE</strong></td>
+<td>TGCLSTM</td>
+<td><strong>See Note 2.</strong></td>
+</tr>
+<tr>
+<td>On-Demand Service Prediction</td>
+<td><strong>TAXIBJ</strong>, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, <strong>NYCBike20140409</strong>, <strong>NYCBike20160708</strong>, <strong>NYCBike20160809</strong>, <strong>NYCTaxi20140112</strong>, <strong>NYCTaxi20150103</strong>, <strong>NYCTaxi20160102</strong>, <strong>T_DRIVE20150206</strong>, T_DRIVE_SMALL</td>
+<td>DMVSTNet</td>
+<td>Grid based dataset</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>PEMSD3</strong>, <strong>PeMSD4</strong>, <strong>PeMSD7</strong>, <strong>PeMSD8</strong>, BEIJING_SUBWAY, M_DENSE, SHMETRO, HZMETRO, NYCTAXI_DYNA</td>
+<td>CCRNN, STG2Seq</td>
+<td>Point based dataset</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TAXIBJ</strong>, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, <strong>NYCBike20140409</strong>, <strong>NYCBike20160708</strong>, <strong>NYCBike20160809</strong>, <strong>NYCTaxi20140112</strong>, <strong>NYCTaxi20150103</strong>, <strong>NYCTaxi20160102</strong>, <strong>T_DRIVE20150206</strong>, T_DRIVE_SMALL</td>
+<td>CCRNN, STG2Seq</td>
+<td>Need <strong>simple modification</strong>   for grid based dataset. <strong>See Note 3.</strong></td>
+</tr>
+<tr>
+<td>Traffic Od Prediction</td>
+<td><strong>NYCTAXI_OD</strong></td>
+<td>GEML</td>
+<td>OD based dataset</td>
+</tr>
+<tr>
+<td>Trajectory Next-Location Prediction</td>
+<td><strong>Gowalla</strong>, BrightKite</td>
+<td>FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, STAN</td>
+<td>Trajectory based dataset</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Fousquare</strong>, Instagram</td>
+<td>FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, GeoSAN, STAN, SERM, CARA</td>
+<td>Trajectory based dataset</td>
+</tr>
+<tr>
+<td>Map Matching</td>
+<td><strong>Seattle</strong>, global</td>
+<td>STMatching, IVMM</td>
+<td>Trajectory based dataset</td>
+</tr>
+</tbody>
+</table><div class="section" id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>The bolded dataset is the one we recommend.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">TGCLSTM</span></code>, need to set <code class="docutils literal notranslate"><span class="pre">dataset_class</span></code> to <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>. Otherwise, the default <code class="docutils literal notranslate"><span class="pre">dataset_class=TGCLSTMDataset</span></code> is only suitable for dataset <code class="docutils literal notranslate"><span class="pre">LOOP_SEATTLE</span></code>.</p></li>
+<li><p>Here is how to generalize models used for point-based data for grid-based data.</p>
+<p>(1) If the dataset class used by the model is <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, such as <code class="docutils literal notranslate"><span class="pre">AGCRN</span></code>, <code class="docutils literal notranslate"><span class="pre">ASTGCNCommon</span></code>, <code class="docutils literal notranslate"><span class="pre">CCRNN</span></code>, etc., you can directly set <code class="docutils literal notranslate"><span class="pre">dataset_class</span></code> to <code class="docutils literal notranslate"><span class="pre">TrafficStateGridDataset</span></code> in <code class="docutils literal notranslate"><span class="pre">task_file.json</span></code> or through a custom configuration file(<code class="docutils literal notranslate"><span class="pre">--config_file</span></code>). Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> of <code class="docutils literal notranslate"><span class="pre">TrafficStateGridDataset</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>(2) If the dataset class used by the model is the subclass of <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, such as <code class="docutils literal notranslate"><span class="pre">ASTGCNDataset</span></code>, <code class="docutils literal notranslate"><span class="pre">CONVGCNDataset</span></code>, <code class="docutils literal notranslate"><span class="pre">STG2SeqDataset</span></code>, etc., you can modify the file of the dataset class to make it  inherit <code class="docutils literal notranslate"><span class="pre">TrafficStateGridDataset</span></code> instead of the current <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>. Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> in the function <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</li>
+</ol>
+<p>Example:</p>
+<p>Before modification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
+<span class="k">class</span> <span class="nc">STG2SeqDataset</span><span class="p">(</span><span class="n">TrafficStatePointDataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>After modification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStateGridDataset</span>
+<span class="k">class</span> <span class="nc">STG2SeqDataset</span><span class="p">(</span><span class="n">TrafficStateGridDataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_row_column</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../model.html" class="btn btn-neutral float-right" title="Reproduced Model List" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="args_for_data.html" class="btn btn-neutral float-left" title="Args for Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, aptx1231
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

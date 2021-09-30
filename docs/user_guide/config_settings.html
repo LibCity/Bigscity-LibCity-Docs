@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Config Settings &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Config Settings &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
           
 
           
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
@@ -105,7 +105,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Reproduced Model List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
@@ -116,17 +116,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.utils.html">libcity.utils</a></li>
 </ul>
 
             
@@ -142,7 +148,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Bigscity-TrafficDL</a>
+          <a href="../index.html">Bigscity-LibCity</a>
         
       </nav>
 
@@ -207,7 +213,7 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky --gpu <span class="nb">false</span> --batch_size <span class="m">15</span>
 </pre></div>
 </div>
-<p>Different script files allow different parameters to be passed. For more details, please refer to the <a class="reference external" href="https://bigscity-trafficdl-docs.readthedocs.io/en/latest/user_guide/usage.html">Usage</a>.</p>
+<p>Different script files allow different parameters to be passed. For more details, please refer to the <a class="reference internal" href="usage/run_model.html"><span class="doc">Usage</span></a>.</p>
 <p>You can also use <code class="docutils literal notranslate"><span class="pre">-h</span></code> to get help information, for example:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&gt; python run_model.py -h
 usage: run_model.py <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--task TASK<span class="o">]</span> <span class="o">[</span>--model MODEL<span class="o">]</span> <span class="o">[</span>--dataset DATASET<span class="o">]</span>
@@ -260,10 +266,10 @@ optional arguments:
 <h3>Default Module Configuration<a class="headerlink" href="#default-module-configuration" title="Permalink to this headline">¶</a></h3>
 <p>The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/data</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/executor</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/evaluator</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/trafficdl/config/model</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/libcity/config/data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/libcity/config/executor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/libcity/config/evaluator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/libcity/config/model</span></code></p></li>
 </ul>
 <p>The file naming rule in each directory is <code class="docutils literal notranslate"><span class="pre">classname.json</span></code>. For example, for the execution module of traffic state prediction, the default configuration parameter file is <code class="docutils literal notranslate"><span class="pre">TrafficStateExecutor.json</span></code>.</p>
 </div>
@@ -273,18 +279,9 @@ optional arguments:
 </div>
 <div class="section" id="task-config-file">
 <h3>Task Config File<a class="headerlink" href="#task-config-file" title="Permalink to this headline">¶</a></h3>
-<p>The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default dataset class name, executor class name, and evaluation class name of each model, whose storage path is <code class="docutils literal notranslate"><span class="pre">/trafficdl/config/task_config.json</span></code>.</p>
+<p>The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default data module class name, execution module class name, and evaluation module class name of each model, whose storage path is <code class="docutils literal notranslate"><span class="pre">/libcity/config/task_config.json</span></code>.</p>
 <p>Here is an example of task config file:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;traj_loc_pred&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;allowed_model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;DeepMove&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;allowed_dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;foursquare_tky&quot;</span><span class="p">,</span> <span class="s2">&quot;gowalla&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;DeepMove&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;TrajectoryDataset&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;executor&quot;</span><span class="p">:</span> <span class="s2">&quot;TrajLocPredExecutor&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;evaluator&quot;</span><span class="p">:</span> <span class="s2">&quot;TrajLocPredEvaluator&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;traj_encoder&quot;</span><span class="p">:</span> <span class="s2">&quot;StandardTrajectoryEncoder&quot;</span>
-  <span class="p">},</span>
   <span class="nt">&quot;traffic_state_pred&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;allowed_model&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;DCRNN&quot;</span><span class="p">],</span>
     <span class="nt">&quot;allowed_dataset&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;METR_LA&quot;</span><span class="p">,</span> <span class="s2">&quot;PEMS_BAY&quot;</span><span class="p">,</span> <span class="s2">&quot;PEMSD3&quot;</span><span class="p">],</span>
@@ -296,7 +293,8 @@ optional arguments:
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>You need to modify the <code class="docutils literal notranslate"><span class="pre">trafficdl/config/task_config.json</span></code> file when adding new models.</strong></p>
+<p><strong>You need to modify the <code class="docutils literal notranslate"><span class="pre">libcity/config/task_config.json</span></code> file when adding new models.</strong></p>
+<p>According to the above configuration file, the data module class used by <code class="docutils literal notranslate"><span class="pre">DCRNN</span></code>is <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, the execution module class is <code class="docutils literal notranslate"><span class="pre">DCRNNExecutor</span></code>, and the evaluation module class is <code class="docutils literal notranslate"><span class="pre">TrafficStateEvaluator</span></code>.</p>
 </div>
 </div>
 </div>

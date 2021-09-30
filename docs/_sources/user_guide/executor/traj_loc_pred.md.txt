@@ -1,6 +1,6 @@
 # Trajectory Location Prediction Executor
 
-## Parameter Setting
+## Executor Setting
 
 * `gpu`：Whether to use GPU. Defaults to `True`.
 * `gpu_id`：The id of the GPU used. Defaults to `0`.

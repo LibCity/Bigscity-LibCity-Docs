@@ -6,28 +6,6 @@ On the standard track, the original data set, standard data module (Data module)
 
 The standard data input format and evaluation input format for different tasks are explained below :
 
-## Trajectory Location prediction
-
-The standard data input format is a dictionary-like [Batch](../data/batch.md) object instance. The key names of this object are as follows:
-
-* `history_loc`: Historical trajectory location information, `shape = (batch_size, history_len)`, `history_len` is the length of the historical trajectory.
-
-* `history_tim`: Historical trajectory time information, `shape = (batch_size, history_len)`.
-
-* `current_loc`: Current trajectory location information, `shape = (batch_size, current_len)`,  `current_len` is the length of the current trajectory.
-
-* `current_tim`: Current trajectory time information, `shape = (batch_size, current_len)`.
-
-* `uid`: The id of the user for each trajectory, `shape = (batch_size)`.
-
-* `target`: Expected next hop location, `shape = (batch_size) `.
-
-The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
-
-* `uid`: The id of the user for each trajectory,  `shape = (batch_size)`.
-* `loc_true`:  Expected next hop location,  `shape = (batch_size)`.
-* `loc_pred`:  Model prediction output, `shape = (batch_size, output_dim)`.
-
 ## Traffic State Prediction
 
 According to the different spatial structure of traffic data, traffic state data can generally be represented by tensors in the following formats:
@@ -49,3 +27,19 @@ The standard evaluation input format is a dictionary object, and the dictionary 
 - `y_true`:  The ground-truth value, the format is the same as the `y` in the input.
 - `y_pred`:  The prediction value, the format is the same as the `y` in the input.
 
+## Trajectory Location prediction
+
+The standard data input format is a dictionary-like [Batch](../data/batch.md) object instance. The key names of this object are as follows:
+
+- `history_loc`: Historical trajectory location information, `shape = (batch_size, history_len)`, `history_len` is the length of the historical trajectory.
+- `history_tim`: Historical trajectory time information, `shape = (batch_size, history_len)`.
+- `current_loc`: Current trajectory location information, `shape = (batch_size, current_len)`,  `current_len` is the length of the current trajectory.
+- `current_tim`: Current trajectory time information, `shape = (batch_size, current_len)`.
+- `uid`: The id of the user for each trajectory, `shape = (batch_size)`.
+- `target`: Expected next hop location, `shape = (batch_size) `.
+
+The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
+
+- `uid`: The id of the user for each trajectory,  `shape = (batch_size)`.
+- `loc_true`:  Expected next hop location,  `shape = (batch_size)`.
+- `loc_pred`:  Model prediction output, `shape = (batch_size, output_dim)`.

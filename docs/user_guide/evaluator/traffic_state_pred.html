@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic State Prediction Evaluator &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Traffic State Prediction Evaluator &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
           
 
           
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
@@ -94,7 +94,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic State Prediction Evaluator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#evaluation-metrics">Evaluation Metrics</a></li>
@@ -113,17 +113,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.utils.html">libcity.utils</a></li>
 </ul>
 
             
@@ -139,7 +145,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Bigscity-TrafficDL</a>
+          <a href="../../index.html">Bigscity-LibCity</a>
         
       </nav>
 
@@ -245,7 +251,7 @@
 <div class="section" id="evaluation-settings">
 <h2>Evaluation Settings<a class="headerlink" href="#evaluation-settings" title="Permalink to this headline">¶</a></h2>
 <p>The following are parameters involved in the evaluator:</p>
-<p>Location: trafficdl/config/evaluator/TrafficStateEvaluator.json</p>
+<p>Location: libcity/config/evaluator/TrafficStateEvaluator.json</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">metrics</span></code>: Array of evaluation metrics, <code class="docutils literal notranslate"><span class="pre">allowed_metrics</span></code>in evaluator class indicates the type of metrics that the task can accept, and <code class="docutils literal notranslate"><span class="pre">metrics</span></code> cannot exceed this range.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: Evaluation mode, traffic state prediction is generally a prediction of multiple time steps. If set to <code class="docutils literal notranslate"><span class="pre">average</span></code>, it means calculating the average result of the previous n time steps, and set to <code class="docutils literal notranslate"><span class="pre">single</span></code>to calculate the n-th time step evaluation results. The default is <code class="docutils literal notranslate"><span class="pre">average</span></code>. <strong>The current evaluator will return the results of all time steps</strong>. For example, if the total time step is 3, the <code class="docutils literal notranslate"><span class="pre">average</span></code>mode returns [average loss of previous 1 time step, average loss of previous 2 time steps,average loss of previous 3 steps], The <code class="docutils literal notranslate"><span class="pre">single</span></code>mode returns [loss at the first time step, loss at the second time step, loss at the third time step].</p></li>

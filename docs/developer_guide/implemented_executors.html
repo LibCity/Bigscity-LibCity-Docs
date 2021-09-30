@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Customize Executors &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Customize Executors &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Logger" href="implemented_logger.html" />
+    <link rel="next" title="Install and quick start" href="../tutorial/install_quick_start.html" />
     <link rel="prev" title="Customize Models" href="implemented_models.html" /> 
 </head>
 
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
           
 
           
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
@@ -94,7 +94,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Reproduced Model List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
@@ -109,17 +109,23 @@
 <li class="toctree-l2"><a class="reference internal" href="#rewrite-corresponding-methods">Rewrite Corresponding Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.utils.html">libcity.utils</a></li>
 </ul>
 
             
@@ -135,7 +141,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Bigscity-TrafficDL</a>
+          <a href="../index.html">Bigscity-LibCity</a>
         
       </nav>
 
@@ -187,20 +193,13 @@
             
   <div class="section" id="customize-executors">
 <h1>Customize Executors<a class="headerlink" href="#customize-executors" title="Permalink to this headline">¶</a></h1>
-<p>Here, we present how to develop a new executor, and apply it to the <code class="docutils literal notranslate"><span class="pre">TrafficDL</span></code>.</p>
-<p>We have developed a standard executor for the following tasks:</p>
-<ul class="simple">
-<li><p>Traffic Flow Prediction</p></li>
-<li><p>Traffic Speed Prediction</p></li>
-<li><p>On-Demand Service Predition</p></li>
-<li><p>Trajectory Location Prediction</p></li>
-</ul>
+<p>Here, we present how to develop a new executor, and apply it to the <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>.</p>
 <p>For a new model, if the training method is complex, and existing executor can not be used for training and evaluation, then we need to develop a new executor.</p>
 <div class="section" id="create-a-new-executor-class">
 <h2>Create a New Executor Class<a class="headerlink" href="#create-a-new-executor-class" title="Permalink to this headline">¶</a></h2>
 <p>To begin with, we should create a new executor implementing from <code class="docutils literal notranslate"><span class="pre">AbstractExecutoror</span></code>.</p>
-<p>For example, we would like to develop a executor for traffic state prediction task named as <code class="docutils literal notranslate"><span class="pre">NewExecutor</span></code> and write the code to <code class="docutils literal notranslate"><span class="pre">newexecutor.py</span></code> in the directory <code class="docutils literal notranslate"><span class="pre">trafficdl/executor/</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.executor.abstract_executor</span> <span class="kn">import</span> <span class="n">AbstractExecutor</span>
+<p>For example, we would like to develop a executor for traffic state prediction task named as <code class="docutils literal notranslate"><span class="pre">NewExecutor</span></code> and write the code to <code class="docutils literal notranslate"><span class="pre">newexecutor.py</span></code> in the directory <code class="docutils literal notranslate"><span class="pre">libcity/executor/</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.executor.abstract_executor</span> <span class="kn">import</span> <span class="n">AbstractExecutor</span>
 
 <span class="k">class</span> <span class="nc">NewExecutor</span><span class="p">(</span><span class="n">AbstractExecutor</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
@@ -215,7 +214,7 @@
 <p>The function used to evaluate the model is <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>, it will call <code class="docutils literal notranslate"><span class="pre">_valid_epoch()</span></code> to evaluate the model.</p>
 <p>The rest two interfaces <code class="docutils literal notranslate"><span class="pre">load_model()</span></code> and <code class="docutils literal notranslate"><span class="pre">save_model()</span></code> are used to load and save the model respectively.</p>
 <p>If the developed model need more complex training or evaluation method, then you can rewrite the corresponding interface mentioned above.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">trafficdl.executor.abstract_executor</span> <span class="kn">import</span> <span class="n">AbstractExecutor</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.executor.abstract_executor</span> <span class="kn">import</span> <span class="n">AbstractExecutor</span>
 
 <span class="k">class</span> <span class="nc">NewExecutor</span><span class="p">(</span><span class="n">AbstractExecutor</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
@@ -246,7 +245,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="implemented_logger.html" class="btn btn-neutral float-right" title="Logger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../tutorial/install_quick_start.html" class="btn btn-neutral float-right" title="Install and quick start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="implemented_models.html" class="btn btn-neutral float-left" title="Customize Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

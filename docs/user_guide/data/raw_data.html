@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Raw Data &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Raw Data &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
           
 
           
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
@@ -96,85 +96,47 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Raw Data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#people-flow-trajectory-dataset">People flow trajectory dataset</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#foursquare">Foursquare</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#foursquare-nyc-restaurant-rich-dataset">Foursquare: NYC Restaurant Rich Dataset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset">Foursquare: Global-scale Check-in Dataset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#foursquare-user-profile-dataset">Foursquare: User Profile Dataset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks">Foursquare: Global-scale Check-in Dataset with User Social Networks</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gowalla">Gowalla</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#brightkite">Brightkite</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#geolife-gps">GeoLife-GPS</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#vehicle-trajectory-dataset">Vehicle trajectory dataset</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#nyc-bus">NYC-Bus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nyc-taxi">NYC-Taxi</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nyc-bike">NYC-Bike</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bikedc">BikeDC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bikechi">BikeCHI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#austinride">AustinRide</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#i-80">I-80</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#t-drive">T-Drive</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#porto">Porto</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#preprocessed-vehicle-trajectory-dataset">Preprocessed vehicle trajectory dataset</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#taxibj">TaxiBJ</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nycbike20140409">NYCBike20140409</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nycbike20160708">NYCBike20160708</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nycbike20160809">NYCBike20160809</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nyctaxi20140112">NYCTaxi20140112</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nyctaxi20150103">NYCTaxi20150103</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nyctaxi20160102">NYCTaxi20160102</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#t-drive20150206">T-Drive20150206</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#traffic-condition-dataset">Traffic condition dataset</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#metr-la">METR-LA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#los-loop">Los-loop</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sz-taxi">SZ-Taxi</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#loop-seattle">Loop Seattle</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#q-traffic">Q-Traffic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pems">PEMS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pemsd3">PeMSD3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pemsd4">PeMSD4</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pemsd7">PEMSD7</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pemsd8">PeMSD8</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pemsd7-m">PEMSD7(M)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pemsd-sf">PeMSD-SF</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pems-bay">PEMS-BAY</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#beijing-subway">Beijing subway</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#m-dense">M_dense</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rotterdam">Rotterdam</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#shmetro">SHMetro</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hzmetro">HZMetro</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nyc-speed-data">NYC Speed data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hk">HK</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#eng-hw">ENG-HW</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#external-dataset">External dataset</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#nyc-accident-data">NYC Accident data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#road-network-data-openstreetmap">Road network data (OpenStreetMap)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#weather-and-events-data">Weather and events data</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#others">Others</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#buschi">BusCHI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ctm">CTM</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#heat">HEAT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#acousticpollution">AcousticPollution</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#metr-la">METR_LA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#los-loop">LOS_LOOP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sz-taxi">SZ_TAXI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loop-seattle">LOOP_SEATTLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#q-traffic">Q_TRAFFIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pems">PEMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd3">PEMSD3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd4">PEMSD4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd7">PEMSD7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd8">PEMSD8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pemsd7-m">PEMSD7(M)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pems-bay">PEMS_BAY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#beijing-subway">BEIJING_SUBWAY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#m-dense">M_DENSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rotterdam">ROTTERDAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shmetro">SHMETRO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hzmetro">HZMETRO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#taxibj">TaxiBJ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#t-drive">T_DRIVE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#porto">PORTO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyctaxi">NYCTAXI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyctaxi-dyna">NYCTAXI_DYNA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyctaxi-od">NYCTAXI_OD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nyctaxi-grid">NYCTAXI_GRID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nycbike">NYCBIKE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#austinride">AUSTINRIDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bikedc">BIKEDC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bikechi">BIKECHI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foursquare">Foursquare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gowalla">Gowalla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brightkite">Brightkite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instagram">Instagram</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="atomic_files.html">Atomic Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_for_task.html">Dataset For Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
@@ -185,17 +147,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.utils.html">libcity.utils</a></li>
 </ul>
 
             
@@ -211,7 +179,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Bigscity-TrafficDL</a>
+          <a href="../../index.html">Bigscity-LibCity</a>
         
       </nav>
 
@@ -265,333 +233,225 @@
             
   <div class="section" id="raw-data">
 <h1>Raw Data<a class="headerlink" href="#raw-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="people-flow-trajectory-dataset">
-<h2>People flow trajectory dataset<a class="headerlink" href="#people-flow-trajectory-dataset" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="foursquare">
-<h3>Foursquare<a class="headerlink" href="#foursquare" title="Permalink to this headline">¶</a></h3>
-<p><strong>Duration:</strong> Apr. 12, 2012 ~ Feb. 16, 2013</p>
-<p><strong>Link:</strong> https://sites.google.com/site/yangdingqi/home/foursquare-dataset</p>
-<p><strong>Description:</strong>  Foursquare a location-based social networking website where users share their locations by checking-in.</p>
-</div>
-<div class="section" id="foursquare-nyc-restaurant-rich-dataset">
-<h3>Foursquare: NYC Restaurant Rich Dataset<a class="headerlink" href="#foursquare-nyc-restaurant-rich-dataset" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> Oct. 24, 2011 ~ Feb. 20, 2012</p>
-<p><strong>Description:</strong>  This dataset includes check-in, tip and tag data of restaurant venues in NYC.</p>
-</div>
-<div class="section" id="foursquare-global-scale-check-in-dataset">
-<h3>Foursquare: Global-scale Check-in Dataset<a class="headerlink" href="#foursquare-global-scale-check-in-dataset" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> 415 cities</p>
-<p><strong>Duration:</strong> Apr. 2012 ~ Sept. 2013</p>
-<p><strong>Description:</strong>  This dataset includes long-term (about 18 months from April 2012 to September 2013) global-scale check-in data collected from Foursquare.</p>
-</div>
-<div class="section" id="foursquare-user-profile-dataset">
-<h3>Foursquare: User Profile Dataset<a class="headerlink" href="#foursquare-user-profile-dataset" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> New York, USA and Tokyo, Japan</p>
-<p><strong>Duration:</strong> Apr. 2012 ~ Sept. 2013</p>
-<p><strong>Description:</strong>  This dataset includes some user profile data for privacy study (i. e., gender, friends, followers). The corresponding user check-in data can be found in the global-scale check-in dataset.</p>
-</div>
-<div class="section" id="foursquare-global-scale-check-in-dataset-with-user-social-networks">
-<h3>Foursquare: Global-scale Check-in Dataset with User Social Networks<a class="headerlink" href="#foursquare-global-scale-check-in-dataset-with-user-social-networks" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> 415 cities</p>
-<p><strong>Duration:</strong> Apr. 2012 ~ Jan. 2014</p>
-<p><strong>Description:</strong>  This dataset includes long-term (about 22 months from Apr. 2012 to Jan. 2014) global-scale check-in data collected from Foursquare, and also two snapshots of user social networks before and after the check-in data collection period.</p>
-</div>
-<div class="section" id="gowalla">
-<h3>Gowalla<a class="headerlink" href="#gowalla" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> -</p>
-<p><strong>Duration:</strong> Feb. 2009 ~ Oct. 2010</p>
-<p><strong>Link:</strong> https://snap.stanford.edu/data/loc-gowalla.html</p>
-<p><strong>Description:</strong>  Gowalla is a location-based social networking website where users share their locations by checking-in,containing information of users, users’ check-in time, users’ latitude, longitude,users’ location id.</p>
-</div>
-<div class="section" id="brightkite">
-<h3>Brightkite<a class="headerlink" href="#brightkite" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> -</p>
-<p><strong>Duration:</strong> Apr. 2008 ~ Oct. 2010</p>
-<p><strong>Link:</strong> http://snap.stanford.edu/data/loc-brightkite.html</p>
-<p><strong>Description:</strong> Brightkite is a location-based social networking website where users share their locations by checking-in,containing information of users, users’ check-in time, users’ latitude, longitude,users’ location id.</p>
-</div>
-<div class="section" id="geolife-gps">
-<h3>GeoLife-GPS<a class="headerlink" href="#geolife-gps" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Beijing, China (majority)</p>
-<p><strong>Duration:</strong> Aug. 2007 ~ Aug. 2012</p>
-<p><strong>Link:</strong> https://www.microsoft.com/en-us/research/publication/geolife-gps-trajectory-dataset-user-guide/</p>
-<p><strong>Description:</strong> The GPS track dataset was collected by 182 users from April 2007 to August 2012 and contains 17,621 tracks with a total distance of 1,292,951 km and a total duration of 50,176 hours. 91.5% of the tracks are recorded at high density, for example every 1 to 5 seconds or every 5 to 10 meters per point.</p>
-</div>
-</div>
-<div class="section" id="vehicle-trajectory-dataset">
-<h2>Vehicle trajectory dataset<a class="headerlink" href="#vehicle-trajectory-dataset" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="nyc-bus">
-<h3>NYC-Bus<a class="headerlink" href="#nyc-bus" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> Aug. 1, 2014 ~ Oct. 31, 2014</p>
-<p><strong>Link:</strong> http://web.mta.info/developers/MTA-Bus-Time-historical-data.html</p>
-<p><strong>Description:</strong> The NYC-Bus dataset contains MTA bus time historical data.</p>
-</div>
-<div class="section" id="nyc-taxi">
-<h3>NYC-Taxi<a class="headerlink" href="#nyc-taxi" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> 2009 ~ present</p>
-<p><strong>Link:</strong> https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page</p>
-<p><strong>Description:</strong> The NYC-Taxi dataset contains trajectories of different types of taxi collected by GPS for New York City from 2009 to 2020.</p>
-</div>
-<div class="section" id="nyc-bike">
-<h3>NYC-Bike<a class="headerlink" href="#nyc-bike" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> Jun. 2013 ~ present</p>
-<p><strong>Link:</strong> https://www.citibikenyc.com/system-data</p>
-<p><strong>Description:</strong> The NYC-Bike dataset contains bike trajectories collected from NYC CitiBike system.</p>
-</div>
-<div class="section" id="bikedc">
-<h3>BikeDC<a class="headerlink" href="#bikedc" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Washington, USA</p>
-<p><strong>Duration:</strong> Sept. 20, 2010 ~ Oct. 2020</p>
-<p><strong>Link:</strong> https://www.capitalbikeshare.com/system-data</p>
-<p><strong>Description:</strong> The BikeDC dataset describes the bike trails of the Washington Bicycle System, which includes 472 stops.</p>
-</div>
-<div class="section" id="bikechi">
-<h3>BikeCHI<a class="headerlink" href="#bikechi" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Chicago, USA</p>
-<p><strong>Duration:</strong> Jun. 27, 2013 ~ 2018</p>
-<p><strong>Link:</strong> https://www.divvybikes.com/system-data</p>
-<p><strong>Description:</strong> The BikeCHI dataset shows the development of bike-sharing in Chicago from 2013 to 2018.</p>
-</div>
-<div class="section" id="austinride">
-<h3>AustinRide<a class="headerlink" href="#austinride" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Austin, USA</p>
-<p><strong>Duration:</strong> Jun. 4, 2016 ~ Apr. 13, 2017</p>
-<p><strong>Link:</strong> https://data.world/ride-austin/ride-austin-june-6-april-13</p>
-<p><strong>Description:</strong> The AustinRide dataset contains Austin ride trajectories spans from August 1, 2016 to April 13, 2017, including over 1.4 million trips.</p>
-</div>
-<div class="section" id="i-80">
-<h3>I-80<a class="headerlink" href="#i-80" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> San Francisco Bay, USA</p>
-<p><strong>Duration:</strong> Apr. 13, 2005</p>
-<p><strong>Link:</strong> https://www.fhwa.dot.gov/publications/research/operations/06137/index.cfm</p>
-<p><strong>Description:</strong> The I-80 dataset is 45 minutes long, and the vehicle trajectory data provides the precise location of each vehicle in the study area every tenth of a second.</p>
-</div>
-<div class="section" id="t-drive">
-<h3>T-Drive<a class="headerlink" href="#t-drive" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Beijing, China</p>
-<p><strong>Duration:</strong> Feb. 2, 2008 ~ Feb. 8, 2008</p>
-<p><strong>Link:</strong> https://www.microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample/</p>
-<p><strong>Description:</strong> The T-Drive trajectory dataset sample containing the weekly trajectories of 10,357 Beijing taxis is about 15 million points, and the total distance of trajectories reaches 9 million kilometers.</p>
-</div>
-<div class="section" id="porto">
-<h3>Porto<a class="headerlink" href="#porto" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Porto, Portugal</p>
-<p><strong>Duration:</strong> Jul. 1, 2013 ~ Jun. 30, 2014</p>
-<p><strong>Link:</strong> https://archive.ics.uci.edu/ml/datasets/Taxi+Service+Trajectory+-+Prediction+Challenge%2C+ECML+PKDD+2015</p>
-<p><strong>Description:</strong> The Porto dataset describes trajectories performed by all the 442 taxis running in the city of Porto, in Portugal.</p>
-</div>
-</div>
-<div class="section" id="preprocessed-vehicle-trajectory-dataset">
-<h2>Preprocessed vehicle trajectory dataset<a class="headerlink" href="#preprocessed-vehicle-trajectory-dataset" title="Permalink to this headline">¶</a></h2>
-<p>It mainly performs preprocessing operations such as spatial segmentation and flow statistics on the vehicle trajectory data set, and converts it into flow or demand data. (Mainly grid-based)</p>
-<div class="section" id="taxibj">
-<h3>TaxiBJ<a class="headerlink" href="#taxibj" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Beijing, China</p>
-<p><strong>Duration:</strong> Jul. 1, 2013 ~ Oct. 30, 2013, Mar. 1, 2014 ~ Jun. 30, 2014, Mar. 1, 2015 ~ Jun. 30, 2015 and Nov. 1, 2015 ~ Apr. 10, 2016</p>
-<p><strong>Link:</strong> https://github.com/TolicWang/DeepST/issues/3</p>
-<p><strong>Description:</strong> The TaxiBJ dataset contains the taxicab GPS data, including crowd flow, meteorology and holiday information.</p>
-</div>
-<div class="section" id="nycbike20140409">
-<h3>NYCBike20140409<a class="headerlink" href="#nycbike20140409" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="nycbike20160708">
-<h3>NYCBike20160708<a class="headerlink" href="#nycbike20160708" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="nycbike20160809">
-<h3>NYCBike20160809<a class="headerlink" href="#nycbike20160809" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="nyctaxi20140112">
-<h3>NYCTaxi20140112<a class="headerlink" href="#nyctaxi20140112" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="nyctaxi20150103">
-<h3>NYCTaxi20150103<a class="headerlink" href="#nyctaxi20150103" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="nyctaxi20160102">
-<h3>NYCTaxi20160102<a class="headerlink" href="#nyctaxi20160102" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="t-drive20150206">
-<h3>T-Drive20150206<a class="headerlink" href="#t-drive20150206" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="traffic-condition-dataset">
-<h2>Traffic condition dataset<a class="headerlink" href="#traffic-condition-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="metr-la">
-<h3>METR-LA<a class="headerlink" href="#metr-la" title="Permalink to this headline">¶</a></h3>
+<h2>METR_LA<a class="headerlink" href="#metr-la" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> Los Angeles County, USA</p>
 <p><strong>Duration:</strong> Mar. 1, 2012 ~ Jun. 27, 2012</p>
 <p><strong>Link:</strong> https://github.com/liyaguang/DCRNN</p>
 <p><strong>Description:</strong> The METR-LA dataset collected in the highway by loop detectors, contains traffic speed data from 207 sensors.</p>
 </div>
 <div class="section" id="los-loop">
-<h3>Los-loop<a class="headerlink" href="#los-loop" title="Permalink to this headline">¶</a></h3>
-<p>It is slightly different from METR_LA, and the missing values are supplemented by linear interpolation.</p>
+<h2>LOS_LOOP<a class="headerlink" href="#los-loop" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Los Angeles County, USA</p>
+<p><strong>Duration:</strong> Mar. 1, 2012 ~ Jun. 27, 2012</p>
+<p><strong>Link:</strong> https://github.com/lehaifeng/T-GCN/tree/master/data</p>
+<p><strong>Description:</strong> It is slightly different from METR_LA, and the missing values are supplemented by linear interpolation.</p>
 </div>
 <div class="section" id="sz-taxi">
-<h3>SZ-Taxi<a class="headerlink" href="#sz-taxi" title="Permalink to this headline">¶</a></h3>
+<h2>SZ_TAXI<a class="headerlink" href="#sz-taxi" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> Shenzhen, China</p>
 <p><strong>Duration:</strong> Jan. 1, 2015 ~ Jan. 31, 2015</p>
 <p><strong>Link:</strong> https://github.com/lehaifeng/T-GCN/tree/master/data</p>
 <p><strong>Description:</strong> The SZ-Taxi dataset contains the taxi trajectory of Shenzhen, including roads adjacency matrix and road traffic speed information.</p>
 </div>
 <div class="section" id="loop-seattle">
-<h3>Loop Seattle<a class="headerlink" href="#loop-seattle" title="Permalink to this headline">¶</a></h3>
+<h2>LOOP_SEATTLE<a class="headerlink" href="#loop-seattle" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> Greater Seattle Area, China</p>
 <p><strong>Duration:</strong> over the entirely of 2015</p>
 <p><strong>Link:</strong> https://github.com/zhiyongc/Seattle-Loop-Data</p>
 <p><strong>Description:</strong> The Loop Seattle dataset is collected by the inductive loop detectors deployed on freeways (I-5, I-405, I-90, and SR-520) in Seattle area and contains traffic state data from 323 sensor stations.</p>
 </div>
 <div class="section" id="q-traffic">
-<h3>Q-Traffic<a class="headerlink" href="#q-traffic" title="Permalink to this headline">¶</a></h3>
+<h2>Q_TRAFFIC<a class="headerlink" href="#q-traffic" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> Beijing, China</p>
 <p><strong>Duration:</strong> Apr. 1, 2017 ~ May 31, 2017</p>
 <p><strong>Link:</strong> https://github.com/JingqingZ/BaiduTraffic</p>
 <p><strong>Description:</strong> The Q-Traffic dataset contains three sub-datasets: query sub-dataset, traffic speed sub-dataset and road network sub-dataset.</p>
 </div>
 <div class="section" id="pems">
-<h3>PEMS<a class="headerlink" href="#pems" title="Permalink to this headline">¶</a></h3>
+<h2>PEMS<a class="headerlink" href="#pems" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> California, USA</p>
 <p><strong>Duration:</strong> 2001 ~ present</p>
 <p><strong>Link:</strong> http://pems.dot.ca.gov</p>
 <p><strong>Description:</strong> PEMS records California highway speed data, including time_hour, average_time, lane_points.</p>
 </div>
 <div class="section" id="pemsd3">
-<h3>PeMSD3<a class="headerlink" href="#pemsd3" title="Permalink to this headline">¶</a></h3>
+<h2>PEMSD3<a class="headerlink" href="#pemsd3" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> District 3 of California, USA</p>
 <p><strong>Duration:</strong> Sept. 1, 2018 ~ Nov. 30, 2018</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/STSGCN</p>
-<p><strong>Description:</strong> The PeMSD3 dataset includes 358 sensors and flow information.</p>
+<p><strong>Description:</strong> The PEMSD3 dataset includes 358 sensors and flow information.</p>
 </div>
 <div class="section" id="pemsd4">
-<h3>PeMSD4<a class="headerlink" href="#pemsd4" title="Permalink to this headline">¶</a></h3>
+<h2>PEMSD4<a class="headerlink" href="#pemsd4" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> San Francisco Bay Area, USA</p>
 <p><strong>Duration:</strong> Jan. 1, 2018 ~ Feb. 28, 2018</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/ASTGCN/tree/master/data/PEMS04</p>
-<p><strong>Description:</strong> The PeMSD4 dataset describes the the speed flow occupancy information of California freeway and contains 3848 sensors on 29 roads.</p>
+<p><strong>Description:</strong> The PEMSD4 dataset describes the the speed flow occupancy information of California freeway and contains 3848 sensors on 29 roads.</p>
 </div>
 <div class="section" id="pemsd7">
-<h3>PEMSD7<a class="headerlink" href="#pemsd7" title="Permalink to this headline">¶</a></h3>
+<h2>PEMSD7<a class="headerlink" href="#pemsd7" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> District 7 of California, USA</p>
 <p><strong>Duration:</strong> Jul. 1, 2016 ~ Aug. 31, 2016</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/STSGCN</p>
-<p><strong>Description:</strong> The PeMSD7 dataset contains traffic flow information from 883 sensor stations.</p>
+<p><strong>Description:</strong> The PEMSD7 dataset contains traffic flow information from 883 sensor stations.</p>
 </div>
 <div class="section" id="pemsd8">
-<h3>PeMSD8<a class="headerlink" href="#pemsd8" title="Permalink to this headline">¶</a></h3>
+<h2>PEMSD8<a class="headerlink" href="#pemsd8" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> San Bernardino Area, USA</p>
 <p><strong>Duration:</strong> Jul. 1, 2016 ~ Aug. 31, 2016</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/ASTGCN/tree/master/data/PEMS08</p>
-<p><strong>Description:</strong> The PeMSD8 dataset describes the speed occupancy of California freeways with data from 1979 sensors on 8 roads.</p>
+<p><strong>Description:</strong> The PEMSD8 dataset describes the speed occupancy of California freeways with data from 1979 sensors on 8 roads.</p>
 </div>
 <div class="section" id="pemsd7-m">
-<h3>PEMSD7(M)<a class="headerlink" href="#pemsd7-m" title="Permalink to this headline">¶</a></h3>
+<h2>PEMSD7(M)<a class="headerlink" href="#pemsd7-m" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> District 7 of California, USA</p>
 <p><strong>Duration:</strong> the weekdays of May and June of 2012</p>
 <p><strong>Link:</strong> https://github.com/Davidham3/STGCN/tree/master/datasets</p>
-<p><strong>Description:</strong> The PeMSD7(M) dataset describes highway speed information at 228 stations in the 7th District of California.</p>
-</div>
-<div class="section" id="pemsd-sf">
-<h3>PeMSD-SF<a class="headerlink" href="#pemsd-sf" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> San Francisco Bay Area, USA</p>
-<p><strong>Duration:</strong> Jan. 1, 2008 ~ Mar. 30, 2009</p>
-<p><strong>Link:</strong> http://archive.ics.uci.edu/ml/datasets/PEMS-SF</p>
-<p><strong>Description:</strong> The PeMSD-SF dataset describes the occupancy rate, between 0 and 1, of different car lanes of San Francisco bay area freeways.</p>
+<p><strong>Description:</strong> The PEMSD7(M) dataset describes highway speed information at 228 stations in the 7th District of California.</p>
 </div>
 <div class="section" id="pems-bay">
-<h3>PEMS-BAY<a class="headerlink" href="#pems-bay" title="Permalink to this headline">¶</a></h3>
+<h2>PEMS_BAY<a class="headerlink" href="#pems-bay" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> San Francisco Bay Area, USA</p>
 <p><strong>Duration:</strong> Jan. 1, 2017 ~ Jun. 30, 2017</p>
 <p><strong>Link:</strong> https://github.com/liyaguang/DCRNN</p>
-<p><strong>Description:</strong> The PeMS-BAY dataset contains 6 months of statistics on traffic speed, including 325 sensors.</p>
+<p><strong>Description:</strong> The PEMS-BAY dataset contains 6 months of statistics on traffic speed, including 325 sensors.</p>
 </div>
 <div class="section" id="beijing-subway">
-<h3>Beijing subway<a class="headerlink" href="#beijing-subway" title="Permalink to this headline">¶</a></h3>
+<h2>BEIJING_SUBWAY<a class="headerlink" href="#beijing-subway" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Beijing, China</p>
+<p><strong>Duration:</strong> Feb. 29, 2016 - Apr. 3, 2016</p>
+<p><strong>Link:</strong> https://github.com/JinleiZhangBJTU/ResNet-LSTM-GCN</p>
+<p><strong>Description:</strong>  This dataset is collected from the Beijing subway between 05:00 and 23:00 for five consecutive weeks from February 29 to April 3, 2016. There were 17 lines and 276 subway stations (excluding the airport express line and the stations on it) in March 2016 in Beijing.</p>
 </div>
 <div class="section" id="m-dense">
-<h3>M_dense<a class="headerlink" href="#m-dense" title="Permalink to this headline">¶</a></h3>
+<h2>M_DENSE<a class="headerlink" href="#m-dense" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Madrid, Spain</p>
+<p><strong>Duration:</strong> Jan. 1, 2018 - Dec. 21, 2019</p>
+<p><strong>Link:</strong> https://github.com/rdemedrano/crann_traffic</p>
+<p><strong>Description:</strong> This dataset contains historical data of traffic measurements in the city of Madrid. The measurements are taken every 15 minutes at each point, including traffic intensity in number of cars per hour.</p>
 </div>
 <div class="section" id="rotterdam">
-<h3>Rotterdam<a class="headerlink" href="#rotterdam" title="Permalink to this headline">¶</a></h3>
+<h2>ROTTERDAM<a class="headerlink" href="#rotterdam" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Rotterdam, Holland</p>
+<p><strong>Duration:</strong> 135 days of 2018</p>
+<p><strong>Link:</strong> https://github.com/RomainLITUD/DGCN_traffic_forecasting</p>
+<p><strong>Description:</strong> ROTTERDAM dataset contains traffic state information of 208 links.</p>
 </div>
 <div class="section" id="shmetro">
-<h3>SHMetro<a class="headerlink" href="#shmetro" title="Permalink to this headline">¶</a></h3>
+<h2>SHMETRO<a class="headerlink" href="#shmetro" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Shanghai, China</p>
+<p><strong>Duration:</strong> Jul. 1, 2016 - Sept. 30, 2016</p>
+<p><strong>Link:</strong> https://github.com/ivechan/PVCGN</p>
+<p><strong>Description:</strong>  This dataset was built based on the metro system of Shanghai, China. A total of 811.8 million transaction records were collected from Jul. 1st 2016 to Sept. 30th 2016, with 8.82 million ridership per day.</p>
 </div>
 <div class="section" id="hzmetro">
-<h3>HZMetro<a class="headerlink" href="#hzmetro" title="Permalink to this headline">¶</a></h3>
+<h2>HZMETRO<a class="headerlink" href="#hzmetro" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Hangzhou, China</p>
+<p><strong>Duration:</strong> Jan. 1, 2019 - Jan. 25, 2019</p>
+<p><strong>Link:</strong> https://github.com/ivechan/PVCGN</p>
+<p><strong>Description:</strong> This dataset was created with the transaction records of the Hangzhou metro system collected in January 2019. With 80 operational stations and 248 physical edges, this system has 2.35 million ridership per day.</p>
 </div>
-<div class="section" id="nyc-speed-data">
-<h3>NYC Speed data<a class="headerlink" href="#nyc-speed-data" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="taxibj">
+<h2>TaxiBJ<a class="headerlink" href="#taxibj" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Beijing, China</p>
+<p><strong>Duration:</strong> Jul. 1, 2013 ~ Oct. 30, 2013, Mar. 1, 2014 ~ Jun. 30, 2014, Mar. 1, 2015 ~ Jun. 30, 2015 and Nov. 1, 2015 ~ Apr. 10, 2016</p>
+<p><strong>Link:</strong> https://github.com/TolicWang/DeepST/issues/3</p>
+<p><strong>Description:</strong> The TaxiBJ dataset contains the taxicab GPS data, including crowd flow, meteorology and holiday information.</p>
+</div>
+<div class="section" id="t-drive">
+<h2>T_DRIVE<a class="headerlink" href="#t-drive" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Beijing, China</p>
+<p><strong>Duration:</strong> Feb. 2, 2008 ~ Feb. 8, 2008</p>
+<p><strong>Link:</strong> https://www.microsoft.com/en-us/research/publication/t-drive-trajectory-data-sample/</p>
+<p><strong>Description:</strong> The T-Drive trajectory dataset sample containing the weekly trajectories of 10,357 Beijing taxis is about 15 million points, and the total distance of trajectories reaches 9 million kilometers.</p>
+</div>
+<div class="section" id="porto">
+<h2>PORTO<a class="headerlink" href="#porto" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Porto, Portugal</p>
+<p><strong>Duration:</strong> Jul. 1, 2013 ~ Jun. 30, 2014</p>
+<p><strong>Link:</strong> https://archive.ics.uci.edu/ml/datasets/Taxi+Service+Trajectory+-+Prediction+Challenge%2C+ECML+PKDD+2015</p>
+<p><strong>Description:</strong> The Porto dataset describes trajectories performed by all the 442 taxis running in the city of Porto, in Portugal.</p>
+</div>
+<div class="section" id="nyctaxi">
+<h2>NYCTAXI<a class="headerlink" href="#nyctaxi" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> Apr. 1, 2015 ~ present</p>
-<p><strong>Link:</strong> http://data.beta.nyc/dataset/nyc-real-time-traffic-speed-data-feed-archived</p>
-<p><strong>Description:</strong> The NYC Speed data contains speed data for New York City, including speed, travel time, status, etc.</p>
-<p>Sequence of Lat/ Long points, describes locations of the sensor links</p>
+<p><strong>Duration:</strong> 2009 ~ present</p>
+<p><strong>Link:</strong> https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page</p>
+<p><strong>Description:</strong> The NYC-Taxi dataset contains trajectories of different types of taxi collected by GPS for New York City from 2009 to 2020.</p>
 </div>
-<div class="section" id="hk">
-<h3>HK<a class="headerlink" href="#hk" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> Hong Kong, China</p>
-<p><strong>Duration:</strong> Dec. 28, 2015 ~ present</p>
-<p><strong>Link:</strong> https://data.gov.hk/en-data/dataset/hk-td-sm_1-traffic-speed-map</p>
-<p><strong>Description:</strong> The HK dataset contains average traffic speed of major roads in Hong Kong.</p>
-</div>
-<div class="section" id="eng-hw">
-<h3>ENG-HW<a class="headerlink" href="#eng-hw" title="Permalink to this headline">¶</a></h3>
-<p><strong>Place:</strong> British</p>
-<p><strong>Duration:</strong> 2006 ~ 2014</p>
-<p><strong>Link:</strong> http://tris.highwaysengland.co.uk/detail/trafficflowdata</p>
-<p><strong>Description:</strong> The ENG-HW dataset includes information on intercity road traffic between three UK cities recorded by the government from 2006 to 2014.</p>
-</div>
-</div>
-<div class="section" id="external-dataset">
-<h2>External dataset<a class="headerlink" href="#external-dataset" title="Permalink to this headline">¶</a></h2>
-<p>External data generally includes weather data, road network structure data, point of interest (POI) data, event data, time information data and other data.</p>
+<div class="section" id="nyctaxi-dyna">
+<h2>NYCTAXI_DYNA<a class="headerlink" href="#nyctaxi-dyna" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Weather conditions: temperature, humidity, wind speed, visibility and weather status (sunny/rain/wind/cloudy, etc.)</p></li>
-<li><p>Driver ID: Because the driver’s personal situation is different, the prediction will have a certain impact, so it is necessary to mark the driver. This information is mainly used for personal prediction.</p></li>
-<li><p>Activities: including various holidays, traffic control, traffic accidents, sports events, concerts and other activities.</p></li>
-<li><p>Time information: day of week, time slice of the day.</p></li>
+<li><p>NYCTAXI_DYNA is a dataset that counts the inflow and outflow of the region with an irregular area division method.</p></li>
 </ul>
-<div class="section" id="nyc-accident-data">
-<h3>NYC Accident data<a class="headerlink" href="#nyc-accident-data" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="nyctaxi-od">
+<h2>NYCTAXI_OD<a class="headerlink" href="#nyctaxi-od" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>NYCTAXI_OD is a dataset that counts the origin-destination flow between regions with an irregular area division method.</p></li>
+</ul>
+</div>
+<div class="section" id="nyctaxi-grid">
+<h2>NYCTAXI_GRID<a class="headerlink" href="#nyctaxi-grid" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>NYCTAXI_GRID is a dataset that counts the inflow and outflow of the region with a grid-base division method.</p></li>
+</ul>
+</div>
+<div class="section" id="nycbike">
+<h2>NYCBIKE<a class="headerlink" href="#nycbike" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> New York, USA</p>
-<p><strong>Duration:</strong> May 7, 2014 ~ present</p>
-<p><strong>Link:</strong> https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95</p>
-<p><strong>Description:</strong> The NYC Accident data Contains accidents data in NYC.</p>
+<p><strong>Duration:</strong> Jun. 2013 ~ present</p>
+<p><strong>Link:</strong> https://www.citibikenyc.com/system-data</p>
+<p><strong>Description:</strong> The NYC-Bike dataset contains bike trajectories collected from NYC CitiBike system.</p>
 </div>
-<div class="section" id="road-network-data-openstreetmap">
-<h3>Road network data (OpenStreetMap)<a class="headerlink" href="#road-network-data-openstreetmap" title="Permalink to this headline">¶</a></h3>
-<p>https://www.openstreetmap.org/</p>
+<div class="section" id="austinride">
+<h2>AUSTINRIDE<a class="headerlink" href="#austinride" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Austin, USA</p>
+<p><strong>Duration:</strong> Jun. 4, 2016 ~ Apr. 13, 2017</p>
+<p><strong>Link:</strong> https://data.world/ride-austin/ride-austin-june-6-april-13</p>
+<p><strong>Description:</strong> The AustinRide dataset contains Austin ride trajectories spans from August 1, 2016 to April 13, 2017, including over 1.4 million trips.</p>
 </div>
-<div class="section" id="weather-and-events-data">
-<h3>Weather and events data<a class="headerlink" href="#weather-and-events-data" title="Permalink to this headline">¶</a></h3>
-<p>https://www.wunderground.com/</p>
+<div class="section" id="bikedc">
+<h2>BIKEDC<a class="headerlink" href="#bikedc" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Washington, USA</p>
+<p><strong>Duration:</strong> Sept. 20, 2010 ~ Oct. 2020</p>
+<p><strong>Link:</strong> https://www.capitalbikeshare.com/system-data</p>
+<p><strong>Description:</strong> The BikeDC dataset describes the bike trails of the Washington Bicycle System, which includes 472 stops.</p>
 </div>
-</div>
-<div class="section" id="others">
-<h2>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="buschi">
-<h3>BusCHI<a class="headerlink" href="#buschi" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bikechi">
+<h2>BIKECHI<a class="headerlink" href="#bikechi" title="Permalink to this headline">¶</a></h2>
 <p><strong>Place:</strong> Chicago, USA</p>
-<p><strong>Duration:</strong> Aug. 2, 2011 ~ May 3, 2018</p>
-<p><strong>Link:</strong> https://data.cityofchicago.org/Transportation/Chicago-Traffic-Tracker-Historical-Congestion-Esti/77hq-huss/data</p>
-<p><strong>Description:</strong> The BusCHI dataset contains the historical estimated congestion for 1270 traffic segments.</p>
-<p>Traffic congestion dataset</p>
+<p><strong>Duration:</strong> Jun. 27, 2013 ~ 2018</p>
+<p><strong>Link:</strong> https://www.divvybikes.com/system-data</p>
+<p><strong>Description:</strong> The BikeCHI dataset shows the development of bike-sharing in Chicago from 2013 to 2018.</p>
 </div>
-<div class="section" id="ctm">
-<h3>CTM<a class="headerlink" href="#ctm" title="Permalink to this headline">¶</a></h3>
-<p>Dataset of duration and number of requests</p>
+<div class="section" id="foursquare">
+<h2>Foursquare<a class="headerlink" href="#foursquare" title="Permalink to this headline">¶</a></h2>
+<p><strong>Duration:</strong> Apr. 12, 2012 ~ Feb. 16, 2013</p>
+<p><strong>Link:</strong> https://sites.google.com/site/yangdingqi/home/foursquare-dataset#h.p_ID_46</p>
+<p><strong>Description:</strong>  Foursquare a location-based social networking website where users share their locations by checking-in. We use the second dataset in the link, which is the <em>NYC and Tokyo Check-in Dataset</em>. We preprocessed the raw data provided by the link and split it into Foursquare-TKY and Foursquare-NYC.</p>
 </div>
-<div class="section" id="heat">
-<h3>HEAT<a class="headerlink" href="#heat" title="Permalink to this headline">¶</a></h3>
-<p>Temperature dataset</p>
+<div class="section" id="gowalla">
+<h2>Gowalla<a class="headerlink" href="#gowalla" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong></p>
+<p><strong>Duration:</strong> Feb. 2009 ~ Oct. 2010</p>
+<p><strong>Link:</strong> https://snap.stanford.edu/data/loc-gowalla.html</p>
+<p><strong>Description:</strong>  Gowalla is a location-based social networking website where users share their locations by checking-in,containing information of users, users’ check-in time, users’ latitude, longitude,users’ location id.</p>
 </div>
-<div class="section" id="acousticpollution">
-<h3>AcousticPollution<a class="headerlink" href="#acousticpollution" title="Permalink to this headline">¶</a></h3>
-<p>Acoustic pollution dataset</p>
+<div class="section" id="brightkite">
+<h2>Brightkite<a class="headerlink" href="#brightkite" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> Global</p>
+<p><strong>Duration:</strong> Apr. 2008 ~ Oct. 2010</p>
+<p><strong>Link:</strong> http://snap.stanford.edu/data/loc-brightkite.html</p>
+<p><strong>Description:</strong> Brightkite is a location-based social networking website where users share their locations by checking-in,containing information of users, users’ check-in time, users’ latitude, longitude,users’ location id.</p>
 </div>
+<div class="section" id="instagram">
+<h2>Instagram<a class="headerlink" href="#instagram" title="Permalink to this headline">¶</a></h2>
+<p><strong>Place:</strong> New York, USA</p>
+<p><strong>Duration:</strong> Jun. 15, 2011 - Nov. 8, 2016</p>
+<p><strong>Link:</strong> https://dmis.korea.ac.kr/cape</p>
+<p><strong>Description:</strong> The dataset’s biggest feature is that each check-in record contains not only the POI information but also the text information written when the user created the check-in record. Therefore, this dataset is particularly important for related researchs that incorporates trajectory semantic features into trajectory prediction.</p>
 </div>
 </div>
 
