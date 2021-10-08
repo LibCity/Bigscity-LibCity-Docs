@@ -43,3 +43,21 @@ The standard evaluation input format is a dictionary object, and the dictionary 
 - `uid`: The id of the user for each trajectory,  `shape = (batch_size)`.
 - `loc_true`:  Expected next hop location,  `shape = (batch_size)`.
 - `loc_pred`:  Model prediction output, `shape = (batch_size, output_dim)`.
+
+## Map Matching
+
+The standard data input format is a dictionary. The key names of this object are as follows:
+
+* `trajectory`: A dictionary of all trajectories, the key of which is `usr_id`. Each `usr_id` has a `numpy.ndarray`, representing a sequence of chronologically ordered spatial points sampled from a continuously moving object, with `columns=(index,longitude,latitude,time)` or `columns=(index,longitude,latitude)`.
+* `rd_nwk`: A road network with type `networkx.classes.digraph.DiGraph`.
+* `route`: `numpy.ndarray` of `rel_id` with `shape=(num_road,)`, representing ground truth.
+
+The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
+
+* `result`: A `numpy.ndarray` of `rel_id` with `shape=(num_samples,)`, representing matching result. 
+
+* `route`: As depicted in standard data input.
+
+* `rd_nwk`: As depicted in standard data input.
+
+  
