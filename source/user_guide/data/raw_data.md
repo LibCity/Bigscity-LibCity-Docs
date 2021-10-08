@@ -299,3 +299,23 @@
 **Link:** https://dmis.korea.ac.kr/cape
 
 **Description:** The dataset's biggest feature is that each check-in record contains not only the POI information but also the text information written when the user created the check-in record. Therefore, this dataset is particularly important for related researchs that incorporates trajectory semantic features into trajectory prediction.
+
+### Seattle
+
+**Place:** Seattle,WA,USA
+
+**Duration:** Jan. 17,2009 20:27:37~22:34:28
+
+**Link:** https://www.microsoft.com/en-us/research/publication/hidden-markov-map-matching-noise-sparseness/
+
+**Description:** This dataset (for Map Matching Task) shows a test GPS data taken on a drive in Seattle, WA, USA and its eastern suburbs. The trip starts in the upper right corner near Marymoor Park. The data was sampled at 1 Hz using a RoyalTek RBT-2300 GPS logger. The drive took place on Saturday, January 17, 2009 starting at 20:27:37 UTC (12:27:37 local time) and ending at 22:34:28 UTC (14:34:28 local time), for an elapsed time of 02:06:51.
+
+### Global
+
+**Place:** 100 places all over the world
+
+**Duration:** —
+
+**Link:** https://zenodo.org/record/57731#.YVwZ7WJBxnK
+
+**Description:**  This dataset (for Map Matching Task) is large enough to prove or disprove map-matching hypotheses on a world-wide scale. Because of the global coverage of this dataset, learning does not have to be be biased to the part of the world where the algorithm was tested.
