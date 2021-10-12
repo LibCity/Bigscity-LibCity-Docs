@@ -1,10 +1,10 @@
-Trajectory Location Prediction Evaluator
-========================================
+Trajectory Next-Location Prediction Evaluator
+===============================================
 
 Evaluation Metrics
 ------------------
 
-For the task of trajectory location prediction, this evaluator implements a series of TopK-based evaluation indicators:
+For the task of trajectory next-location prediction, this evaluator implements a series of TopK-based evaluation indicators:
 
 - Precision@K
 

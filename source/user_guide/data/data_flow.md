@@ -12,7 +12,7 @@ This document describes the overall data flow of the data module.
 
 - Dataset
 
-  Different `Dataset` classes are developed for each type of traffic prediction task, which are responsible for reading atomic files and performing some data preprocessing operations.
+  Different`Dataset` classes are developed for each type of traffic prediction task, which are responsible for reading atomic files and performing some data preprocessing operations. See [here](./dataset_class.md) for detail.
 
 - DataLoader
 

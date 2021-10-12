@@ -40,7 +40,7 @@ Supporting parameters:
 - `saved_model`：Whether to save the trained model. Defaults to `True`.
 - `train`：If the model has been pre-trained, whether to retrain the model. Defaults to `True`.
 - `batch_size`：The training and evaluation batch size.
-- `train_rate`：The proportion of the training set to the total dataset. (The order of division is training set, validation set, test set)
+- `train_rate`：The proportion of the training set to the total dataset. (The order of division is training set, validation set, test set).
 - `eval_rate`：The proportion of the validation set.
 - `learning_rate`：Learning_rate. The default learning rate of different models may be different, please refer to the corresponding configuration file for details.
 - `max_epoch`：Maximum rounds of training. The default value varies with the model.

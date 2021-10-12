@@ -32,7 +32,7 @@
 
 ### LOOP_SEATTLE
 
-**Place:** Greater Seattle Area, China
+**Place:** Greater Seattle Area, USA
 
 **Duration:** over the entirely of 2015
 
