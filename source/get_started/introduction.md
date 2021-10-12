@@ -6,6 +6,7 @@ LibCity is a unified, flexible and comprehensive traffic prediction library, whi
 
 * LibCity currently supports the following tasks:
 
+  * Time Series Prediction
   * Traffic State Prediction
     * Traffic Flow Prediction
     * Traffic Speed Prediction
