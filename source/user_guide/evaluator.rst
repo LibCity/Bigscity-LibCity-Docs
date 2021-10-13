@@ -10,6 +10,7 @@ Trajectory Location prediction TopK
 Traffic Flow Prediction        MAE、MSE、RMSE、MAPE、R2、EVAR
 Traffic Speed Prediction       MAE、MSE、RMSE、MAPE、R2、EVAR
 On-Demand Service predition    MAE、MSE、RMSE、MAPE、R2、EVAR
+Map Matching                   RMF、AN、AL
 ============================== ==============================
 
 .. toctree::
@@ -17,3 +18,4 @@ On-Demand Service predition    MAE、MSE、RMSE、MAPE、R2、EVAR
 
    evaluator/traffic_state_pred
    evaluator/traj_loc_pred
+   evaluator/map_matching
