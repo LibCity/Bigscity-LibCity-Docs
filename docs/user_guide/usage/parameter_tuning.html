@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parameter Tuning &mdash; Bigscity-LibCity  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Use Logger" href="logger.html" />
+    <link rel="prev" title="Standard Track" href="standard_track.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../usage.html">Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="run_model.html">Use run_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="standard_track.html">Standard Track</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parameter Tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#space-file">Space File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logger.html">Use Logger</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.utils.html">libcity.utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Bigscity-LibCity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../usage.html">Usage</a> &raquo;</li>
+        
+      <li>Parameter Tuning</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user_guide/usage/parameter_tuning.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parameter-tuning">
+<h1>Parameter Tuning<a class="headerlink" href="#parameter-tuning" title="Permalink to this headline">¶</a></h1>
+<p>Similar to the training and eveluation of a model, LibCity provides researchers with a script <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code>  to automatically search for hyper-parameters. The script is implemented based on the third-party open source library <a class="reference external" href="https://docs.ray.io/en/master/tune/index.html">Ray Tune</a>.</p>
+<p>Same as <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code>, <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code> also supports a series of command line parameters to allow user to adjust the experiment configuration. In addition to the command line parameters supported by <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code> , <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code> also supports the following unique parameters:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">space_file</span></code>: The configuration file which specifies the hyper-parameter search space. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scheduler</span></code>: The trial sheduler which will be used in <code class="docutils literal notranslate"><span class="pre">ray.tune.run</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">FIFO</span></code>. Now, LibCity supports <code class="docutils literal notranslate"><span class="pre">FIFO</span></code>, <code class="docutils literal notranslate"><span class="pre">ASHA</span></code>, <code class="docutils literal notranslate"><span class="pre">MedianStoppingRule</span></code>. (A trial is to sample once from the search space and then perform training and evaluation.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">search_alg</span></code>: The search algrothim which will be used in <code class="docutils literal notranslate"><span class="pre">ray.tune.run</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">BasicSearch</span></code>. Now, LibCity supports <code class="docutils literal notranslate"><span class="pre">BasicSearch</span></code>,  <code class="docutils literal notranslate"><span class="pre">BayesOptSearch</span></code>, <code class="docutils literal notranslate"><span class="pre">HyperOpt</span></code>. LibCity will use the loss as search metric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_samples</span></code>:  The number of times to sample from hyper-parameter space. Defaults to <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_concurrent</span></code>: The maximum number of trials running at the same time. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpu_per_trial</span></code>: The number of cpu which per trial will allocate. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpu_per_trial</span></code>: The number of gpu which per trial will allocate. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">task,</span> <span class="pre">model,</span> <span class="pre">dataset,</span> <span class="pre">space_file</span></code> must be specified in command line. For example, You can run hyper-parameter tuning as Following:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python hyper_tune.py --task <span class="o">[</span>task_name<span class="o">]</span> --model<span class="o">=[</span>model_name<span class="o">]</span> --dataset<span class="o">=[</span>dataset_name<span class="o">]</span> --space_file<span class="o">=[</span>file_name<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="space-file">
+<h2>Space File<a class="headerlink" href="#space-file" title="Permalink to this headline">¶</a></h2>
+<p>The space file should still be stored in JSON format. The content of the space file is a dictionary whose key is parameter name and value is space description variable.</p>
+<p>The space description variable is composed of the space type and the constraint parameters corresponding to that type. The supported space types and their corresponding constraint parameters are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">uniform</span></code>: The sampling space is a uniformly distributed real number space.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lower</span></code>: The lower limit of the uniform distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upper</span></code>: The upper limit of the uniform distribution.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">randn</span></code>: The sampling space is a normal distributed real number space.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean</span></code>: The mathematical expectation of the normal distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sd</span></code>: The standard deviation of the normal distribution.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">randint</span></code>: The sampling space is a uniformly distributed int number space.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lower</span></code>: The lower limit of the uniform distribution. (inclusive)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upper</span></code>: he upper limit of the uniform distribution. (exclusive)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">choice</span></code>: The search space is a set of discrete categorical variables. The hyper-parameter will be randomly selected from the set.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: The set of discrete categorical variables.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grid_search</span></code>: The search space is a set of discrete categorical variables. Parameter selection will adopt the method of grid search, which is to traverse all possible combinations.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: The set of discrete categorical variables.</p></li>
+</ul>
+</li>
+</ul>
+<p>A example of the space file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;beta&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;uniform&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;lower&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="nt">&quot;upper&quot;</span><span class="p">:</span> <span class="mf">10.0</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;choice&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="logger.html" class="btn btn-neutral float-right" title="Use Logger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="standard_track.html" class="btn btn-neutral float-left" title="Standard Track" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, aptx1231
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

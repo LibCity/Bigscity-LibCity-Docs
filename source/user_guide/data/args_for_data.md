@@ -82,3 +82,9 @@ The following parameters are all parameters used in the standard trajectory next
   * `fixed_length`: The dataset will cut the track according to a fixed length. That is, if the length of  current trajectory is equal to window_size, the next check-in record will be regarded as the starting point of the new trajectory.
 * `traj_encoder`: The trajectory encoder class used by the dataset. Default to `StandardTrajectoryEncoder` . The encoder is responsible for encoding model input based on check-in records.
 
+## Map Matching DataSet
+
+The following parameters are all parameters used in the task of map matching:
+
+* `delta_time`: if set to `True`, the dataset will calculate the time difference between the current time and the start time of the trajectory in seconds, otherwise the time will be given as `datetime`.
+

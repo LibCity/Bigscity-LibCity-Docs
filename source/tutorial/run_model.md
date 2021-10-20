@@ -1,37 +1,37 @@
-# Run an existing model in LibTraffic
+# Run an existing model in LibCity
 
-Here, we present how to run an existing model in `LibTraffic`.
+Here, we present how to run an existing model in `LibCity`.
 
 ## Download a Dataset
 
-`LibTraffic` provides 29 traffic datasets and presents their basic information on the [website](https://libtraffic.github.io/Bigscity-LibTraffic-Website/#/data) and [document](../user_guide/data/raw_data.md). To format various traffic datasets, we design and implement 6 atomic file types, which are able to characterize most forms of the input data required by different traffic prediction tasks. More details can be found in [document](../user_guide/data/atomic_files.md). 
+`LibCity` provides 29 traffic datasets and presents their basic information on the [website](https://libcity.github.io/Bigscity-LibCity-Website/#/data) and [document](../user_guide/data/raw_data.md). To format various traffic datasets, we design and implement 6 atomic file types, which are able to characterize most forms of the input data required by different traffic prediction tasks. More details can be found in [document](../user_guide/data/atomic_files.md). 
 
 We have already uploaded processed atomic files of datasets in network disks [BaiduDisk with code 1231](https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ#list/path=%2F) or [Google Drive](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing). Users can simply download from network disks.
 
 Take the METR_LA dataset as an example. We will get a folder named `METR_LA` after downloading it.
 
-> If you have not installed `LibTraffic` yet, you can find the installation tutorial [here](../tutorial/install_quick_start.md). 
+> If you have not installed `LibCity` yet, you can find the installation tutorial [here](../tutorial/install_quick_start.md). 
 
-If `LibTraffic` is installed successfully, we will get a folder named `Bigscity-LibTraffic`. We need to create a folder named `raw_data` in the project root directory for storing processed atomic files of datasets. Then, we move the downloaded folder `METR_LA` to the `raw_data` folder.
+If `LibCity` is installed successfully, we will get a folder named `Bigscity-LibCity`. We need to create a folder named `raw_data` in the project root directory for storing processed atomic files of datasets. Then, we move the downloaded folder `METR_LA` to the `raw_data` folder.
 
 ## Configure Parameters
 
-The experiment parameter configuration is determined by three aspects: the parameters passed by the command line, the user-defined configuration file, and the `LibTraffic` default configuration file. And the `LibTraffic` default configuration file includes configuration file of the data module, the executor module, the evaluator module, the model module.
+The experiment parameter configuration is determined by three aspects: the parameters passed by the command line, the user-defined configuration file, and the `LibCity` default configuration file. And the `LibCity` default configuration file includes configuration file of the data module, the executor module, the evaluator module, the model module.
 
 ### Parameter Priority
 
 command line parameters > user-defined parameters > default parameters of the model module > default parameters of other modules
 
-### LibTraffic Default Configuration File
+### LibCity Default Configuration File
 
 The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:
 
-- `libtraffic/config/data`
-- `libtraffic/config/executor`
-- `libtraffic/config/evaluator`
-- `libtraffic/config/model`
+- `libcity/config/data`
+- `libcity/config/executor`
+- `libcity/config/evaluator`
+- `libcity/config/model`
 
-Take the GRU model as an example and see its default configuration in `LibTraffic`. First, open `libtraffic/config/task_config.json`, which records the list of models and datasets that can be supported by various tasks, as well as the default data module class name, execution module class name, and evaluation module class name of each model.
+Take the GRU model as an example and see its default configuration in `LibCity`. First, open `libcity/config/task_config.json`, which records the list of models and datasets that can be supported by various tasks, as well as the default data module class name, execution module class name, and evaluation module class name of each model.
 
 ```json
 {
@@ -53,9 +53,9 @@ Take the GRU model as an example and see its default configuration in `LibTraffi
 }
 ```
 
-We can know that the dataset class, executor, evaluator of the GRU model are `TrafficStatePointDataset`, `DCRNNExecutor`, `TrafficStateEvaluator` respectively.
+We can know that the dataset class, executor, evaluator of the GRU model are `TrafficStatePointDataset`, `TrafficStateExecutor`, `TrafficStateEvaluator` respectively.
 
-Therefore, we can know default parameters of the data module from `libtraffic/config/data/TrafficStatePointDataset.json`.
+Therefore, we can know default parameters of the data module from `libcity/config/data/TrafficStatePointDataset.json`.
 
 ```json
 {
@@ -76,7 +76,7 @@ Therefore, we can know default parameters of the data module from `libtraffic/co
 }
 ```
 
-Default parameters of the executor module are in `libtraffic/config/executor/TrafficStateExecutor.json`.
+Default parameters of the executor module are in `libcity/config/executor/TrafficStateExecutor.json`.
 
 ```json
 {
@@ -93,7 +93,7 @@ Default parameters of the executor module are in `libtraffic/config/executor/Tra
 }
 ```
 
-We can also find default parameters of the evaluator module in `libtraffic/config/evaluator/TrafficStateEvaluator.json`.
+We can also find default parameters of the evaluator module in `libcity/config/evaluator/TrafficStateEvaluator.json`.
 
 ```json
 {
@@ -102,7 +102,7 @@ We can also find default parameters of the evaluator module in `libtraffic/confi
 }
 ```
 
-Default parameters of the model module are located in `libtraffic/config/model/traffic_state_pred/RNN.json`, whose priority is higher than that of other 3 modules. Take the `scalar` parameter as an example, whose default value is `standard`  in the default configuration file of the model module and `none` in the default configuration file of the data module. Therefore, its final default value is `standard` in `LibTrafic`.
+Default parameters of the model module are located in `libcity/config/model/traffic_state_pred/RNN.json`, whose priority is higher than that of other 3 modules. Take the `scalar` parameter as an example, whose default value is `standard`  in the default configuration file of the model module and `none` in the default configuration file of the data module. Therefore, its final default value is `standard` in `LibTrafic`.
 
 ```json
 {
@@ -124,7 +124,7 @@ Default parameters of the model module are located in `libtraffic/config/model/t
 
 ### User-defined Configuration File
 
-In order to allow users to modify the default parameters of each module at will, `LibTraffic` allows user to reads the parameter configuration from the user-defined configuration file. The user-defined configuration file should meet the following format requirements:
+In order to allow users to modify the default parameters of each module at will, `LibCity` allows user to reads the parameter configuration from the user-defined configuration file. The user-defined configuration file should meet the following format requirements:
 
 1. The user-defined configuration file should be a JSON file;
 2. The JSON file should store a dictionary, whose key is the parameter name, and the value is the parameter value to be modified;
@@ -166,11 +166,11 @@ python run_model.py --task traffic_state_pred --dataset METR_LA --model GRU --le
 
 The logger module would output the running information.
 
-First, the logger module points out the log of running the model is saved in `libtraffic/log` and the pipeline of training the model begins.
+First, the logger module points out the log of running the model is saved in `libcity/log` and the pipeline of training the model begins.
 
 ![](/_static/run_model1.png)
 
-Then, the executor module loads the atomic files and creates the dataset. It also splits the training set, the validation set, the test set and save the final dataset in `libtraffic/cache/dataset_cache`. If we want to run a model on the dataset with same parameters, these processes can be skipped.
+Then, the executor module loads the atomic files and creates the dataset. It also splits the training set, the validation set, the test set and save the final dataset in `libcity/cache/dataset_cache`. If we want to run a model on the dataset with same parameters, these processes can be skipped.
 
 ![](/_static/run_model2.png)
 
@@ -182,4 +182,4 @@ Next, the executor module starts to train the model. After training for one epoc
 
 ![](/_static/run_model4.png)
 
-Finally, when the model training ends, the executor module will test the model's performance on the test set and save the trained model and evaluation results in `libtraffic/cache/model_cache/` and `libtraffic/cache/evaluate_cache/` respectively.
+Finally, when the model training ends, the executor module will test the model's performance on the test set and save the trained model and evaluation results in `libcity/cache/model_cache/` and `libcity/cache/evaluate_cache/` respectively.

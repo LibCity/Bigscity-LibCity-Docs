@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Args for Data &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Args for Data &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Model Introduction" href="../model.html" />
+    <link rel="next" title="Dataset For Task" href="dataset_for_task.html" />
     <link rel="prev" title="Batch" href="batch.html" /> 
 </head>
 
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
           
 
           
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
@@ -103,9 +103,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#trajectory-location-prediction-dataset">Trajectory Location Prediction DataSet</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_for_task.html">Dataset For Task</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
@@ -116,17 +117,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.utils.html">libcity.utils</a></li>
 </ul>
 
             
@@ -142,7 +149,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Bigscity-TrafficDL</a>
+          <a href="../../index.html">Bigscity-LibCity</a>
         
       </nav>
 
@@ -212,6 +219,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">load_external</span></code>: Whether to load external data (such as weather data). Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">normal_external</span></code>: Whether to normalize external data. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ext_scaler</span></code>: Specify the normalization method to normalize external data, <strong>need to be specified externally</strong>. Range in [<code class="docutils literal notranslate"><span class="pre">normal</span></code>, <code class="docutils literal notranslate"><span class="pre">standard</span></code>, <code class="docutils literal notranslate"><span class="pre">minmax01</span></code>, <code class="docutils literal notranslate"><span class="pre">minmax11</span></code>, <code class="docutils literal notranslate"><span class="pre">none</span></code>]. Defaults to <code class="docutils literal notranslate"><span class="pre">none</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">add_time_in_day</span></code>: Time parameter, add auxiliary information of time of day. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>. This parameter depends on the parameter <code class="docutils literal notranslate"><span class="pre">load_external=True</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">add_day_in_week</span></code>: Time parameter, add auxiliary information of day of week. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>. This parameter depends on the parameter <code class="docutils literal notranslate"><span class="pre">load_external=True</span></code>.</p></li>
 </ul>
@@ -224,6 +232,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">standard</span></code>: Z-score normalization.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">minmax01</span></code>: MinMax normalization, result interval [0, 1].</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">minmax11</span></code>: MinMax normalization, result interval [-1, 1].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log</span></code>: Log normalization by log() and exp().</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">none</span></code>: Not normalized.</p></li>
 </ul>
 </li>
@@ -238,7 +247,6 @@
 <li><p>Other uncommon parameters</p>
 <p>Note: Some traffic prediction models implement traffic prediction by modeling closeness/period/trend, and use <code class="docutils literal notranslate"><span class="pre">len_closeness</span></code>/<code class="docutils literal notranslate"><span class="pre">len_period</span></code>/<code class="docutils literal notranslate"><span class="pre">len_trend</span></code> data as historical data for prediction instead of the above parameters <code class="docutils literal notranslate"><span class="pre">input_window</span></code> and <code class="docutils literal notranslate"><span class="pre">output_window</span></code>, so the following parameters are added:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">points_per_hour</span></code>: How many time steps are there in an hour, for example, if the dataset has a time step of 5 min, it is 12.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">len_closeness</span></code>: The length of the closeness time slice sequence.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">len_period</span></code>: The length of the period time slice sequence.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">len_trend</span></code>: The length of the trend time slice sequence.</p></li>
@@ -255,6 +263,27 @@
 </div>
 <div class="section" id="trajectory-location-prediction-dataset">
 <h2>Trajectory Location Prediction DataSet<a class="headerlink" href="#trajectory-location-prediction-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The following parameters are all parameters used in the standard trajectory next-location prediction dataset:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">batch_size</span></code>: The training and evaluation batch size. Defaults to <code class="docutils literal notranslate"><span class="pre">64</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache_dataset</span></code>:  Whether to save the processed dataset. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_workers</span></code>:  Parameter of <a class="reference external" href="https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader">Dataloader</a>. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train_rate</span></code>: The proportion of the training set to the total dataset.  Defaults to <code class="docutils literal notranslate"><span class="pre">0.7</span></code>. (The order of division is training set, validation set, test set)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eval_rate</span></code>: The proportion of the validation set. Defaults to <code class="docutils literal notranslate"><span class="pre">0.1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_session_len</span></code>: The min length of a trajectory cut from the user’s check-in records. Defaults to <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_session_len</span></code>: The max length of a trajectory cut from the user’s check-in records. Defaults to <code class="docutils literal notranslate"><span class="pre">50</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_sessions</span></code>: The min numbers of sub-trajectories which the user owns.  If the number of sub-trajectory owned by a user is less than this value, the user will be filtered out. Defaults to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_checkins</span></code>: The min numbers of times the POI is visited. If the number of times is less than this value, the POI will be filtered out. Defaults to <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">window_size</span></code>: The size of the cut window. The Dataset will use this window to cut user’s check-in records. Defauls to <code class="docutils literal notranslate"><span class="pre">12</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cut_method</span></code> : How to use the window to cut users’ check-in records.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">time_interval</span></code>: Default method. If the time interval between two adjacent check-in records is less than the window size, they will be regarded as belonging to the same trajectory , otherwise they won’t.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">same_date</span></code>: The dataset will treat the check-in records of the same day as a trajectory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fixed_length</span></code>: The dataset will cut the track according to a fixed length. That is, if the length of  current trajectory is equal to window_size, the next check-in record will be regarded as the starting point of the new trajectory.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">traj_encoder</span></code>: The trajectory encoder class used by the dataset. Default to <code class="docutils literal notranslate"><span class="pre">StandardTrajectoryEncoder</span></code> . The encoder is responsible for encoding model input based on check-in records.</p></li>
+</ul>
 </div>
 </div>
 
@@ -266,7 +295,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../model.html" class="btn btn-neutral float-right" title="Model Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dataset_for_task.html" class="btn btn-neutral float-right" title="Dataset For Task" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="batch.html" class="btn btn-neutral float-left" title="Batch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

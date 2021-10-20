@@ -9,6 +9,7 @@ The following types of atomic files are defined:
 | xxx.rel     | Store the relationship information between entities, such as road networks. | rel_id, type, origin_id, destination_id     |
 | xxx.dyna    | Store traffic condition information.                         | dyna_id, type, time, entity_id, location_id |
 | xxx.ext     | Store external information, such as weather, temperature, etc. | ext_id, time, properties                    |
+| xxx.route   | Store ground truth for Map Matching task.                    | rel_id                                      |
 | config.json | Used to supplement the description of the above table information. |                                             |
 
 Note: For different traffic prediction tasks, different atomic files may be used, and a dataset may not contain all six kinds of atomic files.
@@ -94,6 +95,14 @@ An element in the Ext table consists of the following three parts:
 - time: Time information, using the date and time combination notation in [ISO-8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html), such as: `2020- 12-07T02:59:46Z`.
 - properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both temperature data and humidity data.
 
+## Route Table
+
+An element in the Route table consists of only one part:
+
+**rel_id**
+
+*  rel_id: Describe which road is been taken, which is the ID of `rel`. The order of `rel_id`s show the real path.
+
 ## Data Type Definition
 
 The data type definition of each column in the dataset needs to be given in the config file, which is helpful for subsequent data processing.
@@ -138,7 +147,7 @@ The config file is used to supplement the information describing the above five 
     - `init_weight_inf_or_zero`: Range in [`inf` , `zero`]. When loading the `.rel` file to construct the adjacency matrix, the initial adjacency matrix is all INF (`inf`) or all 0 (`zero`), and the default is `inf`.
     - `set_weight_link_or_dist`: Range in [`link`, `dist`], when loading the `.rel` file to construct the adjacency matrix, use the original value in the weight column in the file (`dist`) or revise it to a matrix of all 01 (`link`), and the default is `dist`. 
     - `calculate_weight_adj`: Whether the weight of the adjacency matrix obtained from the `.rel` file needs to be further calculated, **default to `False`**. Some adjacency matrices are calculated based on the original data. The current calculation method is Gaussian kernel method with threshold: $$w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$.
-    - `weight_adj_epsilon`: The threshold of the Gaussian kernel. If the calculated weight is less than the threshold, it becomes 0, that is, $$ w_{ij}[w_{ij}<\epsilon]=0​$$. This parameter depends on the parameter `calculate_weight_adj=True` .
+    - `weight_adj_epsilon`: The threshold of the Gaussian kernel. If the calculated weight is less than the threshold, it becomes 0, that is, $$ w_{ij}[w_{ij}<\epsilon]=0$$. This parameter depends on the parameter `calculate_weight_adj=True` .
   - **For trajectory next-location prediction task:**
     -  `distance_upper`: The maximum distance between POI points.
 

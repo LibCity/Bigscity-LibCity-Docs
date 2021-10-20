@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Traffic State Prediction Executor &mdash; Bigscity-TrafficDL  documentation</title>
+  <title>Traffic State Prediction Executor &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -52,7 +52,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-TrafficDL
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
           
 
           
@@ -86,7 +86,7 @@
               <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
@@ -94,7 +94,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../model.html">Model Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../executor.html">Executor Introduction</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Traffic State Prediction Executor</a><ul>
@@ -112,17 +112,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_logger.html">Logger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.config.html">trafficdl.config</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.data.html">trafficdl.data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.evaluator.html">trafficdl.evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.executor.html">trafficdl.executor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.model.html">trafficdl.model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.pipeline.html">trafficdl.pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../trafficdl/trafficdl.utils.html">trafficdl.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.utils.html">libcity.utils</a></li>
 </ul>
 
             
@@ -138,7 +144,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Bigscity-TrafficDL</a>
+          <a href="../../index.html">Bigscity-LibCity</a>
         
       </nav>
 
@@ -198,24 +204,30 @@
 <p>The following mainly introduces the parameters that this executor class can receive:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">max_epoch</span></code>: Maximum rounds of training. The default value varies with the model.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">epoch</span></code>:  The number of initial training rounds. If it is greater than 0, it will first load the epoch model from <code class="docutils literal notranslate"><span class="pre">./trafficdl/cache/model_cache</span></code> and then continue to complete the training or evaluation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epoch</span></code>:  The number of initial training rounds. If it is greater than 0, it will first load the epoch model from <code class="docutils literal notranslate"><span class="pre">./libcity/cache/model_cache</span></code> and then continue to complete the training or evaluation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">learner</span></code>: The name of used <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#module-torch.optim">optimizer</a>. Defaults to <code class="docutils literal notranslate"><span class="pre">'adam'</span></code>. Range in <code class="docutils literal notranslate"><span class="pre">['adam',</span> <span class="pre">'sgd',</span> <span class="pre">'adagrad',</span> <span class="pre">'rmsprop',</span> <span class="pre">'sparse_adam']</span></code>.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>: Learning rate. Defaults to <code class="docutils literal notranslate"><span class="pre">0.01</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">weight_decay</span></code>: Parameter of adam optimizer. Default to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_epsilon</span></code>: Parameter of adam optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">1e-8</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weight_decay</span></code>: Parameter of optimizer. Default to <code class="docutils literal notranslate"><span class="pre">0.0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_epsilon</span></code>: Parameter of optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">1e-8</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_beta1</span></code>: Parameter of optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">0.9</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_beta2</span></code>: Parameter of optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">0.999</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_alpha</span></code>: Parameter of optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">0.99</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_momentum</span></code>: Parameter of optimizer. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lr_decay</span></code>: Whether to use <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate">lr_scheduler</a>. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_scheduler</span></code>: The type of <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate">lr_scheduler</a>. Range in [<code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>, <code class="docutils literal notranslate"><span class="pre">StepLR</span></code>, <code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>, <code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>, <code class="docutils literal notranslate"><span class="pre">LambdaLR</span></code>].</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_scheduler</span></code>: The type of <a class="reference external" href="https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate">lr_scheduler</a>. Range in [<code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>, <code class="docutils literal notranslate"><span class="pre">StepLR</span></code>, <code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>, <code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>, <code class="docutils literal notranslate"><span class="pre">LambdaLR</span></code>, <code class="docutils literal notranslate"><span class="pre">ReduceLROnPlateau</span></code>].</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">lr_decay_ratio</span></code>: Parameter of  <code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">StepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_decay_ratio</span></code>: Parameter of  <code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">StepLR</span></code>、<code class="docutils literal notranslate"><span class="pre">ExponentialLR</span></code>、<code class="docutils literal notranslate"><span class="pre">ReduceLROnPlateau</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">steps</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">MultiStepLR</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">step_size</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">StepLR</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lr_lambda</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">LambdaLR</span></code>.【<strong>However, this parameter needs to be specified as a function, currently json-based configuration files do not support.</strong>】</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lr_T_max</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lr_eta_min</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">CosineAnnealingLR</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_patience</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">ReduceLROnPlateau</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lr_threshold</span></code>: Parameter of <code class="docutils literal notranslate"><span class="pre">ReduceLROnPlateau</span></code>.</p></li>
 </ul>
 </li>
 </ul>
@@ -230,6 +242,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">patience</span></code>: The number of rounds of the early-stopping mechanism. When the validation set error is greater than the minimum validation error, it will accumulate 1, otherwise it will be cleared to 0. The training will end when the accumulative number reaches <code class="docutils literal notranslate"><span class="pre">patience</span></code> .</p></li>
 </ul>
 </li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train_loss</span></code>: Specify the loss function used during training. Range in <code class="docutils literal notranslate"><span class="pre">['mae',</span> <span class="pre">'mape',</span> <span class="pre">'mse',</span> <span class="pre">'rmse',</span> <span class="pre">'masked_mae',</span> <span class="pre">'masked_mape',</span> <span class="pre">'masked_mse',</span> <span class="pre">'masked_rmse',</span> <span class="pre">'r2',</span> <span class="pre">'evar']</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">log_level</span></code>: The log level setting, default to <code class="docutils literal notranslate"><span class="pre">INFO</span></code>. All logs exceeding the <code class="docutils literal notranslate"><span class="pre">INFO</span></code> level will be output, please refer to the third-party library logging for details.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">log_every</span></code>: Use log to record once every <code class="docutils literal notranslate"><span class="pre">log_level</span></code> round during training.</p></li>

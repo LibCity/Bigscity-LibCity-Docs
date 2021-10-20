@@ -17,9 +17,9 @@ import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
 # -- Project information -----------------------------------------------------
 
-project = 'Bigscity-LibTraffic'
+project = 'Bigscity-LibCity'
 copyright = '2020, aptx1231'
-author = 'aptx1231, WenMellors'
+author = 'aptx1231'
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,14 +41,14 @@ extensions = [
 'sphinx.ext.intersphinx',
 'sphinx.ext.viewcode',
 ]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
-
+exclude_patterns = ['.DS_Store']
 
 # -- Options for HTML output -------------------------------------------------
 

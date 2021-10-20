@@ -1,10 +1,10 @@
-Trajectory Location Prediction Evaluator
-========================================
+Trajectory Next-Location Prediction Evaluator
+===============================================
 
 Evaluation Metrics
 ------------------
 
-For the task of trajectory location prediction, this evaluator implements a series of TopK-based evaluation indicators:
+For the task of trajectory next-location prediction, this evaluator implements a series of TopK-based evaluation indicators:
 
 - Precision@K
 
@@ -53,7 +53,7 @@ Evaluation Settings
 
 The following are parameters involved in the evaluator:
 
-Location: libtraffic/config/evaluator/TrajLocPredEvaluator.json
+Location: libcity/config/evaluator/TrajLocPredEvaluator.json
 
 - ``metrics (list of string)``: Default to ``["Recall"]``. Range in ``["Precision", "Recall", "F1", "MRR", "MAP", "NDCG"]``.
 
