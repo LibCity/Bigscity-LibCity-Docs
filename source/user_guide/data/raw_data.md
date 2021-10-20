@@ -334,11 +334,11 @@
 
 **Place:** Beijing, China
 
-**Duration:** 2015
+**Duration:** Apr. 2015 - Jul. 2015
 
 **Link:** -
 
-**Description:** BJ_TRAJ dataset contains a huge amount of trajectory data, approximately 144 million per month. Several months' data is available, the implementation only used data in Jun. 2015.
+**Description:** BJ_TRAJ dataset contains a huge amount of trajectory data, approximately 11 million per month. 
 
 ### CD_TRAJ
 
@@ -348,7 +348,7 @@
 
 **Link:** -
 
-**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 591 million per 10 days. There is data of 2 months available. 
+**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 2.58 million per 10 days. There is data of 2 months available. 
 
 ### XA_TRAJ
 
@@ -358,5 +358,5 @@
 
 **Link:** -
 
-**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 688 million per 15 days. There is data of 2 months available.
+**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 2.14 million per 15 days. There is data of 2 months available.
 
