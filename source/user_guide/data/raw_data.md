@@ -338,7 +338,7 @@
 
 **Link:** -
 
-**Description:** BJ_TRAJ dataset contains a huge amount of trajectory data, approximately 11 million per month. 
+**Description:** BJ_TRAJ dataset contains a huge amount of trajectory data, approximately 7.60 million per month. 
 
 ### CD_TRAJ
 
