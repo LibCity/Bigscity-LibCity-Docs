@@ -299,3 +299,44 @@
 **Link:** https://dmis.korea.ac.kr/cape
 
 **Description:** The dataset's biggest feature is that each check-in record contains not only the POI information but also the text information written when the user created the check-in record. Therefore, this dataset is particularly important for related researchs that incorporates trajectory semantic features into trajectory prediction.
+
+### BJ_ROADMAP
+
+**Place:** Beijing, China
+
+**Duration:** -
+
+**Link:** -
+
+**Description:** The origin dataset contains properties of nodes and edges in OpenStreetMap format. Two ways, including creating the graph whose nodes are intersections and relationships are road sections, and whose nodes are road sections and relationships are intersections, are implemented, named "bj_roadmap_node" and "bj_roadmap_edge" separately.
+
+### BJ_TRAJ
+
+**Place:** Beijing, China
+
+**Duration:** 2015
+
+**Link:** -
+
+**Description:** BJ_TRAJ dataset contains a huge amount of trajectory data, approximately 144 million per month. Several months' data is available, the implementation only used data in Jun. 2015.
+
+### CD_TRAJ
+
+**Place:** Chengdu, China
+
+**Duration:** Oct. 01, 2018 - Nov. 30, 2018 
+
+**Link:** -
+
+**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 591 million per 10 days. There is data of 2 months available. 
+
+### XA_TRAJ
+
+**Place:** Xi'an, China
+
+**Duration:** Oct. 01, 2018 - Nov. 30, 2018 
+
+**Link:** -
+
+**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 688 million per 15 days. There is data of 2 months available.
+
