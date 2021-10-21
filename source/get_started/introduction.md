@@ -36,7 +36,7 @@ LibCity is a unified, flexible and comprehensive traffic prediction library, whi
 
 #### Cite
 
-Our paper is accepted by ACM SIGSPATIAL 2021. If you find LibCity useful for your research or development, please cite our [paper](https://libcity.ai/#/LibCity-An-Open-Library-For-Traffic-Prediction).
+Our paper is accepted by ACM SIGSPATIAL 2021. If you find LibCity useful for your research or development, please cite our [paper](https://libcity.ai/#/paper).
 
 ```
 @proceedings{libcity,
