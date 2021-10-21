@@ -29,3 +29,22 @@ LibCity currently supports the following tasks:
 * **Model Module**: Responsible for initializing the reproduced baseline model or custom model.
 * **Evaluation Module**: Responsible for evaluating model prediction results through multiple indicators.
 * **Execution Module**: Responsible for model training and prediction.
+
+#### Cite
+
+Our paper is accepted by ACM SIGSPATIAL 2021. If you find LibCity useful for your research or development, please cite our [paper](https://libcity.ai/#/LibCity-An-Open-Library-For-Traffic-Prediction).
+
+```
+@proceedings{libcity,
+  editor={Jingyuan Wang and Jiawei Jiang and Wenjun Jiang and Chao Li and Wayne Xin Zhao},
+  title={LibCity: An Open Library for Traffic Prediction},
+  booktitle={{SIGSPATIAL} '21: 29th International Conference on Advances in Geographic Information Systems, Beijing, China, November 2-5, 2021 },
+  publisher={{ACM}},
+  year={2021}
+}
+```
+
+```
+Jingyuan Wang, Jiawei Jiang, Wenjun Jiang, Chao Li, and Wayne Xin Zhao. 2021. LibCity: An Open Library for Traffic Prediction. In Proceedings of the 29th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems. 
+```
+
