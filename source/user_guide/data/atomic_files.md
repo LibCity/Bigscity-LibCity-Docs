@@ -65,7 +65,7 @@ An element in the Dyna table consists of the following five parts:
 
 - type: The type of dyna. There are two values: `trajectory` (for trajectory next-location prediction task) and `state` (for traffic state prediction task).
 
-- time: Time information, using the date and time combination notation in [ISO-8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html), such as: `2020- 12-07T02:59:46Z`.
+- time: Time information, using the date and time combination notation in [ISO-8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html), such as: `2020-12-07T02:59:46Z`.
 
 - entity_id: Describe which entity the record is based on, which is the ID of `geo` or `usr`.
 
