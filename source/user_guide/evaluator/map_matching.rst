@@ -13,10 +13,10 @@ Evaluation Metrics                Formula
 ================================= ============================================================================================
 RMF(Route Mismatch Fraction)      .. math:: RMF=(d_{-}+(d_+)/d_0)
 AN(Accuracy in Number)            .. math:: AN=\frac{\#Rc}{\#R}
-AL(Accuracy in Length)            .. math:: AL=\frac{\sum len(Rc)}{total len(R)}
+AL(Accuracy in Length)            .. math:: AL=\frac{\sum len(Rc)}{\sum len(R)}
 ================================= ============================================================================================
 
-where \ :math:`d_-`\ denotes the length subtracted from the error, \ :math:`d_+`\ denotes the length added to the error, \ :math:`Rc`\ denotes correctly matched roads, \ :math:`R`\ denotes all roads of the real route. \ :math:`len(·)`\ denotes the length of ·.
+where \ :math:`d_-`\  denotes the length subtracted from the error, \ :math:`d_+`\  denotes the length added to the error, \ :math:`Rc`\  denotes correctly matched roads, \ :math:`R`\  denotes all roads of the real route. \ :math:`len(·)`\  denotes the length of ·.
 
 Evaluation Settings 
 -------------------
