@@ -54,7 +54,7 @@ The standard data input format is a dictionary. The key names of this object are
 
 The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
 
-* `result`: The format of `result` is almost the same as that of `route` in standard data input. The value of `result` is a `numpy.ndarray` of `rel_id` with `shape=(num_sample,)`, representing matching result. `num_sample` is the number of GPS samples in the trajectory.
+* `result`: The format of `result` is almost the same as that of `route` in standard data input. The value of `result` is a `numpy.ndarray` of `geo_id` with `shape=(num_sample,)`, representing matching result. `num_sample` is the number of GPS samples in the trajectory.
 
 * `route`: As depicted in standard data input.
 
