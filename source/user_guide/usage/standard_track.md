@@ -48,13 +48,13 @@ The standard evaluation input format is a dictionary object, and the dictionary 
 
 The standard data input format is a dictionary. The key names of this object are as follows:
 
-* `trajectory`: A dictionary of all trajectories, the key of which is `usr_id`. Each `usr_id` has a `numpy.ndarray`, representing a sequence of chronologically ordered spatial points sampled from a continuously moving object, with `columns=(index,longitude,latitude,time)` or `columns=(index,longitude,latitude)`. The length of trajectory is noted as `num_sample` .
+* `trajectory`: The format of `trajectory` can be denoted as `{"usr_id":{"traj_id":{numpy.ndarray}}}`. That is to say, the key of `trajectory` is `usr_id`. Each `usr_id` has a dictionary, the key of which is `traj_id`.  for each `traj_id`, there's a`numpy.ndarray`, representing a sequence of chronologically ordered spatial points sampled from a continuously moving object, with `columns=(index,longitude,latitude,time)` or `columns=(index,longitude,latitude)`. The length of trajectory is noted as `num_sample`. 
 * `rd_nwk`: A road network with type `networkx.classes.digraph.DiGraph`.
-* `route`: `numpy.ndarray` of `rel_id` with `shape=(num_road,)`, representing ground truth. `num_road` is the length of real route.
+* `route`: The format of `route` can be denoted as `{"usr_id":{"traj_id":{numpy.ndarray}}}`. It is similar to `trajectory`. The value of `route` is a `numpy.ndarray` of `geo_id` with `shape=(num_road,)`, representing ground truth. `num_road` is the length of real route.
 
 The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
 
-* `result`: A `numpy.ndarray` of `rel_id` with `shape=(num_sample,)`, representing matching result. `num_sample` is the number of GPS samples in the trajectory.
+* `result`: The format of `result` is almost the same as that of `route` in standard data input. The value of `result` is a `numpy.ndarray` of `rel_id` with `shape=(num_sample,)`, representing matching result. `num_sample` is the number of GPS samples in the trajectory.
 
 * `route`: As depicted in standard data input.
 

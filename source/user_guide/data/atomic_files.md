@@ -9,7 +9,6 @@ The following types of atomic files are defined:
 | xxx.rel     | Store the relationship information between entities, such as road networks. | rel_id, type, origin_id, destination_id     |
 | xxx.dyna    | Store traffic condition information.                         | dyna_id, type, time, entity_id, location_id |
 | xxx.ext     | Store external information, such as weather, temperature, etc. | ext_id, time, properties                    |
-| xxx.route   | Store ground truth for Map Matching task.                    | rel_id                                      |
 | config.json | Used to supplement the description of the above table information. |                                             |
 
 Note: For different traffic prediction tasks, different atomic files may be used, and a dataset may not contain all six kinds of atomic files.
@@ -94,14 +93,6 @@ An element in the Ext table consists of the following three parts:
 - ext_id: The primary key uniquely determines a record in the external data table.
 - time: Time information, using the date and time combination notation in [ISO-8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html), such as: `2020- 12-07T02:59:46Z`.
 - properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both temperature data and humidity data.
-
-## Route Table
-
-An element in the Route table consists of only one part:
-
-**rel_id**
-
-*  rel_id: Describe which road is been taken, which is the ID of `rel`. The order of `rel_id`s show the real path.
 
 ## Data Type Definition
 

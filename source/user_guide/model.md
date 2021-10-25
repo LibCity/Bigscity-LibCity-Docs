@@ -284,3 +284,30 @@
 	The model focuses on using the attention mechanism to extract contextual information between trajectories for prediction.
 	
 		> Jarana Manotumruksa, Craig Macdonald, and Iadh Ounis. 2018.  A Contextual Attention Recurrent Architecture for Context-Aware Venue Recommendation. In SIGIR. ACM, 555–564.
+
+#### Map Matching
+
+* **ST-Matching**:
+
+  The model considers  (1)  the spatial  geometric  and  topological  structures  of  the  road  network and  (2)  the  temporal/speed  constraints  of  the  trajectories, and is specially designed for low-sampling-rate GPS trajectories.
+  
+  ```
+  Lou Y, Zhang C, Zheng Y, Wang W, Huang Y. Map-Matching for low-sampling-rate GPS trajectories. In: Proc. of the ACM-GIS.  2009. 352−361.
+  ```
+  
+* **IVMM**:
+
+  The model not only considers the spatial and temporal  information of a GPS trajectory but also devises a voting-based  strategy to model the weighted mutual influences between GPS  points. 
+
+  ```
+  Yuan J, Zheng Y, Zhang C, Xie X, Sun JZ. An interactive-voting based map matching algorithm. In: Proc. of the MDM. 2010.  43−52. [doi: 10.1109/MDM.2010.14]
+  ```
+
+* **HMMM**:
+
+  The model is a novel, principled map matching algorithm that uses a Hidden Markov Model (HMM) to find the most likely road route represented by a time-stamped sequence of latitude/longitude pairs. The HMM elegantly accounts for measurement noise and the layout of the road network. 
+
+  ```
+  Newson P, Krumm J. Hidden Markov map matching through noise and sparseness. In: Proc. of the ACM-GIS. 2009.  336−343. [doi: 10.1145/1653771.1653818]
+  ```
+
