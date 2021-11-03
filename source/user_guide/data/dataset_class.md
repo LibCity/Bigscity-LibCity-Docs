@@ -8,7 +8,7 @@ Here we introduce the functions of several dataset classes that have been implem
 
 - `TrajectoryDataset`
 
-  Base class for all trajectory location prediction tasks.
+  Base class for all trajectory location prediction tasks. The raw trajectory records will be cut according to the set `window_size` and `cut_method`, which means the months-long trajectory in the raw data set will be cut into sub-trajectories that meet the single travel time/distance length. After the cutting is completed, the corresponding trajectory spatiotemporal feature encoder will be called according to the set `traj_encoder` parameter to extract the features of the trajectory and generate model input.
 
 - `TrafficStateDataset`
 
