@@ -8,20 +8,21 @@ For the task of trajectory next-location prediction, this evaluator implements a
 
 Here is the symbol table of our evaluation metrics.
 
-============= ===============================================================
+=============== ===============================================================
 Symbol          Meaning                                                       
-============= ===============================================================
-.. math::`N`    The number of test data                                               
-.. math::`i`    The i-th test data                                          
-.. math::`K`      The top K prediction outputs for evaluation                       
-.. math::`T(i)`   The real next hop position in the i-th test data                    
-.. math::`R(i)`    The set of the top K locations in the prediction result of the i-th test data
-.. math::`Hit(i)`  The set of predicted hit locations in the i-th test data, which means .. math::`T(i) \cap R(i)` 
-.. math::`Rank(i)` The ranking of T(i) in R(i) in the i-th test data
-.. math::`|*|`     The modulo operator of a set      
-============= ===============================================================                                    
+=============== ===============================================================
+:math:`N`       The number of test data                                               
+:math:`i`       The i-th test data                                          
+:math:`K`       The top K prediction outputs for evaluation                       
+:math:`T(i)`    The real next hop position in the i-th test data                    
+:math:`R(i)`    The set of the top K locations in the prediction result of the i-th test data
+:math:`Hit(i)`  The set of predicted hit locations in the i-th test data, which means :math:`T(i) \cap R(i)` 
+:math:`Rank(i)` The ranking of T(i) in R(i) in the i-th test data
+:math:`|*|`     The modulo operator of a set      
+=============== ===============================================================                                    
 
-使用上述符号，TopK 评估指标的计算公式为：
+Using the above symbols, the calculation formula of TopK evaluation metrics is:
+
 ==================== ====================================================================
 Metric                  Formula                                                         
 ==================== ====================================================================
