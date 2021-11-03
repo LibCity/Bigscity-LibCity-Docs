@@ -4,49 +4,33 @@ Trajectory Next-Location Prediction Evaluator
 Evaluation Metrics
 ------------------
 
-For the task of trajectory next-location prediction, this evaluator implements a series of TopK-based evaluation indicators:
+For the task of trajectory next-location prediction, this evaluator implements a series of TopK-based evaluation metrics.
 
-- Precision@K
+Here is the symbol table of our evaluation metrics.
 
-  - Let R(u) be the prediction list based on user behavior on training set.
+============= ===============================================================
+Symbol          Meaning                                                       
+============= ===============================================================
+.. math::`N`    The number of test data                                               
+.. math::`i`    The i-th test data                                          
+.. math::`K`      The top K prediction outputs for evaluation                       
+.. math::`T(i)`   The real next hop position in the i-th test data                    
+.. math::`R(i)`    The set of the top K locations in the prediction result of the i-th test data
+.. math::`Hit(i)`  The set of predicted hit locations in the i-th test data, which means .. math::`T(i) \cap R(i)` 
+.. math::`Rank(i)` The ranking of T(i) in R(i) in the i-th test data
+.. math::`|*|`     The modulo operator of a set      
+============= ===============================================================                                    
 
-  - Let T(u) be the user behavior on testing set.
-
-  - \ :math:`Precision=\frac{\sum_{u}|R(u)\bigcap T(u)|}{\sum_{u}|R(u)|}`\
-
-- Recall@K
-
-  - \ :math:`Recall=\frac{\sum_{u}|R(u)\bigcap T(u)|}{\sum_{u}|T(u)|}`\
-
-  - There is only one ground-truth in trajectory location prediction, so \ :math:`Precision=\frac{Recall}{topk}`\.
-
-- F1-score@K
-
-  - \ :math:`F1=\frac{2*Recall*Precision}{Recall+Precision}`\
-
-- MRR(Mean Reciprocal Rank)@K
-
-  - Let rank(u) be the rank of the first ground-truth in prediction list.
-
-  - \ :math:`MRR=\sum_u\frac{1}{rank(u)}`\
-
-- MAP(Mean Average Precision)@K
-
-  - \ :math:`Precision=f(Recall)`\
-
-  - AP(Average Precision): \ :math:`\int_0^1f(r)\text{d}r`\ , namely average precision through different recall.
-  
-  - There is only one ground-truth in trajectory location prediction, so recall=1 and precision=\ :math:`\frac{1}{rank}`\ , thus \ :math:`AP_u=\frac{1}{rank(u)}`\.
-  
-  - \ :math:`MAP=\frac{\sum_{u\in U}AP_u}{|T(u)|}`\
-
-- NDCG(Normalized Discounted Cumulative Gain)@K
-
-  - CG(Cumulative Gain): \ :math:`\sum_u{rel(u)}`\ where rel(u) is the graded relevance of the result, \ :math:`rel\in\{0,1\}`\.
-  
-  - DCG(Discounted Cumulative Gain): \ :math:`\sum_u \frac{rel(u)}{\log_2(rank(u)+1)}`\ , reduce the relevance value of high rank result.
-  
-  - NDCG: \ :math:`\frac{DCG}{IDCG}`\, normalized DCG. IDCG is ideal DCG, which is 1 in implemention.
+使用上述符号，TopK 评估指标的计算公式为：
+==================== ====================================================================
+Metric                  Formula                                                         
+==================== ====================================================================
+Precision               .. math:: Precision@K=\frac{\sum_{i=1}^{N}|\operatorname{Hit}(i)|}{N \times K}
+Recall               .. math:: Recall@K=\frac{\sum_{i=1}^{N}|\operatorname{Hit}(i)|}{N}
+F1-score              .. math:: F1@K=\frac{2 \times \text { Precision@ } \times \text { Recall@ } K}{\text { Precision } @+\text { Recall@ } K}
+Mean Reciprocal Rank  .. math:: MRR@K=\frac{1}{N} \sum_{i=1}^{N} \frac{1}{\operatorname{Rank}(i)}
+NDCG                  .. math:: NDCG@K=\frac{1}{N} \sum_{i=1}^{N} \frac{1}{\log _{2}(\operatorname{rank}(i)+1)}
+==================== ====================================================================
 
 Evaluation Settings
 -------------------
