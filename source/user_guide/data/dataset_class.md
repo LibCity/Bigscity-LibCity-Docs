@@ -37,4 +37,8 @@ Here we introduce the functions of several dataset classes that have been implem
 - `MapMatchingDataset`
 
   Base class for all map matching tasks. This class generates a dictionary which contains 3 keys:`rd_nwk`, `trajectory` and `route`, representing road network, trajectory of GPS samples and ground truth respectively. if  `delta_time=True` is set, `trajectory` will include a `time` column indicating the reading of the seconds. `delta_time` is a parameters for dataset, see [here](../data/args_for_data.md) for details. see [here](../usage/standard_track.md) for introduction of standard data input.
+  
+- `ETADataset`
+
+  Base class for all estimated time of arrival (ETA) tasks. Function `_load_dyna` will load the trajectory information. Function `_encode_traj` will call the corresponding trajectory spatio-temporal feature encoder according to the parameter `eta_encoder`  to extract the features of the trajectory. The extracted features will be divided in training data, evaluation data and test data to generate model input.
 

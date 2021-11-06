@@ -360,3 +360,12 @@
 
 **Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 2.14 million per 15 days. There is data of 2 months available.
 
+### Chengdu_Taxi_Sample1
+
+**Place:** Chengdu, China
+
+**Duration:** Aug. 03, 2014 - Aug. 30, 2014
+
+**Link:** https://github.com/UrbComp/DeepTTE/tree/master/data
+
+**Description:** Chengdu_Taxi_Sample1 dataset is part of Chengdu_Taxi dataset. It contains 1800 taxi trajectory data in Chengdu.

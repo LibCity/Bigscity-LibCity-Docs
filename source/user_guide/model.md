@@ -311,3 +311,14 @@
   > Newson P, Krumm J. Hidden Markov map matching through noise and sparseness. In: Proc. of the ACM-GIS. 2009.  336−343. [doi: 10.1145/1653771.1653818]
   ```
 
+#### Estimated Time of Arrival
+
+* **DeepTTE**:
+
+  DeepTTE is an end-to-end Deep learning framework for Travel Time Estimation that estimates the travel time of the whole path directly. DeepTTE present a geo-convolution operation by integrating the geographic information into the classical convolution, capable of capturing spatial correlations.
+
+  ```
+  > Wang, D., Zhang, J., Cao, W., Li, J., & Zheng, Y. (2018). When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks. Proceedings of the AAAI Conference on Artificial Intelligence, 32(1).
+  ```
+
+  

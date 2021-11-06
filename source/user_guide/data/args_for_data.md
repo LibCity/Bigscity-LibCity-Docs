@@ -88,3 +88,14 @@ The following parameters are all parameters used in the task of map matching:
 
 * `delta_time`: if set to `True`, the dataset will calculate the time difference between the current time and the start time of the trajectory in seconds, otherwise the time will be given as `datetime`.
 
+## ETA Dataset
+
+The following parameters are all parameters used in the task of map matching:
+
+* `batch_size`: The training and evaluation batch size. Defaults to `10`.
+
+* `cache_dataset`:  Whether to save the processed dataset. Defaults to `True`.
+* `num_workers`:  Parameter of [Dataloader](https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader). Defaults to `0`.
+* `train_rate`: The proportion of the training set to the total dataset.  Defaults to `0.7`. (The order of division is training set, validation set, test set)
+* `eval_rate`: The proportion of the validation set. Defaults to `0.1`. 
+* `eta_encoder`: The trajectory encoder class used by the dataset. No default parameters. Usually for different datasets, different trajectory encoder classes will be used.
