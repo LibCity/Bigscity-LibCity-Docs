@@ -18,6 +18,7 @@ In this section, we introduce to you the correspondence between our provided [st
 | Trajectory Next-Location Prediction | **Gowalla**, BrightKite                                      | FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, STAN | Trajectory based dataset                                     |
 |                                     | **Fousquare**, Instagram                                     | FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, GeoSAN, STAN, SERM, CARA | Trajectory based dataset                                     |
 | Map Matching                        | **Seattle**, global                                          | STMatching, IVMM                                             | Trajectory based dataset                                     |
+| Estimated Time of Arrival           | **Chengdu_Taxi_Sample1**                                     | DeepTTE                                                      | Trajectory based dataset                                     |
 
 ## Note
 
@@ -53,5 +54,4 @@ class STG2SeqDataset(TrafficStateGridDataset):
         self.use_row_column = False
         pass
 ```
-
 

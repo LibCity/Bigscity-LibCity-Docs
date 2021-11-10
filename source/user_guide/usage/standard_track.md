@@ -55,9 +55,20 @@ The standard data input format is a dictionary. The key names of this object are
 The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
 
 * `result`: The format of `result` is almost the same as that of `route` in standard data input. The value of `result` is a `numpy.ndarray` of `geo_id` with `shape=(num_sample,)`, representing matching result. `num_sample` is the number of GPS samples in the trajectory.
-
 * `route`: As depicted in standard data input.
-
 * `rd_nwk`: As depicted in standard data input.
 
-  
+## Estimated Time of Arrival
+
+The standard data input format is a dictionary-like [Batch](../data/batch.md) object instance. The key names of this object are as follows:
+
+* `current_loc/(current_longi, current_lati)`: Trajectory location information, `shape = (batch_size, traj_len)`, `traj_len` is the length of the trajectory.
+* `uid`: The id of the user for each trajectory, `shape = (batch_size)`.
+* `timeid(weekid)`: Time information when the trajectory starts, `shape = (batch_size)`.
+* `dist`: The total distance of the trajectory, `shape = (batch_size)`.
+* Other information, such as `current_dis`(the distance from starting point to current point, `shape = (batch_size, traj_len)`)， `current_state`(the current taxi state is available or unavailable, `shape = (batch_size, traj_len)`). (Optional)
+
+The standard evaluation input format is a dictionary object, and the dictionary has the following key names:
+
+- `y_true`:  The real travel time from starting point to finishing point, `shape = (batch_size)`.
+- `y_pred`:  The predicted travel time from starting point to finishing point, `shape = (batch_size)`.
