@@ -380,3 +380,23 @@
 **Link:** https://github.com/UrbComp/DeepTTE/tree/master/data
 
 **Description:** Chengdu_Taxi_Sample1 dataset is part of Chengdu_Taxi dataset. It contains 1800 taxi trajectory data in Chengdu.
+
+### NYC_RISK
+
+**Place:** New York, USA
+
+**Duration:** Jan.01,2013 ~ Dec.31,2013
+
+**Link:** https://github.com/Echohhhhhh/GSNet
+
+**Description:** The NYC accident dataset contains road, risk and POI data of New York City in 2013.
+
+### CHICAGO_RISK
+
+**Place:** New York, USA
+
+**Duration:** Feb.01,2016 ~ Sep.30,2016
+
+**Link:** https://github.com/Echohhhhhh/GSNet
+
+**Description:** The CHICAGO accident dataset contains road and risk data of Chicago in 2016.
