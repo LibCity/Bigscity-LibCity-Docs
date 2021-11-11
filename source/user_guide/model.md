@@ -321,4 +321,20 @@
   > Wang, D., Zhang, J., Cao, W., Li, J., & Zheng, Y. (2018). When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks. Proceedings of the AAAI Conference on Artificial Intelligence, 32(1).
   ```
 
+#### Origin-Destination Matrix Prediction
+
+* **GEML**:
+
+  This model uses the Graph Convolution Neural Network capture space information, P-SKIP LSTM capture time information, and multi-task learning mechanism, predicting every pair of departure - taxi traffic between reaches place
+
+  ```
+  > Wang, Yuandong & Yin, Hongzhi & Chen, Hongxu & Wo, Tianyu & xu, Jiudong & Zheng, Kai. (2019). Origin-Destination Matrix Prediction via Graph Convolution: a New Perspective of Passenger Demand Modeling. In KDD. ACM. 2019. 1227-1235
+  ```
+
+* **CSTN**:
+
+  The model uses a dual view volume of Graph Convolution Neural Network, captures spatial information on the node by the views from the origin and the destination, and uses the convlSTM capture time information, and finally capture global correlations through convolution.
   
+  ```
+  > Liu, Lingbo & Qiu, Zhilin & Li, Guanbin & Wang, Qing & Ouyang, Wanli & Lin, Liang. (2019). Contextualized Spatial-Temporal Network for Taxi Origin-Destination Demand Prediction. In IEEE Transactions on Intelligent Transportation Systems. 2019. 3875-3887  [doi: 10.1109/TITS.2019.2915525.]
+  ```
