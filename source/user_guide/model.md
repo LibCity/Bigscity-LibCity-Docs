@@ -321,4 +321,13 @@
   > Wang, D., Zhang, J., Cao, W., Li, J., & Zheng, Y. (2018). When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks. Proceedings of the AAAI Conference on Artificial Intelligence, 32(1).
   ```
 
-  
+
+#### Traffic Accidents Prediction
+
+- **GSNet**:
+
+  The model takes spatial-temporal geographical module and spatial-temporal semantic module into account to comprehensively evaluate traffic accident risk and designs a weighted loss function to address the zero-inflated issue, which pays more attention to the samples with high traffic accident risk.
+
+  ```
+  > Beibei Wang, Youfang Lin, Shengnan Guo, Huaiyu Wan. 2021. GSNet: Learning Spatial-Temporal Correlations from Geographical and Semantic Aspects for Traffic Accident Risk Forecasting. In AAAI. AAAI Press, 4402-4409. 
+  ```
