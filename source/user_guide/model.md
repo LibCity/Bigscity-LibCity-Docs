@@ -331,3 +331,22 @@
   ```
   > Beibei Wang, Youfang Lin, Shengnan Guo, Huaiyu Wan. 2021. GSNet: Learning Spatial-Temporal Correlations from Geographical and Semantic Aspects for Traffic Accident Risk Forecasting. In AAAI. AAAI Press, 4402-4409. 
   ```
+  
+
+#### Origin-Destination Matrix Prediction
+
+* **GEML**:
+
+  This model uses the Graph Convolution Neural Network capture space information, P-SKIP LSTM capture time information, and multi-task learning mechanism, predicting every pair of departure - taxi traffic between reaches place
+
+  ```
+  > Wang, Yuandong & Yin, Hongzhi & Chen, Hongxu & Wo, Tianyu & xu, Jiudong & Zheng, Kai. (2019). Origin-Destination Matrix Prediction via Graph Convolution: a New Perspective of Passenger Demand Modeling. In KDD. ACM. 2019. 1227-1235
+  ```
+
+* **CSTN**:
+
+  The model uses a dual view volume of Graph Convolution Neural Network, captures spatial information on the node by the views from the origin and the destination, and uses the convlSTM capture time information, and finally capture global correlations through convolution.
+  
+  ```
+  > Liu, Lingbo & Qiu, Zhilin & Li, Guanbin & Wang, Qing & Ouyang, Wanli & Lin, Liang. (2019). Contextualized Spatial-Temporal Network for Taxi Origin-Destination Demand Prediction. In IEEE Transactions on Intelligent Transportation Systems. 2019. 3875-3887  [doi: 10.1109/TITS.2019.2915525.]
+  ```
