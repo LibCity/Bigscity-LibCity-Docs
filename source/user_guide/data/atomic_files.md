@@ -65,28 +65,11 @@ An element in the Dyna table consists of the following five parts:
 ### Introduction to each column
 
 - dyna_id: The primary key uniquely determines a record in the Dyna table.
-
 - type: The type of dyna. There are two values: `trajectory` (for trajectory next-location prediction task) and `state` (for traffic state prediction task).
-
 - time: Time information, using the date and time combination notation in [ISO-8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html), such as: `2020-12-07T02:59:46Z`.
-
 - entity_id: Describe which entity the record is based on, which is the ID of `geo` or `usr`.
-
 - properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both speed data and flow data.
 
-   - For trajectory location prediction tasks: 
-
-     The format is: dyna_id, trajectory, time, entity_id, location. The content of the **entity_id** column should be **usr_id**.
-
-   - For traffic state prediction tasks, **entity_id** may have different changes:
-
-     - For entities that can use one-dimensional numbering for sensors, road sections, areas, etc., this column is the corresponding ID, the column name is [**entity_id**], and the file suffix name is `.dyna`.
-
-     - For grid-based traffic data, the column name is [**row_id, column_id**], and the file extension is `.grid`.
-
-     - For od-based traffic data, the column name is [**origin_id, destination_id**], and the file suffix name is `.od`.
-
-     - For grid-od-based traffic data, the column name is [**origin_row_id, origin_column_id, destination_row_id, destination_column_id**], and the file extension is `.gridod`.
 
 ### Detailed description
 
