@@ -1,6 +1,8 @@
 # Dataset For Task
 
-In this section, we introduce to you the correspondence between our provided [standard datasets](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing) and tasks. It is worth noting that some datasets can only support some models in a certain task.
+In this section, we introduce to you the correspondence between our provided [standard datasets](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing) tasks and models. It is worth noting that some datasets can only support some models in a certain task.
+
+If you think this table does not look convenient enough, please click [here](https://github.com/LibCity/Bigscity-LibCity-Docs/blob/master/source/user_guide/data/dataset_for_task.md) to view this table on Github
 
 | Task                                | Dataset                                                      | Supported Model                                              | Remark                                                       |
 | ----------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -14,24 +16,31 @@ In this section, we introduce to you the correspondence between our provided [st
 | On-Demand Service Prediction        | **TAXIBJ**, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, **NYCBike20140409**, **NYCBike20160708**, **NYCBike20160809**, **NYCTaxi20140112**, **NYCTaxi20150103**, **NYCTaxi20160102**, **T_DRIVE20150206**, T_DRIVE_SMALL | DMVSTNet                                                     | Grid based dataset                                           |
 |                                     | **PEMSD3**, **PeMSD4**, **PeMSD7**, **PeMSD8**, BEIJING_SUBWAY, M_DENSE, SHMETRO, HZMETRO, NYCTAXI_DYNA | CCRNN, STG2Seq                                               | Point based dataset                                          |
 |                                     | **TAXIBJ**, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, **NYCBike20140409**, **NYCBike20160708**, **NYCBike20160809**, **NYCTaxi20140112**, **NYCTaxi20150103**, **NYCTaxi20160102**, **T_DRIVE20150206**, T_DRIVE_SMALL | CCRNN, STG2Seq                                               | Need **simple modification**   for grid based dataset. **See Note 3.** |
-| Od Matrix Prediction               | **NYCTAXI_OD**                                               | GEML                                                         | OD based dataset                                             |
-|                                     | **NYC_TOD**                                                  | CSTN                                                        | Need `.gridod`, `.ext` file                                              |
+| Od Matrix Prediction               | **NYCTAXI_OD**                                               | GEML                                                         | Point-OD based dataset                                      |
+|  | **NYC_TOD** | GEML | Need **simple modification**   for grid-od based dataset. **See Note 4.** |
+|                                     | **NYC_TOD**                                                  | CSTN                                                        | Grid-OD based dataset and  `.ext` file             |
+| Traffic Accidents Prediction         | **NYC_RISK**, CHICAGO_RISK | GSNet | Grid based traffic accidents dataset                         |
 | Trajectory Next-Location Prediction | **Gowalla**, BrightKite                                      | FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, STAN | Trajectory based dataset                                     |
 |                                     | **Fousquare**, Instagram                                     | FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, GeoSAN, STAN, SERM, CARA | Trajectory based dataset                                     |
-| Map Matching                        | **Seattle**, global                                          | STMatching, IVMM                                             | Trajectory based dataset                                     |
 | Estimated Time of Arrival           | **Chengdu_Taxi_Sample1**                                     | DeepTTE                                                      | Trajectory based dataset                                     |
+| Map Matching                        | **Seattle**, global                                          | STMatching, IVMM, HMMM                                       | Trajectory based dataset                                     |
+| Road Network Representation Learning | **bj_roadmap_edge** | ChebConv, LINE | Road network dataset |
 
-## Note
+**Note 1**
 
-1. The bolded dataset is the one we recommend.
+The bolded dataset is the one we recommend.
 
-2. For `TGCLSTM`, need to set `dataset_class` to `TrafficStatePointDataset`. Otherwise, the default `dataset_class=TGCLSTMDataset` is only suitable for dataset `LOOP_SEATTLE`.
+**Note 2**
 
-3. Here is how to generalize models used for point-based data for grid-based data.
+For `TGCLSTM`, need to set `dataset_class` to `TrafficStatePointDataset`. Otherwise, the default `dataset_class=TGCLSTMDataset` is only suitable for dataset `LOOP_SEATTLE`.
 
-   (1) If the dataset class used by the model is `TrafficStatePointDataset`, such as `AGCRN`, `ASTGCNCommon`, `CCRNN`, etc., you can directly set `dataset_class` to `TrafficStateGridDataset` in `task_file.json` or through a custom configuration file(`--config_file`). Then set the parameter `use_row_column` of `TrafficStateGridDataset` to `False`.
+**Note 3**
 
-   (2) If the dataset class used by the model is the subclass of `TrafficStatePointDataset`, such as `ASTGCNDataset`, `CONVGCNDataset`, `STG2SeqDataset`, etc., you can modify the file of the dataset class to make it  inherit `TrafficStateGridDataset` instead of the current `TrafficStatePointDataset`. Then set the parameter `use_row_column` in the function `__init__()` to `False`.
+Here is how to generalize models used for point-based data for grid-based data.
+
+(1) If the dataset class used by the model is `TrafficStatePointDataset`, such as `AGCRN`, `ASTGCNCommon`, `CCRNN`, etc., you can directly set `dataset_class` to `TrafficStateGridDataset` in `task_file.json` or through a custom configuration file(`--config_file`). Then set the parameter `use_row_column` of `TrafficStateGridDataset` to `False`.
+
+(2) If the dataset class used by the model is the subclass of `TrafficStatePointDataset`, such as `ASTGCNDataset`, `CONVGCNDataset`, `STG2SeqDataset`, etc., you can modify the file of the dataset class to make it  inherit `TrafficStateGridDataset` instead of the current `TrafficStatePointDataset`. Then set the parameter `use_row_column` in the function `__init__()` to `False`.
 
 Example:
 
@@ -55,4 +64,12 @@ class STG2SeqDataset(TrafficStateGridDataset):
         self.use_row_column = False
         pass
 ```
+
+**Note 4**
+
+Here is how to generalize models used for point-based data for grid-based data. (Similar to Note 3)
+
+(1) If the dataset class used by the model is `TrafficStateOdDataset`, such as `GEML` etc., you can directly set `dataset_class` to `TrafficStateGridOdDataset` in `task_file.json` or through a custom configuration file(`--config_file`). Then set the parameter `use_row_column` of `TrafficStateGridOdDataset` to `False`.
+
+(2) If the dataset class used by the model is the subclass of `TrafficStateOdDataset`,  you can modify the file of the dataset class to make it  inherit `TrafficStateGridOdDataset` instead of the current `TrafficStateOdDataset`. Then set the parameter `use_row_column` in the function `__init__()` to `False`.
 

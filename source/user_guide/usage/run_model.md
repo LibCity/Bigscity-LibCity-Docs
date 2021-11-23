@@ -12,7 +12,7 @@ Furthermore, the script supports the input of the following command line paramet
 
 Supporting parameters:
 
-- `task`: The name of the task to be performed, including `traffic_state_pred`, `traj_loc_pred`, `map_matching`, `road_representation`. Defaults to `traffic_state_pred`.
+- `task`: The name of the task to be performed, including `traffic_state_pred`, `traj_loc_pred`, `eta`,  `map_matching`, `road_representation`. Defaults to `traffic_state_pred`.
 - `model`: The name of the model to be performed. Defaults to `GRU`. ([supporting models](../model))
 - `dataset`: The dataset to be performed. Defaults to `METR_LA`. ([supporting datasets](../data/raw_data.md))
 - `config_file`：The name of user-defined configuration file. Defaults to `None`. ([see more](../config_settings.md))

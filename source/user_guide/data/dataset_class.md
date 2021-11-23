@@ -1,4 +1,4 @@
-# The Implemented Dataset Class
+# Implemented Dataset Class
 
 Here we introduce the functions of several dataset classes that have been implemented.
 

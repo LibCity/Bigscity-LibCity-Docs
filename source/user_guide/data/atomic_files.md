@@ -15,6 +15,8 @@ Note: For different traffic prediction tasks, different atomic files may be used
 
 **The format of `.geo`, `.rel`, `.dyna`, and `.ext` is similar to the `csv` file, which consists of multiple columns of data.**
 
+If any kind of id is remapped in the process of processing into an atomic file, **we recommend numbering from 0**!
+
 ## Geo Table
 
 An element in the Geo table consists of the following four parts: 
@@ -60,6 +62,8 @@ An element in the Dyna table consists of the following five parts:
 
 **dyna_id, type, time, entity_id(multiple columns), properties(multiple columns)**.
 
+### Introduction to each column
+
 - dyna_id: The primary key uniquely determines a record in the Dyna table.
 
 - type: The type of dyna. There are two values: `trajectory` (for trajectory next-location prediction task) and `state` (for traffic state prediction task).
@@ -67,6 +71,8 @@ An element in the Dyna table consists of the following five parts:
 - time: Time information, using the date and time combination notation in [ISO-8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html), such as: `2020-12-07T02:59:46Z`.
 
 - entity_id: Describe which entity the record is based on, which is the ID of `geo` or `usr`.
+
+- properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both speed data and flow data.
 
    - For trajectory location prediction tasks: 
 
@@ -82,7 +88,63 @@ An element in the Dyna table consists of the following five parts:
 
      - For grid-od-based traffic data, the column name is [**origin_row_id, origin_column_id, destination_row_id, destination_column_id**], and the file extension is `.gridod`.
 
-- properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both speed data and flow data.
+### Detailed description
+
+*   For traffic state prediction tasks：
+    *   The format is:  *dyna\_id, state, time, entity\_id, properties*，**entity_id** may have different changes:
+    *   For entities that can use one-dimensional numbering for sensors, road sections, areas, etc., this column is the corresponding ID, the column name is [**entity_id**], and the file suffix name is `.dyna`.
+    *   For grid-based traffic data, the column name is [**row_id, column_id**], and the file extension is `.grid`.
+
+    *   For od-based traffic data, the column name is [**origin_id, destination_id**], and the file suffix name is `.od`.
+
+    *   For grid-od-based traffic data, the column name is [**origin_row_id, origin_column_id, destination_row_id, destination_column_id**], and the file extension is `.gridod`.
+*   For trajectory location prediction tasks: 
+    *   The format is: *dyna\_id, trajectory, time, entity\_id, (traj_id), location*。The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a POI.
+*   For estimated time of arrival tasks：
+    *   If the model receives trajectory input based on **GPS** points, the format is: *dyna_id, type, time, entity_id, (traj_id), coordinates*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **coordinates** column is the latitude and longitude of the track point.
+    *   If the model receives trajectory input based on road segments, the format is: *dyna_id, type, time, entity_id, (traj_id), location*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a road segment.
+*   For map matching tasks：：
+    *   The trajectory sequence of **GPS** points input by the task (\*\*.dyna), the format is: *dyna_id, type, time, entity_id, (traj_id), coordinates*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **coordinates** column is the latitude and longitude of the track point.
+    *   The trajectory sequence of the real road segment input by the task (\*\*_truth.dyna) and the trajectory sequence of the predicted road segment output by the task, the format is: *dyna_id, type, time, entity_id, (traj_id), location*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a road segment.
+
+### Data arrangement method
+
+- **Dyna table should be arranged according to the double keywords of <entity_id> and <time>, that is, records with the same <entity_id> are put together and sorted according to <time>. **
+- **Specially, for trajectory data, the trajectories of the same user should be sorted by <traj_id> first, and those with the same <traj_id> should be sorted by <time>.**
+
+E.g:
+
+```
+dyna_id,type,time,entity_id,traffic_speed
+0,state,2012-03-01T00:00:00Z,773869,64.375
+1,state,2012-03-01T00:05:00Z,773869,62.666666666666664
+2,state,2012-03-01T00:10:00Z,773869,64.0
+...
+34270,state,2012-06-27T23:50:00Z,773869,66.75
+34271,state,2012-06-27T23:55:00Z,773869,65.11111111111111
+34272,state,2012-03-01T00:00:00Z,767541,67.625
+34273,state,2012-03-01T00:05:00Z,767541,68.55555555555556
+34274,state,2012-03-01T00:10:00Z,767541,63.75
+...
+68542,state,2012-06-27T23:50:00Z,767541,62.25
+68543,state,2012-06-27T23:55:00Z,767541,66.88888888888889
+68544,state,2012-03-01T00:00:00Z,767542,67.125
+68545,state,2012-03-01T00:05:00Z,767542,65.44444444444444
+...
+```
+
+```
+dyna_id,type,time,entity_id,traj_id,coordinates,current_dis,current_state
+0,trajectory,2014-08-03T18:29:00Z,810,0,"[104.115353,30.64392]",0.0,1.0
+1,trajectory,2014-08-03T18:29:40Z,810,0,"[104.113091,30.642129]",0.294091467,1.0
+2,trajectory,2014-08-03T18:30:20Z,810,0,"[104.110404,30.64393]",0.6199505718,1.0
+3,trajectory,2014-08-03T18:31:00Z,810,0,"[104.108335,30.640667]",1.0332595142,1.0
+...
+21,trajectory,2014-08-03T18:53:23Z,810,0,"[104.076552,30.626844]",7.0811683597,0.0
+22,trajectory,2014-08-03T18:13:00Z,810,1,"[104.106701,30.6916]",0.0,1.0
+23,trajectory,2014-08-03T18:13:30Z,810,1,"[104.103889,30.688151]",0.4683813603,1.0
+24,trajectory,2014-08-03T18:14:21Z,810,1,"[104.102828,30.68506]",0.8267467429,1.0
+```
 
 ## Ext Table
 
