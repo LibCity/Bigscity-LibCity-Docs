@@ -92,8 +92,8 @@ An element in the Dyna table consists of the following five parts:
 
 ### Data arrangement method
 
-- **Dyna table should be arranged according to the double keywords of <entity_id> and <time>, that is, records with the same <entity_id> are put together and sorted according to <time> .**
-- **Specially, for trajectory data, the trajectories of the same user should be sorted by <traj_id> first, and those with the same <traj_id> should be sorted by <time> .**
+- **Dyna table should be arranged according to the double keywords of (entity_id) and (time), that is, records with the same (entity_id) are put together and sorted according to (time).**
+- **Specially, for trajectory data, the trajectories of the same user (entity_id) should be sorted by (traj_id) first, and those with the same (traj_id) should be sorted by (time).**
 
 E.g:
 
