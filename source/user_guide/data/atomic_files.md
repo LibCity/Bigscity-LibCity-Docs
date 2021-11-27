@@ -73,7 +73,7 @@ An element in the Dyna table consists of the following five parts:
 
 ### Detailed description
 
-*   For traffic state prediction tasks：
+*   For traffic state prediction tasks:
     *   The format is:  *dyna\_id, state, time, entity\_id, properties*，**entity_id** may have different changes:
     *   For entities that can use one-dimensional numbering for sensors, road sections, areas, etc., this column is the corresponding ID, the column name is [**entity_id**], and the file suffix name is `.dyna`.
     *   For grid-based traffic data, the column name is [**row_id, column_id**], and the file extension is `.grid`.
@@ -83,16 +83,16 @@ An element in the Dyna table consists of the following five parts:
     *   For grid-od-based traffic data, the column name is [**origin_row_id, origin_column_id, destination_row_id, destination_column_id**], and the file extension is `.gridod`.
 *   For trajectory location prediction tasks: 
     *   The format is: *dyna\_id, trajectory, time, entity\_id, (traj_id), location*。The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a POI.
-*   For estimated time of arrival tasks：
+*   For estimated time of arrival tasks:
     *   If the model receives trajectory input based on **GPS** points, the format is: *dyna_id, type, time, entity_id, (traj_id), coordinates*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **coordinates** column is the latitude and longitude of the track point.
     *   If the model receives trajectory input based on road segments, the format is: *dyna_id, type, time, entity_id, (traj_id), location*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a road segment.
-*   For map matching tasks：：
+*   For map matching tasks:
     *   The trajectory sequence of **GPS** points input by the task (\*\*.dyna), the format is: *dyna_id, type, time, entity_id, (traj_id), coordinates*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **coordinates** column is the latitude and longitude of the track point.
     *   The trajectory sequence of the real road segment input by the task (\*\*_truth.dyna) and the trajectory sequence of the predicted road segment output by the task, the format is: *dyna_id, type, time, entity_id, (traj_id), location*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a road segment.
 
 ### Data arrangement method
 
-- **Dyna table should be arranged according to the double keywords of <entity_id> and <time>, that is, records with the same <entity_id> are put together and sorted according to <time>. **
+- **Dyna table should be arranged according to the double keywords of <entity_id> and <time>, that is, records with the same <entity_id> are put together and sorted according to <time>.**
 - **Specially, for trajectory data, the trajectories of the same user should be sorted by <traj_id> first, and those with the same <traj_id> should be sorted by <time>.**
 
 E.g:
