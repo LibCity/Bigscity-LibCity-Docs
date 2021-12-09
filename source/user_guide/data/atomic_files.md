@@ -13,7 +13,7 @@ The following types of atomic files are defined:
 
 Note: For different traffic prediction tasks, different atomic files may be used, and a dataset may not contain all six kinds of atomic files.
 
-**The format of `.geo`, `.rel`, `.dyna`, and `.ext` is similar to the `csv` file, which consists of multiple columns of data.**
+**The format of `.geo`, `.usr`, `.rel`, `.dyna`, and `.ext` is similar to the `csv` file, which consists of multiple columns of data.**
 
 If any kind of id is remapped in the process of processing into an atomic file, **we recommend numbering from 0**!
 
