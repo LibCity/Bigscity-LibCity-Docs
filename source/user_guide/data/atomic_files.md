@@ -15,15 +15,13 @@ Note: For different traffic prediction tasks, different atomic files may be used
 
 **The format of `.geo`, `.usr`, `.rel`, `.dyna`, and `.ext` is similar to the `csv` file, which consists of multiple columns of data.**
 
-If any kind of id is remapped in the process of processing into an atomic file, **we recommend numbering from 0**!
-
 ## Geo Table
 
 An element in the Geo table consists of the following four parts: 
 
 **geo_id, type, coordinates, properties (multiple columns)**.
 
-- geo_id: The primary key uniquely determines a geo entity. (E.g. Number of sensors, latitude and longitude points, road sections, areas, etc.)
+- geo_id: The primary key uniquely determines a geo entity.
 - type: The type of geo. Range in [`Point`, `LineString`, `Polygon`]. These three values are consistent with the points, lines and planes in [Geojson](https://tools.ietf.org/html/rfc7946#section-1).
 - coordinates: Array or nested array composed of float type. Describe the location information of the geo entity, using the coordinates format of [Geojson](https://tools.ietf.org/html/rfc7946#section-1).
 - properties: Describe the attribute information of the geo entity. If there are multiple attributes, you can use different column names to define multiple columns of data, such as `POI_name`, `POI_type`. [**For grid data, there must be two columns `row_id` and `column_id` which represent the row and column numbers of the grid.** ]
@@ -65,7 +63,7 @@ An element in the Dyna table consists of the following five parts:
 ### Introduction to each column
 
 - dyna_id: The primary key uniquely determines a record in the Dyna table.
-- type: The type of dyna. There are two values: `trajectory` (for trajectory next-location prediction task) and `state` (for traffic state prediction task).
+- type: The type of dyna. There are two values: `trajectory` (for trajectory-based task) and `state` (for traffic state prediction task).
 - time: Time information, using the date and time combination notation in [ISO-8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html), such as: `2020-12-07T02:59:46Z`.
 - entity_id: Describe which entity the record is based on, which is the ID of `geo` or `usr`.
 - properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both speed data and flow data.
@@ -73,22 +71,33 @@ An element in the Dyna table consists of the following five parts:
 
 ### Detailed description
 
-*   For traffic state prediction tasks:
-    *   The format is:  *dyna\_id, state, time, entity\_id, properties*，**entity_id** may have different changes:
-    *   For entities that can use one-dimensional numbering for sensors, road sections, areas, etc., this column is the corresponding ID, the column name is [**entity_id**], and the file suffix name is `.dyna`.
-    *   For grid-based traffic data, the column name is [**row_id, column_id**], and the file extension is `.grid`.
+* For traffic state prediction tasks:
 
-    *   For od-based traffic data, the column name is [**origin_id, destination_id**], and the file suffix name is `.od`.
+  The format is:  ***dyna\_id, state, time, entity\_id, properties***，**entity_id** may have different changes:
 
-    *   For grid-od-based traffic data, the column name is [**origin_row_id, origin_column_id, destination_row_id, destination_column_id**], and the file extension is `.gridod`.
-*   For trajectory location prediction tasks: 
-    *   The format is: *dyna\_id, trajectory, time, entity\_id, (traj_id), location*。The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a POI.
-*   For estimated time of arrival tasks:
-    *   If the model receives trajectory input based on **GPS** points, the format is: *dyna_id, type, time, entity_id, (traj_id), coordinates*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **coordinates** column is the latitude and longitude of the track point.
-    *   If the model receives trajectory input based on road segments, the format is: *dyna_id, type, time, entity_id, (traj_id), location*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a road segment.
-*   For map matching tasks:
-    *   The trajectory sequence of **GPS** points input by the task (\*\*.dyna), the format is: *dyna_id, type, time, entity_id, (traj_id), coordinates*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **coordinates** column is the latitude and longitude of the track point.
-    *   The trajectory sequence of the real road segment input by the task (\*\*_truth.dyna) and the trajectory sequence of the predicted road segment output by the task, the format is: *dyna_id, type, time, entity_id, (traj_id), location*. The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory, this column can be Empty, the content of the **location** column is **geo_id**, which points to the geo table and represents a road segment.
+  *   For entities that can use one-dimensional numbering for sensors, road sections, areas, etc., this column is the corresponding ID, the column name is [**entity_id**], and the file suffix name is `.dyna`.
+  *   For grid-based traffic data, the column name is [**row_id, column_id**], and the file extension is `.grid`.
+
+  *   For od-based traffic data, the column name is [**origin_id, destination_id**], and the file suffix name is `.od`.
+
+  *   For grid-od-based traffic data, the column name is [**origin_row_id, origin_column_id, destination_row_id, destination_column_id**], and the file extension is `.gridod`.
+
+* For trajectory-based tasks: 
+
+  The trajectory data includes GPS point trajectory, road segment-based trajectory (after map matching), user check-in trajectory (POI-based trajectory).
+
+  - GPS point trajectory
+    - The format is: ***dyna_id, type, time, entity_id, (traj_id), coordinates, properties***. 
+    - The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory this column can be empty, the content of the **coordinates** column is the latitude and longitude of the GPS point.
+
+  *   Road segment-based trajectory
+      *   The format is: ***dyna_id, type, time, entity_id, (traj_id), location, properties***. 
+      *   The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory this column can be empty, the content of the **location** column is **geo_id**, which refs to the geo table and represents a road segment.
+  *   POI-based trajectory
+      *   The format is: ***dyna_id, type, time, entity_id, (traj_id), location, properties***. 
+      *   The content of the **entity\_id** column should be **usr\_id**, **traj_id** represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory this column can be empty, the content of the **location** column is **geo_id**, which refs to the geo table and represents a POI.
+
+  For a specific task, the input of the trajectory next-location prediction task is based on the trajectory of the POI point, the input of the estimated time of arrival task is the trajectory of the GPS point or the trajectory based on the road segment, the input of the map matching task is the trajectory of the GPS point, and the output is the trajectory based on the road segment.
 
 ### Data arrangement method
 
@@ -158,34 +167,17 @@ The data type definition of each column in the dataset needs to be given in the 
 
 The config file is used to supplement the information describing the above five tables themselves. It is stored in `json` format and consists of six keys: `geo`, `usr`, `rel`, `dyna`, `ext`, and `info`.
 
-- For `geo`, `rel`, `dyna`, `ext`:
+- For `geo`, `rel`, `dyna`:
 
   Contains a key of `including_types`, and uses an array to describe the `type` values in the table. After that, each `type` is used as a key, describing which keys  are contained in the `properties` table and their data types under the `type`.
 
-- For `usr`: 
+- For `usr`, `ext`: 
 
   Contains a `properties` key, describing which keys are contained in the `properties` table and their data types.
 
 - For `info`: 
 
-  **Contains other necessary statistical information of the dataset**, for different traffic prediction tasks, contains different content.
-
-  - **For traffic state prediction task:**
-    - `geo_file`: The file name of the `.geo` file, **string type**, the default is the dataset name.
-    - `rel_file`: The file name of the `.rel` file, **string type**, the default is the dataset name.
-    - `data_files`: The file name of the data file (such as `.dyna`, `.grid`, `.gridod`), **array or string type**, the default is the dataset name.
-    - `ext_file`: The file name of the `.ext` file, **string type**, the default is the dataset name.
-    - `weight_col`: The column name loaded from the `.rel` file, **string array with only one element or a string type**. When not specified, if the `.rel` file has only one column of weight columns, there is no problem, otherwise an error will be reported.
-    - `data_col`: The column names loaded from the data files(such as `.dyna`, `.grid`, `.gridod`), **array or string type**, load all columns if not specified.
-    - `ext_col`: The column names loaded from the external file, **array or string type**, load all columns if not specified.
-    - `output_dim`: Specify the dimensions of the model output, **generally should be the same as the number of attribute columns specified in `data_col`**.
-    - `time_intervals`: The length of the data set time slice, **in seconds**.
-    - `init_weight_inf_or_zero`: Range in [`inf` , `zero`]. When loading the `.rel` file to construct the adjacency matrix, the initial adjacency matrix is all INF (`inf`) or all 0 (`zero`), and the default is `inf`.
-    - `set_weight_link_or_dist`: Range in [`link`, `dist`], when loading the `.rel` file to construct the adjacency matrix, use the original value in the weight column in the file (`dist`) or revise it to a matrix of all 01 (`link`), and the default is `dist`. 
-    - `calculate_weight_adj`: Whether the weight of the adjacency matrix obtained from the `.rel` file needs to be further calculated, **default to `False`**. Some adjacency matrices are calculated based on the original data. The current calculation method is Gaussian kernel method with threshold: $$w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$.
-    - `weight_adj_epsilon`: The threshold of the Gaussian kernel. If the calculated weight is less than the threshold, it becomes 0, that is, $$ w_{ij}[w_{ij}<\epsilon]=0$$. This parameter depends on the parameter `calculate_weight_adj=True` .
-  - **For trajectory next-location prediction task:**
-    -  `distance_upper`: The maximum distance between POI points.
+  Contains other necessary statistical information of the dataset, for different traffic prediction tasks, contains different content.
 
 Example:  
 
@@ -223,6 +215,20 @@ Example:
             "traffic_speed":"num"
         }
     },
+    "dyna":{
+        "including_types":[
+            "state"
+        ],
+        "state":{
+            "entity_id":"geo_id",
+            "traffic_speed":"num"
+        }
+    },
+    "ext":{
+        "properties":{
+            "temperature":"num"
+        }
+    },
     "grid":{
         "including_types":[
             "state"
@@ -256,24 +262,7 @@ Example:
         }
     },
     "info": {
-        "data_col": [
-          "inflow",
-          "outflow"
-        ],
-        "ext_col": [
-          "Temperature"
-        ],
-        "data_files": [
-          "TAXIBJ2013"
-        ],
-        "geo_file": "TAXIBJ",
-        "ext_file": "TAXIBJ",
-        "output_dim": 2,
-        "output_dim": 300,
-        "init_weight_inf_or_zero": "inf",
-        "set_weight_link_or_dist": "dist",
-        "calculate_weight_adj": false,
-        "weight_adj_epsilon": 0.1
+        "time_interval": 300,
   	}
 }
 ```

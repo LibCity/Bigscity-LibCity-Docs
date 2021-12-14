@@ -47,3 +47,25 @@ Supporting parameters:
 - `gpu`：Whether to use GPU. Defaults to `True`.
 - `gpu_id`：The id of the GPU used. Defaults to `0`.
 
+## TensorBoard Visualization
+
+During the model training process, LibCity will record the loss of each epoch, and support tensorboard visualization.
+
+After running the model once, you can use the following command to visualize:
+
+```shell
+tensorboard --logdir 'libcity/cache'
+```
+
+```
+TensorFlow installation not found - running with reduced feature set.
+Serving TensorBoard on localhost; to expose to the network, use a proxy or pass --bind_all
+TensorBoard 2.4.1 at http://localhost:6006/ (Press CTRL+C to quit)
+```
+
+Visit this address(http://localhost:6006/) in the browser to see the visualized result:
+
+![](/_static/tensorboard.png)
+
+
+
