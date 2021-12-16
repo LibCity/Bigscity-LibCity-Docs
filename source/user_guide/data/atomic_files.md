@@ -177,7 +177,24 @@ The config file is used to supplement the information describing the above five 
 
 - For `info`: 
 
-  Contains other necessary statistical information of the dataset, for different traffic prediction tasks, contains different content.
+  **Contains other necessary statistical information of the dataset**, for different traffic prediction tasks, contains different content.
+  
+  - For traffic state prediction task:
+    - `geo_file`: The file name of the `.geo` file, **string type**, the default is the dataset name.
+    - `rel_file`: The file name of the `.rel` file, **string type**, the default is the dataset name.
+    - `data_files`: The file name of the data file (such as `.dyna`, `.grid`, `.gridod`), **array or string type**, the default is the dataset name.
+    - `ext_file`: The file name of the `.ext` file, **string type**, the default is the dataset name.
+    - `weight_col`: The column name loaded from the `.rel` file, **string array with only one element or a string type**. When not specified, if the `.rel` file has only one column of weight columns, there is no problem, otherwise an error will be reported.
+    - `data_col`: The column names loaded from the data files(such as `.dyna`, `.grid`, `.gridod`), **array or string type**, load all columns if not specified.
+    - `ext_col`: The column names loaded from the external file, **array or string type**, load all columns if not specified.
+    - `output_dim`: Specify the dimensions of the model output, **generally should be the same as the number of attribute columns specified in `data_col`**.
+    - `time_intervals`: The length of the data set time slice, **in seconds**.
+    - `init_weight_inf_or_zero`: Range in [`inf` , `zero`]. When loading the `.rel` file to construct the adjacency matrix, the initial adjacency matrix is all INF (`inf`) or all 0 (`zero`), and the default is `inf`.
+    - `set_weight_link_or_dist`: Range in [`link`, `dist`], when loading the `.rel` file to construct the adjacency matrix, use the original value in the weight column in the file (`dist`) or revise it to a matrix of all 01 (`link`), and the default is `dist`.
+    - `calculate_weight_adj`: Whether the weight of the adjacency matrix obtained from the `.rel` file needs to be further calculated, **default to `False`**. Some adjacency matrices are calculated based on the original data. The current calculation method is Gaussian kernel method with threshold: $$w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$.
+    - `weight_adj_epsilon`: The threshold of the Gaussian kernel. If the calculated weight is less than the threshold, it becomes 0, that is, $$ w_{ij}[w_{ij}<\epsilon]=0$$. This parameter depends on the parameter `calculate_weight_adj=True` .
+  - For trajectory next-location prediction task:
+    - `distance_upper`: The maximum distance between POI points.
 
 Example:  
 
