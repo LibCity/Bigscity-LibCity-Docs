@@ -42,11 +42,48 @@ Here is how to generalize models used for point-based data for grid-based data.
 
 (2) If the dataset class used by the model is the subclass of `TrafficStatePointDataset`, such as `ASTGCNDataset`, `CONVGCNDataset`, `STG2SeqDataset`, etc., you can modify the file of the dataset class to make it  inherit `TrafficStateGridDataset` instead of the current `TrafficStatePointDataset`. Then set the parameter `use_row_column` in the function `__init__()` to `False`.
 
-Example:
+Example (1):
+
+Before modification:
+
+```json
+// task_config.json
+"RNN": {
+    "dataset_class": "TrafficStatePointDataset",
+},
+// TrafficStateGridDataset.json
+{
+  "use_row_column": true
+}
+```
+
+After modification:
+
+```json
+// task_config.json
+"RNN": {
+    "dataset_class": "TrafficStateGridDataset",
+},
+// TrafficStateGridDataset.json
+{
+  "use_row_column": false
+}
+```
+
+Example (2):：
 
 Before modification:
 
 ```python
+# task_config.json
+"STG2Seq": {
+    "dataset_class": "STG2SeqDataset",
+},
+# STG2SeqDataset.json
+{
+  "use_row_column": false
+}
+# stg2seq_dataset.py
 from libcity.data.dataset import TrafficStatePointDataset
 class STG2SeqDataset(TrafficStatePointDataset):
     def __init__(self, config):
@@ -57,6 +94,15 @@ class STG2SeqDataset(TrafficStatePointDataset):
 After modification:
 
 ```python
+# task_config.json
+"STG2Seq": {
+    "dataset_class": "STG2SeqDataset",
+},
+# STG2SeqDataset.json
+{
+  "use_row_column": false
+}
+# stg2seq_dataset.py
 from libcity.data.dataset import TrafficStateGridDataset
 class STG2SeqDataset(TrafficStateGridDataset):
     def __init__(self, config):
