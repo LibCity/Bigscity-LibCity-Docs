@@ -23,6 +23,7 @@ If you think this table does not look convenient enough, please click [here](htt
 | Trajectory Next-Location Prediction | **Gowalla**, BrightKite                                      | FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, STAN | Trajectory based dataset                                     |
 |                                     | **Fousquare**, Instagram                                     | FPMC, RNN, ST-RNN, ATST-LSTM, DeepMove, HST-LSTM, LSTPM, GeoSAN, STAN, SERM, CARA | Trajectory based dataset                                     |
 | Estimated Time of Arrival           | **Chengdu_Taxi_Sample1**                                     | DeepTTE                                                      | Trajectory based dataset                                     |
+|  | **Beijing_Taxi_Sample** | TTPNet, DeepTTE | Trajectory based dataset |
 | Map Matching                        | **Seattle**, global                                          | STMatching, IVMM, HMMM                                       | Trajectory based dataset                                     |
 | Road Network Representation Learning | **bj_roadmap_edge** | ChebConv, LINE | Road network dataset |
 

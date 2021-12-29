@@ -381,6 +381,16 @@
 
 **Description:** Chengdu_Taxi_Sample1 dataset is part of Chengdu_Taxi dataset. It contains 1800 taxi trajectory data in Chengdu.
 
+### Beijing_Taxi_Sample
+
+**Place**: Beijing, China
+
+**Duration**: Oct. 01, 2013 - Oct. 31, 2013
+
+**Link**: https://github.com/YibinShen/TTPNet/tree/master/data
+
+**Description**: Beijing_Taxi_Sample dataset is part of Beijing_Taxi dataset. It contains 1000 taxi trajectory data per day in October 2013.
+
 ### NYC_RISK
 
 **Place:** New York, USA

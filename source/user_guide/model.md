@@ -415,7 +415,17 @@ For trajectory next-location prediction:
   DeepTTE is an end-to-end Deep learning framework for Travel Time Estimation that estimates the travel time of the whole path directly. DeepTTE present a geo-convolution operation by integrating the geographic information into the classical convolution, capable of capturing spatial correlations.
 
   ```
-  Wang, D., Zhang, J., Cao, W., Li, J., & Zheng, Y. (2018). When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks. Proceedings of the AAAI Conference on Artificial Intelligence, 32(1).
+  Wang, D., Zhang, J., Cao, W., Li, J. and Zheng, Y. 2018. When Will You Arrive? Estimating Travel Time Based on Deep Neural Networks. Proceedings of the AAAI Conference on Artificial Intelligence. 32, 1 (Apr. 2018).
+  ```
+
+* **TTPNet**:
+
+  TTPNet is based on tensor decomposition and graph
+  embedding, which can extract travel speed and representation of road network structure effectively from historical
+  trajectories, as well as predict the travel time with better accuracy.
+
+  ```
+  Y. Shen, C. Jin and J. Hua, "TTPNet: A Neural Network for Travel Time Prediction Based on Tensor Decomposition and Graph Embedding," in IEEE Transactions on Knowledge and Data Engineering, doi: 10.1109/TKDE.2020.3038259.
   ```
 
 #### Map Matching
