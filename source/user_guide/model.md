@@ -359,7 +359,7 @@ For trajectory next-location prediction:
 	```
 	
 * **SERM**：
-	This model introduces the sematic information of the trajectory into the network, which relies on the Glove pretrained word vectors. If you want to run this model, please make sure to download `serm_glove_word_vec.zip` from [BaiduDisk with code 1231](https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ) or [Google Drive](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing).
+	This model introduces the sematic information of the trajectory into the network, which relies on the Glove pretrained word vectors. If you want to run this model, please make sure to download `serm_glove_word_vec.zip` from [BaiduDisk with code 1231](https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ) or [Google Drive](https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing) and unzip it to `raw_data` directory.
 	
 	```
 	Di Yao, Chao Zhang, Jian-Hui Huang, and Jingping Bi. 2017. SERM: A Recurrent Model for Next Location Prediction in Semantic Trajectories. In CIKM. ACM,2411–24.
