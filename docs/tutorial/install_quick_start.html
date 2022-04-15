@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Install and quick start &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -100,14 +99,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install and quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-libcity">Install LibCity</a><ul>
@@ -127,7 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -201,11 +200,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="install-and-quick-start">
+  <div class="section" id="install-and-quick-start">
 <h1>Install and quick start<a class="headerlink" href="#install-and-quick-start" title="Permalink to this headline">¶</a></h1>
-<section id="install-libcity">
+<div class="section" id="install-libcity">
 <h2>Install LibCity<a class="headerlink" href="#install-libcity" title="Permalink to this headline">¶</a></h2>
-<section id="install-from-source">
+<div class="section" id="install-from-source">
 <h3>Install from Source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">LibCity</span></code> can only be installed from source code.</p>
 <p>Please execute the following command to get the source code.</p>
@@ -213,17 +212,17 @@
 <span class="n">cd</span> <span class="n">Bigscity</span><span class="o">-</span><span class="n">LibCity</span>
 </pre></div>
 </div>
-</section>
-<section id="configure-dependencies">
+</div>
+<div class="section" id="configure-dependencies">
 <h3>Configure Dependencies<a class="headerlink" href="#configure-dependencies" title="Permalink to this headline">¶</a></h3>
 <p>After obtaining the source code, you can configure the environment.</p>
 <p>Our code is based on Python version 3.7 and PyTorch version 1.7.1. You can click <a class="reference external" href="https://pytorch.org/get-started/previous-versions/#v171">here</a> to see how to install PyTorch. For example, if your CUDA version is 10.2, you can install PyTorch with the following command.</p>
 <p>Pip:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.7.1</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.8.2</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.7.2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">1</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">2</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">2</span>
 </pre></div>
 </div>
 <p>Conda:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">1.7.1</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.8.2</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.7.2</span> <span class="n">cudatoolkit</span><span class="o">=</span><span class="mf">10.2</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pytorch</span><span class="o">==</span><span class="mf">1.7</span><span class="o">.</span><span class="mi">1</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">2</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">0.7</span><span class="o">.</span><span class="mi">2</span> <span class="n">cudatoolkit</span><span class="o">=</span><span class="mf">10.2</span> <span class="o">-</span><span class="n">c</span> <span class="n">pytorch</span>
 </pre></div>
 </div>
 <p>After installing PyTorch, you can install all the dependencies of <code class="docutils literal notranslate"><span class="pre">LibCity</span></code> with the following command by pip.</p>
@@ -231,11 +230,11 @@
 </pre></div>
 </div>
 <p>Now, you can use <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>, more details please refer to the section <strong>Quick Start</strong>.</p>
-</section>
-</section>
-<section id="quick-start">
+</div>
+</div>
+<div class="section" id="quick-start">
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
-<section id="download-one-dataset">
+<div class="section" id="download-one-dataset">
 <h3>Download One Dataset<a class="headerlink" href="#download-one-dataset" title="Permalink to this headline">¶</a></h3>
 <p>The dataset used in <code class="docutils literal notranslate"><span class="pre">LibCity</span></code> is stored in a unified data storage format named <a class="reference internal" href="../user_guide/data/atomic_files.html"><span class="doc">atomic files</span></a>.</p>
 <p>In order to directly use the <a class="reference internal" href="../user_guide/data/raw_data.html"><span class="doc">raw datasets</span></a> in <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>, we have converted all these datasets into the format of atomic files, and provide the <a class="reference external" href="https://github.com/LibCity/Bigscity-LibCity-Datasets">conversion tools</a>.</p>
@@ -248,8 +247,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">Bigscity-LibCity/raw_data/METR_LA/METR_LA.dyna</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Bigscity-LibCity/raw_data/METR_LA/config.json</span></code></p></li>
 </ul>
-</section>
-<section id="run-model-pipeline">
+</div>
+<div class="section" id="run-model-pipeline">
 <h3>Run Model Pipeline<a class="headerlink" href="#run-model-pipeline" title="Permalink to this headline">¶</a></h3>
 <p>The script <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code> used for training and evaluating a single model is provided in the root directory of the framework, and a series of command line parameters are provided to allow users to adjust the running parameter configuration.</p>
 <p>When run the <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code>, you must specify the following three parameters, namely <code class="docutils literal notranslate"><span class="pre">task</span></code>, <code class="docutils literal notranslate"><span class="pre">dataset</span></code> and <code class="docutils literal notranslate"><span class="pre">model</span></code>. For example:</p>
@@ -274,9 +273,9 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">gpu</span></code>: Whether to use GPU. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">gpu_id</span></code>: The id of the GPU used. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ul>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

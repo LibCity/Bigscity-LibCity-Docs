@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Standard Track &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
@@ -112,14 +111,14 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
@@ -127,7 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -203,12 +202,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="standard-track">
+  <div class="section" id="standard-track">
 <h1>Standard Track<a class="headerlink" href="#standard-track" title="Permalink to this headline">¶</a></h1>
 <p>In the field of traffic big data, there have been long-standing phenomena such as inconsistent evaluation data sets, inconsistent evaluation indicators, and inconsistent preprocessing of data sets, resulting in poor performance comparability of different models. Therefore, in order to solve the above problems, this project has implemented a set of standard pipelines (tracks) for each task.</p>
 <p>On the standard track, the original data set, standard data module (Data module), and standard evaluation module (Evaluator module) provided by the project are used to constrain different models to use the same data input and evaluation indicators to improve the comparability of evaluation results.</p>
 <p>The standard data input format and evaluation input format for different tasks are explained below :</p>
-<section id="traffic-state-prediction">
+<div class="section" id="traffic-state-prediction">
 <h2>Traffic State Prediction<a class="headerlink" href="#traffic-state-prediction" title="Permalink to this headline">¶</a></h2>
 <p>According to the different spatial structure of traffic data, traffic state data can generally be represented by tensors in the following formats:</p>
 <ul class="simple">
@@ -229,8 +228,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">y_true</span></code>:  The ground-truth value, the format is the same as the <code class="docutils literal notranslate"><span class="pre">y</span></code> in the input.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">y_pred</span></code>:  The prediction value, the format is the same as the <code class="docutils literal notranslate"><span class="pre">y</span></code> in the input.</p></li>
 </ul>
-</section>
-<section id="trajectory-location-prediction">
+</div>
+<div class="section" id="trajectory-location-prediction">
 <h2>Trajectory Location prediction<a class="headerlink" href="#trajectory-location-prediction" title="Permalink to this headline">¶</a></h2>
 <p>The standard data input format is a dictionary-like <a class="reference internal" href="../data/batch.html"><span class="doc">Batch</span></a> object instance. The key names of this object are as follows:</p>
 <ul class="simple">
@@ -247,8 +246,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">loc_true</span></code>:  Expected next hop location,  <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">loc_pred</span></code>:  Model prediction output, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size,</span> <span class="pre">output_dim)</span></code>.</p></li>
 </ul>
-</section>
-<section id="map-matching">
+</div>
+<div class="section" id="map-matching">
 <h2>Map Matching<a class="headerlink" href="#map-matching" title="Permalink to this headline">¶</a></h2>
 <p>The standard data input format is a dictionary. The key names of this object are as follows:</p>
 <ul class="simple">
@@ -262,8 +261,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">route</span></code>: As depicted in standard data input.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rd_nwk</span></code>: As depicted in standard data input.</p></li>
 </ul>
-</section>
-<section id="estimated-time-of-arrival">
+</div>
+<div class="section" id="estimated-time-of-arrival">
 <h2>Estimated Time of Arrival<a class="headerlink" href="#estimated-time-of-arrival" title="Permalink to this headline">¶</a></h2>
 <p>The standard data input format is a dictionary-like <a class="reference internal" href="../data/batch.html"><span class="doc">Batch</span></a> object instance. The key names of this object are as follows:</p>
 <ul class="simple">
@@ -278,8 +277,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">y_true</span></code>:  The real travel time from starting point to finishing point, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">y_pred</span></code>:  The predicted travel time from starting point to finishing point, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

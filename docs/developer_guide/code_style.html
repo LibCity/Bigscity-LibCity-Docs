@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Code Style &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -100,7 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Code Style</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-flake8">Working with Flake8</a></li>
@@ -111,7 +110,7 @@
 <li class="toctree-l1"><a class="reference internal" href="implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
@@ -119,7 +118,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -193,11 +192,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="code-style">
+  <div class="section" id="code-style">
 <h1>Code Style<a class="headerlink" href="#code-style" title="Permalink to this headline">¶</a></h1>
 <p>Every major open-source project has its own style guide: a set of conventions (sometimes arbitrary) about how to write code for that project. It is much easier to understand a large codebase when all the code in it is in a consistent style.</p>
 <p>The code style of our project basically follows <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a> (<a class="reference external" href="https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/contents/">Chinese version</a>). In order to better manage the quality of the code submitted by each co-developer, the project uses the python lint tool <a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> to find potential bugs and style problems in source code.</p>
-<section id="working-with-flake8">
+<div class="section" id="working-with-flake8">
 <h2>Working with Flake8<a class="headerlink" href="#working-with-flake8" title="Permalink to this headline">¶</a></h2>
 <p>Besides using flake8, the project also uses <a class="reference external" href="https://github.com/PyCQA/pep8-naming">pep8-naming</a>, a plugin for flake8, to check code naming style. Please install flake8 and pep8-naming according to <code class="docutils literal notranslate"><span class="pre">/requirements.txt</span></code>.</p>
 <p>After installing flake8, we recommend you to integrate flake8 into Git pre-commit hook. For example, you can running following commands:</p>
@@ -206,15 +205,15 @@ $ git config --bool flake8.strict <span class="nb">true</span>
 </pre></div>
 </div>
 <p>Now, whenever you create a git commit, flake8 will automatically check the code style of your commit and prevent you from submitting bad codes.</p>
-</section>
-<section id="project-flake8-configuration">
+</div>
+<div class="section" id="project-flake8-configuration">
 <h2>Project Flake8 Configuration<a class="headerlink" href="#project-flake8-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Although the project basically follows the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>, we have made certain modifications to some uncomfortable specifications. The modifications we made will be recorded in detail, seeing below.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">max-line-length</span></code>: We change the maximum line length from 80 characters to 120 characters.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Tuning the model with automatic tool &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -100,14 +99,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run_model.html">Run an existing model in LibCity</a></li>
@@ -120,7 +119,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -194,24 +193,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="tuning-the-model-with-automatic-tool">
+  <div class="section" id="tuning-the-model-with-automatic-tool">
 <h1>Tuning the model with automatic tool<a class="headerlink" href="#tuning-the-model-with-automatic-tool" title="Permalink to this headline">¶</a></h1>
 <p>Here we take GRU as an example and use the automated tuning tool (<code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code>) provided in LibCity to optimize its traffic speed prediction performance on the METR_LA dataset.</p>
 <p>First, we should look up the hyper-parameters that the GRU may use in the traffic speed prediction task to decide which parameters to adjust.</p>
-<section id="look-up-hyper-parameters">
+<div class="section" id="look-up-hyper-parameters">
 <h2>Look Up Hyper-parameters<a class="headerlink" href="#look-up-hyper-parameters" title="Permalink to this headline">¶</a></h2>
 <p>According to <code class="docutils literal notranslate"><span class="pre">/libcity/config/task_config.json</span></code>,  we can know the class name of each module used by GRU in the traffic speed prediction task.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;GRU&quot;</span><span class="p">:</span> <span class="p">{</span>
-	<span class="nt">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStatePointDataset&quot;</span><span class="p">,</span>
-	<span class="nt">&quot;executor&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStateExecutor&quot;</span><span class="p">,</span>
-	<span class="nt">&quot;evaluator&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStateEvaluator&quot;</span>
-<span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;GRU&quot;: {
+	&quot;dataset_class&quot;: &quot;TrafficStatePointDataset&quot;,
+	&quot;executor&quot;: &quot;TrafficStateExecutor&quot;,
+	&quot;evaluator&quot;: &quot;TrafficStateEvaluator&quot;
+}
 </pre></div>
 </div>
 <p>According to the configuration file, the data module class used by GRU is <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, the execution module class is <code class="docutils literal notranslate"><span class="pre">TrafficStateExecutor</span></code>, and the evaluation module class is <code class="docutils literal notranslate"><span class="pre">TrafficStateEvaluator</span></code>. According to the class name we found, we can easily find the corresponding configuration file in <code class="docutils literal notranslate"><span class="pre">/libcity/config/</span></code>.</p>
 <p>Here, we believe that the hyperparameters of the execution module and the model itself have a greater impact on the performance of the model. Therefore, we looked up the two configuration files <code class="docutils literal notranslate"><span class="pre">/config/executor/TrafficStateExecutor.json</span></code> and <code class="docutils literal notranslate"><span class="pre">/config/model/traffic_state_pred/GRU.json</span></code>. After checking, we decided to adjust the four hyperparameters of learning rate <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>, maximum training epoch <code class="docutils literal notranslate"><span class="pre">max_epoch</span></code>, hidden layer dimension <code class="docutils literal notranslate"><span class="pre">hidden_size</span></code>, and dropout rate <code class="docutils literal notranslate"><span class="pre">dropout</span></code>.</p>
-</section>
-<section id="writing-tuning-config-file">
+</div>
+<div class="section" id="writing-tuning-config-file">
 <h2>Writing Tuning Config File<a class="headerlink" href="#writing-tuning-config-file" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code> script requires the user to write a tuning configuration file to specify the hyperparameters to be adjusted and the corresponding search space. According to the meaning of the parameters to be adjusted, we set the search space as:</p>
 <ul class="simple">
@@ -247,8 +246,8 @@
 <span class="p">}</span> 
 </pre></div>
 </div>
-</section>
-<section id="execute-hyper-tune-py">
+</div>
+<div class="section" id="execute-hyper-tune-py">
 <h2>Execute hyper_tune.py<a class="headerlink" href="#execute-hyper-tune-py" title="Permalink to this headline">¶</a></h2>
 <p>After ensuring that <code class="docutils literal notranslate"><span class="pre">sample_space_file.json</span></code> is correctly placed in the project root directory, we can run the following script to automatically tune parameters:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python hyper_tune.py --task traffic_state_pred --model GRU --dataset METR_LA --space_file sample_space_file
@@ -264,8 +263,8 @@
 <p>The program will output the sampled parameter combination to the terminal and display the running status of each thread.</p>
 <p><img alt="../_images/hyper_tune2.png" src="../_images/hyper_tune2.png" /></p>
 <p>The program will output the best combination of parameters to the terminal.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

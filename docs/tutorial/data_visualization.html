@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Visualize Atomic Files &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -100,14 +99,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run_model.html">Run an existing model in LibCity</a></li>
@@ -120,7 +119,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -194,14 +193,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="visualize-atomic-files">
+  <div class="section" id="visualize-atomic-files">
 <h1>Visualize Atomic Files<a class="headerlink" href="#visualize-atomic-files" title="Permalink to this headline">¶</a></h1>
 <p>Here, we present how to visualize <a class="reference internal" href="../user_guide/data/atomic_files.html"><span class="doc">atomic files</span></a> with the help of a <code class="docutils literal notranslate"><span class="pre">VisHelper</span></code>  in <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>.</p>
-<section id="prepare-atomic-files">
+<div class="section" id="prepare-atomic-files">
 <h2>Prepare Atomic Files<a class="headerlink" href="#prepare-atomic-files" title="Permalink to this headline">¶</a></h2>
 <p>To begin with, simply place the atomic file in the <code class="docutils literal notranslate"><span class="pre">./raw_data</span></code> folder, which is the same as the preparation of running a model. If you don’t know where to get a dataset, click <a class="reference internal" href="run_model.html"><span class="doc">here</span></a> for more information.</p>
-</section>
-<section id="run-the-visualization-script">
+</div>
+<div class="section" id="run-the-visualization-script">
 <h2>Run the Visualization Script<a class="headerlink" href="#run-the-visualization-script" title="Permalink to this headline">¶</a></h2>
 <p>To simplify user operation to the most extent, there are only two parameters to be specified:</p>
 <ul class="simple">
@@ -215,8 +214,8 @@
 </div>
 <p>to start a data type conversion.</p>
 <p>The grid dataset and the state dataset can be visualized in the same way. <strong>It is worth noticing that the <code class="docutils literal notranslate"><span class="pre">properties</span></code> (<code class="docutils literal notranslate"><span class="pre">inflow</span></code> and <code class="docutils literal notranslate"><span class="pre">outflow</span></code> for example) are averaged over the full time period in grid dataset and state dataset.</strong></p>
-</section>
-<section id="visualize-geojson">
+</div>
+<div class="section" id="visualize-geojson">
 <h2>Visualize GeoJSON<a class="headerlink" href="#visualize-geojson" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://geojson.org/">GeoJSON</a> is a format for encoding a variety of geographic data structures and is supported by most GIS tools. Here, we present our visualization of <strong>Seattle</strong> dataset using <a class="reference external" href="https://www.qgis.org/en/site/">QGIS</a>.</p>
 <p>The red lines represents the road network of <strong>Seattle</strong>. The yellow lines represents GPS trajectory of the <strong>Seattle</strong> dataset.</p>
@@ -224,8 +223,8 @@
 <p><img alt="../_images/data_visualization2.png" src="../_images/data_visualization2.png" /></p>
 <p>We also present our heat map visualization of <strong>METR_LA</strong> which is a traffic speed dataset.</p>
 <p><img alt="../_images/data_visualization3.png" src="../_images/data_visualization3.png" /></p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

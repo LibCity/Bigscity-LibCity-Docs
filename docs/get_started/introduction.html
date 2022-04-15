@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Introduction &mdash; Bigscity-LibCity  documentation</title>
@@ -84,7 +83,7 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
@@ -96,7 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -105,14 +104,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
@@ -120,7 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -195,7 +194,7 @@
            <div itemprop="articleBody">
             
   <p><img alt="../_images/logo.png" src="../_images/logo.png" /></p>
-<section id="introduction">
+<div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://libcity.ai/">HomePage</a>|<a class="reference external" href="https://bigscity-libcity-docs.readthedocs.io/en/latest/index.html">Docs</a>|<a class="reference external" href="https://github.com/LibCity/Bigscity-LibCity-Datasets">Datasets</a>|<a class="reference external" href="https://github.com/LibCity/Bigscity-LibCity-Paper">Paper List</a></p>
 <p>LibCity is a unified, comprehensive, and extensible library, which provides researchers with a credible experimental tool and a convenient development framework in the traffic prediction field. Our library is implemented based on PyTorch and includes all the necessary steps or components related to traffic prediction into a systematic pipeline, allowing researchers to conduct comprehensive experiments. Our library will contribute to the standardization and reproducibility in the field of traffic prediction.</p>
@@ -215,15 +214,15 @@
 <li><p>Map Matching</p></li>
 <li><p>Road Network Representation Learning</p></li>
 </ul>
-<section id="features">
+<div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>Unified</strong>: LibCity builds a systematic pipeline to implement, use and evaluate traffic prediction models in a unified platform. We design basic spatial-temporal data storage, unified model instantiation interfaces, and standardized evaluation procedure.</p></li>
 <li><p><strong>Comprehensive</strong>: 60 models covering 9 traffic prediction tasks have been reproduced to form a comprehensive model warehouse. Meanwhile, LibCity collects 35 commonly used datasets of different sources and implements a series of commonly used evaluation metrics and strategies for performance evaluation.</p></li>
 <li><p><strong>Extensible</strong>: LibCity enables a modular design of different components, allowing users to flexibly insert customized components into the library. Therefore, new researchers can easily develop new models with the support of LibCity.</p></li>
 </ul>
-</section>
-<section id="overall-framework">
+</div>
+<div class="section" id="overall-framework">
 <h2>Overall Framework<a class="headerlink" href="#overall-framework" title="Permalink to this headline">¶</a></h2>
 <p><img alt="../_images/framework.png" src="../_images/framework.png" /></p>
 <ul class="simple">
@@ -233,8 +232,8 @@
 <li><p><strong>Evaluation Module</strong>: Responsible for evaluating model prediction results through multiple indicators.</p></li>
 <li><p><strong>Execution Module</strong>: Responsible for model training and prediction.</p></li>
 </ul>
-</section>
-<section id="cite">
+</div>
+<div class="section" id="cite">
 <h2>Cite<a class="headerlink" href="#cite" title="Permalink to this headline">¶</a></h2>
 <p>Our paper is accepted by ACM SIGSPATIAL 2021. If you find LibCity useful for your research or development, please cite our <a class="reference external" href="https://dl.acm.org/doi/10.1145/3474717.3483923">paper</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>@inproceedings{10.1145/3474717.3483923,
@@ -260,8 +259,8 @@
 </div>
 <p>The LibCity is mainly developed and maintained by Beihang Interest Group on SmartCity (<a class="reference external" href="https://www.bigcity.ai/">BIGSCITY</a>). The core developers of this library are <a class="reference external" href="https://github.com/aptx1231">&#64;aptx1231</a> and <a class="reference external" href="https://github.com/WenMellors">&#64;WenMellors</a>.</p>
 <p>If you encounter a bug or have any suggestion, please contact us by <a class="reference external" href="https://github.com/LibCity/Bigscity-LibCity/issues">raising an issue</a>. You can also contact us by sending an email to bigscity&#64;126.com.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

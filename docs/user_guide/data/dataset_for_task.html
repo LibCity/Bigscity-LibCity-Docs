@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Dataset For Task &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
@@ -109,14 +108,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
@@ -124,7 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -200,7 +199,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="dataset-for-task">
+  <div class="section" id="dataset-for-task">
 <h1>Dataset For Task<a class="headerlink" href="#dataset-for-task" title="Permalink to this headline">¶</a></h1>
 <p>In this section, we introduce to you the correspondence between our provided <a class="reference external" href="https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing">standard datasets</a> tasks and models. It is worth noting that some datasets can only support some models in a certain task.</p>
 <p>If you think this table does not look convenient enough, please click <a class="reference external" href="https://github.com/LibCity/Bigscity-LibCity-Docs/blob/master/source/user_guide/data/dataset_for_task.md">here</a> to view this table on Github</p>
@@ -406,7 +405,7 @@
 <p>Here is how to generalize models used for point-based data for grid-based data. (Similar to Note 3)</p>
 <p>(1) If the dataset class used by the model is <code class="docutils literal notranslate"><span class="pre">TrafficStateOdDataset</span></code>, such as <code class="docutils literal notranslate"><span class="pre">GEML</span></code> etc., you can directly set <code class="docutils literal notranslate"><span class="pre">dataset_class</span></code> to <code class="docutils literal notranslate"><span class="pre">TrafficStateGridOdDataset</span></code> in <code class="docutils literal notranslate"><span class="pre">task_file.json</span></code> or through a custom configuration file(<code class="docutils literal notranslate"><span class="pre">--config_file</span></code>). Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> of <code class="docutils literal notranslate"><span class="pre">TrafficStateGridOdDataset</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>(2) If the dataset class used by the model is the subclass of <code class="docutils literal notranslate"><span class="pre">TrafficStateOdDataset</span></code>,  you can modify the file of the dataset class to make it  inherit <code class="docutils literal notranslate"><span class="pre">TrafficStateGridOdDataset</span></code> instead of the current <code class="docutils literal notranslate"><span class="pre">TrafficStateOdDataset</span></code>. Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> in the function <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</section>
+</div>
 
 
            </div>

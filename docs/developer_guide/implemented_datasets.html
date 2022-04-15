@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Customize Dataset &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -100,7 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="code_style.html">Code Style</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Customize Dataset</a><ul>
@@ -116,7 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
@@ -124,7 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -198,10 +197,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="customize-dataset">
+  <div class="section" id="customize-dataset">
 <h1>Customize Dataset<a class="headerlink" href="#customize-dataset" title="Permalink to this headline">¶</a></h1>
 <p>If we have a new model, and if there is no suitable dataset class, then we need to design a new dataset. Here, we present how to develop a new dataset, and apply it to the <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>.</p>
-<section id="create-a-new-dataset-class">
+<div class="section" id="create-a-new-dataset-class">
 <h2>Create a New Dataset Class<a class="headerlink" href="#create-a-new-dataset-class" title="Permalink to this headline">¶</a></h2>
 <p>To begin with, we should create a new dataset implementing from <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> or one of the subclass of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code>.</p>
 <p>For example, we would like to develop a dataset for traffic state prediction task named as <code class="docutils literal notranslate"><span class="pre">NewDataset</span></code> and write the code to <code class="docutils literal notranslate"><span class="pre">newdataset.py</span></code> in the directory <code class="docutils literal notranslate"><span class="pre">libcity/data/dataset/</span></code>.</p>
@@ -222,14 +221,14 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
-</section>
-<section id="rewrite-corresponding-methods">
+</div>
+<div class="section" id="rewrite-corresponding-methods">
 <h2>Rewrite Corresponding Methods<a class="headerlink" href="#rewrite-corresponding-methods" title="Permalink to this headline">¶</a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code> in <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> is used to get the divided <code class="docutils literal notranslate"><span class="pre">train_dataloader</span></code>, <code class="docutils literal notranslate"><span class="pre">eval_dataloader</span></code> and <code class="docutils literal notranslate"><span class="pre">test_</span> <span class="pre">dataloader</span></code>. You need to call the function <code class="docutils literal notranslate"><span class="pre">libcity.data.utils.generate_dataloader</span></code> to get data-loader from list of input data, where the generated data-loader contains <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a> object.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">get_data_feature()</span> </code> in <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> is used to return the features of some datasets for use by the model and executor.</p>
 <p>Other interfaces defined in subclasses of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> will not be described here.</p>
 <p>If there is no suitable dataset class, then you can rewrite the corresponding interface mentioned above.</p>
-<section id="example-1">
+<div class="section" id="example-1">
 <h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
 <p>Here we explain how to inherit <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> directly and rewrite the function <code class="docutils literal notranslate"><span class="pre">get_data_feature()</span></code> to return some values we want.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">AbstractDataset</span>
@@ -244,8 +243,8 @@
                 <span class="s2">&quot;output_dim&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">}</span>
 </pre></div>
 </div>
-</section>
-<section id="example-2">
+</div>
+<div class="section" id="example-2">
 <h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
 <p>Here we explain how to inherit a subclass of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> and rewrite one of its methods.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
@@ -262,8 +261,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">adj_mx</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># set all one</span>
 </pre></div>
 </div>
-</section>
-<section id="example-3">
+</div>
+<div class="section" id="example-3">
 <h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h3>
 <p>Here we explain how to inherit a subclass of <code class="docutils literal notranslate"><span class="pre">AbstractDataset</span></code> and return different keys in batch from the origin. Specifically, we intend to return three key values: X, Y and Z. This is just an example, for more details, you can refer to <code class="docutils literal notranslate"><span class="pre">TrafficStateCPTDataset</span></code> whose has four keys in batch.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStateDataset</span>
@@ -295,9 +294,9 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_dataloader</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">eval_dataloader</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_dataloader</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

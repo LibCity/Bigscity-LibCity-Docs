@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Parameter Tuning &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
@@ -109,14 +108,14 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
@@ -124,7 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -200,7 +199,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="parameter-tuning">
+  <div class="section" id="parameter-tuning">
 <h1>Parameter Tuning<a class="headerlink" href="#parameter-tuning" title="Permalink to this headline">¶</a></h1>
 <p>Similar to the training and eveluation of a model, LibCity provides researchers with a script <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code>  to automatically search for hyper-parameters. The script is implemented based on the third-party open source library <a class="reference external" href="https://docs.ray.io/en/master/tune/index.html">Ray Tune</a>.</p>
 <p>Same as <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code>, <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code> also supports a series of command line parameters to allow user to adjust the experiment configuration. In addition to the command line parameters supported by <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code> , <code class="docutils literal notranslate"><span class="pre">hyper_tune.py</span></code> also supports the following unique parameters:</p>
@@ -218,7 +217,7 @@
 </div>
 </li>
 </ul>
-<section id="space-file">
+<div class="section" id="space-file">
 <h2>Space File<a class="headerlink" href="#space-file" title="Permalink to this headline">¶</a></h2>
 <p>The space file should still be stored in JSON format. The content of the space file is a dictionary whose key is parameter name and value is space description variable.</p>
 <p>The space description variable is composed of the space type and the constraint parameters corresponding to that type. The supported space types and their corresponding constraint parameters are as follows:</p>
@@ -266,8 +265,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

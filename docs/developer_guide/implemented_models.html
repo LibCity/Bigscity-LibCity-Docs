@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Customize Models &mdash; Bigscity-LibCity  documentation</title>
@@ -84,14 +83,14 @@
               
             
             
-              <p><span class="caption-text">Get Started</span></p>
+              <p class="caption"><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p><span class="caption-text">User Guide</span></p>
+<p class="caption"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -100,7 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p><span class="caption-text">Developer Guide</span></p>
+<p class="caption"><span class="caption-text">Developer Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_datasets.html">Customize Dataset</a></li>
@@ -115,7 +114,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p><span class="caption-text">Tutorial</span></p>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
@@ -123,7 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p><span class="caption-text">API REFERENCE</span></p>
+<p class="caption"><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -197,10 +196,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="customize-models">
+  <div class="section" id="customize-models">
 <h1>Customize Models<a class="headerlink" href="#customize-models" title="Permalink to this headline">¶</a></h1>
 <p>Here, we present how to develop a new model, and apply it to the <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>.</p>
-<section id="create-a-new-model-class">
+<div class="section" id="create-a-new-model-class">
 <h2>Create a New Model Class<a class="headerlink" href="#create-a-new-model-class" title="Permalink to this headline">¶</a></h2>
 <p>To begin with, we should create a new model implementing from <code class="docutils literal notranslate"><span class="pre">AbstractModel</span></code> or <code class="docutils literal notranslate"><span class="pre">AbstractTrafficStateModel</span></code> . Note that for traffic state prediction tasks, please inherit Class <code class="docutils literal notranslate"><span class="pre">AbstractTrafficStateModel</span></code> and for trajectory location prediction tasks, please inherit Class <code class="docutils literal notranslate"><span class="pre">AbstractModel</span></code>.</p>
 <p>Here we take the traffic state prediction task as an example. We would like to develop a model for traffic speed prediction task named as <code class="docutils literal notranslate"><span class="pre">NewModel</span></code>.</p>
@@ -218,8 +217,8 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
-</section>
-<section id="implement-init">
+</div>
+<div class="section" id="implement-init">
 <h2>Implement __init__()<a class="headerlink" href="#implement-init" title="Permalink to this headline">¶</a></h2>
 <p>Then we implement <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method, <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> is used to define the model structure according to the data feature and the configuration information.</p>
 <p>The input parameters of  <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> are <code class="docutils literal notranslate"><span class="pre">config</span></code> and <code class="docutils literal notranslate"><span class="pre">data_feature</span></code>, where <code class="docutils literal notranslate"><span class="pre">config</span></code> contains various configuration information, including model parameters and so on,  and <code class="docutils literal notranslate"><span class="pre">data_feature</span></code> contains features of the dataset to build our model.</p>
@@ -255,8 +254,8 @@
 <p>You can see that in the section 1 of the code, we take the necessary parameters from <code class="docutils literal notranslate"><span class="pre">data_feature</span></code>, including the number of nodes(<code class="docutils literal notranslate"><span class="pre">num_nodes</span></code>), data input dimensions(<code class="docutils literal notranslate"><span class="pre">feature_dim</span></code>), output dimensions(<code class="docutils literal notranslate"><span class="pre">output_dim</span></code>), and data normalized objects(<code class="docutils literal notranslate"><span class="pre">scaler</span></code>), and initialize the logger.</p>
 <p>In the section 2 of the code, we take the necessary parameters from <code class="docutils literal notranslate"><span class="pre">config</span></code>, including hidden layer dimensions(<code class="docutils literal notranslate"><span class="pre">hidden_size</span></code>), network layers(<code class="docutils literal notranslate"><span class="pre">num_layers</span></code>), input time length(<code class="docutils literal notranslate"><span class="pre">input_window</span></code>), output time length(<code class="docutils literal notranslate"><span class="pre">output_window</span></code>), etc.</p>
 <p>In the section 3 of the code, we define model structures, including a LSTM layer and a full connectivity layer.</p>
-</section>
-<section id="implement-predict">
+</div>
+<div class="section" id="implement-predict">
 <h2>Implement predict()<a class="headerlink" href="#implement-predict" title="Permalink to this headline">¶</a></h2>
 <p>Then we define the <code class="docutils literal notranslate"><span class="pre">predict()</span></code> method, which is used to compute the prediction results of the model. The input parameters of  <code class="docutils literal notranslate"><span class="pre">predict()</span></code> is <code class="docutils literal notranslate"><span class="pre">batch</span></code>, which is an object of class <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a>.</p>
 <p>Both the  <code class="docutils literal notranslate"><span class="pre">AbstractModel</span></code> and <code class="docutils literal notranslate"><span class="pre">AbstractTrafficStateModel</span></code>  inherit from class <code class="docutils literal notranslate"><span class="pre">torch.nn.Module</span></code>. If you are familiar with the Pytorch framework, you will find that this function is similar to the <code class="docutils literal notranslate"><span class="pre">forward()</span></code> function in <code class="docutils literal notranslate"><span class="pre">torch.nn.Module</span></code>.  In most cases, you can call the <code class="docutils literal notranslate"><span class="pre">forward()</span></code> function directly inside this function to get the output of the model.</p>
@@ -284,8 +283,8 @@
 </pre></div>
 </div>
 <p>It can be seen that the <code class="docutils literal notranslate"><span class="pre">predict</span></code> function calls the <code class="docutils literal notranslate"><span class="pre">forward</span></code> function directly, and in the <code class="docutils literal notranslate"><span class="pre">forward</span></code> function, we define the calculation process of the model. This model uses LSTM to make multiple predictions, and takes the output of each predicted as the next input.  Here we assume that the input data dimension and output data dimension are equal, that is <code class="docutils literal notranslate"><span class="pre">feature_dim=output_dim</span></code>.</p>
-</section>
-<section id="implement-calcualte-loss">
+</div>
+<div class="section" id="implement-calcualte-loss">
 <h2>Implement calcualte_loss()<a class="headerlink" href="#implement-calcualte-loss" title="Permalink to this headline">¶</a></h2>
 <p>Finally we define the <code class="docutils literal notranslate"><span class="pre">calculate_loss()</span></code> method, <code class="docutils literal notranslate"><span class="pre">calculate_loss()</span></code> is used to compute the loss between the prediction results and the ground-truth value.</p>
 <p>The input parameters of  <code class="docutils literal notranslate"><span class="pre">calculate_loss()</span></code> is <code class="docutils literal notranslate"><span class="pre">batch</span></code>, which is an object of class <a class="reference internal" href="../user_guide/data/batch.html"><span class="doc">Batch</span></a>. And the method return a <code class="docutils literal notranslate"><span class="pre">torch.Tensor</span></code> for back propagation.</p>
@@ -304,8 +303,8 @@
 </div>
 <p>You can see that here we directly call the <code class="docutils literal notranslate"><span class="pre">loss.masked_mae_torch</span></code> function that has been defined in <code class="docutils literal notranslate"><span class="pre">loss.py</span></code>, its function is to calculate the MAE loss.</p>
 <p>Now we have completed the definition of the model structure, and there are some simple configurations left.</p>
-</section>
-<section id="import-the-model">
+</div>
+<div class="section" id="import-the-model">
 <h2>Import The Model<a class="headerlink" href="#import-the-model" title="Permalink to this headline">¶</a></h2>
 <p>After adding the model, you need to modify the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file in the task folder where your model belongs.  In the example above, the file you need to modify is <code class="docutils literal notranslate"><span class="pre">libcity/model/traffic_speed_prediction/__init__.py</span></code>.</p>
 <p>Please add code like this:</p>
@@ -316,8 +315,8 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="add-model-config">
+</div>
+<div class="section" id="add-model-config">
 <h2>Add Model Config<a class="headerlink" href="#add-model-config" title="Permalink to this headline">¶</a></h2>
 <p>Finally, you need to modify some relevant <code class="docutils literal notranslate"><span class="pre">config</span></code> files.</p>
 <ul>
@@ -359,8 +358,8 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_model.py --task traffic_state_pred --model NewModel --dataset METR_LA
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
