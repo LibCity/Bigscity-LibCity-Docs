@@ -81,14 +81,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/data.html">Data Introduction</a></li>
@@ -97,21 +97,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../libcity/libcity.data.html">libcity.data</a></li>
@@ -270,6 +271,87 @@
             <span class="n">rank</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">rank_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
             <span class="n">dcg</span> <span class="o">+=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">rank_index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">hit</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">dcg</span></div>
+
+<div class="viewcode-block" id="Precision_torch"><a class="viewcode-back" href="../../../libcity/libcity.evaluator.eval_funcs.html#libcity.evaluator.eval_funcs.Precision_torch">[docs]</a><span class="k">def</span> <span class="nf">Precision_torch</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">topk</span><span class="p">):</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">accident_grids</span> <span class="o">=</span> <span class="n">label</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="nb">sorted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">threshold</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">[</span><span class="n">topk</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">pred_grids</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+        <span class="n">matched</span> <span class="o">=</span> <span class="n">pred_grids</span> <span class="o">&amp;</span> <span class="n">accident_grids</span>
+        <span class="n">precision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">matched</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">/</span> <span class="n">topk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Recall_torch"><a class="viewcode-back" href="../../../libcity/libcity.evaluator.eval_funcs.html#libcity.evaluator.eval_funcs.Recall_torch">[docs]</a><span class="k">def</span> <span class="nf">Recall_torch</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">topk</span><span class="p">):</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">accident_grids</span> <span class="o">=</span> <span class="n">label</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="nb">sorted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">threshold</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">[</span><span class="n">topk</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">pred_grids</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+        <span class="n">matched</span> <span class="o">=</span> <span class="n">pred_grids</span> <span class="o">&amp;</span> <span class="n">accident_grids</span>
+        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">accident_grids</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">recall</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">matched</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">accident_grids</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">recall</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">recall</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="F1_Score_torch"><a class="viewcode-back" href="../../../libcity/libcity.evaluator.eval_funcs.html#libcity.evaluator.eval_funcs.F1_Score_torch">[docs]</a><span class="k">def</span> <span class="nf">F1_Score_torch</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">topk</span><span class="p">):</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">Precision_torch</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">topk</span><span class="p">)</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">Recall_torch</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">topk</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span> <span class="o">/</span> <span class="p">(</span><span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="MAP_torch"><a class="viewcode-back" href="../../../libcity/libcity.evaluator.eval_funcs.html#libcity.evaluator.eval_funcs.MAP_torch">[docs]</a><span class="k">def</span> <span class="nf">MAP_torch</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">topk</span><span class="p">):</span>
+    <span class="n">ap</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">accident_grids</span> <span class="o">=</span> <span class="n">label</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="nb">sorted</span><span class="p">,</span> <span class="n">rank</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">rank</span> <span class="o">=</span> <span class="n">rank</span><span class="p">[:</span><span class="n">topk</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">topk</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">threshold</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">[</span><span class="n">topk</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">threshold</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+        <span class="n">matched</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&amp;</span> <span class="n">label</span>
+        <span class="n">match_num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">precision_sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rank</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">matched</span><span class="p">[</span><span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]]:</span>
+                <span class="n">match_num</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">precision_sum</span> <span class="o">+=</span> <span class="n">match_num</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rank</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ap</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision_sum</span> <span class="o">/</span> <span class="n">rank</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ap</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ap</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PCC_torch"><a class="viewcode-back" href="../../../libcity/libcity.evaluator.eval_funcs.html#libcity.evaluator.eval_funcs.PCC_torch">[docs]</a><span class="k">def</span> <span class="nf">PCC_torch</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">topk</span><span class="p">):</span>
+    <span class="n">pcc</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="nb">sorted</span><span class="p">,</span> <span class="n">rank</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">[:</span><span class="n">topk</span><span class="p">]</span>
+        <span class="n">rank</span> <span class="o">=</span> <span class="n">rank</span><span class="p">[:</span><span class="n">topk</span><span class="p">]</span>
+        <span class="n">sorted_label</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">topk</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">topk</span><span class="p">):</span>
+            <span class="n">sorted_label</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span><span class="p">[</span><span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">sorted_label</span>
+        <span class="n">label_average</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">label</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">pred_average</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">label</span> <span class="o">-</span> <span class="n">label_average</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">label</span> <span class="o">-</span> <span class="n">label_average</span><span class="p">)))</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">pred</span> <span class="o">-</span> <span class="n">pred_average</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">pred_average</span><span class="p">)))</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">pcc</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">label</span> <span class="o">-</span> <span class="n">label_average</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">pred_average</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span>
+                    <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">label</span> <span class="o">-</span> <span class="n">label_average</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">label</span> <span class="o">-</span> <span class="n">label_average</span><span class="p">)))</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                    <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">pred</span> <span class="o">-</span> <span class="n">pred_average</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">pred_average</span><span class="p">)))))</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pcc</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pcc</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

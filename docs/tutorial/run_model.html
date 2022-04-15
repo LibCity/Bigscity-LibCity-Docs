@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Run an existing model in LibCity &mdash; Bigscity-LibCity  documentation</title>
@@ -83,14 +84,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
@@ -99,14 +100,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Run an existing model in LibCity</a><ul>
@@ -123,8 +124,9 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -198,10 +200,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="run-an-existing-model-in-libcity">
+  <section id="run-an-existing-model-in-libcity">
 <h1>Run an existing model in LibCity<a class="headerlink" href="#run-an-existing-model-in-libcity" title="Permalink to this headline">¶</a></h1>
 <p>Here, we present how to run an existing model in <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>.</p>
-<div class="section" id="download-a-dataset">
+<section id="download-a-dataset">
 <h2>Download a Dataset<a class="headerlink" href="#download-a-dataset" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">LibCity</span></code> provides 29 traffic datasets and presents their basic information on the <a class="reference external" href="https://libcity.github.io/Bigscity-LibCity-Website/#/data">website</a> and <a class="reference internal" href="../user_guide/data/raw_data.html"><span class="doc">document</span></a>. To format various traffic datasets, we design and implement 6 atomic file types, which are able to characterize most forms of the input data required by different traffic prediction tasks. More details can be found in <a class="reference internal" href="../user_guide/data/atomic_files.html"><span class="doc">document</span></a>.</p>
 <p>We have already uploaded processed atomic files of datasets in network disks <a class="reference external" href="https://pan.baidu.com/s/1qEfcXBO-QwZfiT0G3IYMpQ#list/path=%2F">BaiduDisk with code 1231</a> or <a class="reference external" href="https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing">Google Drive</a>. Users can simply download from network disks.</p>
@@ -210,15 +212,15 @@
 <div><p>If you have not installed <code class="docutils literal notranslate"><span class="pre">LibCity</span></code> yet, you can find the installation tutorial <a class="reference internal" href="install_quick_start.html"><span class="doc">here</span></a>.</p>
 </div></blockquote>
 <p>If <code class="docutils literal notranslate"><span class="pre">LibCity</span></code> is installed successfully, we will get a folder named <code class="docutils literal notranslate"><span class="pre">Bigscity-LibCity</span></code>. We need to create a folder named <code class="docutils literal notranslate"><span class="pre">raw_data</span></code> in the project root directory for storing processed atomic files of datasets. Then, we move the downloaded folder <code class="docutils literal notranslate"><span class="pre">METR_LA</span></code> to the <code class="docutils literal notranslate"><span class="pre">raw_data</span></code> folder.</p>
-</div>
-<div class="section" id="configure-parameters">
+</section>
+<section id="configure-parameters">
 <h2>Configure Parameters<a class="headerlink" href="#configure-parameters" title="Permalink to this headline">¶</a></h2>
 <p>The experiment parameter configuration is determined by three aspects: the parameters passed by the command line, the user-defined configuration file, and the <code class="docutils literal notranslate"><span class="pre">LibCity</span></code> default configuration file. And the <code class="docutils literal notranslate"><span class="pre">LibCity</span></code> default configuration file includes configuration file of the data module, the executor module, the evaluator module, the model module.</p>
-<div class="section" id="parameter-priority">
+<section id="parameter-priority">
 <h3>Parameter Priority<a class="headerlink" href="#parameter-priority" title="Permalink to this headline">¶</a></h3>
 <p>command line parameters &gt; user-defined parameters &gt; default parameters of the model module &gt; default parameters of other modules</p>
-</div>
-<div class="section" id="libcity-default-configuration-file">
+</section>
+<section id="libcity-default-configuration-file">
 <h3>LibCity Default Configuration File<a class="headerlink" href="#libcity-default-configuration-file" title="Permalink to this headline">¶</a></h3>
 <p>The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:</p>
 <ul class="simple">
@@ -247,7 +249,7 @@
 }
 </pre></div>
 </div>
-<p>We can know that the dataset class, executor, evaluator of the GRU model are <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, <code class="docutils literal notranslate"><span class="pre">DCRNNExecutor</span></code>, <code class="docutils literal notranslate"><span class="pre">TrafficStateEvaluator</span></code> respectively.</p>
+<p>We can know that the dataset class, executor, evaluator of the GRU model are <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, <code class="docutils literal notranslate"><span class="pre">TrafficStateExecutor</span></code>, <code class="docutils literal notranslate"><span class="pre">TrafficStateEvaluator</span></code> respectively.</p>
 <p>Therefore, we can know default parameters of the data module from <code class="docutils literal notranslate"><span class="pre">libcity/config/data/TrafficStatePointDataset.json</span></code>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
@@ -307,8 +309,8 @@
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="user-defined-configuration-file">
+</section>
+<section id="user-defined-configuration-file">
 <h3>User-defined Configuration File<a class="headerlink" href="#user-defined-configuration-file" title="Permalink to this headline">¶</a></h3>
 <p>In order to allow users to modify the default parameters of each module at will, <code class="docutils literal notranslate"><span class="pre">LibCity</span></code> allows user to reads the parameter configuration from the user-defined configuration file. The user-defined configuration file should meet the following format requirements:</p>
 <ol class="simple">
@@ -322,8 +324,8 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="command-line-parameters">
+</section>
+<section id="command-line-parameters">
 <h3>Command Line Parameters<a class="headerlink" href="#command-line-parameters" title="Permalink to this headline">¶</a></h3>
 <p>The script <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code> used for training and evaluating a single model is provided in the root directory of the framework, and a series of command line parameters are provided to allow users to adjust the running parameter configuration.</p>
 <p>When run the <code class="docutils literal notranslate"><span class="pre">run_model.py</span></code>, you must specify the following three parameters, namely <code class="docutils literal notranslate"><span class="pre">task</span></code>, <code class="docutils literal notranslate"><span class="pre">dataset</span></code> and <code class="docutils literal notranslate"><span class="pre">model</span></code>. For example, if we want to run the GRU model on the METR_LA dataset for the traffic state prediction task, we need to execute the following command:</p>
@@ -331,9 +333,9 @@
 </pre></div>
 </div>
 <p>You can also use <code class="docutils literal notranslate"><span class="pre">-h</span></code> for more help information.</p>
-</div>
-</div>
-<div class="section" id="run-a-model">
+</section>
+</section>
+<section id="run-a-model">
 <h2>Run a Model<a class="headerlink" href="#run-a-model" title="Permalink to this headline">¶</a></h2>
 <p>If you have already downloaded and put the dataset in the proper place, then only one command will help you run the model:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">run_model</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">task</span> <span class="n">traffic_state_pred</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">METR_LA</span> <span class="o">--</span><span class="n">model</span> <span class="n">GRU</span>
@@ -353,8 +355,8 @@
 <p>Next, the executor module starts to train the model. After training for one epoch, the logger module will output losses on the training set and the validation set, the learning rate, the training time. We can find that the learning rate has already become <code class="docutils literal notranslate"><span class="pre">0.02</span></code>, which was passed by the command line.</p>
 <p><img alt="../_images/run_model4.png" src="../_images/run_model4.png" /></p>
 <p>Finally, when the model training ends, the executor module will test the model’s performance on the test set and save the trained model and evaluation results in <code class="docutils literal notranslate"><span class="pre">libcity/cache/model_cache/</span></code> and <code class="docutils literal notranslate"><span class="pre">libcity/cache/evaluate_cache/</span></code> respectively.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

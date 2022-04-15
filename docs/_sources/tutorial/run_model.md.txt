@@ -53,7 +53,7 @@ Take the GRU model as an example and see its default configuration in `LibCity`.
 }
 ```
 
-We can know that the dataset class, executor, evaluator of the GRU model are `TrafficStatePointDataset`, `DCRNNExecutor`, `TrafficStateEvaluator` respectively.
+We can know that the dataset class, executor, evaluator of the GRU model are `TrafficStatePointDataset`, `TrafficStateExecutor`, `TrafficStateEvaluator` respectively.
 
 Therefore, we can know default parameters of the data module from `libcity/config/data/TrafficStatePointDataset.json`.
 

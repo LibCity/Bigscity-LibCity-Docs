@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Traffic State Prediction Evaluator &mdash; Bigscity-LibCity  documentation</title>
@@ -37,7 +38,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Trajectory Location Prediction Evaluator" href="traj_loc_pred.html" />
+    <link rel="next" title="Trajectory Next-Location Prediction Evaluator" href="traj_loc_pred.html" />
     <link rel="prev" title="Evaluator Introduction" href="../evaluator.html" /> 
 </head>
 
@@ -83,14 +84,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
@@ -101,27 +102,30 @@
 <li class="toctree-l3"><a class="reference internal" href="#evaluation-settings">Evaluation Settings</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="traj_loc_pred.html">Trajectory Location Prediction Evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traj_loc_pred.html">Trajectory Next-Location Prediction Evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map_matching.html">Map Matching Evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eta.html">Estimated Time of Arrival Evaluator</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -197,10 +201,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="traffic-state-prediction-evaluator">
+  <section id="traffic-state-prediction-evaluator">
 <h1>Traffic State Prediction Evaluator<a class="headerlink" href="#traffic-state-prediction-evaluator" title="Permalink to this headline">¶</a></h1>
 <p>We have implemented several evaluation loss functions so that different models under the same task can be compared under the same standard.</p>
-<div class="section" id="evaluation-metrics">
+<section id="evaluation-metrics">
 <h2>Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Permalink to this headline">¶</a></h2>
 <p>For the task of traffic state prediction, this evaluator implements a series of evaluation indicators:</p>
 <table class="docutils align-default">
@@ -247,8 +251,8 @@
 </tbody>
 </table>
 <p>The ground-truth value is <span class="math notranslate nohighlight">\(y=\{y_1,y_2,...,y_n\}\)</span>, the prediction value is <span class="math notranslate nohighlight">\(\hat{y} = \{\hat{y_1}, \hat{y_2}, ..., \hat{y_n}\}\)</span>，<span class="math notranslate nohighlight">\(n\)</span>is the number of samples, the mean value is <span class="math notranslate nohighlight">\(\bar{y}=\frac{1}{n}\sum_{i=1}^ny_i\)</span>, the variance is <span class="math notranslate nohighlight">\(Var(y_i)=\frac{1}{n}\sum_{i=1}^n(y_{i}-\bar{y})^2\)</span>.</p>
-</div>
-<div class="section" id="evaluation-settings">
+</section>
+<section id="evaluation-settings">
 <h2>Evaluation Settings<a class="headerlink" href="#evaluation-settings" title="Permalink to this headline">¶</a></h2>
 <p>The following are parameters involved in the evaluator:</p>
 <p>Location: libcity/config/evaluator/TrafficStateEvaluator.json</p>
@@ -256,8 +260,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">metrics</span></code>: Array of evaluation metrics, <code class="docutils literal notranslate"><span class="pre">allowed_metrics</span></code>in evaluator class indicates the type of metrics that the task can accept, and <code class="docutils literal notranslate"><span class="pre">metrics</span></code> cannot exceed this range.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mode</span></code>: Evaluation mode, traffic state prediction is generally a prediction of multiple time steps. If set to <code class="docutils literal notranslate"><span class="pre">average</span></code>, it means calculating the average result of the previous n time steps, and set to <code class="docutils literal notranslate"><span class="pre">single</span></code>to calculate the n-th time step evaluation results. The default is <code class="docutils literal notranslate"><span class="pre">average</span></code>. <strong>The current evaluator will return the results of all time steps</strong>. For example, if the total time step is 3, the <code class="docutils literal notranslate"><span class="pre">average</span></code>mode returns [average loss of previous 1 time step, average loss of previous 2 time steps,average loss of previous 3 steps], The <code class="docutils literal notranslate"><span class="pre">single</span></code>mode returns [loss at the first time step, loss at the second time step, loss at the third time step].</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -267,7 +271,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="traj_loc_pred.html" class="btn btn-neutral float-right" title="Trajectory Location Prediction Evaluator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="traj_loc_pred.html" class="btn btn-neutral float-right" title="Trajectory Next-Location Prediction Evaluator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../evaluator.html" class="btn btn-neutral float-left" title="Evaluator Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Trajectory Location Prediction Executor &mdash; Bigscity-LibCity  documentation</title>
+  <title>Trajectory Next-Location Prediction Executor &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -37,7 +38,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Usage" href="../usage.html" />
+    <link rel="next" title="Map Matching Executor" href="map_matching.html" />
     <link rel="prev" title="Traffic State Prediction Executor" href="traffic_state_pred.html" /> 
 </head>
 
@@ -83,14 +84,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
@@ -98,29 +99,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../executor.html">Executor Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_state_pred.html">Traffic State Prediction Executor</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Trajectory Location Prediction Executor</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Trajectory Next-Location Prediction Executor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#executor-setting">Executor Setting</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="map_matching.html">Map Matching Executor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eta.html">Estimated Time of Arrival Executor</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -177,7 +181,7 @@
         
           <li><a href="../executor.html">Executor Introduction</a> &raquo;</li>
         
-      <li>Trajectory Location Prediction Executor</li>
+      <li>Trajectory Next-Location Prediction Executor</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -196,9 +200,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trajectory-location-prediction-executor">
-<h1>Trajectory Location Prediction Executor<a class="headerlink" href="#trajectory-location-prediction-executor" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="executor-setting">
+  <section id="trajectory-next-location-prediction-executor">
+<h1>Trajectory Next-Location Prediction Executor<a class="headerlink" href="#trajectory-next-location-prediction-executor" title="Permalink to this headline">¶</a></h1>
+<section id="executor-setting">
 <h2>Executor Setting<a class="headerlink" href="#executor-setting" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">gpu</span></code>：Whether to use GPU. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
@@ -212,8 +216,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">schedule_threshold</span></code>: The threshold of the torch scheduler. Defaults to <code class="docutils literal notranslate"><span class="pre">0.001</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Output training information after training <code class="docutils literal notranslate"><span class="pre">verbose</span></code> times. Defaults to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -223,7 +227,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="map_matching.html" class="btn btn-neutral float-right" title="Map Matching Executor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="traffic_state_pred.html" class="btn btn-neutral float-left" title="Traffic State Prediction Executor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

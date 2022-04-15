@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Standard Track &mdash; Bigscity-LibCity  documentation</title>
@@ -83,14 +84,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
@@ -102,6 +103,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Standard Track</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#traffic-state-prediction">Traffic State Prediction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#trajectory-location-prediction">Trajectory Location prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map-matching">Map Matching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estimated-time-of-arrival">Estimated Time of Arrival</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="parameter_tuning.html">Parameter Tuning</a></li>
@@ -109,21 +112,22 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -199,12 +203,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="standard-track">
+  <section id="standard-track">
 <h1>Standard Track<a class="headerlink" href="#standard-track" title="Permalink to this headline">¶</a></h1>
 <p>In the field of traffic big data, there have been long-standing phenomena such as inconsistent evaluation data sets, inconsistent evaluation indicators, and inconsistent preprocessing of data sets, resulting in poor performance comparability of different models. Therefore, in order to solve the above problems, this project has implemented a set of standard pipelines (tracks) for each task.</p>
 <p>On the standard track, the original data set, standard data module (Data module), and standard evaluation module (Evaluator module) provided by the project are used to constrain different models to use the same data input and evaluation indicators to improve the comparability of evaluation results.</p>
 <p>The standard data input format and evaluation input format for different tasks are explained below :</p>
-<div class="section" id="traffic-state-prediction">
+<section id="traffic-state-prediction">
 <h2>Traffic State Prediction<a class="headerlink" href="#traffic-state-prediction" title="Permalink to this headline">¶</a></h2>
 <p>According to the different spatial structure of traffic data, traffic state data can generally be represented by tensors in the following formats:</p>
 <ul class="simple">
@@ -225,8 +229,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">y_true</span></code>:  The ground-truth value, the format is the same as the <code class="docutils literal notranslate"><span class="pre">y</span></code> in the input.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">y_pred</span></code>:  The prediction value, the format is the same as the <code class="docutils literal notranslate"><span class="pre">y</span></code> in the input.</p></li>
 </ul>
-</div>
-<div class="section" id="trajectory-location-prediction">
+</section>
+<section id="trajectory-location-prediction">
 <h2>Trajectory Location prediction<a class="headerlink" href="#trajectory-location-prediction" title="Permalink to this headline">¶</a></h2>
 <p>The standard data input format is a dictionary-like <a class="reference internal" href="../data/batch.html"><span class="doc">Batch</span></a> object instance. The key names of this object are as follows:</p>
 <ul class="simple">
@@ -243,8 +247,39 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">loc_true</span></code>:  Expected next hop location,  <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">loc_pred</span></code>:  Model prediction output, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size,</span> <span class="pre">output_dim)</span></code>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+<section id="map-matching">
+<h2>Map Matching<a class="headerlink" href="#map-matching" title="Permalink to this headline">¶</a></h2>
+<p>The standard data input format is a dictionary. The key names of this object are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">trajectory</span></code>: The format of <code class="docutils literal notranslate"><span class="pre">trajectory</span></code> can be denoted as <code class="docutils literal notranslate"><span class="pre">{&quot;usr_id&quot;:{&quot;traj_id&quot;:{numpy.ndarray}}}</span></code>. That is to say, the key of <code class="docutils literal notranslate"><span class="pre">trajectory</span></code> is <code class="docutils literal notranslate"><span class="pre">usr_id</span></code>. Each <code class="docutils literal notranslate"><span class="pre">usr_id</span></code> has a dictionary, the key of which is <code class="docutils literal notranslate"><span class="pre">traj_id</span></code>.  for each <code class="docutils literal notranslate"><span class="pre">traj_id</span></code>, there’s a<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, representing a sequence of chronologically ordered spatial points sampled from a continuously moving object, with <code class="docutils literal notranslate"><span class="pre">columns=(index,longitude,latitude,time)</span></code> or <code class="docutils literal notranslate"><span class="pre">columns=(index,longitude,latitude)</span></code>. The length of trajectory is noted as <code class="docutils literal notranslate"><span class="pre">num_sample</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rd_nwk</span></code>: A road network with type <code class="docutils literal notranslate"><span class="pre">networkx.classes.digraph.DiGraph</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">route</span></code>: The format of <code class="docutils literal notranslate"><span class="pre">route</span></code> can be denoted as <code class="docutils literal notranslate"><span class="pre">{&quot;usr_id&quot;:{&quot;traj_id&quot;:{numpy.ndarray}}}</span></code>. It is similar to <code class="docutils literal notranslate"><span class="pre">trajectory</span></code>. The value of <code class="docutils literal notranslate"><span class="pre">route</span></code> is a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of <code class="docutils literal notranslate"><span class="pre">geo_id</span></code> with <code class="docutils literal notranslate"><span class="pre">shape=(num_road,)</span></code>, representing ground truth. <code class="docutils literal notranslate"><span class="pre">num_road</span></code> is the length of real route.</p></li>
+</ul>
+<p>The standard evaluation input format is a dictionary object, and the dictionary has the following key names:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: The format of <code class="docutils literal notranslate"><span class="pre">result</span></code> is almost the same as that of <code class="docutils literal notranslate"><span class="pre">route</span></code> in standard data input. The value of <code class="docutils literal notranslate"><span class="pre">result</span></code> is a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of <code class="docutils literal notranslate"><span class="pre">geo_id</span></code> with <code class="docutils literal notranslate"><span class="pre">shape=(num_sample,)</span></code>, representing matching result. <code class="docutils literal notranslate"><span class="pre">num_sample</span></code> is the number of GPS samples in the trajectory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">route</span></code>: As depicted in standard data input.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rd_nwk</span></code>: As depicted in standard data input.</p></li>
+</ul>
+</section>
+<section id="estimated-time-of-arrival">
+<h2>Estimated Time of Arrival<a class="headerlink" href="#estimated-time-of-arrival" title="Permalink to this headline">¶</a></h2>
+<p>The standard data input format is a dictionary-like <a class="reference internal" href="../data/batch.html"><span class="doc">Batch</span></a> object instance. The key names of this object are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">current_loc/(current_longi,</span> <span class="pre">current_lati)</span></code>: Trajectory location information, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size,</span> <span class="pre">traj_len)</span></code>, <code class="docutils literal notranslate"><span class="pre">traj_len</span></code> is the length of the trajectory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uid</span></code>: The id of the user for each trajectory, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">timeid(weekid)</span></code>: Time information when the trajectory starts, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist</span></code>: The total distance of the trajectory, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
+<li><p>Other information, such as <code class="docutils literal notranslate"><span class="pre">current_dis</span></code>(the distance from starting point to current point, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size,</span> <span class="pre">traj_len)</span></code>)， <code class="docutils literal notranslate"><span class="pre">current_state</span></code>(the current taxi state is available or unavailable, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size,</span> <span class="pre">traj_len)</span></code>). (Optional)</p></li>
+</ul>
+<p>The standard evaluation input format is a dictionary object, and the dictionary has the following key names:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">y_true</span></code>:  The real travel time from starting point to finishing point, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_pred</span></code>:  The predicted travel time from starting point to finishing point, <code class="docutils literal notranslate"><span class="pre">shape</span> <span class="pre">=</span> <span class="pre">(batch_size)</span></code>.</p></li>
+</ul>
+</section>
+</section>
 
 
            </div>

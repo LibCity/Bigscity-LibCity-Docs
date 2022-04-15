@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Trajectory Location Prediction Evaluator &mdash; Bigscity-LibCity  documentation</title>
+  <title>Trajectory Next-Location Prediction Evaluator &mdash; Bigscity-LibCity  documentation</title>
   
 
   
@@ -37,7 +38,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Executor Introduction" href="../executor.html" />
+    <link rel="next" title="Map Matching Evaluator" href="map_matching.html" />
     <link rel="prev" title="Traffic State Prediction Evaluator" href="traffic_state_pred.html" /> 
 </head>
 
@@ -83,45 +84,48 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data.html">Data Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../evaluator.html">Evaluator Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="traffic_state_pred.html">Traffic State Prediction Evaluator</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Trajectory Location Prediction Evaluator</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Trajectory Next-Location Prediction Evaluator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#evaluation-metrics">Evaluation Metrics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#evaluation-settings">Evaluation Settings</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="map_matching.html">Map Matching Evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eta.html">Estimated Time of Arrival Evaluator</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -178,7 +182,7 @@
         
           <li><a href="../evaluator.html">Evaluator Introduction</a> &raquo;</li>
         
-      <li>Trajectory Location Prediction Evaluator</li>
+      <li>Trajectory Next-Location Prediction Evaluator</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,54 +201,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="trajectory-location-prediction-evaluator">
-<h1>Trajectory Location Prediction Evaluator<a class="headerlink" href="#trajectory-location-prediction-evaluator" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="evaluation-metrics">
+  <section id="trajectory-next-location-prediction-evaluator">
+<h1>Trajectory Next-Location Prediction Evaluator<a class="headerlink" href="#trajectory-next-location-prediction-evaluator" title="Permalink to this headline">¶</a></h1>
+<section id="evaluation-metrics">
 <h2>Evaluation Metrics<a class="headerlink" href="#evaluation-metrics" title="Permalink to this headline">¶</a></h2>
-<p>For the task of trajectory location prediction, this evaluator implements a series of TopK-based evaluation indicators:</p>
-<ul class="simple">
-<li><p>Precision&#64;K</p>
-<ul>
-<li><p>Let R(u) be the prediction list based on user behavior on training set.</p></li>
-<li><p>Let T(u) be the user behavior on testing set.</p></li>
-<li><p><span class="math notranslate nohighlight">\(Precision=\frac{\sum_{u}|R(u)\bigcap T(u)|}{\sum_{u}|R(u)|}\)</span></p></li>
-</ul>
-</li>
-<li><p>Recall&#64;K</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(Recall=\frac{\sum_{u}|R(u)\bigcap T(u)|}{\sum_{u}|T(u)|}\)</span></p></li>
-<li><p>There is only one ground-truth in trajectory location prediction, so <span class="math notranslate nohighlight">\(Precision=\frac{Recall}{topk}\)</span>.</p></li>
-</ul>
-</li>
-<li><p>F1-score&#64;K</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(F1=\frac{2*Recall*Precision}{Recall+Precision}\)</span></p></li>
-</ul>
-</li>
-<li><p>MRR(Mean Reciprocal Rank)&#64;K</p>
-<ul>
-<li><p>Let rank(u) be the rank of the first ground-truth in prediction list.</p></li>
-<li><p><span class="math notranslate nohighlight">\(MRR=\sum_u\frac{1}{rank(u)}\)</span></p></li>
-</ul>
-</li>
-<li><p>MAP(Mean Average Precision)&#64;K</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(Precision=f(Recall)\)</span></p></li>
-<li><p>AP(Average Precision): <span class="math notranslate nohighlight">\(\int_0^1f(r)\text{d}r\)</span>, namely average precision through different recall.</p></li>
-<li><p>There is only one ground-truth in trajectory location prediction, so recall=1 and precision=<span class="math notranslate nohighlight">\(\frac{1}{rank}\)</span>, thus <span class="math notranslate nohighlight">\(AP_u=\frac{1}{rank(u)}\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(MAP=\frac{\sum_{u\in U}AP_u}{|T(u)|}\)</span></p></li>
-</ul>
-</li>
-<li><p>NDCG(Normalized Discounted Cumulative Gain)&#64;K</p>
-<ul>
-<li><p>CG(Cumulative Gain): <span class="math notranslate nohighlight">\(\sum_u{rel(u)}\)</span>where rel(u) is the graded relevance of the result, <span class="math notranslate nohighlight">\(rel\in\{0,1\}\)</span>.</p></li>
-<li><p>DCG(Discounted Cumulative Gain): <span class="math notranslate nohighlight">\(\sum_u \frac{rel(u)}{\log_2(rank(u)+1)}\)</span>, reduce the relevance value of high rank result.</p></li>
-<li><p>NDCG: <span class="math notranslate nohighlight">\(\frac{DCG}{IDCG}\)</span>, normalized DCG. IDCG is ideal DCG, which is 1 in implemention.</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="evaluation-settings">
+<p>For the task of trajectory next-location prediction, this evaluator implements a series of TopK-based evaluation metrics.</p>
+<p>Here is the symbol table of our evaluation metrics.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N\)</span></p></td>
+<td><p>The number of test data</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(i\)</span></p></td>
+<td><p>The i-th test data</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(K\)</span></p></td>
+<td><p>The top K prediction outputs for evaluation</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(T(i)\)</span></p></td>
+<td><p>The real next hop position in the i-th test data</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(R(i)\)</span></p></td>
+<td><p>The set of the top K locations in the prediction result of the i-th test data</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(Hit(i)\)</span></p></td>
+<td><p>The set of predicted hit locations in the i-th test data, which means <span class="math notranslate nohighlight">\(T(i) \cap R(i)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(Rank(i)\)</span></p></td>
+<td><p>The ranking of T(i) in R(i) in the i-th test data</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(|*|\)</span></p></td>
+<td><p>The modulo operator of a set</p></td>
+</tr>
+</tbody>
+</table>
+<p>Using the above symbols, the calculation formula of TopK evaluation metrics is:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Precision</p></td>
+<td><div class="math notranslate nohighlight">
+\[Precision&#64;K=\frac{\sum_{i=1}^{N}|\operatorname{Hit}(i)|}{N \times K}\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Recall</p></td>
+<td><div class="math notranslate nohighlight">
+\[Recall&#64;K=\frac{\sum_{i=1}^{N}|\operatorname{Hit}(i)|}{N}\]</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>F1-score</p></td>
+<td><div class="math notranslate nohighlight">
+\[F1&#64;K=\frac{2 \times \text { Precision&#64; } \times \text { Recall&#64; } K}{\text { Precision } &#64;+\text { Recall&#64; } K}\]</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Mean Reciprocal Rank</p></td>
+<td><div class="math notranslate nohighlight">
+\[MRR&#64;K=\frac{1}{N} \sum_{i=1}^{N} \frac{1}{\operatorname{Rank}(i)}\]</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>NDCG</p></td>
+<td><div class="math notranslate nohighlight">
+\[NDCG&#64;K=\frac{1}{N} \sum_{i=1}^{N} \frac{1}{\log _{2}(\operatorname{rank}(i)+1)}\]</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="evaluation-settings">
 <h2>Evaluation Settings<a class="headerlink" href="#evaluation-settings" title="Permalink to this headline">¶</a></h2>
 <p>The following are parameters involved in the evaluator:</p>
 <p>Location: libcity/config/evaluator/TrajLocPredEvaluator.json</p>
@@ -252,8 +292,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">metrics</span> <span class="pre">(list</span> <span class="pre">of</span> <span class="pre">string)</span></code>: Default to <code class="docutils literal notranslate"><span class="pre">[&quot;Recall&quot;]</span></code>. Range in <code class="docutils literal notranslate"><span class="pre">[&quot;Precision&quot;,</span> <span class="pre">&quot;Recall&quot;,</span> <span class="pre">&quot;F1&quot;,</span> <span class="pre">&quot;MRR&quot;,</span> <span class="pre">&quot;MAP&quot;,</span> <span class="pre">&quot;NDCG&quot;]</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">topk</span> <span class="pre">(int)</span></code>:  Default to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -263,7 +303,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../executor.html" class="btn btn-neutral float-right" title="Executor Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="map_matching.html" class="btn btn-neutral float-right" title="Map Matching Evaluator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="traffic_state_pred.html" class="btn btn-neutral float-left" title="Traffic State Prediction Evaluator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

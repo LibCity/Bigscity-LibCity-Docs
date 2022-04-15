@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Visualize Atomic Files &mdash; Bigscity-LibCity  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="libcity.config" href="../libcity/libcity.config.html" />
+    <link rel="prev" title="Tuning the model with automatic tool" href="hyper_tune.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Bigscity-LibCity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Get Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
+</ul>
+<p><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/config_settings.html">Config Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/data.html">Data Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/model.html">Reproduced Model List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/evaluator.html">Evaluator Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/executor.html">Executor Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/usage.html">Usage</a></li>
+</ul>
+<p><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
+</ul>
+<p><span class="caption-text">Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install_quick_start.html">Install and quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_model.html">Run an existing model in LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="add_model.html">Add a new model to LibCity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Visualize Atomic Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-atomic-files">Prepare Atomic Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-visualization-script">Run the Visualization Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualize-geojson">Visualize GeoJSON</a></li>
+</ul>
+</li>
+</ul>
+<p><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.evaluator.html">libcity.evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.executor.html">libcity.executor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.model.html">libcity.model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.pipeline.html">libcity.pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.utils.html">libcity.utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bigscity-LibCity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Visualize Atomic Files</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorial/data_visualization.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="visualize-atomic-files">
+<h1>Visualize Atomic Files<a class="headerlink" href="#visualize-atomic-files" title="Permalink to this headline">¶</a></h1>
+<p>Here, we present how to visualize <a class="reference internal" href="../user_guide/data/atomic_files.html"><span class="doc">atomic files</span></a> with the help of a <code class="docutils literal notranslate"><span class="pre">VisHelper</span></code>  in <code class="docutils literal notranslate"><span class="pre">LibCity</span></code>.</p>
+<section id="prepare-atomic-files">
+<h2>Prepare Atomic Files<a class="headerlink" href="#prepare-atomic-files" title="Permalink to this headline">¶</a></h2>
+<p>To begin with, simply place the atomic file in the <code class="docutils literal notranslate"><span class="pre">./raw_data</span></code> folder, which is the same as the preparation of running a model. If you don’t know where to get a dataset, click <a class="reference internal" href="run_model.html"><span class="doc">here</span></a> for more information.</p>
+</section>
+<section id="run-the-visualization-script">
+<h2>Run the Visualization Script<a class="headerlink" href="#run-the-visualization-script" title="Permalink to this headline">¶</a></h2>
+<p>To simplify user operation to the most extent, there are only two parameters to be specified:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dataset</span></code>: the name of the dataset</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_path</span></code>: the path to save visualization files, <code class="docutils literal notranslate"><span class="pre">default=&quot;./visualized_data/&quot;</span></code></p></li>
+</ul>
+<p>The script will automatically detect the <code class="docutils literal notranslate"><span class="pre">geo</span></code> file and <code class="docutils literal notranslate"><span class="pre">dyna</span></code> files in the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> folder and convert them to <a class="reference external" href="https://geojson.org/">GeoJSON</a> files. (<strong>For all datasets, make sure that (1) there’s only one <code class="docutils literal notranslate"><span class="pre">geo</span></code> file and (2) there’s at least one file with <code class="docutils literal notranslate"><span class="pre">coordiantes</span></code> column</strong>.)</p>
+<p>For example, if you are running a map matching task on <strong>Seattle</strong> dataset, you can use the following command</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python visualize.py --dataset Seattle --save_path <span class="s2">&quot;./visualized_data&quot;</span>
+</pre></div>
+</div>
+<p>to start a data type conversion.</p>
+<p>The grid dataset and the state dataset can be visualized in the same way. <strong>It is worth noticing that the <code class="docutils literal notranslate"><span class="pre">properties</span></code> (<code class="docutils literal notranslate"><span class="pre">inflow</span></code> and <code class="docutils literal notranslate"><span class="pre">outflow</span></code> for example) are averaged over the full time period in grid dataset and state dataset.</strong></p>
+</section>
+<section id="visualize-geojson">
+<h2>Visualize GeoJSON<a class="headerlink" href="#visualize-geojson" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://geojson.org/">GeoJSON</a> is a format for encoding a variety of geographic data structures and is supported by most GIS tools. Here, we present our visualization of <strong>Seattle</strong> dataset using <a class="reference external" href="https://www.qgis.org/en/site/">QGIS</a>.</p>
+<p>The red lines represents the road network of <strong>Seattle</strong>. The yellow lines represents GPS trajectory of the <strong>Seattle</strong> dataset.</p>
+<p><img alt="../_images/data_visualization1.png" src="../_images/data_visualization1.png" /></p>
+<p><img alt="../_images/data_visualization2.png" src="../_images/data_visualization2.png" /></p>
+<p>We also present our heat map visualization of <strong>METR_LA</strong> which is a traffic speed dataset.</p>
+<p><img alt="../_images/data_visualization3.png" src="../_images/data_visualization3.png" /></p>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../libcity/libcity.config.html" class="btn btn-neutral float-right" title="libcity.config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hyper_tune.html" class="btn btn-neutral float-left" title="Tuning the model with automatic tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, aptx1231
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

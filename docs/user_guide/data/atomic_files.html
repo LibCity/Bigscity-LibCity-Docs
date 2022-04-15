@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Atomic Files &mdash; Bigscity-LibCity  documentation</title>
@@ -37,7 +38,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Batch" href="batch.html" />
+    <link rel="next" title="Implemented Dataset Class" href="dataset_class.html" />
     <link rel="prev" title="Raw Data" href="raw_data.html" /> 
 </head>
 
@@ -83,14 +84,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
@@ -100,12 +101,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#geo-table">Geo Table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#usr-table">Usr Table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rel-table">Rel Table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dyna-table">Dyna Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dyna-table">Dyna Table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction-to-each-column">Introduction to each column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detailed-description">Detailed description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-arrangement-method">Data arrangement method</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#ext-table">Ext Table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#data-type-definition">Data Type Definition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#config-file">Config File</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_class.html">Implemented Dataset Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataset_for_task.html">Dataset For Task</a></li>
@@ -116,21 +123,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -206,7 +214,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="atomic-files">
+  <section id="atomic-files">
 <h1>Atomic Files<a class="headerlink" href="#atomic-files" title="Permalink to this headline">¶</a></h1>
 <p>The following types of atomic files are defined:</p>
 <table border="1" class="docutils">
@@ -250,13 +258,13 @@
 </tr>
 </tbody>
 </table><p>Note: For different traffic prediction tasks, different atomic files may be used, and a dataset may not contain all six kinds of atomic files.</p>
-<p><strong>The format of <code class="docutils literal notranslate"><span class="pre">.geo</span></code>, <code class="docutils literal notranslate"><span class="pre">.rel</span></code>, <code class="docutils literal notranslate"><span class="pre">.dyna</span></code>, and <code class="docutils literal notranslate"><span class="pre">.ext</span></code> is similar to the <code class="docutils literal notranslate"><span class="pre">csv</span></code> file, which consists of multiple columns of data.</strong></p>
-<div class="section" id="geo-table">
+<p><strong>The format of <code class="docutils literal notranslate"><span class="pre">.geo</span></code>, <code class="docutils literal notranslate"><span class="pre">.usr</span></code>, <code class="docutils literal notranslate"><span class="pre">.rel</span></code>, <code class="docutils literal notranslate"><span class="pre">.dyna</span></code>, and <code class="docutils literal notranslate"><span class="pre">.ext</span></code> is similar to the <code class="docutils literal notranslate"><span class="pre">csv</span></code> file, which consists of multiple columns of data.</strong></p>
+<section id="geo-table">
 <h2>Geo Table<a class="headerlink" href="#geo-table" title="Permalink to this headline">¶</a></h2>
 <p>An element in the Geo table consists of the following four parts:</p>
 <p><strong>geo_id, type, coordinates, properties (multiple columns)</strong>.</p>
 <ul class="simple">
-<li><p>geo_id: The primary key uniquely determines a geo entity. (E.g. Number of sensors, latitude and longitude points, road sections, areas, etc.)</p></li>
+<li><p>geo_id: The primary key uniquely determines a geo entity.</p></li>
 <li><p>type: The type of geo. Range in [<code class="docutils literal notranslate"><span class="pre">Point</span></code>, <code class="docutils literal notranslate"><span class="pre">LineString</span></code>, <code class="docutils literal notranslate"><span class="pre">Polygon</span></code>]. These three values are consistent with the points, lines and planes in <a class="reference external" href="https://tools.ietf.org/html/rfc7946#section-1">Geojson</a>.</p></li>
 <li><p>coordinates: Array or nested array composed of float type. Describe the location information of the geo entity, using the coordinates format of <a class="reference external" href="https://tools.ietf.org/html/rfc7946#section-1">Geojson</a>.</p></li>
 <li><p>properties: Describe the attribute information of the geo entity. If there are multiple attributes, you can use different column names to define multiple columns of data, such as <code class="docutils literal notranslate"><span class="pre">POI_name</span></code>, <code class="docutils literal notranslate"><span class="pre">POI_type</span></code>. [<strong>For grid data, there must be two columns <code class="docutils literal notranslate"><span class="pre">row_id</span></code> and <code class="docutils literal notranslate"><span class="pre">column_id</span></code> which represent the row and column numbers of the grid.</strong> ]</p></li>
@@ -269,8 +277,8 @@
 <li><p>Polygon:  [[ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ]]</p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="usr-table">
+</section>
+<section id="usr-table">
 <h2>Usr Table<a class="headerlink" href="#usr-table" title="Permalink to this headline">¶</a></h2>
 <p>An element in the Usr table consists of the following two parts:</p>
 <p><strong>usr_id, properties (multiple columns)</strong>.</p>
@@ -278,8 +286,8 @@
 <li><p>usr_id: The primary key uniquely determines a usr entity.</p></li>
 <li><p>properties: Describe the attribute information of the usr entity. If there are multiple attributes, different column names can be used to define multiple columns of data, such as <code class="docutils literal notranslate"><span class="pre">gender</span></code>, <code class="docutils literal notranslate"><span class="pre">birth_date</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="rel-table">
+</section>
+<section id="rel-table">
 <h2>Rel Table<a class="headerlink" href="#rel-table" title="Permalink to this headline">¶</a></h2>
 <p>An element in the Rel table consists of the following four parts:</p>
 <p><strong>rel_id, type, origin_id, destination_id, properties (multiple columns)</strong>.</p>
@@ -290,21 +298,26 @@
 <li><p>destination_id: The ID of the destination of the relationship, which is one of the Geo table or the Usr table.</p></li>
 <li><p>properties: Describe the attribute information of the relationship. If there are multiple attributes, different column names can be used to define multiple columns of data.</p></li>
 </ul>
-</div>
-<div class="section" id="dyna-table">
+</section>
+<section id="dyna-table">
 <h2>Dyna Table<a class="headerlink" href="#dyna-table" title="Permalink to this headline">¶</a></h2>
 <p>An element in the Dyna table consists of the following five parts:</p>
 <p><strong>dyna_id, type, time, entity_id(multiple columns), properties(multiple columns)</strong>.</p>
-<ul>
+<section id="introduction-to-each-column">
+<h3>Introduction to each column<a class="headerlink" href="#introduction-to-each-column" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li><p>dyna_id: The primary key uniquely determines a record in the Dyna table.</p></li>
-<li><p>type: The type of dyna. There are two values: <code class="docutils literal notranslate"><span class="pre">trajectory</span></code> (for trajectory next-location prediction task) and <code class="docutils literal notranslate"><span class="pre">state</span></code> (for traffic state prediction task).</p></li>
-<li><p>time: Time information, using the date and time combination notation in <a class="reference external" href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO-8601 standard</a>, such as: <code class="docutils literal notranslate"><span class="pre">2020-</span> <span class="pre">12-07T02:59:46Z</span></code>.</p></li>
-<li><p>entity_id: Describe which entity the record is based on, which is the ID of <code class="docutils literal notranslate"><span class="pre">geo</span></code> or <code class="docutils literal notranslate"><span class="pre">usr</span></code>.</p>
+<li><p>type: The type of dyna. There are two values: <code class="docutils literal notranslate"><span class="pre">trajectory</span></code> (for trajectory-based task) and <code class="docutils literal notranslate"><span class="pre">state</span></code> (for traffic state prediction task).</p></li>
+<li><p>time: Time information, using the date and time combination notation in <a class="reference external" href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO-8601 standard</a>, such as: <code class="docutils literal notranslate"><span class="pre">2020-12-07T02:59:46Z</span></code>.</p></li>
+<li><p>entity_id: Describe which entity the record is based on, which is the ID of <code class="docutils literal notranslate"><span class="pre">geo</span></code> or <code class="docutils literal notranslate"><span class="pre">usr</span></code>.</p></li>
+<li><p>properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both speed data and flow data.</p></li>
+</ul>
+</section>
+<section id="detailed-description">
+<h3>Detailed description<a class="headerlink" href="#detailed-description" title="Permalink to this headline">¶</a></h3>
 <ul>
-<li><p>For trajectory location prediction tasks:</p>
-<p>The format is: dyna_id, trajectory, time, entity_id, location. The content of the <strong>entity_id</strong> column should be <strong>usr_id</strong>.</p>
-</li>
-<li><p>For traffic state prediction tasks, <strong>entity_id</strong> may have different changes:</p>
+<li><p>For traffic state prediction tasks:</p>
+<p>The format is:  <em><strong>dyna_id, state, time, entity_id, properties</strong></em>，<strong>entity_id</strong> may have different changes:</p>
 <ul class="simple">
 <li><p>For entities that can use one-dimensional numbering for sensors, road sections, areas, etc., this column is the corresponding ID, the column name is [<strong>entity_id</strong>], and the file suffix name is <code class="docutils literal notranslate"><span class="pre">.dyna</span></code>.</p></li>
 <li><p>For grid-based traffic data, the column name is [<strong>row_id, column_id</strong>], and the file extension is <code class="docutils literal notranslate"><span class="pre">.grid</span></code>.</p></li>
@@ -312,12 +325,74 @@
 <li><p>For grid-od-based traffic data, the column name is [<strong>origin_row_id, origin_column_id, destination_row_id, destination_column_id</strong>], and the file extension is <code class="docutils literal notranslate"><span class="pre">.gridod</span></code>.</p></li>
 </ul>
 </li>
+<li><p>For trajectory-based tasks:</p>
+<p>The trajectory data includes GPS point trajectory, road segment-based trajectory (after map matching), user check-in trajectory (POI-based trajectory).</p>
+<ul class="simple">
+<li><p>GPS point trajectory</p>
+<ul>
+<li><p>The format is: <em><strong>dyna_id, type, time, entity_id, (traj_id), coordinates, properties</strong></em>.</p></li>
+<li><p>The content of the <strong>entity_id</strong> column should be <strong>usr_id</strong>, <strong>traj_id</strong> represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory this column can be empty, the content of the <strong>coordinates</strong> column is the latitude and longitude of the GPS point.</p></li>
 </ul>
 </li>
-<li><p>properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both speed data and flow data.</p></li>
 </ul>
+<ul class="simple">
+<li><p>Road segment-based trajectory</p>
+<ul>
+<li><p>The format is: <em><strong>dyna_id, type, time, entity_id, (traj_id), location, properties</strong></em>.</p></li>
+<li><p>The content of the <strong>entity_id</strong> column should be <strong>usr_id</strong>, <strong>traj_id</strong> represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory this column can be empty, the content of the <strong>location</strong> column is <strong>geo_id</strong>, which refs to the geo table and represents a road segment.</p></li>
+</ul>
+</li>
+<li><p>POI-based trajectory</p>
+<ul>
+<li><p>The format is: <em><strong>dyna_id, type, time, entity_id, (traj_id), location, properties</strong></em>.</p></li>
+<li><p>The content of the <strong>entity_id</strong> column should be <strong>usr_id</strong>, <strong>traj_id</strong> represents the number of multiple trajectories of the same user (starting from 0) and if the user has only one trajectory this column can be empty, the content of the <strong>location</strong> column is <strong>geo_id</strong>, which refs to the geo table and represents a POI.</p></li>
+</ul>
+</li>
+</ul>
+<p>For a specific task, the input of the trajectory next-location prediction task is based on the trajectory of the POI point, the input of the estimated time of arrival task is the trajectory of the GPS point or the trajectory based on the road segment, the input of the map matching task is the trajectory of the GPS point, and the output is the trajectory based on the road segment.</p>
+</li>
+</ul>
+</section>
+<section id="data-arrangement-method">
+<h3>Data arrangement method<a class="headerlink" href="#data-arrangement-method" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Dyna table should be arranged according to the double keywords of (entity_id) and (time), that is, records with the same (entity_id) are put together and sorted according to (time).</strong></p></li>
+<li><p><strong>Specially, for trajectory data, the trajectories of the same user (entity_id) should be sorted by (traj_id) first, and those with the same (traj_id) should be sorted by (time).</strong></p></li>
+</ul>
+<p>E.g:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dyna_id</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">entity_id</span><span class="p">,</span><span class="n">traffic_speed</span>
+<span class="mi">0</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">773869</span><span class="p">,</span><span class="mf">64.375</span>
+<span class="mi">1</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">773869</span><span class="p">,</span><span class="mf">62.666666666666664</span>
+<span class="mi">2</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">773869</span><span class="p">,</span><span class="mf">64.0</span>
+<span class="o">...</span>
+<span class="mi">34270</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">27</span><span class="n">T23</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">773869</span><span class="p">,</span><span class="mf">66.75</span>
+<span class="mi">34271</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">27</span><span class="n">T23</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">773869</span><span class="p">,</span><span class="mf">65.11111111111111</span>
+<span class="mi">34272</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">767541</span><span class="p">,</span><span class="mf">67.625</span>
+<span class="mi">34273</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">767541</span><span class="p">,</span><span class="mf">68.55555555555556</span>
+<span class="mi">34274</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">767541</span><span class="p">,</span><span class="mf">63.75</span>
+<span class="o">...</span>
+<span class="mi">68542</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">27</span><span class="n">T23</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">767541</span><span class="p">,</span><span class="mf">62.25</span>
+<span class="mi">68543</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">27</span><span class="n">T23</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">767541</span><span class="p">,</span><span class="mf">66.88888888888889</span>
+<span class="mi">68544</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">767542</span><span class="p">,</span><span class="mf">67.125</span>
+<span class="mi">68545</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="mi">2012</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span><span class="n">T00</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">767542</span><span class="p">,</span><span class="mf">65.44444444444444</span>
+<span class="o">...</span>
+</pre></div>
 </div>
-<div class="section" id="ext-table">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dyna_id</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">entity_id</span><span class="p">,</span><span class="n">traj_id</span><span class="p">,</span><span class="n">coordinates</span><span class="p">,</span><span class="n">current_dis</span><span class="p">,</span><span class="n">current_state</span>
+<span class="mi">0</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;[104.115353,30.64392]&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="mi">1</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">40</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;[104.113091,30.642129]&quot;</span><span class="p">,</span><span class="mf">0.294091467</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="mi">2</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">20</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;[104.110404,30.64393]&quot;</span><span class="p">,</span><span class="mf">0.6199505718</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="mi">3</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;[104.108335,30.640667]&quot;</span><span class="p">,</span><span class="mf">1.0332595142</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="o">...</span>
+<span class="mi">21</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">23</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;[104.076552,30.626844]&quot;</span><span class="p">,</span><span class="mf">7.0811683597</span><span class="p">,</span><span class="mf">0.0</span>
+<span class="mi">22</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">00</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;[104.106701,30.6916]&quot;</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="mi">23</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;[104.103889,30.688151]&quot;</span><span class="p">,</span><span class="mf">0.4683813603</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="mi">24</span><span class="p">,</span><span class="n">trajectory</span><span class="p">,</span><span class="mi">2014</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">03</span><span class="n">T18</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">21</span><span class="n">Z</span><span class="p">,</span><span class="mi">810</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;[104.102828,30.68506]&quot;</span><span class="p">,</span><span class="mf">0.8267467429</span><span class="p">,</span><span class="mf">1.0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ext-table">
 <h2>Ext Table<a class="headerlink" href="#ext-table" title="Permalink to this headline">¶</a></h2>
 <p>An element in the Ext table consists of the following three parts:</p>
 <p><strong>ext_id, time, properties (multiple columns)</strong>.</p>
@@ -326,8 +401,8 @@
 <li><p>time: Time information, using the date and time combination notation in <a class="reference external" href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO-8601 standard</a>, such as: <code class="docutils literal notranslate"><span class="pre">2020-</span> <span class="pre">12-07T02:59:46Z</span></code>.</p></li>
 <li><p>properties: Describe the attribute information of the record. If there are multiple attributes, different column names can be used to define multiple columns of data, such as both temperature data and humidity data.</p></li>
 </ul>
-</div>
-<div class="section" id="data-type-definition">
+</section>
+<section id="data-type-definition">
 <h2>Data Type Definition<a class="headerlink" href="#data-type-definition" title="Permalink to this headline">¶</a></h2>
 <p>The data type definition of each column in the dataset needs to be given in the config file, which is helpful for subsequent data processing.</p>
 <table border="1" class="docutils">
@@ -371,21 +446,21 @@
 <td>The rest are stored in string type.</td>
 </tr>
 </tbody>
-</table></div>
-<div class="section" id="config-file">
+</table></section>
+<section id="config-file">
 <h2>Config File<a class="headerlink" href="#config-file" title="Permalink to this headline">¶</a></h2>
 <p>The config file is used to supplement the information describing the above five tables themselves. It is stored in <code class="docutils literal notranslate"><span class="pre">json</span></code> format and consists of six keys: <code class="docutils literal notranslate"><span class="pre">geo</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">rel</span></code>, <code class="docutils literal notranslate"><span class="pre">dyna</span></code>, <code class="docutils literal notranslate"><span class="pre">ext</span></code>, and <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
 <ul>
-<li><p>For <code class="docutils literal notranslate"><span class="pre">geo</span></code>, <code class="docutils literal notranslate"><span class="pre">rel</span></code>, <code class="docutils literal notranslate"><span class="pre">dyna</span></code>, <code class="docutils literal notranslate"><span class="pre">ext</span></code>:</p>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">geo</span></code>, <code class="docutils literal notranslate"><span class="pre">rel</span></code>, <code class="docutils literal notranslate"><span class="pre">dyna</span></code>:</p>
 <p>Contains a key of <code class="docutils literal notranslate"><span class="pre">including_types</span></code>, and uses an array to describe the <code class="docutils literal notranslate"><span class="pre">type</span></code> values in the table. After that, each <code class="docutils literal notranslate"><span class="pre">type</span></code> is used as a key, describing which keys  are contained in the <code class="docutils literal notranslate"><span class="pre">properties</span></code> table and their data types under the <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
 </li>
-<li><p>For <code class="docutils literal notranslate"><span class="pre">usr</span></code>:</p>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">usr</span></code>, <code class="docutils literal notranslate"><span class="pre">ext</span></code>:</p>
 <p>Contains a <code class="docutils literal notranslate"><span class="pre">properties</span></code> key, describing which keys are contained in the <code class="docutils literal notranslate"><span class="pre">properties</span></code> table and their data types.</p>
 </li>
 <li><p>For <code class="docutils literal notranslate"><span class="pre">info</span></code>:</p>
 <p><strong>Contains other necessary statistical information of the dataset</strong>, for different traffic prediction tasks, contains different content.</p>
 <ul class="simple">
-<li><p><strong>For traffic state prediction task:</strong></p>
+<li><p>For traffic state prediction task:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">geo_file</span></code>: The file name of the <code class="docutils literal notranslate"><span class="pre">.geo</span></code> file, <strong>string type</strong>, the default is the dataset name.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rel_file</span></code>: The file name of the <code class="docutils literal notranslate"><span class="pre">.rel</span></code> file, <strong>string type</strong>, the default is the dataset name.</p></li>
@@ -399,10 +474,10 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">init_weight_inf_or_zero</span></code>: Range in [<code class="docutils literal notranslate"><span class="pre">inf</span></code> , <code class="docutils literal notranslate"><span class="pre">zero</span></code>]. When loading the <code class="docutils literal notranslate"><span class="pre">.rel</span></code> file to construct the adjacency matrix, the initial adjacency matrix is all INF (<code class="docutils literal notranslate"><span class="pre">inf</span></code>) or all 0 (<code class="docutils literal notranslate"><span class="pre">zero</span></code>), and the default is <code class="docutils literal notranslate"><span class="pre">inf</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">set_weight_link_or_dist</span></code>: Range in [<code class="docutils literal notranslate"><span class="pre">link</span></code>, <code class="docutils literal notranslate"><span class="pre">dist</span></code>], when loading the <code class="docutils literal notranslate"><span class="pre">.rel</span></code> file to construct the adjacency matrix, use the original value in the weight column in the file (<code class="docutils literal notranslate"><span class="pre">dist</span></code>) or revise it to a matrix of all 01 (<code class="docutils literal notranslate"><span class="pre">link</span></code>), and the default is <code class="docutils literal notranslate"><span class="pre">dist</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">calculate_weight_adj</span></code>: Whether the weight of the adjacency matrix obtained from the <code class="docutils literal notranslate"><span class="pre">.rel</span></code> file needs to be further calculated, <strong>default to <code class="docutils literal notranslate"><span class="pre">False</span></code></strong>. Some adjacency matrices are calculated based on the original data. The current calculation method is Gaussian kernel method with threshold: $$w_{ij} = \exp \left(- \frac{d_{ij}^{2}}{\sigma^{2}}\right)$$.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">weight_adj_epsilon</span></code>: The threshold of the Gaussian kernel. If the calculated weight is less than the threshold, it becomes 0, that is, $$ w_{ij}[w_{ij}&lt;\epsilon]=0​$$. This parameter depends on the parameter <code class="docutils literal notranslate"><span class="pre">calculate_weight_adj=True</span></code> .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weight_adj_epsilon</span></code>: The threshold of the Gaussian kernel. If the calculated weight is less than the threshold, it becomes 0, that is, $$ w_{ij}[w_{ij}&lt;\epsilon]=0$$. This parameter depends on the parameter <code class="docutils literal notranslate"><span class="pre">calculate_weight_adj=True</span></code> .</p></li>
 </ul>
 </li>
-<li><p><strong>For trajectory next-location prediction task:</strong></p>
+<li><p>For trajectory next-location prediction task:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">distance_upper</span></code>: The maximum distance between POI points.</p></li>
 </ul>
@@ -444,6 +519,20 @@
             <span class="nt">&quot;traffic_speed&quot;</span><span class="p">:</span><span class="s2">&quot;num&quot;</span>
         <span class="p">}</span>
     <span class="p">},</span>
+    <span class="nt">&quot;dyna&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;including_types&quot;</span><span class="p">:[</span>
+            <span class="s2">&quot;state&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;state&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;entity_id&quot;</span><span class="p">:</span><span class="s2">&quot;geo_id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;traffic_speed&quot;</span><span class="p">:</span><span class="s2">&quot;num&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;ext&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;properties&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="s2">&quot;num&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
     <span class="nt">&quot;grid&quot;</span><span class="p">:{</span>
         <span class="nt">&quot;including_types&quot;</span><span class="p">:[</span>
             <span class="s2">&quot;state&quot;</span>
@@ -477,30 +566,13 @@
         <span class="p">}</span>
     <span class="p">},</span>
     <span class="nt">&quot;info&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;data_col&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s2">&quot;inflow&quot;</span><span class="p">,</span>
-          <span class="s2">&quot;outflow&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;ext_col&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s2">&quot;Temperature&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;data_files&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="s2">&quot;TAXIBJ2013&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;geo_file&quot;</span><span class="p">:</span> <span class="s2">&quot;TAXIBJ&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;ext_file&quot;</span><span class="p">:</span> <span class="s2">&quot;TAXIBJ&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;output_dim&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="nt">&quot;output_dim&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
-        <span class="nt">&quot;init_weight_inf_or_zero&quot;</span><span class="p">:</span> <span class="s2">&quot;inf&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;set_weight_link_or_dist&quot;</span><span class="p">:</span> <span class="s2">&quot;dist&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;calculate_weight_adj&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nt">&quot;weight_adj_epsilon&quot;</span><span class="p">:</span> <span class="mf">0.1</span>
+        <span class="nt">&quot;time_interval&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
   	<span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -510,7 +582,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="batch.html" class="btn btn-neutral float-right" title="Batch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="dataset_class.html" class="btn btn-neutral float-right" title="Implemented Dataset Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="raw_data.html" class="btn btn-neutral float-left" title="Raw Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

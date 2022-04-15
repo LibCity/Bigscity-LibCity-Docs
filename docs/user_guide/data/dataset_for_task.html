@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Dataset For Task &mdash; Bigscity-LibCity  documentation</title>
@@ -83,26 +84,24 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raw_data.html">Raw Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="atomic_files.html">Atomic Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_class.html">Implemented Dataset Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Dataset For Task</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#note">Note</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dataset For Task</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../model.html">Reproduced Model List</a></li>
@@ -110,21 +109,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -200,9 +200,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="dataset-for-task">
+  <section id="dataset-for-task">
 <h1>Dataset For Task<a class="headerlink" href="#dataset-for-task" title="Permalink to this headline">¶</a></h1>
-<p>In this section, we introduce to you the correspondence between our provided <a class="reference external" href="https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing">standard datasets</a> and tasks. It is worth noting that some datasets can only support some models in a certain task.</p>
+<p>In this section, we introduce to you the correspondence between our provided <a class="reference external" href="https://drive.google.com/drive/folders/1g5v2Gq1tkOq8XO0HDCZ9nOTtRpB6-gPe?usp=sharing">standard datasets</a> tasks and models. It is worth noting that some datasets can only support some models in a certain task.</p>
+<p>If you think this table does not look convenient enough, please click <a class="reference external" href="https://github.com/LibCity/Bigscity-LibCity-Docs/blob/master/source/user_guide/data/dataset_for_task.md">here</a> to view this table on Github</p>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -222,13 +223,13 @@
 <tr>
 <td></td>
 <td><strong>PEMSD3</strong>, <strong>PeMSD4</strong>, <strong>PeMSD7</strong>, <strong>PeMSD8</strong>, BEIJING_SUBWAY, M_DENSE, SHMETRO, HZMETRO, NYCTAXI_DYNA</td>
-<td>AGCRN, ASTGCNCommon, MSTGCNCommon, STSGCN, CONVGCNCommon, ToGCN, MultiSTGCnetCommon, STNN, ASTGCN, MSTGCN, CONVGCN, DGCN, ResLSTM, MultiSTGCnet</td>
+<td>RNN, Seq2Seq, FNN, AutoEncoder, AGCRN, ASTGCNCommon, MSTGCNCommon, STSGCN, CONVGCNCommon, ToGCN, MultiSTGCnetCommon, STNN, ASTGCN, MSTGCN, CONVGCN, DGCN, ResLSTM, MultiSTGCnet</td>
 <td>Point based dataset</td>
 </tr>
 <tr>
 <td></td>
 <td><strong>TAXIBJ</strong>, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, <strong>NYCBike20140409</strong>, <strong>NYCBike20160708</strong>, <strong>NYCBike20160809</strong>, <strong>NYCTaxi20140112</strong>, <strong>NYCTaxi20150103</strong>, <strong>NYCTaxi20160102</strong>, <strong>T_DRIVE20150206</strong>, T_DRIVE_SMALL</td>
-<td>AGCRN, ASTGCNCommon, MSTGCNCommon, STSGCN, CONVGCNCommon, ToGCN, MultiSTGCnetCommon, STNN, ASTGCN, MSTGCN, CONVGCN, DGCN, ResLSTM, MultiSTGCnet</td>
+<td>RNN, Seq2Seq, FNN, AutoEncoder, AGCRN, ASTGCNCommon, MSTGCNCommon, STSGCN, CONVGCNCommon, ToGCN, MultiSTGCnetCommon, STNN, ASTGCN, MSTGCN, CONVGCN, DGCN, ResLSTM, MultiSTGCnet</td>
 <td>Need <strong>simple modification</strong>   for grid based dataset. <strong>See Note 3.</strong></td>
 </tr>
 <tr>
@@ -246,7 +247,7 @@
 <tr>
 <td>Traffic Speed Prediction</td>
 <td><strong>METR_LA</strong>, <strong>LOS_LOOP</strong>, <strong>PeMSD4</strong>, <strong>PeMSD8</strong>, <strong>PEMSD7(M)</strong>, <strong>PEMS_BAY</strong>, LOS_LOOP_SMALL, SZ_TAXI, LOOP_SEATTLE, Q_TRAFFIC, ROTTERDAM</td>
-<td>DCRNN, STGCN, GWNET, MTGNN, STMGAT, TGCN, ATDM, HGCN, DKFN, STTN, GTS, GMAN, STAGGCN, TGCLSTM</td>
+<td>RNN, Seq2Seq, FNN, AutoEncoder, DCRNN, STGCN, GWNET, MTGNN, STMGAT, TGCN, ATDM, HGCN, DKFN, STTN, GTS, GMAN, STAGGCN, TGCLSTM</td>
 <td>Point based dataset.</td>
 </tr>
 <tr>
@@ -270,14 +271,32 @@
 <tr>
 <td></td>
 <td><strong>TAXIBJ</strong>, PORTO, NYCTAXI_GRID, NYCBIKE, AUSTINRIDE, BIKEDC, BIKECHI, <strong>NYCBike20140409</strong>, <strong>NYCBike20160708</strong>, <strong>NYCBike20160809</strong>, <strong>NYCTaxi20140112</strong>, <strong>NYCTaxi20150103</strong>, <strong>NYCTaxi20160102</strong>, <strong>T_DRIVE20150206</strong>, T_DRIVE_SMALL</td>
-<td>CCRNN, STG2Seq</td>
+<td>RNN, Seq2Seq, FNN, AutoEncoder, CCRNN, STG2Seq</td>
 <td>Need <strong>simple modification</strong>   for grid based dataset. <strong>See Note 3.</strong></td>
 </tr>
 <tr>
-<td>Traffic Od Prediction</td>
+<td>Od Matrix Prediction</td>
 <td><strong>NYCTAXI_OD</strong></td>
 <td>GEML</td>
-<td>OD based dataset</td>
+<td>Point-OD based dataset</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>NYC_TOD</strong></td>
+<td>GEML</td>
+<td>Need <strong>simple modification</strong>   for grid-od based dataset. <strong>See Note 4.</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>NYC_TOD</strong></td>
+<td>CSTN</td>
+<td>Grid-OD based dataset and  <code>.ext</code> file</td>
+</tr>
+<tr>
+<td>Traffic Accidents Prediction</td>
+<td><strong>NYC_RISK</strong>, CHICAGO_RISK</td>
+<td>GSNet</td>
+<td>Grid based traffic accidents dataset</td>
 </tr>
 <tr>
 <td>Trajectory Next-Location Prediction</td>
@@ -292,25 +311,73 @@
 <td>Trajectory based dataset</td>
 </tr>
 <tr>
-<td>Map Matching</td>
-<td><strong>Seattle</strong>, global</td>
-<td>STMatching, IVMM</td>
+<td>Estimated Time of Arrival</td>
+<td><strong>Chengdu_Taxi_Sample1</strong></td>
+<td>DeepTTE</td>
 <td>Trajectory based dataset</td>
 </tr>
+<tr>
+<td></td>
+<td><strong>Beijing_Taxi_Sample</strong></td>
+<td>TTPNet, DeepTTE</td>
+<td>Trajectory based dataset</td>
+</tr>
+<tr>
+<td>Map Matching</td>
+<td><strong>Seattle</strong>, global</td>
+<td>STMatching, IVMM, HMMM</td>
+<td>Trajectory based dataset</td>
+</tr>
+<tr>
+<td>Road Network Representation Learning</td>
+<td><strong>bj_roadmap_edge</strong></td>
+<td>ChebConv, LINE</td>
+<td>Road network dataset</td>
+</tr>
 </tbody>
-</table><div class="section" id="note">
-<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
-<ol>
-<li><p>The bolded dataset is the one we recommend.</p></li>
-<li><p>For <code class="docutils literal notranslate"><span class="pre">TGCLSTM</span></code>, need to set <code class="docutils literal notranslate"><span class="pre">dataset_class</span></code> to <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>. Otherwise, the default <code class="docutils literal notranslate"><span class="pre">dataset_class=TGCLSTMDataset</span></code> is only suitable for dataset <code class="docutils literal notranslate"><span class="pre">LOOP_SEATTLE</span></code>.</p></li>
-<li><p>Here is how to generalize models used for point-based data for grid-based data.</p>
+</table><p><strong>Note 1</strong></p>
+<p>The bolded dataset is the one we recommend.</p>
+<p><strong>Note 2</strong></p>
+<p>For <code class="docutils literal notranslate"><span class="pre">TGCLSTM</span></code>, need to set <code class="docutils literal notranslate"><span class="pre">dataset_class</span></code> to <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>. Otherwise, the default <code class="docutils literal notranslate"><span class="pre">dataset_class=TGCLSTMDataset</span></code> is only suitable for dataset <code class="docutils literal notranslate"><span class="pre">LOOP_SEATTLE</span></code>.</p>
+<p><strong>Note 3</strong></p>
+<p>Here is how to generalize models used for point-based data for grid-based data.</p>
 <p>(1) If the dataset class used by the model is <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, such as <code class="docutils literal notranslate"><span class="pre">AGCRN</span></code>, <code class="docutils literal notranslate"><span class="pre">ASTGCNCommon</span></code>, <code class="docutils literal notranslate"><span class="pre">CCRNN</span></code>, etc., you can directly set <code class="docutils literal notranslate"><span class="pre">dataset_class</span></code> to <code class="docutils literal notranslate"><span class="pre">TrafficStateGridDataset</span></code> in <code class="docutils literal notranslate"><span class="pre">task_file.json</span></code> or through a custom configuration file(<code class="docutils literal notranslate"><span class="pre">--config_file</span></code>). Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> of <code class="docutils literal notranslate"><span class="pre">TrafficStateGridDataset</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>(2) If the dataset class used by the model is the subclass of <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, such as <code class="docutils literal notranslate"><span class="pre">ASTGCNDataset</span></code>, <code class="docutils literal notranslate"><span class="pre">CONVGCNDataset</span></code>, <code class="docutils literal notranslate"><span class="pre">STG2SeqDataset</span></code>, etc., you can modify the file of the dataset class to make it  inherit <code class="docutils literal notranslate"><span class="pre">TrafficStateGridDataset</span></code> instead of the current <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>. Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> in the function <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</li>
-</ol>
-<p>Example:</p>
+<p>Example (1):</p>
 <p>Before modification:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># task_config.json</span>
+<span class="s2">&quot;RNN&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStatePointDataset&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="c1"># TrafficStateGridDataset.json</span>
+<span class="p">{</span>
+  <span class="s2">&quot;use_row_column&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After modification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># task_config.json</span>
+<span class="s2">&quot;RNN&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;TrafficStateGridDataset&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="c1"># TrafficStateGridDataset.json</span>
+<span class="p">{</span>
+  <span class="s2">&quot;use_row_column&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example (2):：</p>
+<p>Before modification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># task_config.json</span>
+<span class="s2">&quot;STG2Seq&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;STG2SeqDataset&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="c1"># STG2SeqDataset.json</span>
+<span class="p">{</span>
+  <span class="s2">&quot;use_row_column&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+<span class="c1"># stg2seq_dataset.py</span>
+<span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStatePointDataset</span>
 <span class="k">class</span> <span class="nc">STG2SeqDataset</span><span class="p">(</span><span class="n">TrafficStatePointDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
@@ -318,7 +385,16 @@
 </pre></div>
 </div>
 <p>After modification:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStateGridDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># task_config.json</span>
+<span class="s2">&quot;STG2Seq&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;dataset_class&quot;</span><span class="p">:</span> <span class="s2">&quot;STG2SeqDataset&quot;</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="c1"># STG2SeqDataset.json</span>
+<span class="p">{</span>
+  <span class="s2">&quot;use_row_column&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+<span class="c1"># stg2seq_dataset.py</span>
+<span class="kn">from</span> <span class="nn">libcity.data.dataset</span> <span class="kn">import</span> <span class="n">TrafficStateGridDataset</span>
 <span class="k">class</span> <span class="nc">STG2SeqDataset</span><span class="p">(</span><span class="n">TrafficStateGridDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
@@ -326,8 +402,11 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
-</div>
-</div>
+<p><strong>Note 4</strong></p>
+<p>Here is how to generalize models used for point-based data for grid-based data. (Similar to Note 3)</p>
+<p>(1) If the dataset class used by the model is <code class="docutils literal notranslate"><span class="pre">TrafficStateOdDataset</span></code>, such as <code class="docutils literal notranslate"><span class="pre">GEML</span></code> etc., you can directly set <code class="docutils literal notranslate"><span class="pre">dataset_class</span></code> to <code class="docutils literal notranslate"><span class="pre">TrafficStateGridOdDataset</span></code> in <code class="docutils literal notranslate"><span class="pre">task_file.json</span></code> or through a custom configuration file(<code class="docutils literal notranslate"><span class="pre">--config_file</span></code>). Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> of <code class="docutils literal notranslate"><span class="pre">TrafficStateGridOdDataset</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>(2) If the dataset class used by the model is the subclass of <code class="docutils literal notranslate"><span class="pre">TrafficStateOdDataset</span></code>,  you can modify the file of the dataset class to make it  inherit <code class="docutils literal notranslate"><span class="pre">TrafficStateGridOdDataset</span></code> instead of the current <code class="docutils literal notranslate"><span class="pre">TrafficStateOdDataset</span></code>. Then set the parameter <code class="docutils literal notranslate"><span class="pre">use_row_column</span></code> in the function <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</section>
 
 
            </div>

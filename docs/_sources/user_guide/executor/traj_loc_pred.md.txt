@@ -1,4 +1,4 @@
-# Trajectory Location Prediction Executor
+# Trajectory Next-Location Prediction Executor
 
 ## Executor Setting
 

@@ -45,7 +45,7 @@ According to the above design, we can write the following configuration file `sa
         "type": "randint",
         "lower": 2,
         "upper": 10
-    }
+    },
     "hidden_size": {
     	"type": "choice",
     	"list": [50, 100, 200, 500]
@@ -63,7 +63,7 @@ According to the above design, we can write the following configuration file `sa
 After ensuring that `sample_space_file.json` is correctly placed in the project root directory, we can run the following script to automatically tune parameters:
 
 ```shell
-python hyper_tune.py --task traffc_state_pred --model GRU --dataset METR_LA --space_file sample_space_file
+python hyper_tune.py --task traffic_state_pred --model GRU --dataset METR_LA --space_file sample_space_file
 ```
 
 After running the command, the script will sample the corresponding parameter values from the search space, and perform model training and verification. After the all samples' verification is completed, the script will output the best parameter combination on the terminal.

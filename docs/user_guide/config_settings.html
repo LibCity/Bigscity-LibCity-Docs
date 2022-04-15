@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Config Settings &mdash; Bigscity-LibCity  documentation</title>
@@ -83,14 +84,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Config Settings</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#parameter-priority">Parameter Priority</a></li>
@@ -110,21 +111,22 @@
 <li class="toctree-l1"><a class="reference internal" href="executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -198,16 +200,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="config-settings">
+  <section id="config-settings">
 <h1>Config Settings<a class="headerlink" href="#config-settings" title="Permalink to this headline">¶</a></h1>
 <p>The experiment parameter configuration is determined by three aspects: the parameters passed by the command line, the user-defined configuration file, and the framework default configuration file. Therefore, the user can flexibly adjust the parameter configuration of the experiment through the first two methods.</p>
-<div class="section" id="parameter-priority">
+<section id="parameter-priority">
 <h2>Parameter Priority<a class="headerlink" href="#parameter-priority" title="Permalink to this headline">¶</a></h2>
 <p>command line parameters &gt; user-defined configuration file&gt; default parameters of the model module &gt; default parameters of other modules.</p>
 <p><strong>The parameters with higher priority will override the parameters with the same name of lower priority.</strong></p>
 <p>Considering that the optimal training parameters of different models are not consistent and the default training parameters of the executor can only be a fixed value, we designed to store the optimal training parameters of the model in its default configuration file and prioritize the default parameters of the model higher than other modules to solve this problem.</p>
-</div>
-<div class="section" id="command-line-parameters">
+</section>
+<section id="command-line-parameters">
 <h2>Command Line Parameters<a class="headerlink" href="#command-line-parameters" title="Permalink to this headline">¶</a></h2>
 <p>When the user runs the script file in the project root directory, some parameters can be specified and modified through the command line. For example:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python run_model.py --task traj_loc_pred --model DeepMove --dataset foursquare_tky --gpu <span class="nb">false</span> --batch_size <span class="m">15</span>
@@ -242,8 +244,8 @@ optional arguments:
   --gpu_id GPU_ID
 </pre></div>
 </div>
-</div>
-<div class="section" id="user-defined-configuration-file">
+</section>
+<section id="user-defined-configuration-file">
 <h2>User-defined Configuration File<a class="headerlink" href="#user-defined-configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>Most of the parameters allowed on the command line are the parameters commonly passed in the experiment, like <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>. Furthermore, in order to allow users to modify the default parameters of each module at will, the framework allows user to pass the user-defined config file’s name through the command line, and then reads in the parameter configuration from the user-defined configuration file. The user-defined config file should meet the following format requirements:</p>
 <ol class="simple">
@@ -259,10 +261,10 @@ optional arguments:
 </pre></div>
 </div>
 <p>Users can modify the default parameters of any module by customizing the config file. For specific parameter names, you can refer to the user guide of each module for more information.</p>
-</div>
-<div class="section" id="default-configuration">
+</section>
+<section id="default-configuration">
 <h2>Default Configuration<a class="headerlink" href="#default-configuration" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="default-module-configuration">
+<section id="default-module-configuration">
 <h3>Default Module Configuration<a class="headerlink" href="#default-module-configuration" title="Permalink to this headline">¶</a></h3>
 <p>The default configuration of the data module, execution module, evaluation module, and model module are located in the following four directories respectively:</p>
 <ul class="simple">
@@ -272,12 +274,12 @@ optional arguments:
 <li><p><code class="docutils literal notranslate"><span class="pre">/libcity/config/model</span></code></p></li>
 </ul>
 <p>The file naming rule in each directory is <code class="docutils literal notranslate"><span class="pre">classname.json</span></code>. For example, for the execution module of traffic state prediction, the default configuration parameter file is <code class="docutils literal notranslate"><span class="pre">TrafficStateExecutor.json</span></code>.</p>
-</div>
-<div class="section" id="dataset-config-file">
+</section>
+<section id="dataset-config-file">
 <h3>Dataset Config File<a class="headerlink" href="#dataset-config-file" title="Permalink to this headline">¶</a></h3>
 <p>We store some auxiliary information of the dataset in the configuration file of the dataset, whose storage path is <code class="docutils literal notranslate"><span class="pre">/raw_data/DataSet_Name/config.json</span></code>. Please refer to the <a class="reference internal" href="data/atomic_files.html"><span class="doc">atomic file</span></a> chapter for more information.</p>
-</div>
-<div class="section" id="task-config-file">
+</section>
+<section id="task-config-file">
 <h3>Task Config File<a class="headerlink" href="#task-config-file" title="Permalink to this headline">¶</a></h3>
 <p>The task configuration file is used to record the list of models and datasets that can be supported by various tasks, as well as the default data module class name, execution module class name, and evaluation module class name of each model, whose storage path is <code class="docutils literal notranslate"><span class="pre">/libcity/config/task_config.json</span></code>.</p>
 <p>Here is an example of task config file:</p>
@@ -295,9 +297,9 @@ optional arguments:
 </div>
 <p><strong>You need to modify the <code class="docutils literal notranslate"><span class="pre">libcity/config/task_config.json</span></code> file when adding new models.</strong></p>
 <p>According to the above configuration file, the data module class used by <code class="docutils literal notranslate"><span class="pre">DCRNN</span></code>is <code class="docutils literal notranslate"><span class="pre">TrafficStatePointDataset</span></code>, the execution module class is <code class="docutils literal notranslate"><span class="pre">DCRNNExecutor</span></code>, and the evaluation module class is <code class="docutils literal notranslate"><span class="pre">TrafficStateEvaluator</span></code>.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

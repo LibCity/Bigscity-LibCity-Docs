@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Evaluator Introduction &mdash; Bigscity-LibCity  documentation</title>
@@ -83,41 +84,44 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="config_settings.html">Config Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data.html">Data Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">Reproduced Model List</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Evaluator Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="evaluator/traffic_state_pred.html">Traffic State Prediction Evaluator</a></li>
-<li class="toctree-l2"><a class="reference internal" href="evaluator/traj_loc_pred.html">Trajectory Location Prediction Evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluator/traj_loc_pred.html">Trajectory Next-Location Prediction Evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluator/map_matching.html">Map Matching Evaluator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluator/eta.html">Estimated Time of Arrival Evaluator</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libcity/libcity.data.html">libcity.data</a></li>
@@ -191,13 +195,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="evaluator-introduction">
+  <section id="evaluator-introduction">
 <h1>Evaluator Introduction<a class="headerlink" href="#evaluator-introduction" title="Permalink to this headline">¶</a></h1>
 <p>Considering the different output formats of models for different tasks, the framework implements different evaluators for different tasks and supports a variety of mainstream evaluation methods. The evaluation methods supported by different tasks are given below.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 48%" />
+<col style="width: 52%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Task Name</p></th>
@@ -217,15 +221,23 @@
 <tr class="row-odd"><td><p>On-Demand Service predition</p></td>
 <td><p>MAE、MSE、RMSE、MAPE、R2、EVAR</p></td>
 </tr>
+<tr class="row-even"><td><p>Map Matching</p></td>
+<td><p>RMF、AN、AL</p></td>
+</tr>
+<tr class="row-odd"><td><p>Estimated Time of Arrival</p></td>
+<td><p>MAE、MSE、RMSE、MAPE、R2、EVAR</p></td>
+</tr>
 </tbody>
 </table>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="evaluator/traffic_state_pred.html">Traffic State Prediction Evaluator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evaluator/traj_loc_pred.html">Trajectory Location Prediction Evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluator/traj_loc_pred.html">Trajectory Next-Location Prediction Evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluator/map_matching.html">Map Matching Evaluator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluator/eta.html">Estimated Time of Arrival Evaluator</a></li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>

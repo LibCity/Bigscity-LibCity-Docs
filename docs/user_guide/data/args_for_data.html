@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Args for Data &mdash; Bigscity-LibCity  documentation</title>
@@ -83,24 +84,27 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raw_data.html">Raw Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="atomic_files.html">Atomic Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_class.html">Implemented Dataset Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="batch.html">Batch</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Args for Data</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#traffic-state-prediction-dataset">Traffic State Prediction DataSet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#trajectory-location-prediction-dataset">Trajectory Location Prediction DataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map-matching-dataset">Map Matching DataSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eta-dataset">ETA Dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dataset_for_task.html">Dataset For Task</a></li>
@@ -111,21 +115,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -201,10 +206,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="args-for-data">
+  <section id="args-for-data">
 <h1>Args for Data<a class="headerlink" href="#args-for-data" title="Permalink to this headline">¶</a></h1>
 <p>The following describes the relevant parameters involved in the dataset.</p>
-<div class="section" id="traffic-state-prediction-dataset">
+<section id="traffic-state-prediction-dataset">
 <h2>Traffic State Prediction DataSet<a class="headerlink" href="#traffic-state-prediction-dataset" title="Permalink to this headline">¶</a></h2>
 <p>The following parameters are all parameters used in the task of traffic state prediction:</p>
 <ul>
@@ -260,8 +265,8 @@
 <p>Note: The <code class="docutils literal notranslate"><span class="pre">len_closeness</span></code>/<code class="docutils literal notranslate"><span class="pre">len_period</span></code>/<code class="docutils literal notranslate"><span class="pre">len_trend</span></code> obtained from the <code class="docutils literal notranslate"><span class="pre">get_feature()</span></code> function of the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> class represents <strong>the actual length of these three pieces of data</strong>. The three pieces of data are concatenated together in the returned value <code class="docutils literal notranslate"><span class="pre">batch['X']</span></code>, each data can be obtained according to the length.</p>
 </li>
 </ul>
-</div>
-<div class="section" id="trajectory-location-prediction-dataset">
+</section>
+<section id="trajectory-location-prediction-dataset">
 <h2>Trajectory Location Prediction DataSet<a class="headerlink" href="#trajectory-location-prediction-dataset" title="Permalink to this headline">¶</a></h2>
 <p>The following parameters are all parameters used in the standard trajectory next-location prediction dataset:</p>
 <ul class="simple">
@@ -284,8 +289,27 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">traj_encoder</span></code>: The trajectory encoder class used by the dataset. Default to <code class="docutils literal notranslate"><span class="pre">StandardTrajectoryEncoder</span></code> . The encoder is responsible for encoding model input based on check-in records.</p></li>
 </ul>
-</div>
-</div>
+</section>
+<section id="map-matching-dataset">
+<h2>Map Matching DataSet<a class="headerlink" href="#map-matching-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The following parameters are all parameters used in the task of map matching:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">delta_time</span></code>: if set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the dataset will calculate the time difference between the current time and the start time of the trajectory in seconds, otherwise the time will be given as <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+</ul>
+</section>
+<section id="eta-dataset">
+<h2>ETA Dataset<a class="headerlink" href="#eta-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The following parameters are all parameters used in the task of map matching:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">batch_size</span></code>: The training and evaluation batch size. Defaults to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cache_dataset</span></code>:  Whether to save the processed dataset. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_workers</span></code>:  Parameter of <a class="reference external" href="https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader">Dataloader</a>. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train_rate</span></code>: The proportion of the training set to the total dataset.  Defaults to <code class="docutils literal notranslate"><span class="pre">0.7</span></code>. (The order of division is training set, validation set, test set)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eval_rate</span></code>: The proportion of the validation set. Defaults to <code class="docutils literal notranslate"><span class="pre">0.1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eta_encoder</span></code>: The trajectory encoder class used by the dataset. No default parameters. Usually for different datasets, different trajectory encoder classes will be used.</p></li>
+</ul>
+</section>
+</section>
 
 
            </div>

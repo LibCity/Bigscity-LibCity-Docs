@@ -32,7 +32,7 @@
 
 ### LOOP_SEATTLE
 
-**Place:** Greater Seattle Area, China
+**Place:** Greater Seattle Area, USA
 
 **Duration:** over the entirely of 2015
 
@@ -222,6 +222,17 @@
 
 - NYCTAXI_GRID is a dataset that counts the inflow and outflow of the region with a grid-base division method.
 
+### NYC_TOD
+
+**Place：** New York, USA
+
+**Duration：** 2014
+
+**Link：** https://github.com/liulingbo918/CSTN#:~:text=download%20NYC-TOD.tar.gz%20with%20following%20links%20and%20put%20it%20into%20folder%20NYC-TOD/.
+
+**Description：** NYC_TOD Calculate the inflow and outflow of the area using a grid-based division method。Generate by the author of [CSTN](https://arxiv.org/pdf/1905.06335)
+
+
 ### NYCBIKE
 
 **Place:** New York, USA
@@ -299,3 +310,103 @@
 **Link:** https://dmis.korea.ac.kr/cape
 
 **Description:** The dataset's biggest feature is that each check-in record contains not only the POI information but also the text information written when the user created the check-in record. Therefore, this dataset is particularly important for related researchs that incorporates trajectory semantic features into trajectory prediction.
+
+### Seattle
+
+**Place:** Seattle,WA,USA
+
+**Duration:** Jan. 17,2009 20:27:37~22:34:28
+
+**Link:** https://www.microsoft.com/en-us/research/publication/hidden-markov-map-matching-noise-sparseness/
+
+**Description:** This dataset (for Map Matching Task) shows a test GPS data taken on a drive in Seattle, WA, USA and its eastern suburbs. The trip starts in the upper right corner near Marymoor Park. The data was sampled at 1 Hz using a RoyalTek RBT-2300 GPS logger. The drive took place on Saturday, January 17, 2009 starting at 20:27:37 UTC (12:27:37 local time) and ending at 22:34:28 UTC (14:34:28 local time), for an elapsed time of 02:06:51.
+
+### Global
+
+**Place:** 100 places all over the world
+
+**Duration:** —
+
+**Link:** https://zenodo.org/record/57731#.YVwZ7WJBxnK
+
+**Description:**  This dataset (for Map Matching Task) is large enough to prove or disprove map-matching hypotheses on a world-wide scale. Because of the global coverage of this dataset, learning does not have to be be biased to the part of the world where the algorithm was tested.
+
+### BJ_ROADMAP
+
+**Place:** Beijing, China
+
+**Duration:** -
+
+**Link:** -
+
+**Description:** The origin dataset contains properties of nodes and edges in OpenStreetMap format. Two ways, including creating the graph whose nodes are intersections and relationships are road sections, and whose nodes are road sections and relationships are intersections, are implemented, named "bj_roadmap_node" and "bj_roadmap_edge" separately.
+
+### BJ_TRAJ
+
+**Place:** Beijing, China
+
+**Duration:** Apr. 2015 - Jul. 2015
+
+**Link:** -
+
+**Description:** BJ_TRAJ dataset contains a huge amount of trajectory data, approximately 7.60 million per month. 
+
+### CD_TRAJ
+
+**Place:** Chengdu, China
+
+**Duration:** Oct. 01, 2018 - Nov. 30, 2018 
+
+**Link:** -
+
+**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 2.58 million per 10 days. There is data of 2 months available. 
+
+### XA_TRAJ
+
+**Place:** Xi'an, China
+
+**Duration:** Oct. 01, 2018 - Nov. 30, 2018 
+
+**Link:** -
+
+**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 2.14 million per 15 days. There is data of 2 months available.
+
+### Chengdu_Taxi_Sample1
+
+**Place:** Chengdu, China
+
+**Duration:** Aug. 03, 2014 - Aug. 30, 2014
+
+**Link:** https://github.com/UrbComp/DeepTTE/tree/master/data
+
+**Description:** Chengdu_Taxi_Sample1 dataset is part of Chengdu_Taxi dataset. It contains 1800 taxi trajectory data in Chengdu.
+
+### Beijing_Taxi_Sample
+
+**Place**: Beijing, China
+
+**Duration**: Oct. 01, 2013 - Oct. 31, 2013
+
+**Link**: https://github.com/YibinShen/TTPNet/tree/master/data
+
+**Description**: Beijing_Taxi_Sample dataset is part of Beijing_Taxi dataset. It contains 1000 taxi trajectory data per day in October 2013.
+
+### NYC_RISK
+
+**Place:** New York, USA
+
+**Duration:** Jan.01,2013 ~ Dec.31,2013
+
+**Link:** https://github.com/Echohhhhhh/GSNet
+
+**Description:** The NYC accident dataset contains road, risk and POI data of New York City in 2013.
+
+### CHICAGO_RISK
+
+**Place:** New York, USA
+
+**Duration:** Feb.01,2016 ~ Sep.30,2016
+
+**Link:** https://github.com/Echohhhhhh/GSNet
+
+**Description:** The CHICAGO accident dataset contains road and risk data of Chicago in 2016.

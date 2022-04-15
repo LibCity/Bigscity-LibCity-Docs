@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Batch &mdash; Bigscity-LibCity  documentation</title>
@@ -38,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Args for Data" href="args_for_data.html" />
-    <link rel="prev" title="Atomic Files" href="atomic_files.html" /> 
+    <link rel="prev" title="Implemented Dataset Class" href="dataset_class.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,20 +84,21 @@
               
             
             
-              <p class="caption"><span class="caption-text">Get Started</span></p>
+              <p><span class="caption-text">Get Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/install.html">Install LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/directory_structure.html">Directory Structure</a></li>
 </ul>
-<p class="caption"><span class="caption-text">User Guide</span></p>
+<p><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config_settings.html">Config Settings</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../data.html">Data Introduction</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_flow.html">Data Flow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raw_data.html">Raw Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="atomic_files.html">Atomic Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_class.html">Implemented Dataset Class</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Batch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="args_for_data.html">Args for Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataset_for_task.html">Dataset For Task</a></li>
@@ -107,21 +109,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../executor.html">Executor Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Developer Guide</span></p>
+<p><span class="caption-text">Developer Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/code_style.html">Code Style</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_datasets.html">Customize Dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_models.html">Customize Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../developer_guide/implemented_executors.html">Customize Executors</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorial</span></p>
+<p><span class="caption-text">Tutorial</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/install_quick_start.html">Install and quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/run_model.html">Run an existing model in LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/add_model.html">Add a new model to LibCity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial/hyper_tune.html">Tuning the model with automatic tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/data_visualization.html">Visualize Atomic Files</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API REFERENCE</span></p>
+<p><span class="caption-text">API REFERENCE</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.config.html">libcity.config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../libcity/libcity.data.html">libcity.data</a></li>
@@ -197,7 +200,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="batch">
+  <section id="batch">
 <h1>Batch<a class="headerlink" href="#batch" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">Batch</span></code> class is an <strong>internal data representation</strong> loaded by <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> and input into the prediction model.</p>
 <p><strong>The objects retrieved from the <code class="docutils literal notranslate"><span class="pre">Dataloader</span></code> of the data flow are all objects of the <code class="docutils literal notranslate"><span class="pre">Batch</span></code> class.</strong></p>
@@ -208,7 +211,7 @@
 </pre></div>
 </div>
 <p><strong>The <code class="docutils literal notranslate"><span class="pre">Batch</span></code> class unifies the input format of the model so that the framework can implement general executor classes and standard model classes.</strong></p>
-</div>
+</section>
 
 
            </div>
@@ -221,7 +224,7 @@
         <a href="args_for_data.html" class="btn btn-neutral float-right" title="Args for Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="atomic_files.html" class="btn btn-neutral float-left" title="Atomic Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dataset_class.html" class="btn btn-neutral float-left" title="Implemented Dataset Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
