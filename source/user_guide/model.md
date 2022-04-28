@@ -2,7 +2,7 @@
 
 #### Baselines
 
-For time series prediction:
+For time series prediction: (model code is in test/)
 
 - **HA**:
 
@@ -472,6 +472,35 @@ For trajectory next-location prediction:
   Tang, J., Qu, M., Wang, M., Zhang, M., Yan, J., & Mei, Q. (2015, May). Line: Large-scale information network embedding. In Proceedings of the 24th international conference on world wide web (pp. 1067-1077).
   ```
 
+
+- **GeomGCN**
+
+  Geometric graph convolutional networks
+
+  ```
+  Pei H, Wei B, Chang K C C, et al. Geom-gcn: Geometric graph convolutional networks. arXiv preprint arXiv:2002.05287, 2020.
+  ```
+
+- **DeepWalk**
+
+  A graph structure data mining algorithm combining two algorithms, random walk and Word2Vec
   
+  ```
+  Perozzi B, Al-Rfou R, Skiena S. Deepwalk: Online learning of social representations. In Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. 2014: 701-710.
+  ```
   
+- **Node2Vec**
+
+  A graph embedding method that integrates DFS neighborhoods and BFS neighborhoods
   
+  ```
+  Grover A, Leskovec J. node2vec: Scalable feature learning for networks. In Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining. 2016: 855-864.
+  ```
+  
+- **GAT**
+  
+  Graph attention networks
+  
+  ```
+  Veličković P, Cucurull G, Casanova A, et al. Graph attention networks. arXiv preprint arXiv:1710.10903, 2017.
+  ```

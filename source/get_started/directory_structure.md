@@ -6,7 +6,7 @@
 
 - |-test/
 
-  Store test scripts.
+  Store test scripts and models (HA、VAR、SVR、ARIMA).
 
 - |-libcity/
 

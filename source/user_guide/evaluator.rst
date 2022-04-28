@@ -3,16 +3,18 @@ Evaluator Introduction
 
 Considering the different output formats of models for different tasks, the framework implements different evaluators for different tasks and supports a variety of mainstream evaluation methods. The evaluation methods supported by different tasks are given below.
 
-============================== ==============================
-Task Name                      Supported Metrics
-============================== ==============================
-Trajectory Location prediction TopK
-Traffic Flow Prediction        MAE、MSE、RMSE、MAPE、R2、EVAR
-Traffic Speed Prediction       MAE、MSE、RMSE、MAPE、R2、EVAR
-On-Demand Service predition    MAE、MSE、RMSE、MAPE、R2、EVAR
-Map Matching                   RMF、AN、AL
-Estimated Time of Arrival        MAE、MSE、RMSE、MAPE、R2、EVAR
-============================== ==============================
+================================================== =============================================================================
+Task Name                      						Supported Metrics
+================================================== =============================================================================
+Trajectory Location prediction 						TopK
+Traffic Flow Prediction       				 		MAE、MSE、RMSE、MAPE、R2、EVAR
+Traffic Speed Prediction      				 		MAE、MSE、RMSE、MAPE、R2、EVAR
+On-Demand Service predition    						MAE、MSE、RMSE、MAPE、R2、EVAR
+Origin-destination Matrix Prediction       			MAE、MSE、RMSE、MAPE、R2、EVAR
+Traffic Accidents Prediction               			MAE、MSE、RMSE、MAPE、R2、EVAR、Precision, Recall, F1-Score, MAP, PCC
+Map Matching                   			   			RMF、AN、AL
+Estimated Time of Arrival      						MAE、MSE、RMSE、MAPE、R2、EVAR
+================================================== =============================================================================
 
 .. toctree::
    :maxdepth: 1

@@ -1,4 +1,4 @@
-# Args for Data
+# Args for Dataset Class
 
 The following describes the relevant parameters involved in the dataset.
 
