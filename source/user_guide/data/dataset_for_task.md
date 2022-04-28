@@ -25,7 +25,7 @@ If you think this table does not look convenient enough, please click [here](htt
 | Estimated Time of Arrival           | **Chengdu_Taxi_Sample1**                                     | DeepTTE                                                      | Trajectory based dataset                                     |
 |  | **Beijing_Taxi_Sample** | TTPNet, DeepTTE | Trajectory based dataset |
 | Map Matching                        | **Seattle**, global                                          | STMatching, IVMM, HMMM                                       | Trajectory based dataset                                     |
-| Road Network Representation Learning | **bj_roadmap_edge** | ChebConv, LINE | Road network dataset |
+| Road Network Representation Learning | **bj_roadmap_edge** | ChebConv, LINE, DeepWalk, Node2Vec, GAT, GeomGCN | Road network dataset |
 
 **Note 1**
 

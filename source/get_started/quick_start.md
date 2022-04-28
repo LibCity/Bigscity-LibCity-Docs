@@ -29,6 +29,8 @@ python run_model.py --task traffic_state_pred --model GRU --dataset METR_LA
 
 This script will run the GRU model on the METR_LA dataset for traffic state prediction task under the default configuration. 
 
+**We have released the correspondence between datasets, models, and tasks at [here](../user_guide/data/dataset_for_task).**
+
 Furthermore, the script supports the input of the following command line parameters to adjust the parameter settings of the pipeline.
 
 Supporting parameters:
