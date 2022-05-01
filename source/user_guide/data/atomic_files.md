@@ -15,6 +15,10 @@ Note: For different traffic prediction tasks, different atomic files may be used
 
 **The format of `.geo`, `.usr`, `.rel`, `.dyna`, and `.ext` is similar to the `csv` file, which consists of multiple columns of data.**
 
+If any of the ids are remapped during processing into an atomic file, **we recommend numbering from 0**!
+
+**WARNING**: For all datasets of tasks related to traffic state prediction, please **ensure that the order of the `geo_id` in the geo file is the same as the order of the `entity_id` in the dyna file**. Of course this is not necessary for the atomic file storage format, but **the atomic file is read in our code by default in this order**.  In particular, the grid data need to traverse the grid in the order of row then column, the OD data need to traverse the data in the order of origin then destination, and the OD data of the grid traverse in the order of origin row, origin column, destination row, destination column.
+
 ## Geo Table
 
 An element in the Geo table consists of the following four parts: 
@@ -103,27 +107,29 @@ An element in the Dyna table consists of the following five parts:
 
 - **Dyna table should be arranged according to the double keywords of (entity_id) and (time), that is, records with the same (entity_id) are put together and sorted according to (time).**
 - **Specially, for trajectory data, the trajectories of the same user (entity_id) should be sorted by (traj_id) first, and those with the same (traj_id) should be sorted by (time).**
+- **The grid data need to traverse the grid in the order of row then column, the OD data need to traverse the data in the order of origin then destination, and the OD data of the grid traverse in the order of origin row, origin column, destination row, destination column.**
 
 E.g:
+
+`state.dyna`：
 
 ```
 dyna_id,type,time,entity_id,traffic_speed
 0,state,2012-03-01T00:00:00Z,773869,64.375
-1,state,2012-03-01T00:05:00Z,773869,62.666666666666664
-2,state,2012-03-01T00:10:00Z,773869,64.0
+1,state,2012-03-01T00:05:00Z,773869,62.666
 ...
-34270,state,2012-06-27T23:50:00Z,773869,66.75
-34271,state,2012-06-27T23:55:00Z,773869,65.11111111111111
+34271,state,2012-06-27T23:55:00Z,773869,65.111
 34272,state,2012-03-01T00:00:00Z,767541,67.625
-34273,state,2012-03-01T00:05:00Z,767541,68.55555555555556
-34274,state,2012-03-01T00:10:00Z,767541,63.75
+34273,state,2012-03-01T00:05:00Z,767541,68.555
 ...
 68542,state,2012-06-27T23:50:00Z,767541,62.25
-68543,state,2012-06-27T23:55:00Z,767541,66.88888888888889
+68543,state,2012-06-27T23:55:00Z,767541,66.888
 68544,state,2012-03-01T00:00:00Z,767542,67.125
-68545,state,2012-03-01T00:05:00Z,767542,65.44444444444444
+68545,state,2012-03-01T00:05:00Z,767542,65.444
 ...
 ```
+
+`trajectory.dyna`：
 
 ```
 dyna_id,type,time,entity_id,traj_id,coordinates,current_dis,current_state
