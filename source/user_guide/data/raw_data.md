@@ -341,36 +341,6 @@
 
 **Description:** The origin dataset contains properties of nodes and edges in OpenStreetMap format. Two ways, including creating the graph whose nodes are intersections and relationships are road sections, and whose nodes are road sections and relationships are intersections, are implemented, named "bj_roadmap_node" and "bj_roadmap_edge" separately.
 
-### BJ_TRAJ
-
-**Place:** Beijing, China
-
-**Duration:** Apr. 2015 - Jul. 2015
-
-**Link:** -
-
-**Description:** BJ_TRAJ dataset contains a huge amount of trajectory data, approximately 7.60 million per month. 
-
-### CD_TRAJ
-
-**Place:** Chengdu, China
-
-**Duration:** Oct. 01, 2018 - Nov. 30, 2018 
-
-**Link:** -
-
-**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 2.58 million per 10 days. There is data of 2 months available. 
-
-### XA_TRAJ
-
-**Place:** Xi'an, China
-
-**Duration:** Oct. 01, 2018 - Nov. 30, 2018 
-
-**Link:** -
-
-**Description:** CD_TRAJ dataset contains a huge amount of trajectory data, approximately 2.14 million per 15 days. There is data of 2 months available.
-
 ### Chengdu_Taxi_Sample1
 
 **Place:** Chengdu, China
