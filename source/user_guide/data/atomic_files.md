@@ -13,7 +13,7 @@ The following types of atomic files are defined:
 
 Note: For different traffic prediction tasks, different atomic files may be used, and a dataset may not contain all six kinds of atomic files.
 
-**Atomic Files** are basic input elements for different traffic prediction tasks. You can also download [A Unified Storage Format of Traffic Data Atomic Files in LibCity](https://libcity.ai/A%20Unified%20Storage%20Format%20of%20Traffic%20Data%20Atomic%20Files%20in%20LibCity.pdf) here for details.
+**Atomic Files** are basic input elements for different traffic prediction tasks. You can also download [A Unified Storage Format of Traffic Data Atomic Files in LibCity](https://libcity.ai/A-Unified-Storage-Format-of-Traffic-Data-Atomic-Files-in-LibCity.pdf) here for details.
 
 **The format of `.geo`, `.usr`, `.rel`, `.dyna`, and `.ext` is similar to the `csv` file, which consists of multiple columns of data.**
 
