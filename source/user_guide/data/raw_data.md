@@ -124,7 +124,7 @@
 
 **Place:** Beijing, China
 
-**Duration:** Feb. 29, 2016 - Apr. 3, 2016
+**Duration:** Feb. 29, 2016 ~ Apr. 3, 2016
 
 **Link:** https://github.com/JinleiZhangBJTU/ResNet-LSTM-GCN
 
@@ -134,7 +134,7 @@
 
 **Place:** Madrid, Spain
 
-**Duration:** Jan. 1, 2018 - Dec. 21, 2019
+**Duration:** Jan. 1, 2018 ~ Dec. 21, 2019
 
 **Link:** https://github.com/rdemedrano/crann_traffic
 
@@ -154,7 +154,7 @@
 
 **Place:** Shanghai, China
 
-**Duration:** Jul. 1, 2016 - Sept. 30, 2016
+**Duration:** Jul. 1, 2016 ~ Sept. 30, 2016
 
 **Link:** https://github.com/ivechan/PVCGN
 
@@ -164,7 +164,7 @@
 
 **Place:** Hangzhou, China
 
-**Duration:** Jan. 1, 2019 - Jan. 25, 2019
+**Duration:** Jan. 1, 2019 ~ Jan. 25, 2019
 
 **Link:** https://github.com/ivechan/PVCGN
 
@@ -224,13 +224,13 @@
 
 ### NYC_TOD
 
-**Place：** New York, USA
+**Place:** New York, USA
 
-**Duration：** 2014
+**Duration:** 2014
 
-**Link：** https://github.com/liulingbo918/CSTN#:~:text=download%20NYC-TOD.tar.gz%20with%20following%20links%20and%20put%20it%20into%20folder%20NYC-TOD/.
+**Link:** https://github.com/liulingbo918/CSTN
 
-**Description：** NYC_TOD Calculate the inflow and outflow of the area using a grid-based division method。Generate by the author of [CSTN](https://arxiv.org/pdf/1905.06335)
+**Description：** NYC_TOD Calculate the inflow and outflow of the area using a grid-based division method. Generate by the author of [CSTN](https://arxiv.org/pdf/1905.06335).
 
 
 ### NYCBIKE
@@ -251,7 +251,7 @@
 
 **Link:** https://data.world/ride-austin/ride-austin-june-6-april-13
 
-**Description:** The AustinRide dataset contains Austin ride trajectories spans from August 1, 2016 to April 13, 2017, including over 1.4 million trips.
+**Description:** The AustinRide dataset contains Austin ride trajectories spans from June 4, 2016 to April 13, 2017, including over 1.4 million trips.
 
 ### BIKEDC
 
@@ -305,7 +305,7 @@
 
 **Place:** New York, USA
 
-**Duration:** Jun. 15, 2011 - Nov. 8, 2016
+**Duration:** Jun. 15, 2011 ~ Nov. 8, 2016
 
 **Link:** https://dmis.korea.ac.kr/cape
 
@@ -355,7 +355,7 @@
 
 **Place**: Beijing, China
 
-**Duration**: Oct. 01, 2013 - Oct. 31, 2013
+**Duration**: Oct. 8, 2013 ~ Oct. 31, 2013
 
 **Link**: https://github.com/YibinShen/TTPNet/tree/master/data
 
@@ -365,7 +365,7 @@
 
 **Place:** New York, USA
 
-**Duration:** Jan.01,2013 ~ Dec.31,2013
+**Duration:** Jan. 1, 2013 ~ Dec. 31, 2013
 
 **Link:** https://github.com/Echohhhhhh/GSNet
 
@@ -375,7 +375,7 @@
 
 **Place:** New York, USA
 
-**Duration:** Feb.01,2016 ~ Sep.30,2016
+**Duration:** Feb. 1, 2016 ~ Sep. 30, 2016
 
 **Link:** https://github.com/Echohhhhhh/GSNet
 
