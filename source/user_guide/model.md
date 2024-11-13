@@ -215,6 +215,102 @@ For trajectory next-location prediction:
   Shengnan Guo, Youfang Lin, Letian Gong, Chenyu Wang, Zeyu Zhou, Zekai Shen, Yiheng Huang, and Huaiyu Wan. 2023. Self-Supervised Spatial-Temporal Bottleneck Attentive Network for Efficient Long-term Traffic Forecasting. In ICDE. IEEE, 1585-1596.
   ```
 
+- **ASTGNN**
+
+  This paper introduces an algorithm called Adaptive Graph Sparsification (AGS) to extremely sparsify the spatial adjacency matrices of Adaptive Spatial-Temporal Graph Neural Networks (ASTGNNs) without compromising test accuracy, thereby achieving localization of the models and exploring the role of spatial dependencies in the data.
+
+  ```
+  Duan W, He X, Zhou Z, et al. Localised adaptive spatial-temporal graph neural network[C]//Proceedings of the 29th acm sigkdd conference on knowledge discovery and data mining. 2023: 448-458.
+  ```
+
+- **DSTAGNN**
+
+  This paper introduces a novel Dynamic Spatial-Temporal Aware Graph Neural Network (DSTAGNN) for traffic flow forecasting, which models complex spatial-temporal interactions in road networks by mining dynamic attributes from historical traffic data without relying on predefined static adjacency matrices.
+
+  ```
+  Lan S, Ma Y, Huang W, et al. Dstagnn: Dynamic spatial-temporal aware graph neural network for traffic flow forecasting[C]//International conference on machine learning. PMLR, 2022: 11906-11917.
+  ```
+
+- **MultiSPANS**
+
+  The paper presents a novel deep learning framework designed to improve traffic flow prediction by capturing complex multi-range dependencies using local spatiotemporal features and road network hierarchical knowledge. The authors propose a multi-filter convolution module to generate informative ST-token embeddings, which are then used by Transformers to capture long-range temporal and spatial dependencies. 
+
+  ```
+  Zou D, Wang S, Li X, et al. Multispans: A multi-range spatial-temporal transformer network for traffic forecast via structural entropy optimization[C]//Proceedings of the 17th ACM International Conference on Web Search and Data Mining. 2024: 1032-1041.
+  ```
+
+- **Multi-STGCNet**
+
+  The paper introduces Multi-STGCnet, a spatio-temporal deep learning framework utilizing LSTM and GCN modules to forecast short-term subway passenger flow, outperforming multiple baselines on a Shenzhen metro dataset.
+
+  ```
+  Ye J, Zhao J, Ye K, et al. Multi-stgcnet: A graph convolution based spatial-temporal framework for subway passenger flow forecasting[C]//2020 International joint conference on neural networks (IJCNN). IEEE, 2020: 1-8.
+  ```
+
+- **PDFormer**
+
+  The paper introduces a novel model designed to address the challenges of accurately predicting traffic flow by capturing complex spatial-temporal dependencies in traffic data. The PDFormer model incorporates a spatial self-attention module to dynamically model spatial dependencies, graph masking matrices to highlight short- and long-range spatial dependencies, and a delay-aware feature transformation module to explicitly account for the time delay in spatial information propagation. The paper demonstrates the model's effectiveness through extensive experiments on six real-world public traffic datasets, showing state-of-the-art performance and competitive computational efficiency.
+
+  ```
+  Jiang J, Han C, Zhao W X, et al. Pdformer: Propagation delay-aware dynamic long-range transformer for traffic flow prediction[C]//Proceedings of the AAAI conference on artificial intelligence. 2023, 37(4): 4365-4373.
+  ```
+
+- **RGSL**
+
+  The paper introduces a novel model named RGSL for multivariate time-series forecasting. The RGSL model incorporates both explicit prior structure and implicit structure to learn the forecasting deep networks along with the graph structure. It consists of two main modules: the Regularized Graph Generation (RGG) module, which learns the sparse graph structure using the Gumbel Softmax trick, and the Laplacian Matrix Mixed-up Module (LM3), which fuses the explicit graph and implicit graph together. The paper demonstrates that RGSL outperforms existing graph forecasting algorithms with a significant margin while also learning meaningful graph structures.
+
+  ```
+  Yu H, Li T, Yu W, et al. Regularized graph structure learning with semantic knowledge for multi-variates time-series forecasting[J]. arXiv preprint arXiv:2210.06126, 2022.
+  ```
+
+- **STG-NCDE**
+
+  The paper introduces a novel method called STG-NCDE (Spatio-Temporal Graph Neural Controlled Differential Equations) for spatio-temporal traffic forecasting. The authors propose a framework that combines two neural controlled differential equations (NCDEs): one for temporal processing and another for spatial processing. The STG-NCDE model is designed to capture complex spatial-temporal dependencies in traffic data by integrating graph convolutional network (GCN) technology with NCDEs. The paper reports that STG-NCDE outperforms 20 baseline methods across six benchmark datasets, demonstrating its effectiveness in real-world traffic forecasting tasks.
+
+  ```
+  Choi J, Choi H, Hwang J, et al. Graph neural controlled differential equations for traffic forecasting[C]//Proceedings of the AAAI conference on artificial intelligence. 2022, 36(6): 6367-6374.
+  ```
+
+- **STPGCN**
+
+  The paper addresses the importance of capturing correlations between road network nodes for improving traffic flow forecasting accuracy. It highlights spatial, temporal, and joint spatial-temporal correlations between nodes, which are influenced by their spatial and temporal position factors. The paper proposes a novel Spatial-Temporal Position-aware Graph Convolution Network (STPGCN) to address three main issues with existing models: ineffective modeling of joint spatial-temporal correlations, ignoring spatial and temporal position factors, and failure to capture distinct spatial-temporal patterns for each node. The STPGCN incorporates a trainable embedding module for node positions, a relation inference module to adaptively infer correlation weights, and a gated activation unit in graph convolution to capture node-specific pattern features. The model demonstrates superior prediction performance and computational efficiency through extensive experiments on six real-world datasets.
+
+  ```
+  Zhao Y, Lin Y, Wen H, et al. Spatial-temporal position-aware graph convolution networks for traffic flow forecasting[J]. IEEE Transactions on Intelligent Transportation Systems, 2022, 24(8): 8650-8666.
+  ```
+
+- **STSSL**
+
+  The paper introduces a novel framework called ST-SSL for enhancing traffic pattern representations to reflect both spatial and temporal heterogeneity, using self-supervised learning paradigms. The ST-SSL framework incorporates temporal and spatial convolutions for encoding information across space and time, and includes an adaptive augmentation over traffic flow graph data at attribute and structure levels. It also constructs two self-supervised learning tasks to supplement the main traffic prediction task with spatial and temporal heterogeneity-aware augmentation. The paper reports that extensive experiments on four real-world public datasets demonstrate the superiority of the ST-SSL model in terms of prediction performance and computational efficiency.
+
+  ```
+  Ji J, Wang J, Huang C, et al. Spatio-temporal self-supervised learning for traffic flow prediction[C]//Proceedings of the AAAI conference on artificial intelligence. 2023, 37(4): 4356-4364.
+  ```
+
+- **STWave**
+
+  The paper addresses the challenge of traffic forecasting, which is essential for public safety and resource optimization but is complicated by the temporal changes and dynamic spatial correlations in traffic data. The authors propose a novel framework called STWave that disentangles complex traffic data into stable trends and fluctuating events, and then models these separately using a dual-channel spatio-temporal network. The framework also incorporates a query sampling strategy and graph wavelet-based graph positional encoding to efficiently and effectively model dynamic spatial correlations. Extensive experiments on six traffic datasets demonstrate the superiority of the approach, with higher forecasting accuracy and lower computational cost compared to previous methods.
+
+  ```
+  Fang Y, Qin Y, Luo H, et al. When spatio-temporal meet wavelets: Disentangled traffic forecasting via efficient spectral graph attention networks[C]//2023 IEEE 39th International Conference on Data Engineering (ICDE). IEEE, 2023: 517-529.
+  ```
+
+- **SimST**
+
+  The paper introduces a novel framework for traffic forecasting that does not rely on Graph Neural Networks (GNNs). Instead, SimST uses two efficient spatial context injectors to provide proximity and position information, replacing the traditional message passing scheme of GNNs. The framework is compatible with various temporal encoding backbones and includes a tailored training strategy. Extensive experiments on five traffic benchmarks demonstrate that SimST performs surprisingly well, achieving comparable or better performance than more sophisticated state-of-the-art STGNNs while using significantly fewer parameters and obtaining substantial throughput improvements. The paper suggests that message passing in GNNs is not necessary for effective spatial modeling in traffic forecasting, challenging the prevailing practice in the field and opening up new research possibilities.
+
+  ```
+  Liu X, Liang Y, Huang C, et al. SimST: A GNN-Free Spatio-Temporal Learning Framework for Traffic Forecasting[J].
+  ```
+
+- **TimeMixer**
+
+  This paper introduces TimeMixer, a novel multiscale mixing architecture for time series forecasting that achieves state-of-the-art performance by leveraging disentangled multiscale series in both past extraction and future prediction phases.
+
+  ```
+  Wang S, Wu H, Shi X, et al. Timemixer: Decomposable multiscale mixing for time series forecasting[J]. arXiv preprint arXiv:2405.14616, 2024.
+  ```
+
 #### Traffic Speed Prediction
 
 * **DCRNN**: 
@@ -353,6 +449,45 @@ For trajectory next-location prediction:
   Zezhi Shao, Zhao Zhang, Wei Wei, Fei Wang, Yongjun Xu, Xin Cao, and Christian S. Jensen. 2022. Decoupled Dynamic Spatial-Temporal Graph Neural Network for Traffic Forecasting. In VLDB. ACM, 2733–2746.
   ```
 
+- **HIEST**
+
+  This paper discusses a novel approach to traffic forecasting in the context of smart city construction. The authors propose a method called HIEST, which captures sensor dependencies from regional and global perspectives to enhance spatio-temporal prediction. The paper introduces the construction of regional and global graphs to reflect macro dependencies and common spatio-temporal patterns among sensors, respectively. It also presents a Cross-Hierarchy Graph Convolutional Network (CHGCN) for information propagation across different hierarchies. 
+
+  ```
+  Ma Q, Zhang Z, Zhao X, et al. Rethinking sensors modeling: Hierarchical information enhanced traffic forecasting[C]//Proceedings of the 32nd ACM International Conference on Information and Knowledge Management. 2023: 1756-1765.
+  ```
+
+- **MegaCRN**
+
+  The paper introduces Spatio-Temporal Meta-Graph Learning for traffic forecasting, proposing a Meta-Graph Convolutional Recurrent Network (MegaCRN) that disentangles spatio-temporal heterogeneity and adapts to non-stationary traffic situations.
+
+  ```
+  Jiang R, Wang Z, Yong J, et al. Spatio-temporal meta-graph learning for traffic forecasting[C]//Proceedings of the AAAI conference on artificial intelligence. 2023, 37(7): 8078-8086.
+  ```
+
+- **STAEFormer**
+
+  The main innovation of the paper is the introduction of a novel component called spatio-temporal adaptive embedding that enables vanilla transformers to achieve state-of-the-art performance in traffic forecasting by effectively capturing intrinsic spatio-temporal relations and chronological information in traffic time series data.
+
+  ```
+  Spatio-temporal adaptive embedding makes vanilla transformer sota for traffic forecasting[C]//Proceedings of the 32nd ACM International Conference on Information and Knowledge Management. 2023: 4125-4129.
+  ```
+
+- **TESTAM**
+
+  The main innovation of paper is the proposal of a novel Mixture-of-Experts (MoE) model called TESTAM for traffic forecasting. TESTAM enhances spatio-temporal attention modeling by incorporating three experts with different spatial modeling methods and a gating network for in-situ traffic forecasting. The model is designed to better capture recurring and non-recurring traffic patterns by routing the input through the most suitable expert based on the traffic context. 
+
+  ```
+  Lee H, Ko S. TESTAM: A Time-Enhanced Spatio-Temporal Attention Model with Mixture of Experts[C]//The Twelfth International Conference on Learning Representations.
+  ```
+
+- **Trafformer**
+
+  This paper unifies spatial and temporal information within a single transformer-style framework to capture complex spatial-temporal dependencies in traffic networks. This design allows for every node at every timestamp to interact with every other node in every other timestamp in a single step, enabling the model to learn intricate relationships that may be missed by existing methods that encode these types of information separately or iteratively. The paper also introduces two variants of Trafformer to improve training and inference speed while maintaining effectiveness. Extensive experiments on two traffic datasets show that Trafformer outperforms existing methods, indicating a promising direction for spatial-temporal traffic prediction.
+
+  ```
+  Jin D, Shi J, Wang R, et al. Trafformer: unify time and space in traffic prediction[C]//Proceedings of the AAAI Conference on Artificial Intelligence. 2023, 37(7): 8114-8122.
+  ```
 
 #### On-Demand Service Prediction 
 
