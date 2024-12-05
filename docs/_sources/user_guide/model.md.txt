@@ -311,6 +311,14 @@ For trajectory next-location prediction:
   Wang S, Wu H, Shi X, et al. Timemixer: Decomposable multiscale mixing for time series forecasting[J]. arXiv preprint arXiv:2405.14616, 2024.
   ```
 
+- **FreTS**
+
+  This paper introduces a new model named FreTS (Frequency-domain MLPs for Time Series forecasting), which applies multi-layer perceptrons (MLPs) in the frequency domain to capture complex spatial-temporal dependencies in time series data more effectively than traditional time-domain or separate encoding methods. FreTS unifies spatial and temporal information within a single transformer-style model, enabling every node at every timestamp to interact with every other node in every other timestamp in just one step through the spatial-temporal correlation matrix. This design allows FreTS to capture global periodic patterns and key features while filtering out noise.
+
+  ```
+  Yi K, Zhang Q, Fan W, et al. Frequency-domain MLPs are more effective learners in time series forecasting[J]. Advances in Neural Information Processing Systems, 2024, 36.
+  ```
+
 #### Traffic Speed Prediction
 
 * **DCRNN**: 
